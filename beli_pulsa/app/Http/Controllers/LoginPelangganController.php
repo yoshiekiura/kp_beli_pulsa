@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class LoginPelangganController extends Controller
 {
@@ -13,7 +16,8 @@ class LoginPelangganController extends Controller
      */
     public function index()
     {
-        //
+        //Login Sukses
+        return view('/pelanggan/pages/login_pelanggan_sukses');
     }
 
     /**
@@ -35,7 +39,23 @@ class LoginPelangganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+
+        $username = $request -> input('username');
+        $password = $request -> input('password');
+
+        $cek_user_password = User::where('username', $username)->first();
+    
+        if($cek_user_password && Hash::check($password, $cek_user_password->password)){
+            Session::put('nama', $cek_user_password->username);
+            return redirect('/Login/index');
+        }else{
+            Session::flash('Kesalahan','Username dan Password yang anda Masukkan salah!');
+            return redirect('/Login');
+        }
     }
 
     /**

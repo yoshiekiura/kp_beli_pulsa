@@ -52,35 +52,49 @@ class RegisterPelangganController extends Controller
         $no_telpon = $request -> input('no_telpon');
         $email = $request -> input('email');
 
-        $cek_user = DB::table('users')->where([ 'username' => $username])->first();
-        $cek_email = DB::table('users')->where([ 'email' => $email ])->first();
-        $cek_no_telpon = DB::table('users')->where([ 'no_telpon' => $no_telpon ])->first();
+        $cek_user = User::where('username', $username)->first();
+        $cek_email = User::where('email', $email)->first();
+        $cek_no_telpon = User::where('no_telpon', $no_telpon)->first();
 
         if($cek_user){
             Session::flash('Kesalahan','Username Sudah ada');
             return redirect('/Register/create');
         }elseif($cek_no_telpon){
-            Session::flash('Kesalahan','nomor telfon Sudah ada');
+            Session::flash('Kesalahan','Nomor telfon Sudah ada');
             return redirect('/Register/create');
         }elseif($cek_email){
             Session::flash('Kesalahan','Email Sudah ada');
             return redirect('/Register/create');
         }else{
-            User::create([
-                'nama'                 => $request -> username,
-                'username'             => $request -> username,
-                'password'             =>  Hash::make($request -> password),
-                'email'                => $request -> email,
-                'jenis_kelamin'        => '',
-                'alamat'               => '',
-                'no_telfon'            => $request -> no_telpon,
-                'status_akun'          => '',
-                'pemberitahuan'        => '',
-                'total_transaksi'      => '',
-                'tanggal_mendaftar'    => Carbon::now(),
-                'status'               => ''
-            ]);
+            
+            $tambah = new User;
+            
+            $tambah->nama = $request -> username;
+            $tambah->username = $request -> username;
+            $tambah->password = Hash::make($request -> password);
+            $tambah->email = $request -> email;
+            $tambah->no_telpon = $request -> no_telpon;
+            $tambah->tanggal_mendaftar = Carbon::now();
+
+            $tambah->save();
+            Session::flash('Berhasil','Akun anda sudah dibuat. Silakan Masuk kembali.');
             return redirect('/Register/create');
+
+            // User::create([
+            //     'nama'                 => $request -> username,
+            //     'username'             => $request -> username,
+            //     'password'             =>  Hash::make($request -> password),
+            //     'email'                => $request -> email,
+            //     'jenis_kelamin'        => '',
+            //     'alamat'               => '',
+            //     'no_telfon'            => $request -> no_telpon,
+            //     'status_akun'          => '',
+            //     'pemberitahuan'        => '',
+            //     'total_transaksi'      => '',
+            //     'tanggal_mendaftar'    => Carbon::now(),
+            //     'status'               => ''
+            // ]);
+            // return redirect('/Register/create');
         }
 
         // User::create(request()->only('username','no_telpon','email','password'));

@@ -19,14 +19,28 @@ use Illuminate\Support\Facades\Route;
 // Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 
-
+//Route Halaman Awal
 Route::get('/', function () {
     return view('/pelanggan/pages/halaman_utama_pelanggan');
 });
 
+//Route View Daftar Pelanggan dan Proses Daftar Pelanggan 
 Route::get('/Register/create','RegisterPelangganController@create');
 Route::post('/Register','RegisterPelangganController@store');
-Route::resource('Login','LoginPelangganController');
+
+
+//Route Login Pelanggan dan Proses Login
+Route::get('/Login/create','LoginPelangganController@create');
+Route::post('/Login','LoginPelangganController@store');
+Route::get('/Login/index','LoginPelangganController@index');
+
 
 Route::resource('/Produk', 'ProdukPelangganController');
 Route::get('/Produk/Cek', 'ProdukPelangganController@cek_provider');
+
+//Route Logout!
+Route::get('/Logout', function () {
+    Session::flush();
+    Session::flash('Logout','Anda Sudah Keluar dari Akun anda.');
+    return redirect('/');
+});
