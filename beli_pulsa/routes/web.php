@@ -28,4 +28,5 @@ Route::get('/Register/create','RegisterPelangganController@create');
 Route::post('/Register','RegisterPelangganController@store');
 Route::resource('Login','LoginPelangganController');
 
-
+Route::resource('/Produk', 'ProdukPelangganController');
+Route::get('/Produk/Cek', 'ProdukPelangganController@cek_provider');

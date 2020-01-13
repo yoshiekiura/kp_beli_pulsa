@@ -42,8 +42,9 @@
 
 
 <body>
+    <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{ url('/') }}">Navbar</a>
+    <a class="navbar-brand" href="{{ url('/') }}">TUKU PULSA</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -51,10 +52,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">PRODUK</a>
+            <a class="nav-link" href="{{url('/Produk')}}">Produk</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">STATUS TRANSAKSI</a>
+              <a class="nav-link" href="#">Status Transaksi</a>
             </li>
             {{-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -68,21 +69,23 @@
               </div>
             </li> --}}
             <li class="nav-item">
-              <a class="nav-link" href="#" >TESTIMONIAL</a>
+              <a class="nav-link" href="#" >Testimoni</a>
             </li>
           </ul>
           <ul class="navbar-nav float-right">
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/Login/create') }}" >MASUK</a>
+              <a class="nav-link" href="{{ url('/Login/create') }}" >Masuk</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/Register/create') }}" >MENDAFTAR</a>
+                <a class="nav-link" href="{{ url('/Register/create') }}" >Mendaftar</a>
               </li>
           </ul>
 
         </div>
     </nav>
+
         @yield('body')
 
+    </div>
 </body>
 </html>
