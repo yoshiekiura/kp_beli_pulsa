@@ -1,0 +1,28 @@
+Pembelian Pulsa
+
+Fungsional Requirement
+
+	Pelanggan
+•	Pelanggan dapat membeli pulsa tanpa mendaftar dahulu
+•	Pelanggan dapat mendaftar
+•	Pelanggan dapat login
+•	Pelanggan dapat melihat profil setelah login
+•	Pelanggan dapat mengedit profil setelah login
+•	Pelanggan melihat riwayat transaksi setelah login
+•	Pelanggan dapat mengisi saldo setelah login
+•	Pelanggan dapat melihat mutasi saldo setelah login
+•	Pelanggan dapat mengganti password setelah login
+•	Pelanggan dapat melihat harga pulsa setelah login
+•	Pelanggan dapat menulis testimoni setelah pembayaran telah sukses
+•	Pelanggan dapat melihat testimoni tanpa login
+•	Pelanggan dapat print rincian transaksi
+•	Pelanggan dapat melihat rincian transaksi
+•	Pelanggan dapat mencari rincian transaksi
+•	Pelanggan dapat menverifikasi akun melalui email
+•	Pelanggan dapat melakukan complain saat pembelian pulsa
+
+	Admin
+•	Admin dapat melihat transaksi pembelian
+•	Admin dapat melihat pelanggan yang sudah terdaftar
+•	Admin dapat melihat complain para pelanggan
+•	Admin dapat memproses pembelian para pelanggan semisal status belum bayar, Proses, Sukses, gagal.
