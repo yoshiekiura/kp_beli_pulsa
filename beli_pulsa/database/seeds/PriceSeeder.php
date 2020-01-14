@@ -461,6 +461,13 @@ class PriceSeeder extends Seeder
         ]);
 
         //pulsa reguler smartfren
-
+        DB::table('prices')->insert([
+            'kode' => 'S300',
+            'detail_produk' => 'pulsa reguler',
+            'provider' => 'Telkomsel',
+            'harga' => 295700,
+            'keterangan' => 'Telkomsel Reguler 300Rb',
+            'status' => 'ada'
+        ]);
     }
 }

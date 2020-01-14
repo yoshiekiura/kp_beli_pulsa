@@ -54,8 +54,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-            <a class="nav-link" href="#produk">Daftar Harga</a>
-            {{-- {{url('/Produk')}} --}}
+            <a class="nav-link" href="{{url('/Produk')}}">Daftar Harga</a>
+
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Status Transaksi</a>
