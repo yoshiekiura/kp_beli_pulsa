@@ -16,35 +16,50 @@
           </ul>
     </div>
     <div class="col-9">
-    <form action="{{ url('Produk/Cek')}}" method="get">
+    {{-- <form action="{{ url('Produk/Cek')}}" method="get">
             <input type="text" name="cari" placeholder="Cari Provider" value="{{ old('cari') }}">
 		    <input type="submit" value="CARI">
-    </form>
-
-        <table class="table mt-3">
+    </form> --}}
+    <div class="mt-2">
+        {{ $price->links() }}
+    </div>
+        <table class="table mt-2">
             <thead class="thead-dark">
               <tr>
-                <th scope="col">Provider</th>
-                <th scope="col">Detail Produk</th>
-                <th scope="col">Keterangan</th>
-                <th scope="col">Harga</th>
-                <th scope="col">Stok</th>
+                <th scope="col" class="text-center">Detail Produk</th>
+                <th scope="col" class="text-center">Provider</th>
+                <th scope="col" class="text-center">Keterangan</th>
+                <th scope="col" class="text-center">Harga</th>
+                <th scope="col" class="text-center">Stok</th>
               </tr>
             </thead>
             <tbody>
-                @foreach ($price as $harga)
-              <tr>
-                <th scope="row">{{ $harga->provider }}</th>
-                <td>{{ $harga->detail_produk }}</td>
-                <td>{{ $harga->keterangan }}</td>
-                <td>@currency($harga->harga)</td>
-                <td>Tersedia</td>
-              </tr>
+            @foreach ($price as $harga)
+                @if ($harga->status == "Ada")
+                    <tr class="table-success">
+                        <th scope="row">{{ $harga->detail_produk }}</th>
+                        <td>{{ $harga->provider }}</td>
+                        <td>{{ $harga->keterangan }}</td>
+                        <td>@currency($harga->harga)</td>
+                        <td>{{$harga->status}}</td>
+                    </tr>
+                @elseif ($harga->status == "Kosong")
+                    <tr class="table-danger">
+                        <th scope="row">{{ $harga->detail_produk }}</th>
+                        <td>{{ $harga->provider }}</td>
+                        <td>{{ $harga->keterangan }}</td>
+                        <td>@currency($harga->harga)</td>
+                        <td>{{$harga->status}}</td>
+                    </tr>
+                @endif
               @endforeach
             </tbody>
           </table>
 
-          {{ $price->links() }}
+    	Halaman : {{ $price->currentPage() }} <br/>
+	    Jumlah Data : {{ $price->total() }} <br/>
+        Data Per Halaman : {{ $price->perPage() }} <br/>
+
     </div>
 </div>
 
