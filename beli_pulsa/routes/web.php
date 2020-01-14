@@ -21,10 +21,11 @@ use Illuminate\Support\Facades\Route;
 
 //Route Halaman Awal
 Route::get('/', function () {
-    return view('/pelanggan/pages/halaman_utama_pelanggan');
+    $price = DB::table('prices')->paginate(10);
+    return view('/pelanggan/pages/halaman_utama_pelanggan',compact('price'));
 });
 
-//Route View Daftar Pelanggan dan Proses Daftar Pelanggan 
+//Route View Daftar Pelanggan dan Proses Daftar Pelanggan
 Route::get('/Register/create','RegisterPelangganController@create');
 Route::post('/Register','RegisterPelangganController@store');
 

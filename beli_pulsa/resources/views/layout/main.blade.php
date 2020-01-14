@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="/css/csslogin.css"> -->
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
@@ -37,13 +38,14 @@
     padding-left: 1rem;
     }
 
+
 </style>
 
 
 
 <body>
-    <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+<div class="container-fluid">
     <a class="navbar-brand" href="{{ url('/') }}">TUKU PULSA</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -52,7 +54,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-            <a class="nav-link" href="{{url('/Produk')}}">Produk</a>
+            <a class="nav-link" href="#produk">Daftar Harga</a>
+            {{-- {{url('/Produk')}} --}}
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Status Transaksi</a>
@@ -80,12 +83,12 @@
                 <a class="nav-link" href="{{ url('/Register/create') }}" >Mendaftar</a>
               </li>
           </ul>
-
+        </div>
         </div>
     </nav>
-
+    <div class="container-fluid">
         @yield('body')
-
     </div>
+
 </body>
 </html>

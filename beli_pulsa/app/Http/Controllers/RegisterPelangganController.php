@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Daftar;
 use \Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -52,9 +52,9 @@ class RegisterPelangganController extends Controller
         $no_telpon = $request -> input('no_telpon');
         $email = $request -> input('email');
 
-        $cek_user = User::where('username', $username)->first();
-        $cek_email = User::where('email', $email)->first();
-        $cek_no_telpon = User::where('no_telpon', $no_telpon)->first();
+        $cek_user = Daftar::where('username', $username)->first();
+        $cek_email = Daftar::where('email', $email)->first();
+        $cek_no_telpon = Daftar::where('no_telpon', $no_telpon)->first();
 
         if($cek_user){
             Session::flash('Kesalahan','Username Sudah ada');
@@ -66,14 +66,15 @@ class RegisterPelangganController extends Controller
             Session::flash('Kesalahan','Email Sudah ada');
             return redirect('/Register/create');
         }else{
-            
-            $tambah = new User;
-            
+
+            $tambah = new Daftar;
+
             $tambah->nama = $request -> username;
             $tambah->username = $request -> username;
             $tambah->password = Hash::make($request -> password);
             $tambah->email = $request -> email;
             $tambah->no_telpon = $request -> no_telpon;
+            $tambah->status_akun = "Belum Terverifikasi";
             $tambah->tanggal_mendaftar = Carbon::now();
 
             $tambah->save();

@@ -15,7 +15,7 @@ class ProdukPelangganController extends Controller
     public function index()
     {
         //
-        $price = Price::paginate(2);
+        $price = Price::paginate(10);
         return view('pelanggan/pages/halaman_produk',compact('price'));
     }
 
