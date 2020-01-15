@@ -21,8 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 //Route Halaman Awal
 Route::get('/', function () {
-    $price = DB::table('prices')->paginate(10);
-    return view('/pelanggan/pages/halaman_utama_pelanggan',compact('price'));
+    return view('/pelanggan/pages/halaman_utama_pelanggan');
 });
 
 //Route View Daftar Pelanggan dan Proses Daftar Pelanggan
@@ -36,12 +35,14 @@ Route::post('/Login','LoginPelangganController@store');
 Route::get('/Login/index','LoginPelangganController@index');
 
 
-Route::resource('/Produk', 'ProdukPelangganController');
-Route::get('/Produk/Cek', 'ProdukPelangganController@cek_provider');
-
 //Route Logout!
 Route::get('/Logout', function () {
     Session::flush();
     Session::flash('Logout','Anda Sudah Keluar dari Akun anda.');
     return redirect('/');
 });
+
+//Route daftar harga coba di pecah datanya
+Route::get('/Harga/','HargaController@index');
+Route::get('/Harga/pulsaReguler','HargaController@tampilPulsaReguler');
+Route::get('/Harga/paketInternet','HargaController@tampilPaketInternet');

@@ -6,22 +6,32 @@
 
 
 <div class="row mt-5">
-    <div class="col-3">
-        <ul class="list-group">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
+    <div class="col-3 mt-1">
+        <div class="text-center">
+            <span class="badge badge-info mt-3 center-block">
+            Jumlah Data : {{ $arr['price']->total() }}
+            </span>
+        </div>
+        <div class="list-group mt-4">
+            @foreach ($arr['price'] as $list)
+            @endforeach
+            @if ($arr['all'] == "semua" )
+                <a href="#" class="list-group-item list-group-item-action">Cras justo odio</a>
+                <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+            @elseif ($list->detail_produk == "Pulsa Reguler" and $list->detail_produk != "Paket Internet")
+                <a href="#" class="list-group-item list-group-item-action">Cras justo odio</a>
+                <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+            @elseif ($list->detail_produk == "Paket Internet" and $list->detail_produk != "Pulsa Reguler")
+                <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+            @endif
+        </div>
     </div>
     <div class="col-9">
-    {{-- <form action="{{ url('Produk/Cek')}}" method="get">
-            <input type="text" name="cari" placeholder="Cari Provider" value="{{ old('cari') }}">
-		    <input type="submit" value="CARI">
-    </form> --}}
     <div class="mt-2">
-        {{ $price->links() }}
+        {{ $arr['price']->links() }}
     </div>
         <table class="table mt-2">
             <thead class="thead-dark">
@@ -34,7 +44,7 @@
               </tr>
             </thead>
             <tbody>
-            @foreach ($price as $harga)
+            @foreach ($arr['price'] as $harga)
                 @if ($harga->status == "Ada")
                     <tr class="table-success">
                         <th scope="row">{{ $harga->detail_produk }}</th>
@@ -55,10 +65,6 @@
               @endforeach
             </tbody>
           </table>
-
-    	Halaman : {{ $price->currentPage() }} <br/>
-	    Jumlah Data : {{ $price->total() }} <br/>
-        Data Per Halaman : {{ $price->perPage() }} <br/>
 
     </div>
 </div>
