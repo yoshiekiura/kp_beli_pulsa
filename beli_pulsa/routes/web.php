@@ -24,6 +24,12 @@ Route::get('/', function () {
     return view('/pelanggan/pages/halaman_utama_pelanggan');
 });
 
+//Route Halaman Awal Pelanggan yang sudah login
+Route::get('/Awal_pelanggan', function () {
+    $price = DB::table('prices')->paginate(10);
+    return view('/pelanggan/pages/login_pelanggan_sukses',compact('price'));
+});
+
 //Route View Daftar Pelanggan dan Proses Daftar Pelanggan
 Route::get('/Register/create','RegisterPelangganController@create');
 Route::post('/Register','RegisterPelangganController@store');
@@ -39,7 +45,7 @@ Route::get('/Login/index','LoginPelangganController@index');
 Route::get('/Logout', function () {
     Session::flush();
     Session::flash('Logout','Anda Sudah Keluar dari Akun anda.');
-    return redirect('/');
+    return redirect('/Login/create');
 });
 
 //Route daftar harga coba di pecah datanya
