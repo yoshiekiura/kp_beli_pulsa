@@ -75,14 +75,30 @@
               <a class="nav-link" href="#" >Testimoni</a>
             </li>
           </ul>
-          <ul class="navbar-nav float-right">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/Login/create') }}" >Masuk</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url('/Register/create') }}" >Mendaftar</a>
-              </li>
-          </ul>
+            @if(Session::get('nama'))
+              <ul class="navbar-nav float-right" style="margin-right: 150px;">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{Session::get('nama')}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="/Logout">LOGOUT!</a>
+                    </div>
+                </li>
+              </ul>
+            @else
+              <ul class="navbar-nav float-right">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url('/Login/create') }}" >Masuk</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/Register/create') }}" >Mendaftar</a>
+                  </li>
+              </ul>
+            @endif
         </div>
         </div>
     </nav>
