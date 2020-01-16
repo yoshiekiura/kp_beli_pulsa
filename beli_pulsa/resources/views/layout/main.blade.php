@@ -74,7 +74,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/') }}" >Testimoni</a>
+              <a class="nav-link" href="{{ url('/Testimoni') }}" >Testimoni</a>
             </li>
           </ul>
             @if(Session::get('nama'))

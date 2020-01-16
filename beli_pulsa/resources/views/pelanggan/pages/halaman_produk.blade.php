@@ -33,7 +33,9 @@
     <div class="mt-2">
         {{ $arr['price']->links() }}
     </div>
-        <table class="table mt-2">
+
+    <div class="table-responsive">
+        <table class="table table-sm mt-2">
             <thead class="thead-dark">
               <tr>
                 <th scope="col" class="text-center">Detail Produk</th>
@@ -65,6 +67,7 @@
               @endforeach
             </tbody>
           </table>
+        </div>
 
     </div>
 </div>

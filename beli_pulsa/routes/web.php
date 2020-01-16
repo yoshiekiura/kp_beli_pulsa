@@ -52,3 +52,6 @@ Route::get('/Logout', function () {
 Route::get('/Harga/','HargaController@index');
 Route::get('/Harga/pulsaReguler','HargaController@tampilPulsaReguler');
 Route::get('/Harga/paketInternet','HargaController@tampilPaketInternet');
+
+//Route Testimoni
+Route::resource('/Testimoni','TestimoniController');
