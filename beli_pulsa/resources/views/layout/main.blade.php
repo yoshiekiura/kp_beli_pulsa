@@ -8,6 +8,9 @@
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- <link rel="stylesheet" type="text/css" href="/css/csslogin.css"> -->
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
@@ -104,6 +107,43 @@
     <div class="container-fluid">
         @yield('body')
     </div>
+
+
+    <footer>
+        <div class="footer" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9  col-md-2 col-sm-4 col-xs-6">
+                        <h3><a href="https://mitrainformatika.net/">CV. Mitra Informatika </a></h3>
+                        <ul>
+                            <li>Projek Magang :</li>
+                            <li class="mt-1"> <a href="https://www.instagram.com/ilysistqma/">1461700047 - Muh. Ilyas Istiqama. M </a> </li>
+                            <li> <a href="https://www.instagram.com/rendycahya_/">1461700008 - Rendy Cahya Edytya </a> </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
+                        <h3> Hubungi Kami : </h3>
+                        <ul class="social">
+                            <li> <a href="https://mitrainformatika.net/">   <i class=" fa fa-google">   </i> </a> </li>
+                            <li> <a href="https://www.youtube.com/channel/UCkXmLjEr95LVtGuIm3l2dPg">   <i class="fa fa-youtube">   </i> </a> </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </div>
+        <!--/.footer-->
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="pull-left mt-4">Copyright © Footer E-commerce Plugin 2014. All right reserved. </p>
+
+            </div>
+        </div>
+        <!--/.footer-bottom-->
+    </footer>
 
 </body>
 </html>
