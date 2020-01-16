@@ -12,7 +12,7 @@
             Jumlah Data : {{ $arr['price']->total() }}
             </span>
         </div>
-        <div class="list-group mt-4">
+        <div class="list-group-sm mt-4">
             @foreach ($arr['price'] as $list)
             @endforeach
             @if ($arr['all'] == "semua" )
