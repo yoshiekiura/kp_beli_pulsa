@@ -30,6 +30,7 @@
 
         </tbody>
       </table>
+      {{ $join->links() }}
 </div>
 
 @endsection

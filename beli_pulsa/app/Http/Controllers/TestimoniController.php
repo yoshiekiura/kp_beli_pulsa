@@ -18,9 +18,8 @@ class TestimoniController extends Controller
         //
         $join = DB::table('testimonis')
         ->join('users','testimonis.id_user','=','users.id')
-        ->get();
+        ->paginate(10);
 
-        $testimoni = Testimoni::paginate(10);
         return view('pelanggan/pages/hal_testimoni',compact('join'));
     }
 
