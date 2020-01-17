@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.tampilan_pelanggan')
 @section('title','Beli Pulsa Murah Disini Aja :D')
 
 @section('body')

@@ -78,8 +78,8 @@ class RegisterPelangganController extends Controller
             $tambah->tanggal_mendaftar = Carbon::now();
 
             $tambah->save();
-            Session::flash('Berhasil','Akun anda sudah dibuat. Silakan Masuk kembali.');
-            return redirect('/Register/create');
+            Session::put('nama', $request -> username);
+            return redirect('/Login/index');
 
             // User::create([
             //     'nama'                 => $request -> username,

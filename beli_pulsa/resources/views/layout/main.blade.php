@@ -30,6 +30,7 @@
 
     .navbar-brand{
     font-size: 30px;
+    margin-right: 30px; 
     }
 
     .nav-link{
@@ -47,8 +48,9 @@
 
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
-<div class="container-fluid">
+  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar fixed-top" style="padding: 0px;">
+<div class="container">
     <a class="navbar-brand" href="{{ url('/') }}">TUKU PULSA</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -78,13 +80,13 @@
             </li>
           </ul>
             @if(Session::get('nama'))
-              <ul class="navbar-nav float-right" style="margin-right: 150px;">
+              <ul class="navbar-nav float-right" >
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{Session::get('nama')}}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="/Login/index">Action</a>
                       <a class="dropdown-item" href="#">Another action</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="/Logout">LOGOUT!</a>
@@ -104,7 +106,7 @@
         </div>
         </div>
     </nav>
-    <div class="container-fluid">
+    <div class="container">
         @yield('body')
     </div>
 
