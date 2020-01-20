@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
-class LoginPelangganController extends Controller
+class ProfilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,7 @@ class LoginPelangganController extends Controller
      */
     public function index()
     {
-        //Login Sukses
-        return view('/pelanggan/pages/login_pelanggan_sukses');
+        
     }
 
     /**
@@ -27,8 +25,7 @@ class LoginPelangganController extends Controller
      */
     public function create()
     {
-        //Form-Login
-        return view('/pelanggan/forms/login_pelanggan');
+        //
     }
 
     /**
@@ -39,23 +36,10 @@ class LoginPelangganController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'username' => 'required',
-            'password' => 'required'
-        ]);
-
-        $username = $request -> input('username');
-        $password = $request -> input('password');
-
-        $cek_user_password = User::where('username', $username)->first();
-    
-        if($cek_user_password && Hash::check($password, $cek_user_password->password)){
-            Session::put('nama', $cek_user_password->username);
-            return redirect('/Login/index');
-        }else{
-            Session::flash('Kesalahan','Username dan Password yang anda Masukkan salah!');
-            return redirect('/Login/create');
-        }
+        
+        $cek = DB::table('users')->where('username',$request->session()->get('nama'))->first();
+        //var_dump($cek);
+        return view('/pelanggan/pages/profil',['panggil' => $cek]);
     }
 
     /**

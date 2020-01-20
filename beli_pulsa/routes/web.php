@@ -55,3 +55,6 @@ Route::get('/Harga/paketInternet','HargaController@tampilPaketInternet');
 
 //Route Testimoni
 Route::resource('/Testimoni','TestimoniController');
+
+//Route Melihat Profile
+Route::get('/Profil','ProfilController@store');
