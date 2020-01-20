@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('password');
             $table->string('email');
+            $table->string('kode');
             $table->string('jenis_kelamin')->nullable();
             $table->string('alamat')->nullable();
             $table->string('no_telpon');

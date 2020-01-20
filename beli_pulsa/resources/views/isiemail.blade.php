@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<h2>Hai {{$nama}}</h2><br>
+<p>Terimakasih anda telah bergabung dengan tukupulsa.com.<br><br>
+    Tinggal satu langkah lagi untuk mengaktifkan akun anda. Silahkan klik link di bawah ini untuk mengkonfirmasikan akun anda :
+</p><br>
+<button type="button" class="btn btn-success"><a href="{{ url('/coba')}}?email='{{$email}}'&kode='{{$kode}}'">Verifikasi Akun!</a></button>
+<p><a href="{{ url('/coba')}}?email='{{$email}}'&kode='{{$kode}}'">{{ url('/coba')}}?email='{{$email}}'&kode='{{$kode}}'</a></p>
+<br><br><p>Demikian kami sampaikan.
+    <br><br>Salam Hangat <br><br>Tukupulsa.com
+</p>

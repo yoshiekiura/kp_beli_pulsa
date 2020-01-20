@@ -71,10 +71,6 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="/Profil">Profil</a>
-<<<<<<< HEAD
-=======
-                      <a class="dropdown-item" href="/Riwayat">Riwayat Transaksi</a>
->>>>>>> b0d4b70d15bc113983aea8fc9ff93542a71e0ce1
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="/Logout">LOGOUT!</a>
                     </div>
@@ -95,16 +91,12 @@
         </div>
     </nav>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar" style="padding: 0px;">
-<<<<<<< HEAD
       <div class="container">
         <!-- <a class="navbar-brand" href="{{ url('/') }}">BERANDA</a> -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
 
-=======
-      <div class="container"> 
->>>>>>> b0d4b70d15bc113983aea8fc9ff93542a71e0ce1
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto ">
             {{-- <li class="nav-item">

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 class RegisterPelangganController extends Controller
 {
@@ -52,6 +53,8 @@ class RegisterPelangganController extends Controller
         $no_telpon = $request -> input('no_telpon');
         $email = $request -> input('email');
 
+        $kode = Hash::make(Str::random(10));
+
         $cek_user = Daftar::where('username', $username)->first();
         $cek_email = Daftar::where('email', $email)->first();
         $cek_no_telpon = Daftar::where('no_telpon', $no_telpon)->first();
@@ -73,6 +76,7 @@ class RegisterPelangganController extends Controller
             $tambah->username = $request -> username;
             $tambah->password = Hash::make($request -> password);
             $tambah->email = $request -> email;
+            $tambah->kode = $kode;
             $tambah->no_telpon = $request -> no_telpon;
             $tambah->status_akun = "Belum Terverifikasi";
             $tambah->tanggal_mendaftar = Carbon::now();

@@ -11,6 +11,7 @@
 |
 */
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Input;
 
 
 // Route::get('/', function () {
@@ -65,3 +66,29 @@ Route::get('/Pengaturan/{id}', 'ProfilController@edit');
 //Route Riwayat
 Route::get('/Riwayat','RiwayatController@index');
 
+//Route Send Email
+Route::get('/SendEmail','SendEmailController@index');
+
+//Route coba
+Route::get('/coba/{email?&kode?}', function(){
+    $email = Request::get('email');
+    $kode = Request::get('kode');
+
+    $cek = DB::table('users')
+            ->where('username',Session::get('nama'))
+            ->orWhere('email',$email)
+            ->orWhere('kode',$kode)->first();
+    
+    if($cek){
+        DB::table('users')
+            ->where('username',Session::get('nama'))
+            ->orWhere('email',$email)
+            ->orWhere('kode',$kode)
+            ->update([
+            'status_akun' => 'Terverifikasi'
+        ]);
+
+        Session::flash('Verifed','Akun anda telah di Verifikasi');
+        return redirect('/Profil');
+    }
+});

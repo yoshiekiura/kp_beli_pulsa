@@ -40,6 +40,9 @@
         @if(Session::has('Berhasil'))
                         <div class="alert alert-success" style="text-align: center; margin-left: 35px; border-radius: 25px; margin-right: 35px; border-radius: 25px; margin-bottom: 10dp;"><span class="glyphicon glyphicon-ok"></span><em> {!! session('Berhasil') !!}</em></div>
         @endif
+        @if(Session::has('Logout'))
+                        <div class="alert alert-danger" style="text-align: center; margin-left: 35px; border-radius: 25px; margin-right: 35px; border-radius: 25px; margin-bottom: 10dp;"><span class="glyphicon glyphicon-ok"></span><em> {!! session('Logout') !!}</em></div>
+        @endif
 
         @if (count($errors) > 0)
         <div class="alert alert-danger">
