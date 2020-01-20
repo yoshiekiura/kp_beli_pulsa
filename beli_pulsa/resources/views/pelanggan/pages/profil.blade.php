@@ -3,25 +3,56 @@
 
 @section('body')
 
-<table class="table table-hover table-dark" style="margin-top: 50px;">
+<table class="table table-striped" style="margin-top: 50px;">
   <thead>
+<<<<<<< HEAD
       <tr>
           <th></th>
       <th><a href="/Pengaturan/{{ $panggil->id }}"><img src="{{ ('../../../images/gear.png') }}" style="float: right;height: 30px;width: 30px;" alt="Pengaturan"></a></th>
     </tr>
+=======
+>>>>>>> b0d4b70d15bc113983aea8fc9ff93542a71e0ce1
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
+      <th scope="col">Nama Lengkap</th>
+      <td scope="col">{{ $panggil->nama }}</td>
     </tr>
     <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
+      <th scope="row">Username</th>
+      <td>{{ $panggil->nama }}</td>
     </tr>
     <tr>
-      <th scope="row">3</th>
-      <td>@twitter</td>
+      <th scope="row">Email</th>
+      <td>{{ $panggil->email }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Jenis Kelamin</th>
+      <td>{{ $panggil->jenis_kelamin }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Alamat</th>
+      <td>{{ $panggil->alamat }}</td>
+    </tr>
+    <tr>
+      <th scope="row">No. Telfon</th>
+      <td>{{ $panggil->no_telpon }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Status Akun</th>
+      <td>{{ $panggil->status_akun }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Saldo</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Total Transaksi</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Tanggal Mendaftar</th>
+      <td>{{ $panggil->created_at }}</td>
     </tr>
   </tbody>
 </table>
@@ -29,7 +60,7 @@
 
 
 
-        {{ $panggil->nama }}
+        
 
 
 
