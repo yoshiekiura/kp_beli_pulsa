@@ -57,7 +57,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav mx-auto">
             {{-- <li class="nav-item">
             <a class="nav-link" href="{{url('/Produk')}}">Daftar Harga</a>
 
@@ -87,7 +87,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="/Profil">Profil</a>
-                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="/Riwayat">Riwayat Transaksi</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="/Logout">LOGOUT!</a>
                     </div>
