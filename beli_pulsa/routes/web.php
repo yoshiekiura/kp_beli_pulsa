@@ -59,10 +59,9 @@ Route::resource('/Testimoni','TestimoniController');
 //Route Melihat Profile
 Route::get('/Profil','ProfilController@store');
 
-<<<<<<< HEAD
 //Pengaturan
 Route::get('/Pengaturan/{id}', 'ProfilController@edit');
-=======
+
 //Route Riwayat
 Route::get('/Riwayat','RiwayatController@index');
->>>>>>> b0d4b70d15bc113983aea8fc9ff93542a71e0ce1
+

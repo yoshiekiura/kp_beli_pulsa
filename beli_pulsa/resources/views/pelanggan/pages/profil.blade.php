@@ -5,13 +5,12 @@
 
 <table class="table table-striped" style="margin-top: 50px;">
   <thead>
-<<<<<<< HEAD
-      <tr>
-          <th></th>
-      <th><a href="/Pengaturan/{{ $panggil->id }}"><img src="{{ ('../../../images/gear.png') }}" style="float: right;height: 30px;width: 30px;" alt="Pengaturan"></a></th>
+
+    <tr>
+    <th></th>
+    <th><a href="/Pengaturan/{{ $panggil->id }}"><img src="{{ ('../../../images/gear.png') }}" style="float: right;height: 30px;width: 30px;" alt="Pengaturan"></a></th>
     </tr>
-=======
->>>>>>> b0d4b70d15bc113983aea8fc9ff93542a71e0ce1
+
   </thead>
   <tbody>
     <tr>
@@ -60,7 +59,7 @@
 
 
 
-        
+
 
 
 
