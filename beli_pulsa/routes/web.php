@@ -58,3 +58,6 @@ Route::resource('/Testimoni','TestimoniController');
 
 //Route Melihat Profile
 Route::get('/Profil','ProfilController@store');
+
+//Pengaturan
+Route::get('/Pengaturan/{id}', 'ProfilController@edit');

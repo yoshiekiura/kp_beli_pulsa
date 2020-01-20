@@ -48,7 +48,7 @@ class LoginPelangganController extends Controller
         $password = $request -> input('password');
 
         $cek_user_password = User::where('username', $username)->first();
-    
+
         if($cek_user_password && Hash::check($password, $cek_user_password->password)){
             Session::put('nama', $cek_user_password->username);
             return redirect('/Login/index');

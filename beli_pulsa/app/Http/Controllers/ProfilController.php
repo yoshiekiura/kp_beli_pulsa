@@ -15,7 +15,7 @@ class ProfilController extends Controller
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -36,7 +36,7 @@ class ProfilController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $cek = DB::table('users')->where('username',$request->session()->get('nama'))->first();
         //var_dump($cek);
         return view('/pelanggan/pages/profil',['panggil' => $cek]);
@@ -62,6 +62,8 @@ class ProfilController extends Controller
     public function edit($id)
     {
         //
+        //$cek = DB::table('users')->where('username',$request->session()->get('nama'))->first();
+        return view('/pelanggan/forms/profil_edit',compact('id'));
     }
 
     /**

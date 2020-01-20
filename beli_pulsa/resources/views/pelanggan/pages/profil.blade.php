@@ -5,9 +5,9 @@
 
 <table class="table table-hover table-dark" style="margin-top: 50px;">
   <thead>
-    <tr>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
+      <tr>
+          <th></th>
+      <th><a href="/Pengaturan/{{ $panggil->id }}"><img src="{{ ('../../../images/gear.png') }}" style="float: right;height: 30px;width: 30px;" alt="Pengaturan"></a></th>
     </tr>
   </thead>
   <tbody>
@@ -27,7 +27,7 @@
 </table>
 
 
-        
+
 
         {{ $panggil->nama }}
 
@@ -48,5 +48,5 @@
     @endif
 
 
-    
+
 @endsection
