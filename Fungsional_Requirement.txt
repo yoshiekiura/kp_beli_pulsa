@@ -1,28 +1,29 @@
 Pembelian Pulsa
 
 Fungsional Requirement
+keterangan : tb = tidak bisa, sb = sudah bisa, bg = belom garap, otw = perjalanan
 
 	Pelanggan
-•	Pelanggan dapat membeli pulsa tanpa mendaftar dahulu ?
-•	Pelanggan dapat mendaftar *
-•	Pelanggan dapat login *
-•	Pelanggan dapat melihat profil setelah login +
-•	Pelanggan dapat mengedit profil setelah login +
-•	Pelanggan melihat riwayat transaksi setelah login +
-•	Pelanggan dapat mengisi saldo setelah login ?
-•	Pelanggan dapat melihat mutasi saldo setelah login ?
-•	Pelanggan dapat mengganti password setelah login +
-•	Pelanggan dapat melihat harga pulsa setelah login/sebelum *
-•	Pelanggan dapat menulis testimoni setelah pembayaran telah sukses ?
-•	Pelanggan dapat melihat testimoni tanpa login *
-•	Pelanggan dapat print rincian transaksi ?
-•	Pelanggan dapat melihat rincian transaksi ?
-•	Pelanggan dapat mencari rincian transaksi ?
-•	Pelanggan dapat menverifikasi akun melalui email +
-•	Pelanggan dapat melakukan complain saat pembelian pulsa ?
+•	Pelanggan dapat membeli pulsa tanpa mendaftar dahulu (tb)
+•	Pelanggan dapat mendaftar (sb)
+•	Pelanggan dapat login (sb)
+•	Pelanggan dapat melihat profil setelah login (sb)
+•	Pelanggan dapat mengedit profil setelah login (otw)
+•	Pelanggan melihat riwayat transaksi setelah login (sb*belom ada database)
+•	Pelanggan dapat mengisi saldo setelah login (tb)
+•	Pelanggan dapat melihat mutasi saldo setelah login (tb)
+•	Pelanggan dapat mengganti password setelah login (bg)
+•	Pelanggan dapat melihat harga pulsa setelah login/sebelum (sb)
+•	Pelanggan dapat menulis testimoni setelah pembayaran telah sukses (tb)
+•	Pelanggan dapat melihat testimoni tanpa login (sb)
+•	Pelanggan dapat print rincian transaksi (tb)
+•	Pelanggan dapat melihat rincian transaksi (tb)
+•	Pelanggan dapat mencari rincian transaksi (tb)
+•	Pelanggan dapat menverifikasi akun melalui email (otw)
+•	Pelanggan dapat melakukan complain saat pembelian pulsa (tb)
 
 	Admin
-•	Admin dapat melihat transaksi pembelian +
-•	Admin dapat melihat pelanggan yang sudah terdaftar +
-•	Admin dapat melihat complain para pelanggan +
-•	Admin dapat memproses pembelian para pelanggan semisal status belum bayar, Proses, Sukses, gagal. +
+•	Admin dapat melihat transaksi pembelian (bg)
+•	Admin dapat melihat pelanggan yang sudah terdaftar (bg)
+•	Admin dapat melihat complain para pelanggan (bg)
+•	Admin dapat memproses pembelian para pelanggan semisal status belum bayar, Proses, Sukses, gagal. (bg)
