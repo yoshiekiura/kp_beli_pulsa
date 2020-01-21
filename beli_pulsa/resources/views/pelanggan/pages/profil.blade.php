@@ -3,12 +3,11 @@
 
 @section('body')
 
-<table class="table table-striped" style="margin-top: 50px;">
+<table class="table table-striped table-bordered" style="margin-top: 50px;">
   <thead>
 
     <tr>
-    <th></th>
-    <th><a href="/Pengaturan/{{ $panggil->id }}"><img src="{{ ('../../../images/gear.png') }}" style="float: right;height: 30px;width: 30px;" alt="Pengaturan"></a></th>
+    <th colspan="2"><a href="/Pengaturan/{{ $panggil->id }}"><img src="{{ ('../../../images/gear.png') }}" style="float: right;height: 30px;width: 30px;" alt="Pengaturan"></a></th>
     </tr>
 
   </thead>
@@ -19,7 +18,7 @@
     </tr>
     <tr>
       <th scope="row">Username</th>
-      <td>{{ $panggil->nama }}</td>
+      <td>{{ $panggil->username }}</td>
     </tr>
     <tr>
       <th scope="row">Email</th>
@@ -43,11 +42,11 @@
     </tr>
     <tr>
       <th scope="row">Saldo</th>
-      <td></td>
+      <td>@currency(0)</td>
     </tr>
     <tr>
       <th scope="row">Total Transaksi</th>
-      <td></td>
+      <td>@currency(0)</td>
     </tr>
     <tr>
       <th scope="row">Tanggal Mendaftar</th>
@@ -68,7 +67,7 @@
 
 
 
-    
+
 
 
     @if(!Session::get('nama'))

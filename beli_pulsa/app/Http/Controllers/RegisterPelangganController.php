@@ -46,7 +46,7 @@ class RegisterPelangganController extends Controller
             'username' => 'required|min:3|max:50',
             'no_telpon' => 'required|min:12|numeric',
             'email' => 'required|email',
-            'password' => 'required|confirmed|min:5',
+            'password' => 'required|confirmed|min:5'
         ]);
 
         $username = $request -> input('username');

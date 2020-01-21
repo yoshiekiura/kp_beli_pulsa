@@ -62,6 +62,7 @@ Route::get('/Profil','ProfilController@store');
 
 //Pengaturan
 Route::get('/Pengaturan/{id}', 'ProfilController@edit');
+Route::put('/Pengaturan/Update/{id}', 'ProfilController@update');
 
 //Route Riwayat
 Route::get('/Riwayat','RiwayatController@index');
@@ -78,7 +79,7 @@ Route::get('/coba/{email?&kode?}', function(){
             ->where('username',Session::get('nama'))
             ->orWhere('email',$email)
             ->orWhere('kode',$kode)->first();
-    
+
     if($cek){
         DB::table('users')
             ->where('username',Session::get('nama'))

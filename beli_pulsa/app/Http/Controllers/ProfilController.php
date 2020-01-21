@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\UserEditProfil;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
 
 class ProfilController extends Controller
 {
@@ -61,9 +63,9 @@ class ProfilController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ids = DB::table('users')->where('id',$id)->first();
         //$cek = DB::table('users')->where('username',$request->session()->get('nama'))->first();
-        return view('/pelanggan/forms/profil_edit',compact('id'));
+        return view('/pelanggan/forms/profil_edit',compact('ids'));
     }
 
     /**
@@ -76,6 +78,42 @@ class ProfilController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $messages = [
+            'required' => 'Wajib Diisi',
+            'min' => 'Masukkan Paling Sedikit 3 Karakter',
+            'max' => 'Masukkan Paling Sedikit 50 Karakter',
+            'email' => 'Masukkan Alamat Email',
+            'numeric' => 'Masukkan Nomor Telepon'
+        ];
+
+        $request->validate([
+            'nama' => 'required|min:3|max:50',
+            'username' => 'required|min:3|max:50',
+            'email' => 'required|email',
+            'no_telpon' => 'required|min:12|numeric',
+            'password' => 'required'
+        ],$messages);
+
+        $password = $request->input('password');
+        $cekpassword = DB::table('users')->where('id',$id)->first();
+
+        if(Hash::check($password, $cekpassword->password)){
+            UserEditProfil::where('id', $id)
+            ->update([
+            'nama' => $request->nama,
+            'username' => $request->username,
+            'email' => $request->email,
+            'alamat' => $request->alamat,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'no_telpon' => $request->no_telpon
+        ]);
+        Session::flash('Sukses','Berhasil Merubah Data Anda.');
+        return redirect('/Profil');
+        }
+        else{
+        Session::flash('password_salah','Password yang dimasukkan Salah');
+            return redirect('/Pengaturan/'.$id);
+        }
     }
 
     /**
