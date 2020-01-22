@@ -6,6 +6,29 @@
 
         <div style="margin-left: 200px; margin-right: 200px;" >
 
+            @if(Session::has('Kesalahan'))
+            <div class="alert alert-danger" style="text-align: center;margin-top:25px; margin-left: 35px; border-radius: 25px; margin-right: 35px; border-radius: 25px; margin-bottom: 10dp;"><span class="glyphicon glyphicon-ok"></span><em> {!! session('Kesalahan') !!}</em></div>
+            @endif
+            @if(Session::has('CobaPaksa'))
+                        <div class="alert alert-danger" style="text-align: center;margin-top:25px; margin-left: 35px; border-radius: 25px; margin-right: 35px; border-radius: 25px; margin-bottom: 10dp;"><span class="glyphicon glyphicon-ok"></span><em> {!! session('Kesalahan') !!}</em></div>
+            @endif
+            @if(Session::has('Berhasil'))
+                        <div class="alert alert-success" style="text-align: center;margin-top:25px; margin-left: 35px; border-radius: 25px; margin-right: 35px; border-radius: 25px; margin-bottom: 10dp;"><span class="glyphicon glyphicon-ok"></span><em> {!! session('Berhasil') !!}</em></div>
+            @endif
+            @if(Session::has('Logout'))
+                        <div class="alert alert-danger" style="text-align: center;margin-top:25px; margin-left: 35px; border-radius: 25px; margin-right: 35px; border-radius: 25px; margin-bottom: 10dp;"><span class="glyphicon glyphicon-ok"></span><em> {!! session('Logout') !!}</em></div>
+            @endif
+
+@if (count($errors) > 0)
+<div class="alert alert-danger">
+<ul>
+    @foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+</ul>
+</div>
+@endif
+
         <form action="{{ url('/Login') }}" method="POST" style="margin-bottom: 10px;">
                 @csrf
                 <input type="text"  name="username" value="{{ old('username') }}" placeholder="Username" class="form-control input-lg"  style="margin-bottom: 10px;">
@@ -31,26 +54,5 @@
             });
         </script> --}}
 
-        @if(Session::has('Kesalahan'))
-                        <div class="alert alert-danger" style="text-align: center; margin-left: 35px; border-radius: 25px; margin-right: 35px; border-radius: 25px; margin-bottom: 10dp;"><span class="glyphicon glyphicon-ok"></span><em> {!! session('Kesalahan') !!}</em></div>
-        @endif
-        @if(Session::has('CobaPaksa'))
-                        <div class="alert alert-danger" style="text-align: center; margin-left: 35px; border-radius: 25px; margin-right: 35px; border-radius: 25px; margin-bottom: 10dp;"><span class="glyphicon glyphicon-ok"></span><em> {!! session('Kesalahan') !!}</em></div>
-        @endif
-        @if(Session::has('Berhasil'))
-                        <div class="alert alert-success" style="text-align: center; margin-left: 35px; border-radius: 25px; margin-right: 35px; border-radius: 25px; margin-bottom: 10dp;"><span class="glyphicon glyphicon-ok"></span><em> {!! session('Berhasil') !!}</em></div>
-        @endif
-        @if(Session::has('Logout'))
-                        <div class="alert alert-danger" style="text-align: center; margin-left: 35px; border-radius: 25px; margin-right: 35px; border-radius: 25px; margin-bottom: 10dp;"><span class="glyphicon glyphicon-ok"></span><em> {!! session('Logout') !!}</em></div>
-        @endif
 
-        @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
 @endsection
