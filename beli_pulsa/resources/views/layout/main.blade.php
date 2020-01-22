@@ -38,6 +38,17 @@
     padding-left: 1rem;
     }
 
+    .kiri {
+      float: left;
+      width: 50%;
+    }
+
+    #kanan {
+      float: right;
+      width: 50%;
+    }
+
+    
 
 </style>
 
@@ -66,6 +77,7 @@
                 <a class="dropdown-item" href="{{url('/Harga')}}">Lihat Semua Lur !!!</a>
                 <a class="dropdown-item" href="{{url('/Harga/pulsaReguler')}}">Pulsa Reguler</a>
                 <a class="dropdown-item" href="{{ url('/Harga/paketInternet') }}">Paket Internet</a>
+                </div>
               </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/') }}">Status Transaksi</a>

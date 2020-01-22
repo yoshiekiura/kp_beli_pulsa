@@ -55,8 +55,8 @@
       <td>{{ $panggil->no_telpon }}</td>
     </tr>
     <tr>
-      <th scope="row">Status Akun</th>
-      <td><a href="/SendEmail">{{ $panggil->status_akun }}</a></td>
+      <th scope="row" style="vertical-align: inherit;">Status Akun</th>
+      <td>{{ $panggil->status_akun }}<a style="vertical-align: text-bottom;" href="/SendEmail"><button style="margin-left: 50px;" type="button" class="btn btn-secondary">Kirim Verifikasi Email</button></a></td>
     </tr>
     <tr>
       <th scope="row">Saldo</th>
