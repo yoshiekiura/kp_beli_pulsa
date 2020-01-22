@@ -8,5 +8,5 @@ class UserEditProfil extends Model
 {
     //
     protected $table = 'users';
-    protected $fillable = ['nama','username','email','jenis_kelamin','alamat','no_telpon'];
+    protected $fillable = ['nama','username','email','jenis_kelamin','alamat','no_telpon','password'];
 }

@@ -62,7 +62,11 @@ Route::get('/Profil','ProfilController@store');
 
 //Pengaturan
 Route::get('/Pengaturan/{id}', 'ProfilController@edit');
+Route::get('/Pengaturan/Pwd/{id}', 'ProfilController@editPwd');
+Route::get('/Pengaturan/Pin/{id}', 'ProfilController@editPin');
 Route::put('/Pengaturan/Update/{id}', 'ProfilController@update');
+Route::put('/Pengaturan/Update/Pwd/{id}', 'ProfilController@updatePwd');
+Route::put('/Pengaturan/Update/Pin/{id}', 'ProfilController@updatePin');
 
 //Route Riwayat
 Route::get('/Riwayat','RiwayatController@index');

@@ -12,11 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- <link rel="stylesheet" type="text/css" href="/css/csslogin.css"> -->
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/js/popper.js"></script>
-    <script type="text/css" src="/css/csslogin.css"></script>
+
 
 
     <title>@yield('title')</title>
@@ -30,7 +26,7 @@
 
     .navbar-brand{
     font-size: 30px;
-    margin-right: 30px; 
+    margin-right: 30px;
     }
 
     .nav-link{
@@ -48,7 +44,7 @@
 
 
 <body>
-  
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar fixed-top" style="padding: 0px;">
 <div class="container">
     <a class="navbar-brand" href="{{ url('/') }}">TUKU PULSA</a>
@@ -147,5 +143,11 @@
         <!--/.footer-bottom-->
     </footer>
 
+
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/popper.js"></script>
+    <script type="text/css" src="/css/csslogin.css"></script>
 </body>
 </html>

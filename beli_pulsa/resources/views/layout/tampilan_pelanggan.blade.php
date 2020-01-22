@@ -10,11 +10,6 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/ily.css">
     <!-- <link rel="stylesheet" type="text/css" href="/css/csslogin.css"> -->
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/js/popper.js"></script>
-    <script type="text/css" src="/css/csslogin.css"></script>
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
@@ -71,6 +66,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="/Profil">Profil</a>
+                      <a class="dropdown-item" href="/Riwayat">Riwayat Transaksi</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="/Logout">LOGOUT!</a>
                     </div>
@@ -163,5 +159,12 @@
         <!--/.footer-bottom-->
     </footer>
 
+
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/js/popper.js"></script>
+    <script type="text/css" src="/css/csslogin.css"></script>
 </body>
 </html>

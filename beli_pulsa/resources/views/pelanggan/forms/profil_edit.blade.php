@@ -1,6 +1,6 @@
 
 @extends('layout/tampilan_pelanggan')
-@section('title','Masuk Akun Pelanggan')
+@section('title','Edit Profil Akun Pelanggan')
 
 @section('body')
 
@@ -22,7 +22,21 @@
 @method('PUT')
 
 
-<table class="table table-striped" style="margin-top: 50px;">
+<table class="table table-striped table-bordered" style="margin-top: 50px;">
+    <thead>
+        <tr>
+            <th colspan="2">
+
+                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group mr-2" role="group" aria-label="First group">
+                      <a href="#" class="btn btn-secondary active">Edit Profile</a>
+                      <a href="{{ url('/Pengaturan/Pwd/'.$ids->id) }}" class="btn btn-secondary">Edit Password</a>
+                      <a href="{{ url('/Pengaturan/Pin/'.$ids->id) }}" class="btn btn-secondary">Edit Pin</a>
+                </div>
+
+            </th>
+        </tr>
+    </thead>
     <tbody>
     <tr>
         <th scope="col">Nama Lengkap</th>
@@ -66,7 +80,7 @@
 
     <tr>
         <td></td>
-        <td><input class="btn btn-primary" value="Edit" type="submit"></td>
+        <td><input class="btn btn-primary" value="Simpan" type="submit"></td>
     </tr>
     </tbody>
   </table>

@@ -64,7 +64,6 @@ class ProfilController extends Controller
     public function edit($id)
     {
         $ids = DB::table('users')->where('id',$id)->first();
-        //$cek = DB::table('users')->where('username',$request->session()->get('nama'))->first();
         return view('/pelanggan/forms/profil_edit',compact('ids'));
     }
 
@@ -120,6 +119,60 @@ class ProfilController extends Controller
      */
     public function destroy($id)
     {
+        //
+    }
+
+    public function editPwd($id){
+        //
+        $ids = DB::table('users')->where('id',$id)->first();
+        return view('/pelanggan/forms/password_edit',compact('ids'));
+    }
+
+    public function updatePwd(Request $request, $id){
+
+        $password = $request->input('pwd');
+        $cekpassword = DB::table('users')->where('id',$id)->first();
+
+        if(Hash::check($password, $cekpassword->password)){
+
+            $request->validate([
+                'pwd' => 'required|min:5',
+                'pwd_baru' => 'required|min:5',
+                'pwd_cek' => 'required|min:5'
+            ]);
+
+            $passwordbaru = $request->input('pwd_baru');
+            $passwordcek = $request->input('pwd_cek');
+
+            var_dump($passwordbaru);
+            var_dump($passwordcek);
+
+
+            if($passwordbaru == $passwordcek){
+
+                    UserEditProfil::where('id', $id)
+                    ->update([
+                    'password' =>Hash::make($request->pwd_baru)
+                    ]);
+                    Session::flash('Sukses','Berhasil Merubah Password Anda.');
+                    return redirect('/Profil');
+            }
+            else{
+                Session::flash('password_salah','Password yang dimasukkan tidak sama');
+                return redirect('/Pengaturan/Pwd/'.$id);
+            }
+        }
+        else{
+            Session::flash('password_salah','Password yang dimasukkan salah, masukkan password yang tepat');
+            return redirect('/Pengaturan/Pwd/'.$id);
+        }
+    }
+
+    public function editPin($id){
+        //
+    }
+
+    public function updatePin(Request $request, $id){
         //
     }
 }
