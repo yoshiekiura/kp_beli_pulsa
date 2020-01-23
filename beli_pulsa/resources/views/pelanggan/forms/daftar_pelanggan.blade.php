@@ -24,7 +24,7 @@
         @endif
     <form action="{{ url('/Register') }}" method="POST" style="margin-bottom: 10px;">
             @csrf
-            <input type="text"  name="username" value="{{ old('username') }}" placeholder="Nama Pengguna" class="form-control input-lg"  style="margin-bottom: 10px;">
+            <input type="text"  name="username" value="{{ old('username') }}" placeholder="Username" class="form-control input-lg"  style="margin-bottom: 10px;">
             <input type="text"  name="no_telpon" value="{{ old('no_telpon') }}" placeholder="Nomor HP" class="form-control input-lg"  style="margin-bottom: 10px;">
             <input type="text"  name="email" value="{{ old('email') }}" placeholder="Email" class="form-control input-lg"  style="margin-bottom: 10px;">
             <input type="password"  name="password" value="" placeholder="Kata Sandi" class="form-control input-lg"  style="margin-bottom: 10px;" id="pass">

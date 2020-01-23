@@ -54,7 +54,7 @@ class AdminController extends Controller
         $cek_password = Admin::where('username', $username)->first();
 
         if($cek_password && Hash::check($password, $cek_password->password)){
-            Session::put('nama', $cek_password->username);
+            Session::put('nama', $cek_password->nama);
             return redirect('/Admin/Home');
         }else{
             Session::flash('Kesalahan','Username dan Password yang anda Masukkan salah!');
