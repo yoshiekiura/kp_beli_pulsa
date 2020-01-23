@@ -4,6 +4,18 @@
 
 @section('body')
 
+@if(!Session::get('nama'))
+        @php
+            Session::flash('CobaPaksa','Anda Harus Login Terlebih Dahulu!');
+            header("Location: " . URL::to('/Login/create'), true, 302);
+            exit();
+        @endphp
+    {{-- <script type="text/javascript">
+        window.location.href = "{{url('/Login/create')}}";//here double curly bracket
+    </script> --}}
+    @endif
+
+
 @if(Session::has('password_salah'))
     <div class="alert alert-danger" style="text-align: center; margin-top:25px; margin-left: 35px; border-radius: 25px; margin-right: 35px; border-radius: 25px; margin-bottom: 10dp;"><span class="glyphicon glyphicon-ok"></span><em> {{ session::get('password_salah') }}</em></div>
 @endif

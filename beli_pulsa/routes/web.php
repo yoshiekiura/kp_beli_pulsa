@@ -97,3 +97,14 @@ Route::get('/coba/{email?&kode?}', function(){
         return redirect('/Profil');
     }
 });
+
+//Menuju Admin
+Route::resource('Login/Admin', 'AdminController');
+Route::get('Admin/Home', 'AdminController@home');
+
+//Route Logout(Admin)!
+Route::get('/Admin/Logout', function () {
+    Session::flush();
+    Session::flash('Logout','Anda Telah Keluar. Silahkan Login Kembali');
+    return redirect('/Login/Admin');
+});
