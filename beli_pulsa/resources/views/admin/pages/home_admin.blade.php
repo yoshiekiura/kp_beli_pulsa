@@ -9,10 +9,9 @@
             header("Location: " . URL::to('Login/Admin'), true, 302);
             exit();
         @endphp
-    {{-- <script type="text/javascript">
-        window.location.href = "{{url('/Login/create')}}";//here double curly bracket
-    </script> --}}
     @endif
+
+    <h1 class="card-text" style="margin-bottom: 150px;margin-top: 150px">Hai, <b>{{Session::get('nama')}}</b>. Selamat Datang. :)</h3>
 
 
 @endsection
