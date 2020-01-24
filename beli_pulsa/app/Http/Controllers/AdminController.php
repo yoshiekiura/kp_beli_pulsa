@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Admin;
+use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
@@ -16,11 +17,16 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
         return view('admin/forms/login_admin');
     }
+
     public function home(){
         return view('/admin/pages/home_admin');
+    }
+
+    public function lihat(){
+        $user = User::paginate(1);
+        return view ('admin/pages/daftar_pelanggan',compact('user'));
     }
 
     /**

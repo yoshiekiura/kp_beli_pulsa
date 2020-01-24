@@ -101,6 +101,7 @@ Route::get('/coba/{email?&kode?}', function(){
 //Menuju Admin
 Route::resource('Login/Admin', 'AdminController');
 Route::get('Admin/Home', 'AdminController@home');
+Route::get('Admin/LihatPelanggan', 'AdminController@lihat');
 
 //Route Logout(Admin)!
 Route::get('/Admin/Logout', function () {

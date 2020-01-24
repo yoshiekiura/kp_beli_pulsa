@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/ily.css">
     <!-- <link rel="stylesheet" type="text/css" href="/css/csslogin.css"> -->
-    <link rel="stylesheet" type="text/css" href="/css/footer2.css">
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 
@@ -20,16 +20,16 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container">
-        <a class="navbar-brand" href="#">TUKU PULSA</a>
+        <a class="navbar-brand" href="Home">TUKU PULSA</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Lihat Pelanggan</a>
+              <a class="nav-link" href="LihatPelanggan">Lihat Pelanggan</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Lihat Komplain</a>

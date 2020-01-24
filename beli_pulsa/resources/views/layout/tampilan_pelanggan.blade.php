@@ -65,6 +65,7 @@
                         {{Session::get('nama')}}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="/Login">Home</a>
                       <a class="dropdown-item" href="/Profil">Profil</a>
                       <a class="dropdown-item" href="/Riwayat">Riwayat Transaksi</a>
                       <div class="dropdown-divider"></div>
@@ -89,7 +90,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar" style="padding: 0px;">
       <div class="container">
         <!-- <a class="navbar-brand" href="{{ url('/') }}">BERANDA</a> -->
-          
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto ">
               <li class="nav-item">
