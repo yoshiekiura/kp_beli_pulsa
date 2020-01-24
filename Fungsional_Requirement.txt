@@ -24,6 +24,6 @@ keterangan : tb = tidak bisa, sb = sudah bisa, bg = belom garap, otw = perjalana
 
 	Admin
 •	Admin dapat melihat transaksi pembelian (bg)
-•	Admin dapat melihat pelanggan yang sudah terdaftar (bg)
+•	Admin dapat melihat pelanggan yang sudah terdaftar (sb)
 •	Admin dapat melihat complain para pelanggan (bg)
 •	Admin dapat memproses pembelian para pelanggan semisal status belum bayar, Proses, Sukses, gagal. (bg)

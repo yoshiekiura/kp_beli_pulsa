@@ -29,10 +29,16 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
+              <a class="nav-link" href="#">Transaksi Pembelian</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="LihatPelanggan">Lihat Pelanggan</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Lihat Komplain</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Proses Pembelian Pelanggan</a>
             </li>
             </ul>
             <ul class="navbar-nav float-right">
