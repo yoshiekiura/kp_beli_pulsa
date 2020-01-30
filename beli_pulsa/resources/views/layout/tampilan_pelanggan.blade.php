@@ -65,7 +65,7 @@
                         {{Session::get('nama')}}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="/Login">Home</a>
+                      <a class="dropdown-item" href="/Login/index">Home</a>
                       <a class="dropdown-item" href="/Profil">Profil</a>
                       <a class="dropdown-item" href="/Riwayat">Riwayat Transaksi</a>
                       <div class="dropdown-divider"></div>
@@ -125,11 +125,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9  col-md-2 col-sm-4 col-xs-6">
-                        <h3><a href="https://mitrainformatika.net/">CV. Mitra Informatika </a></h3>
+                        <h3><a href="https://mitrainformatika.net/" target="_blank">CV. Mitra Informatika </a></h3>
                         <ul>
                             <li>Projek Magang :</li>
-                            <li class="mt-1"> <a href="https://www.instagram.com/ilysistqma/">1461700047 - Muh. Ilyas Istiqama. M </a> </li>
-                            <li> <a href="https://www.instagram.com/rendycahya_/">1461700008 - Rendy Cahya Edytya </a> </li>
+                            <li class="mt-1"> <a href="https://www.instagram.com/ilysistqma/" target="_blank">1461700047 - Muh. Ilyas Istiqama. M </a> </li>
+                            <li> <a href="https://www.instagram.com/rendycahya_/" target="_blank">1461700008 - Rendy Cahya Edytya </a> </li>
 
                         </ul>
                     </div>
@@ -137,8 +137,8 @@
                     <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
                         <h3> Hubungi Kami : </h3>
                         <ul class="social">
-                            <li> <a href="https://mitrainformatika.net/">   <i class=" fa fa-google">   </i> </a> </li>
-                            <li> <a href="https://www.youtube.com/channel/UCkXmLjEr95LVtGuIm3l2dPg">   <i class="fa fa-youtube">   </i> </a> </li>
+                            <li> <a href="https://mitrainformatika.net/" target="_blank">   <i class=" fa fa-google">   </i> </a> </li>
+                            <li> <a href="https://www.youtube.com/channel/UCkXmLjEr95LVtGuIm3l2dPg" target="_blank">   <i class="fa fa-youtube">   </i> </a> </li>
                         </ul>
                     </div>
                 </div>
