@@ -49,10 +49,15 @@ Route::get('/Logout', function () {
     return redirect('/Login/create');
 });
 
-//Route daftar harga coba di pecah datanya
-Route::get('/Harga/','HargaController@index');
-Route::get('/Harga/pulsaReguler','HargaController@tampilPulsaReguler');
-Route::get('/Harga/paketInternet','HargaController@tampilPaketInternet');
+//Route daftar harga Semuanya
+Route::get('/Harga','HargaController@index');
+Route::get('/Harga/pulsa/axisxl','HargaController@axisxl');
+Route::get('/Harga/pulsa/indosat','HargaController@indosat');
+Route::get('/Harga/pulsa/smartfren','HargaController@smartfren');
+Route::get('/Harga/pulsa/telkomsel','HargaController@telkomsel');
+Route::get('/Harga/pulsa/tri','HargaController@tri');
+
+
 
 //Route Testimoni
 Route::resource('/Testimoni','TestimoniController');
@@ -108,4 +113,10 @@ Route::get('/Admin/Logout', function () {
     Session::flush();
     Session::flash('Logout','Anda Telah Keluar. Silahkan Login Kembali');
     return redirect('/Login/Admin');
+});
+
+//Route untuk coba paksa
+Route::get('/Login/cobapaksa', function () {
+    Session::flash('CobaPaksa','Anda Harus Login Terlebih Dahulu!');
+    return redirect('/Login/create');
 });

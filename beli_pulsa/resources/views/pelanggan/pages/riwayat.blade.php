@@ -16,14 +16,10 @@
 
     @if(!Session::get('nama'))
         @php
-            Session::flash('CobaPaksa','Anda Harus Login Terlebih Dahulu!');
-            header("Location: " . URL::to('/Login/create'), true, 302);
+            header("Location: " . URL::to('/Login/cobapaksa'));
             exit();
         @endphp
-    {{-- <script type="text/javascript">
-        window.location.href = "{{url('/Login/create')}}";//here double curly bracket
-    </script> --}}
-    @endif
+    @endif  
 
 
     

@@ -69,7 +69,7 @@
             <a class="nav-link" href="{{url('/Produk')}}">Daftar Harga</a>
 
             </li> --}}
-            <li class="nav-item dropdown">
+            {{-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Daftar Harga
                 </a>
@@ -78,7 +78,10 @@
                 <a class="dropdown-item" href="{{url('/Harga/pulsaReguler')}}">Pulsa Reguler</a>
                 <a class="dropdown-item" href="{{ url('/Harga/paketInternet') }}">Paket Internet</a>
                 </div>
-              </li>
+            </li> --}}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('/Harga') }}">Daftar Harga</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/') }}">Status Transaksi</a>
             </li>
