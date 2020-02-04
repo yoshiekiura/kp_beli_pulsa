@@ -3,7 +3,7 @@
 
 @section('body')
 
-@if(!Session::get('nama'))
+@if(!Session::get('admin'))
         @php
             Session::flash('CobaPaksa','Anda Harus Login Terlebih Dahulu!');
             header("Location: " . URL::to('Login/Admin'), true, 302);
