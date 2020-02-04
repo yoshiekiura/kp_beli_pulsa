@@ -1,107 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/ily.css">
-    <!-- <link rel="stylesheet" type="text/css" href="/css/csslogin.css"> -->
-    <link rel="stylesheet" type="text/css" href="/css/footer.css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-
-
-    <title>@yield('title')</title>
-
-</head>
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-        <div class="container">
-        <a class="navbar-brand" href="Home">TUKU PULSA</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Transaksi Pembelian</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="LihatPelanggan">Lihat Pelanggan</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Lihat Komplain</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Proses Pembelian Pelanggan</a>
-            </li>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>@yield('title')</title>
+        <link href="/sbadmin4/dist/css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-success">
+            <button class="btn btn-link btn-lg order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+            <a class="navbar-brand" href="Home">TUKU PULSA</a>
+            <!-- Navbar-->
+            <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i>{{Session::get('nama')}}</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="/Admin/Logout">Logout</a>
+                    </div>
+                </li>
             </ul>
-            <ul class="navbar-nav float-right">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{Session::get('nama')}}
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="/Admin/Logout">Logout</a>
-
-              </div>
-            </li>
-          </ul>
-        </div>
-    </div>
-      </nav>
-
-        <div class="container">
-        @yield('body')
-        </div>
-
-      <footer>
-        <div class="footer" id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-9  col-md-2 col-sm-4 col-xs-6">
-                        <h3><a href="https://mitrainformatika.net/">CV. Mitra Informatika </a></h3>
-                        <ul>
-                            <li>Projek Magang :</li>
-                            <li class="mt-1"> <a href="https://www.instagram.com/ilysistqma/">1461700047 - Muh. Ilyas Istiqama. M </a> </li>
-                            <li> <a href="https://www.instagram.com/rendycahya_/">1461700008 - Rendy Cahya Edytya </a> </li>
-
-                        </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            
+                            <a class="nav-link mt-4" href="Home"
+                                ><div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
+                                Dashboard</a>
+                            <div class="sb-sidenav-menu-heading">Proses</div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
+                                ><div class="sb-nav-link-icon"><i class="fas fa-cash-register"></i></div>
+                                Pembelian
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
+                            ></a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="#">Transaksi Pembelian</a><a class="nav-link" href="#">Proses Pembelian Pelanggan</a></nav>
+                            </div>
+                            
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts"
+                                ><div class="sb-nav-link-icon"><i class="fas fa-eye"></i></div>
+                                Lihat
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
+                            ></a>
+                            <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="#">Lihat Pelanggan</a><a class="nav-link" href="#">Lihat Komplain</a></nav>
+                            </div>
+                            
+                            
+                        </div>
                     </div>
-
-                    <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
-                        <h3> Hubungi Kami : </h3>
-                        <ul class="social">
-                            <li> <a href="https://mitrainformatika.net/">   <i class=" fa fa-google">   </i> </a> </li>
-                            <li> <a href="https://www.youtube.com/channel/UCkXmLjEr95LVtGuIm3l2dPg">   <i class="fa fa-youtube">   </i> </a> </li>
-                        </ul>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        {{Session::get('nama')}}
                     </div>
-                </div>
-                <!--/.row-->
+                </nav>
             </div>
-            <!--/.container-->
-        </div>
-        <!--/.footer-->
-        <div class="footer-bottom">
-            <div class="container">
-                <p class="pull-left mt-4">Copyright © Footer E-commerce Plugin 2014. All right reserved. </p>
 
+            @yield('body')
+
+            <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2019</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             </div>
         </div>
-        <!--/.footer-bottom-->
-    </footer>
-
-
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="/js/popper.js"></script>
-    <script type="text/css" src="/css/csslogin.css"></script>
-</body>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="/sbadmin4/src/js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="/sbadmin4/src/assets/demo/chart-area-demo.js"></script>
+        <script src="/sbadmin4/src/assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="/sbadmin4/src/assets/demo/datatables-demo.js"></script>
+    </body>
 </html>

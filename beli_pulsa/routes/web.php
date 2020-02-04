@@ -121,6 +121,6 @@ Route::get('/Login/cobapaksa', function () {
     return redirect('/Login/create');
 });
 
-Route::get('tes', function(){
-    return view('tes');
+Route::get('/kuntul', function () {
+        return view('admin/forms/login');
 });
