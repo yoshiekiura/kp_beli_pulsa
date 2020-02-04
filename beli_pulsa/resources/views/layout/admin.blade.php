@@ -18,7 +18,7 @@
             <!-- Navbar-->
             <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i>{{Session::get('nama')}}</a>
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i>{{Session::get('admin')}}</a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="/Admin/Logout">Logout</a>
                     </div>
@@ -30,7 +30,7 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            
+
                             <a class="nav-link mt-4" href="Home"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                                 Dashboard</a>
@@ -43,7 +43,7 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="#">Transaksi Pembelian</a><a class="nav-link" href="#">Proses Pembelian Pelanggan</a></nav>
                             </div>
-                            
+
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts"
                                 ><div class="sb-nav-link-icon"><i class="fas fa-eye"></i></div>
                                 Lihat
@@ -52,13 +52,13 @@
                             <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="LihatPelanggan">Lihat Pelanggan</a><a class="nav-link" href="#">Lihat Komplain</a></nav>
                             </div>
-                            
-                            
+
+
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        {{Session::get('nama')}}
+                        {{Session::get('admin')}}
                     </div>
                 </nav>
             </div>

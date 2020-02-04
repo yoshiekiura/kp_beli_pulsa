@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" type="text/css" href="/css/csslogin.css"> -->
 
 
@@ -48,13 +48,13 @@
       width: 50%;
     }
 
-    
+
 
 </style>
 
 
 
-<body>
+<body style="background-color:#F0F1F3">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar fixed-top" style="padding: 0px;">
 <div class="container">
@@ -80,21 +80,22 @@
                 </div>
             </li> --}}
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/Harga') }}">Daftar Harga</a>
+              <a class="nav-link" href="{{ url('/Harga') }}"><i class="fas fa-clipboard-list"></i> Daftar Harga</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/') }}">Status Transaksi</a>
+              <a class="nav-link" href="{{ url('/') }}"><i class="fas fa-cart-plus"></i> Status Transaksi</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/Testimoni') }}" >Testimoni</a>
+              <a class="nav-link" href="{{ url('/Testimoni') }}" ><i class="fas fa-comment-dollar"></i> Testimoni</a>
             </li>
           </ul>
             @if(Session::get('nama'))
               <ul class="navbar-nav float-right" >
                 <li class="nav-item dropdown">
+
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{Session::get('nama')}}
+                        <i class="far fa-user-circle"></i> {{Session::get('nama')}}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="/Profil">Profil</a>
@@ -107,10 +108,10 @@
             @else
               <ul class="navbar-nav float-right">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url('/Login/create') }}" >Masuk</a>
+                  <a class="nav-link" href="{{ url('/Login/create') }}" ><i class="fas fa-sign-in-alt"></i> Masuk</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/Register/create') }}" >Mendaftar</a>
+                    <a class="nav-link" href="{{ url('/Register/create') }}" ><i class="fas fa-user-plus"></i> Mendaftar</a>
                   </li>
               </ul>
             @endif
@@ -139,8 +140,9 @@
                     <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
                         <h3> Hubungi Kami : </h3>
                         <ul class="social">
-                            <li> <a href="https://mitrainformatika.net/">   <i class=" fa fa-google">   </i> </a> </li>
-                            <li> <a href="https://www.youtube.com/channel/UCkXmLjEr95LVtGuIm3l2dPg">   <i class="fa fa-youtube">   </i> </a> </li>
+                            <li><a href="https://mitrainformatika.net/" target="_blank"><i class="fas fa-address-card"></i></a></li>
+                            <li><a href="https://www.youtube.com/channel/UCkXmLjEr95LVtGuIm3l2dPg" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="https://g.page/cv--mitra-informatika?share" target="_blank"><i class="fas fa-map-marked-alt"></i></a></li>
                         </ul>
                     </div>
                 </div>

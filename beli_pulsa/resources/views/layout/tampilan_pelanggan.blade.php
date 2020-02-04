@@ -8,11 +8,11 @@
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/ily.css">
+    <link rel="stylesheet" type="text/css" href="/css/background.css">
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <!-- <link rel="stylesheet" type="text/css" href="/css/csslogin.css"> -->
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
 
 
 
@@ -47,7 +47,7 @@
 
 
 
-<body>
+<body style="background-color:#F0F1F3">
     <nav class="navbar navbar-expand-lg navbar-dark bg-success navbar fixed-top" style="padding: 0px;">
     <div class="container">
       <a class="navbar-brand" href="{{ url('/') }}">TUKU PULSA</a>
@@ -141,8 +141,9 @@
                     <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
                         <h3> Hubungi Kami : </h3>
                         <ul class="social">
-                            <li> <a href="https://mitrainformatika.net/" target="_blank">   <i class=" fa fa-google">   </i> </a> </li>
-                            <li> <a href="https://www.youtube.com/channel/UCkXmLjEr95LVtGuIm3l2dPg" target="_blank">   <i class="fa fa-youtube">   </i> </a> </li>
+                            <li><a href="https://mitrainformatika.net/" target="_blank"><i class="fas fa-address-card"></i></a></li>
+                            <li><a href="https://www.youtube.com/channel/UCkXmLjEr95LVtGuIm3l2dPg" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="https://g.page/cv--mitra-informatika?share" target="_blank"><i class="fas fa-map-marked-alt"></i></a></li>
                         </ul>
                     </div>
                 </div>
