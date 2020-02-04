@@ -25,7 +25,7 @@ class AdminController extends Controller
     }
 
     public function lihat(){
-        $user = User::paginate(1);
+        $user = User::All();
         return view ('admin/pages/daftar_pelanggan',compact('user'));
     }
 
