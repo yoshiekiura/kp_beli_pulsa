@@ -21,7 +21,7 @@ class AdminController extends Controller
     }
 
     public function home(){
-        return view('/admin/pages/home_admin');
+        return view('/admin/pages/dashboard_admin');
     }
 
     public function lihat(){

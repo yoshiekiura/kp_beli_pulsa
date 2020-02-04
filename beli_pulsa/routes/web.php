@@ -120,3 +120,7 @@ Route::get('/Login/cobapaksa', function () {
     Session::flash('CobaPaksa','Anda Harus Login Terlebih Dahulu!');
     return redirect('/Login/create');
 });
+
+Route::get('tes', function(){
+    return view('tes');
+});
