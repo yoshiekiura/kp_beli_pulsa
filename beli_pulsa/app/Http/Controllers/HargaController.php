@@ -9,7 +9,7 @@ class HargaController extends Controller
 {
     // untuk menampilkan harga produk keseluruhan
     public function index(){
-        $price = Price::paginate(15);
+        $price = Price::all();
         $judul = "Daftar Harga";
         $arr = array('price' => $price);
         return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $arr]);

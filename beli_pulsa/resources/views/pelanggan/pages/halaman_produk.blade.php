@@ -77,11 +77,6 @@
                 </div>
               </div>
             </div>
-            <div class="text-center">
-              <span class="badge badge-info mt-3 center-block">
-              Jumlah Data : {{ $arr['price']->total() }}
-              </span>
-          </div>
           </div>
 
 
@@ -90,9 +85,8 @@
     
 
     <div class="table-responsive">
-        <table class="table table-sm mt-2">
+        <table class="table table-bordered table-sm mt-2" id="dataTable" width="100%" cellspacing="0">
             <thead class="thead-dark">
-            <tr>{{$judul}}</tr>
               <tr>
                 <th scope="col" class="">Detail Produk</th>
                 <th scope="col" class="">Kode</th>
@@ -128,9 +122,6 @@
           </table>
         </div>
 
-        <div class="mt-2">
-          {{ $arr['price']->links() }}
-        </div>
 
     </div>
 </div>

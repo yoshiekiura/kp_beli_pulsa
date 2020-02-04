@@ -14,13 +14,12 @@
     <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                    <h1 class="mt-4">Dashboard</h1>
+                    <h1 class="mt-4">Daftar Pelanggan Tuku Pulsa</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="Home">Dashboard</a></li>
                             <li class="breadcrumb-item active">Daftar Pelanggan</li>
                         </ol>
-
-                    <h3 class="text-center">Daftar Pelanggan Tuku Pulsa</h1>
+                        
                     <div class="table-responsive">
                           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                           <thead class="thead-dark">
