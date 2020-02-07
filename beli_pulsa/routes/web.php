@@ -13,7 +13,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
-
+use App\UserEditProfil;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -125,6 +125,27 @@ Route::get('/Riwayat','RiwayatController@index');
 
 //Route Send Email
 Route::get('/SendEmail','SendEmailController@index');
+
+//Route Lupa Password
+Route::post('/Lupa_password','SendEmailController@lupa_password');
+
+Route::get('/lupas/{email?&kode?}', function(){
+    $email = Request::get('email');
+    $kode = Request::get('kode');
+
+    $cek_data = DB::table('users')->where('email',$email)->orWhere('kode',$kode)->first();
+
+    if($cek_data){
+        Session::put('email', $email);
+        return view('/pelanggan/forms/isi_ulang_password',['email' => $email]);
+    }
+});
+
+Route::post('/proses_lupa_password', 'SendEmailController@proses_lupa_password');
+
+// Route::get('/Reset_pwd',function () {
+//     return view('/pelanggan/pages/halaman_utama_pelanggan');
+// });
 
 //Route coba
 Route::get('/coba/{email?&kode?}', function(){

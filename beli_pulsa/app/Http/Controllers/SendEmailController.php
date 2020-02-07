@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Mail\SendEmail;
+use App\Mail\SendForgotMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use App\UserEditProfil;
 
 class SendEmailController extends Controller
 {
@@ -90,5 +94,55 @@ class SendEmailController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function lupa_password(Request $request){
+
+        $email = $request-> input('email');
+        $cek_email = DB::table('users')->where('email', $email)->first();
+        $select_email = DB::table('users')->select('email')->where('email', $email)->first();
+
+        if($cek_email){
+            $kode = Hash::make(Str::random(10));
+
+            UserEditProfil::where('email', $email)
+                ->update([
+                'kode' => $kode
+                ]);
+
+        $data = ['email' => $email];
+        Mail::to($select_email)->send(new SendForgotMail($data));
+        Session::flash('Sukses','Cek email anda untuk mengembalikan kata sandi yang baru.');
+		return redirect('/Login/create');
+            
+        }else{
+            Session::flush(); 
+            Session::flash('Kesalahan','Email yang anda masukkan salah');
+            return redirect('/Login/create');
+        }
+
+    }
+
+    public function proses_lupa_password(Request $request){
+        $this->validate($request,[
+            'password' => 'required|alpha_num|confirmed|min:8'
+    ]);
+
+    $cek_data = DB::table('users')->where('email',Session::get('email'))->first();
+
+    if($cek_data){
+
+        UserEditProfil::where('email', Session::get('email'))
+                ->update([
+                'password' => Hash::make($request -> password)
+                ]);
+        Session::flush();           
+        Session::flash('Sukses','Kata sandi berhasil diganti, coba masuk kembali.');
+        return redirect('/Login/create');
+    }else{
+        Session::flush(); 
+        Session::flash('Kesalahan','Email yang anda masukkan salah');
+        return redirect('/Login/create');
+    }
     }
 }
