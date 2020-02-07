@@ -63,7 +63,7 @@
               <ul class="navbar-nav float-right" >
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{Session::get('nama')}}
+                    <i class="far fa-user-circle"></i> {{Session::get('nama')}}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="/Login/index">Home</a>
@@ -95,26 +95,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto ">
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('/') }}">Beranda</a>
+                <a class="nav-link" href="{{ url('/') }}"><i class="fa fa-home" aria-hidden="true"></i>
+ Beranda</a>
               </li>
-            {{-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Daftar Harga
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{url('/Harga')}}">Lihat Semua Lur !!!</a>
-                <a class="dropdown-item" href="{{url('/Harga/pulsaReguler')}}">Pulsa Reguler</a>
-                <a class="dropdown-item" href="{{ url('/Harga/paketInternet') }}">Paket Internet</a>
-              </li> --}}
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/Harga') }}">Daftar Harga</a>
+              <a class="nav-link" href="{{ url('/Harga') }}"><i class="fas fa-clipboard-list"></i> Daftar Harga</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/') }}">Status Transaksi</a>
+              <a class="nav-link" href="{{ url('/') }}"><i class="fas fa-cart-plus"></i> Status Transaksi</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/Testimoni') }}" >Testimoni</a>
+              <a class="nav-link" href="{{ url('/Testimoni') }}" ><i class="fas fa-comment-dollar"></i> Testimoni</a>
             </li>
           </ul>
             </div>

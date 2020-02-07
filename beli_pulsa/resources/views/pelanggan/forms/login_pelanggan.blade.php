@@ -10,15 +10,7 @@
             <div class="card-header"><h3 class="text-center font-weight-light my-4">Masuk Akun Pelanggan</h3>
             </div>
             <div class="card-body">
-                <form action="{{ url('/Login') }}" method="POST" style="margin-bottom: 10px;">
-                    @csrf
-                    <input type="text"  name="username" value="{{ old('username') }}" placeholder="Username" class="form-control input-lg"  style="margin-bottom: 10px;">
-                    <input type="password"  name="password" value="{{ old('password') }}" placeholder="Password" class="form-control input-lg"  style="margin-bottom: 10px;">
-                    <div style="text-align: center; margin-top: 20px;" >
-                        <button type="submit" class="btn btn-secondary" id="submit">Masuk</button>
-                    </div>
-                </form>
-                    @if(Session::has('Kesalahan'))
+            @if(Session::has('Kesalahan'))
                         <div class="alert alert-danger" style="text-align: center;margin-top:25px; margin-left: 35px; border-radius: 25px; margin-right: 35px; border-radius: 25px; margin-bottom: 10dp;"><span class="glyphicon glyphicon-ok"></span><em> {!! session('Kesalahan') !!}</em></div>
                         @endif
 
@@ -31,7 +23,7 @@
                         @endif
 
                         @if (count($errors) > 0)
-                        <div class="alert alert-danger">
+                        <div class="alert alert-danger" style="padding-bottom: 0px;">
                         <ul>
                             @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -39,6 +31,15 @@
                         </ul>
                         </div>
                     @endif
+                <form action="{{ url('/Login') }}" method="POST" style="margin-bottom: 10px;">
+                    @csrf
+                    <input type="text"  name="username" value="{{ old('username') }}" placeholder="Username" class="form-control input-lg"  style="margin-bottom: 10px;">
+                    <input type="password"  name="password" value="{{ old('password') }}" placeholder="Password" class="form-control input-lg"  style="margin-bottom: 10px;">
+                    <div style="text-align: center; margin-top: 20px;" >
+                        <button type="submit" class="btn btn-secondary" id="submit">Masuk</button>
+                    </div>
+                </form>
+                   
             </div>
 
         </div>

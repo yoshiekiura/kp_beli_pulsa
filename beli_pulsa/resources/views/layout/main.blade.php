@@ -30,7 +30,7 @@
     }
 
     .nav-link{
-    font-size: 20px;
+    font-size: 18px;
     }
 
     .navbar-expand-lg .navbar-nav .nav-link {
@@ -65,20 +65,6 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto">
-            {{-- <li class="nav-item">
-            <a class="nav-link" href="{{url('/Produk')}}">Daftar Harga</a>
-
-            </li> --}}
-            {{-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Daftar Harga
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{url('/Harga')}}">Lihat Semua Lur !!!</a>
-                <a class="dropdown-item" href="{{url('/Harga/pulsaReguler')}}">Pulsa Reguler</a>
-                <a class="dropdown-item" href="{{ url('/Harga/paketInternet') }}">Paket Internet</a>
-                </div>
-            </li> --}}
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/Harga') }}"><i class="fas fa-clipboard-list"></i> Daftar Harga</a>
             </li>
