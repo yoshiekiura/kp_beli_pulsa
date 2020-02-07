@@ -16,7 +16,7 @@
             border-radius: 5px;"><div style="padding: 5px 0px 5px 0px">Order</div></h2>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
                     <select class="browser-default custom-select">
-                        <option selected>-- Produk --</option>
+                        <option selected disabled>-- Produk --</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
                     <select class="browser-default custom-select">
-                        <option selected>-- Provider --</option>
+                        <option selected disabled>-- Provider --</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
                     <select class="browser-default custom-select">
-                        <option selected>-- Voucher --</option>
+                        <option selected disabled>-- Voucher --</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
                     <select class="browser-default custom-select">
-                        <option selected>-- Pilih Pembayaran --</option>
+                        <option selected disabled>-- Pilih Pembayaran --</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
@@ -60,18 +60,18 @@
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
                     <button style="width: 100%; border-width: 3px; font-size: 20px; font-weight: bold; " type="button" class="btn btn-outline-primary">PESAN SEKARANG</button>
                 </div>
-                
+
         </div>
-        
+
         <div class="kiri">
             <p style="font-size: 20px; font-weight: bold; text-align: center; margin-top: 100px; margin-left: -20px;">Mau pulsa murah tapi nggak ribet ?</p>
             <p style="font-size: 50px; font-weight: bold; text-align: center; margin-left: -20px; margin-bottom: 0px;">PESAN DISINI AJA</p>
             <p style="font-size: 50px; font-weight: bold; text-align: center; margin-left: -20px;">TUKUPULSA.COM</p>
             <p style="font-size: 20px; font-weight: bold; text-align: center; margin-top: 50px; margin-left: -20px;">Ada untuk Anda.</p>
         </div>
-        
 
-        
+
+
         <div style="clear: both;"></div>
     </div>
 </div>

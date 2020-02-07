@@ -675,7 +675,7 @@ class PriceSeeder extends Seeder
             'provider' => 'Tri',
             'harga' => 14740,
             'keterangan' => 'TRI Reguler 15.000',
-            'status' => 'Ada'
+            'status' => 'Kosong'
         ]);
 
         DB::table('prices')->insert([
@@ -788,21 +788,13 @@ class PriceSeeder extends Seeder
         ]);
 
         //paket internet axis keren zmua
-        DB::table('prices')->insert([
-            'kode' => 'KZL5',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Axis (Keren Zmua)',
-            'harga' => 31650,
-            'keterangan' => 'Gaul Unlimited FUP 1.5GB,30hari',
-            'status' => 'Kosong'
-        ]);
 
         DB::table('prices')->insert([
-            'kode' => 'KZL4',
+            'kode' => 'KZL1',
             'detail_produk' => 'Paket Internet',
             'provider' => 'Axis (Keren Zmua)',
-            'harga' => 20450,
-            'keterangan' => 'Keren Zemua Lho WA+LINE+BBM+FB+Twitter+Path 1GB 30D',
+            'harga' => 15350,
+            'keterangan' => 'Keren Zemua Lho WA+LINE+BBM 1GB 30D',
             'status' => 'Ada'
         ]);
 
@@ -816,21 +808,30 @@ class PriceSeeder extends Seeder
         ]);
 
         DB::table('prices')->insert([
-            'kode' => 'KZL1',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Axis (Keren Zmua)',
-            'harga' => 15350,
-            'keterangan' => 'Keren Zemua Lho WA+LINE+BBM 1GB 30D',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
             'kode' => 'KZL3',
             'detail_produk' => 'Paket Internet',
             'provider' => 'Axis (Keren Zmua)',
             'harga' => 15350,
             'keterangan' => 'Keren Zemua Lho Yonder Music 1GB 30D',
             'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'KZL4',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Axis (Keren Zmua)',
+            'harga' => 20450,
+            'keterangan' => 'Keren Zemua Lho WA+LINE+BBM+FB+Twitter+Path 1GB 30D',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'KZL5',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Axis (Keren Zmua)',
+            'harga' => 31650,
+            'keterangan' => 'Gaul Unlimited FUP 1.5GB,30hari',
+            'status' => 'Kosong'
         ]);
 
         //paket internet axis owsem
