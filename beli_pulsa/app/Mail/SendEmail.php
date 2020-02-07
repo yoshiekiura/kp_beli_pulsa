@@ -33,8 +33,9 @@ class SendEmail extends Mailable
         $cek = DB::table('users')->where('username',Session::get('nama'))->first();
 
         return $this->from('Anjay@gabut.com')
-                   ->view('isiemail')
-                   ->with(
+                    ->subject('Verifikasi Akun')
+                    ->view('isiemail')
+                    ->with(
                     [
                         'nama' => $cek->nama,
                         'email' => $cek->email,

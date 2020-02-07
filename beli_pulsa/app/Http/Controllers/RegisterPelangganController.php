@@ -72,7 +72,6 @@ class RegisterPelangganController extends Controller
 
             $tambah = new Daftar;
 
-            $tambah->nama = $request -> username;
             $tambah->username = $request -> username;
             $tambah->password = Hash::make($request -> password);
             $tambah->email = $request -> email;

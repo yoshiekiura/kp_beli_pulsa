@@ -5,6 +5,7 @@
 </p><br>
 <button type="button" class="btn btn-success"><a href="{{ url('/coba')}}?email='{{$email}}'&kode='{{$kode}}'">Verifikasi Akun!</a></button>
 <p><a href="{{ url('/coba')}}?email='{{$email}}'&kode='{{$kode}}'">{{ url('/coba')}}?email='{{$email}}'&kode='{{$kode}}'</a></p>
+<p><a href="{{ url('/coba')}}?email='{{$email}}'&kode='{{$kode}}'">LINK SKUY</a></p>
 <br><br><p>Demikian kami sampaikan.
     <br><br>Salam Hangat <br><br>Tukupulsa.com
 </p>

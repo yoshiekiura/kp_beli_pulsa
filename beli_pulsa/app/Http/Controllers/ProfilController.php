@@ -76,32 +76,36 @@ class ProfilController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $password = $request->input('password');
-        $cekpassword = DB::table('users')->where('id',$id)->first();
-
+    
         $request->validate([
             'password' => 'required'
         ]);
 
+        $no_telfon = $request->input('nomor_telpon');
+        $cek_no_telpon = UserEditProfil::where('no_telpon', $no_telfon)->first();
+        
+        $password = $request->input('password');
+        $cekpassword = DB::table('users')->where('id',$id)->first();
+
+        if($cek_no_telpon){
+            Session::flash('password_salah','Nomor telfon Sudah ada');
+            return redirect('/Pengaturan/'.$id);
+        }
         if(Hash::check($password, $cekpassword->password)){
 
             $request->validate([
                 'nama' => 'required|min:3|max:50',
-                'username' => 'required|min:3|max:50',
-                'email' => 'required|email',
                 'nomor_telpon' => 'required|min:12|numeric'
             ]);
 
             UserEditProfil::where('id', $id)
             ->update([
             'nama' => $request->nama,
-            'username' => $request->username,
-            'email' => $request->email,
             'alamat' => $request->alamat,
             'jenis_kelamin' => $request->jenis_kelamin,
             'no_telpon' => $request->nomor_telpon
         ]);
+        
         Session::flash('Sukses','Berhasil Merubah Data Anda.');
         return redirect('/Profil');
         }

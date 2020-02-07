@@ -52,17 +52,7 @@
     <tbody>
     <tr>
         <th scope="col">Nama Lengkap</th>
-        <td scope="col"><input type="text" name="nama" class="form-control input-lg" value="{{ $ids->nama }}"></td>
-    </tr>
-
-    <tr>
-        <th scope="row">Username</th>
-        <td><input type="text" name="username" class="form-control input-lg" value="{{ $ids->username }}"></td>
-    </tr>
-
-    <tr>
-        <th scope="row">Email</th>
-        <td><input type="email" name="email" class="form-control input-lg" value="{{ $ids->email }}"></td>
+        <td scope="col"><input type="text" name="nama" class="form-control input-lg" value="{{ $ids->nama }}" placeholder="Masukkan nama anda"></td>
     </tr>
 
     <tr>

@@ -8,7 +8,9 @@
         <div class="card shadow-lg border-0 rounded-lg mt-5">
             <div class="card-header"><h3 class="text-center font-weight-light my-4">DAFTAR PELANGGAN</h3>
 
-                @if(Session::has('Kesalahan'))
+            </div>
+            <div class="card-body">
+            @if(Session::has('Kesalahan'))
                 <div class="alert alert-danger" style="text-align: center;margin-top:25px; margin-left: 35px; border-radius: 25px; margin-right: 35px; border-radius: 25px; margin-bottom: 10dp;"><span class="glyphicon glyphicon-ok"></span><em> {{ session::get('Kesalahan') }}</em></div>
                 @endif
                 @if(Session::has('Berhasil'))
@@ -16,17 +18,14 @@
                 @endif
 
                 @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-                </ul>
-                </div>
+                <div class="alert alert-danger" style="padding-bottom: 0px;">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        </div>
                 @endif
-
-            </div>
-            <div class="card-body">
                 <form action="{{ url('/Register') }}" method="POST" style="margin-bottom: 10px;">
                     @csrf
                     <input type="text"  name="username" value="{{ old('username') }}" placeholder="Username" class="form-control input-lg"  style="margin-bottom: 10px;">
