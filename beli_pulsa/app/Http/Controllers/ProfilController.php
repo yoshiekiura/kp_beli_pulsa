@@ -76,26 +76,18 @@ class ProfilController extends Controller
      */
     public function update(Request $request, $id)
     {
-    
+
         $request->validate([
             'password' => 'required'
         ]);
 
-        $no_telfon = $request->input('nomor_telpon');
-        $cek_no_telpon = UserEditProfil::where('no_telpon', $no_telfon)->first();
-        
         $password = $request->input('password');
         $cekpassword = DB::table('users')->where('id',$id)->first();
 
-        if($cek_no_telpon){
-            Session::flash('password_salah','Nomor telfon Sudah ada');
-            return redirect('/Pengaturan/'.$id);
-        }
         if(Hash::check($password, $cekpassword->password)){
 
             $request->validate([
                 'nama' => 'required|min:3|max:50',
-                'nomor_telpon' => 'required|min:12|numeric'
             ]);
 
             UserEditProfil::where('id', $id)
@@ -103,9 +95,8 @@ class ProfilController extends Controller
             'nama' => $request->nama,
             'alamat' => $request->alamat,
             'jenis_kelamin' => $request->jenis_kelamin,
-            'no_telpon' => $request->nomor_telpon
         ]);
-        
+
         Session::flash('Sukses','Berhasil Merubah Data Anda.');
         return redirect('/Profil');
         }
@@ -121,9 +112,32 @@ class ProfilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function hapus(Request $hapus, $id){
+
+        $pwd = $hapus->input('password');
+        $cekpassword = DB::table('users')->where('id',$id)->first();
+
+        if(Hash::check($pwd, $cekpassword->password)){
+            $hapus->validate([
+                'password' => 'required|min:8'
+            ]);
+            return redirect('/Destroy/'.$id);
+
+    }else{
+        $hapus->validate([
+            'password' => 'required|min:8'
+        ]);
+        Session::flash('password_salah','Password Anda Kurang Tepat. Silahkan Masukkan Kembali');
+                return redirect('/Profil');
+    }
+}
+
     public function destroy($id)
     {
-        //
+        UserEditProfil::destroy($id);
+        Session::flush();
+        Session::flash('Kesalahan','Berhasil Hapus Akun');
+            return redirect('/Register/create');
     }
 
     public function editPwd($id){
@@ -140,9 +154,9 @@ class ProfilController extends Controller
         if(Hash::check($password, $cekpassword->password)){
 
             $request->validate([
-                'pwd' => 'required|min:5',
-                'pwd_baru' => 'required|min:5',
-                'pwd_cek' => 'required|min:5'
+                'pwd' => 'required|min:8',
+                'pwd_baru' => 'required|min:8',
+                'pwd_cek' => 'required|min:8'
             ]);
 
             $passwordbaru = $request->input('pwd_baru');

@@ -3,9 +3,13 @@
 
 @section('body')
 
+<h1 class="mt-4">Pilih Paket</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+    <li class="breadcrumb-item">Daftar Harga</li>
+</ol>
+<div class="row mt-2">
 
-
-<div class="row mt-5">
     <div class="col-2 mt-1">
         <div id="accordion">
             <div class="card mt-5">

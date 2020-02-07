@@ -4,10 +4,13 @@
 @section('body')
 
 
-<div class="container-sm mb-5 mt-5">
+<h1 class="mt-4"> Testimoni Para Pelanggan </h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+    <li class="breadcrumb-item">Testimoni</li>
+</ol>
+<div class="row mt-5">
 
-
-<h1 class="text-center mb-5"> Testimoni Para Pelanggan </h1>
 
     <table class="table table-striped table-sm table-hover text-center">
         <thead>

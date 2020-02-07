@@ -12,6 +12,7 @@
 */
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 
 
 // Route::get('/', function () {
@@ -22,14 +23,12 @@ use Illuminate\Support\Facades\Input;
 
 //Route Halaman Awal
 Route::get('/', function () {
-    return view('/pelanggan/pages/halaman_utama_pelanggan');
+    $beli = DB::table('prices')->get();
+    // var_dump($beli);
+    // die;
+    return view('/pelanggan/pages/halaman_utama_pelanggan',['beli' => $beli]);
 });
 
-//Route Halaman Awal Pelanggan yang sudah login
-Route::get('/Awal_pelanggan', function () {
-    $price = DB::table('prices')->paginate(10);
-    return view('/pelanggan/pages/login_pelanggan_sukses',compact('price'));
-});
 
 //Route View Daftar Pelanggan dan Proses Daftar Pelanggan
 Route::get('/Register/create','RegisterPelangganController@create');
@@ -112,6 +111,10 @@ Route::get('/Profil','ProfilController@store');
 //Pengaturan
 Route::get('/Pengaturan/{id}', 'ProfilController@edit');
 Route::get('/Pengaturan/Pwd/{id}', 'ProfilController@editPwd');
+Route::delete('/Pengaturan/hapus/{id}','ProfilController@hapus');
+Route::get('/Destroy/{id}','ProfilController@destroy');
+
+
 Route::get('/Pengaturan/Pin/{id}', 'ProfilController@editPin');
 Route::put('/Pengaturan/Update/{id}', 'ProfilController@update');
 Route::put('/Pengaturan/Update/Pwd/{id}', 'ProfilController@updatePwd');

@@ -4,6 +4,14 @@
 
 @section('body')
 
+<h1 class="mt-4">Hai, {{$ids->username}}</h1>
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+    <li class="breadcrumb-item"><a href="/Profil">Profil</a></li>
+    <li class="breadcrumb-item">Edit Password</li>
+</ol>
+
 @if(!Session::get('nama'))
         @php
             Session::flash('CobaPaksa','Anda Harus Login Terlebih Dahulu!');
@@ -72,7 +80,5 @@
     </tbody>
   </table>
 </form>
-
-
 
   @endsection

@@ -16,8 +16,8 @@ class TestimoniController extends Controller
     public function index()
     {
         //
-        $join = DB::table('testimonis')
-        ->join('users','testimonis.id_user','=','users.id')
+        $join = DB::table('testimonials')
+        ->join('users','testimonials.id_user','=','users.id')
         ->paginate(10);
 
         return view('pelanggan/pages/hal_testimoni',compact('join'));

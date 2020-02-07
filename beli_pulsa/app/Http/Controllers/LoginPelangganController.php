@@ -17,7 +17,7 @@ class LoginPelangganController extends Controller
     public function index()
     {
         //Login Sukses
-        return view('/pelanggan/pages/login_pelanggan_sukses');
+        //return view('/pelanggan/pages/login_pelanggan_sukses');
     }
 
     /**
@@ -51,7 +51,7 @@ class LoginPelangganController extends Controller
 
         if($cek_user_password && Hash::check($password, $cek_user_password->password)){
             Session::put('nama', $cek_user_password->username);
-            return redirect('/Login/index');
+            return redirect('/Profil');
         }else{
             Session::flash('Kesalahan','Username dan Password yang anda Masukkan salah!');
             return redirect('/Login/create');

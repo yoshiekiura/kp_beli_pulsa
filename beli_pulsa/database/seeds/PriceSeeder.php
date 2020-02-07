@@ -11,6 +11,9 @@ class PriceSeeder extends Seeder
      */
     public function run()
     {
+        //UPDATE HARGA TERAKHIR 05 Februari 2020
+
+
         //punya reguler axis dan xl
         DB::table('prices')->insert([
             'kode' => 'X5',
@@ -871,74 +874,11 @@ class PriceSeeder extends Seeder
             'status' => 'Ada'
         ]);
 
-        //paket internet indosat
-        DB::table('prices')->insert([
-            'kode' => 'IDFM1',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
-            'harga' => 1815,
-            'keterangan' => 'ISAT DATA Mini 100MB 30Hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'IDFM3',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
-            'harga' => 3215,
-            'keterangan' => 'ISAT DATA Mini 200MB 30Hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'IDFM4',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
-            'harga' => 3615,
-            'keterangan' => 'ISAT DATA Mini 250MB 30Hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'IDFM5',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
-            'harga' => 4915,
-            'keterangan' => 'ISAT DATA Mini 300MB 30Hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'IDFM9',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
-            'harga' => 6215,
-            'keterangan' => 'ISAT DATA Mini 500MB 30Hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'IDFM13',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
-            'harga' => 8855,
-            'keterangan' => 'ISAT DATA Mini 700MB 30Hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'IDFM14',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
-            'harga' => 9355,
-            'keterangan' => 'ISAT DATA Mini 750MB 30Hr',
-            'status' => 'Ada'
-        ]);
-
+            //data indosat fix
         DB::table('prices')->insert([
             'kode' => 'IDF1',
             'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
+            'provider' => 'Indosat Fix',
             'harga' => 12100,
             'keterangan' => 'ISAT DATA 1GB All Band 24h, 30hr',
             'status' => 'Ada'
@@ -947,7 +887,7 @@ class PriceSeeder extends Seeder
         DB::table('prices')->insert([
             'kode' => 'IDF2',
             'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
+            'provider' => 'Indosat Fix',
             'harga' => 24100,
             'keterangan' => 'ISAT DATA 2GB All Band 24h, 30hr',
             'status' => 'Ada'
@@ -956,7 +896,7 @@ class PriceSeeder extends Seeder
         DB::table('prices')->insert([
             'kode' => 'IDF3',
             'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
+            'provider' => 'Indosat Fix',
             'harga' => 33600,
             'keterangan' => 'ISAT DATA 3GB All Band 24h, 30hr',
             'status' => 'Ada'
@@ -965,7 +905,7 @@ class PriceSeeder extends Seeder
         DB::table('prices')->insert([
             'kode' => 'IDF4',
             'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
+            'provider' => 'Indosat Fix',
             'harga' => 48100,
             'keterangan' => 'ISAT DATA 4GB All Band 24h, 30hr',
             'status' => 'Ada'
@@ -974,7 +914,7 @@ class PriceSeeder extends Seeder
         DB::table('prices')->insert([
             'kode' => 'IDF5',
             'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
+            'provider' => 'Indosat Fix',
             'harga' => 59600,
             'keterangan' => 'ISAT DATA 5GB All Band 24h, 30hr',
             'status' => 'Ada'
@@ -983,7 +923,7 @@ class PriceSeeder extends Seeder
         DB::table('prices')->insert([
             'kode' => 'IDF6',
             'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
+            'provider' => 'Indosat Fix',
             'harga' => 67600,
             'keterangan' => 'ISAT DATA 6GB All Band 24h, 30hr',
             'status' => 'Ada'
@@ -992,7 +932,7 @@ class PriceSeeder extends Seeder
         DB::table('prices')->insert([
             'kode' => 'IDF7',
             'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
+            'provider' => 'Indosat Fix',
             'harga' => 75100,
             'keterangan' => 'ISAT DATA 7GB All Band 24h, 30hr',
             'status' => 'Ada'
@@ -1001,7 +941,7 @@ class PriceSeeder extends Seeder
         DB::table('prices')->insert([
             'kode' => 'IDF8',
             'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
+            'provider' => 'Indosat Fix',
             'harga' => 82100,
             'keterangan' => 'ISAT DATA 8GB All Band 24h, 30hr',
             'status' => 'Ada'
@@ -1010,7 +950,7 @@ class PriceSeeder extends Seeder
         DB::table('prices')->insert([
             'kode' => 'IDF9',
             'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
+            'provider' => 'Indosat Fix',
             'harga' => 89100,
             'keterangan' => 'ISAT DATA 9GB All Band 24h, 30hr',
             'status' => 'Ada'
@@ -1019,7 +959,7 @@ class PriceSeeder extends Seeder
         DB::table('prices')->insert([
             'kode' => 'IDF10',
             'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat',
+            'provider' => 'Indosat Fix',
             'harga' => 90600,
             'keterangan' => 'ISAT DATA 10GB All Band 24h, 30hr',
             'status' => 'Ada'
@@ -1199,11 +1139,11 @@ class PriceSeeder extends Seeder
             'status' => 'Ada'
         ]);
 
-        //paket internet indosat lainnya
+        //paket internet indosat mini
         DB::table('prices')->insert([
             'kode' => 'IDM1',
             'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat (Lainnya)',
+            'provider' => 'Indosat (Mini)',
             'harga' => 19915,
             'keterangan' => 'INDOSAT DATA MINI 1 GB 30hr',
             'status' => 'Ada'
@@ -1212,9 +1152,72 @@ class PriceSeeder extends Seeder
         DB::table('prices')->insert([
             'kode' => 'IDM2',
             'detail_produk' => 'Paket Internet',
-            'provider' => 'Indosat (Lainnya)',
+            'provider' => 'Indosat (Mini)',
             'harga' => 34915,
             'keterangan' => 'INDOSAT DATA MINI 2 GB 30hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'IDFM1',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Indosat (Mini)',
+            'harga' => 1815,
+            'keterangan' => 'ISAT DATA Mini 100MB 30Hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'IDFM3',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Indosat (Mini)',
+            'harga' => 3215,
+            'keterangan' => 'ISAT DATA Mini 200MB 30Hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'IDFM4',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Indosat (Mini)',
+            'harga' => 3615,
+            'keterangan' => 'ISAT DATA Mini 250MB 30Hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'IDFM5',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Indosat (Mini)',
+            'harga' => 4915,
+            'keterangan' => 'ISAT DATA Mini 300MB 30Hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'IDFM9',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Indosat (Mini)',
+            'harga' => 6215,
+            'keterangan' => 'ISAT DATA Mini 500MB 30Hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'IDFM13',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Indosat (Mini)',
+            'harga' => 8855,
+            'keterangan' => 'ISAT DATA Mini 700MB 30Hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'IDFM14',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Indosat (Mini)',
+            'harga' => 9355,
+            'keterangan' => 'ISAT DATA Mini 750MB 30Hr',
             'status' => 'Ada'
         ]);
 
@@ -1599,124 +1602,6 @@ class PriceSeeder extends Seeder
             'status' => 'Ada'
         ]);
 
-        //paket internet zona 1-11
-        DB::table('prices')->insert([
-            'kode' => 'TDBMX6',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Zona 1-11)',
-            'harga' => 24300,
-            'keterangan' => '1GB Flash + 5GB MAXStream 30hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'TDBG3',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Zona 1-11)',
-            'harga' => 24300,
-            'keterangan' => '1GB + 2GB GAMES 30Hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'TDBM2',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Zona 1-11)',
-            'harga' => 24300,
-            'keterangan' => '1GB + 1GB MUSIC 30hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'TDBF1',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Zona 1-11)',
-            'harga' => 24800,
-            'keterangan' => '1GB Flash 30hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'TDBF4',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Zona 1-11)',
-            'harga' => 54055,
-            'keterangan' => '[4GB] 3GB Flash + 1GB OMG! 30hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'TDBF7',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Zona 1-11)',
-            'harga' => 87350,
-            'keterangan' => '[7GB] 5GB Flash + 2GB OMG! 30hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'TDBF10',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Zona 1-11)',
-            'harga' => 106955,
-            'keterangan' => '[10GB] 8GB Flash + 2GB OMG! 30hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'TDBF14',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Zona 1-11)',
-            'harga' => 118750,
-            'keterangan' => '[14GB] 12GB Flash + 2GB OMG! 30hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'TDBF27',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Zona 1-11)',
-            'harga' => 201055,
-            'keterangan' => '[27GB] 25GB Flash + 2GB OMG! 30hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'TDBF52',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Zona 1-11)',
-            'harga' => 246095,
-            'keterangan' => '[52GB] 50GB Flash + 2GB OMG! 30hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'TDBC6',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Zona 1-11)',
-            'harga' => 99099,
-            'keterangan' => '[6,5GB] 4,5GB Flash + 2GB OMG!+100mnt+60sms 30hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'TDBC19',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Zona 1-11)',
-            'harga' => 153995,
-            'keterangan' => '[19GB] 17GB Flash + 2GB OMG!+300mnt+100sms 30hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'TDBC30',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Zona 1-11)',
-            'harga' => 225615,
-            'keterangan' => '[30GB] 28GB Flash + 2GB OMG!+600mnt+200sms 30hr',
-            'status' => 'Ada'
-        ]);
-
         //Paket Internet Telkomsel AS
         DB::table('prices')->insert([
             'kode' => 'BULKAS1G7',
@@ -1855,11 +1740,11 @@ class PriceSeeder extends Seeder
             'status' => 'Ada'
         ]);
 
-        //PAKET internet telkomsel add
+        //data telkomsel vas
         DB::table('prices')->insert([
             'kode' => 'BULKAD10G3',
             'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Add)',
+            'provider' => 'Telkomsel (Vas)',
             'harga' => 5600,
             'keterangan' => 'TELKOMSEL TAMBAH VIDIO MAXstream 10GB 3HR',
             'status' => 'Ada'
@@ -1868,9 +1753,64 @@ class PriceSeeder extends Seeder
         DB::table('prices')->insert([
             'kode' => 'BULKAD5G1',
             'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Add)',
+            'provider' => 'Telkomsel (Vass)',
             'harga' => 5600,
             'keterangan' => 'TELKOMSEL TAMBAH Facebook,Instagram 5GB 1HR',
+            'status' => 'Ada'
+        ]);
+
+        //paket internet telkomsel hari
+        DB::table('prices')->insert([
+            'kode' => 'BULKH1G3',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Hari)',
+            'harga' => 24600,
+            'keterangan' => 'INTERNET MURAH HARIAN 3GB/1HR',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'BULKH3G1',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Hari)',
+            'harga' => 18600,
+            'keterangan' => 'INTERNET MURAH HARIAN 1GB/3HR',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'BULKH3G2',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Hari)',
+            'harga' => 24100,
+            'keterangan' => 'INTERNET MURAH HARIAN 2GB/3HR',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'BULKH3G3',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Hari)',
+            'harga' => 28600,
+            'keterangan' => 'INTERNET MURAH HARIAN 3GB/3HR',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'BULKH3G7',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Hari)',
+            'harga' => 28600,
+            'keterangan' => 'INTERNET MURAH HARIAN 7GB/3HR',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'BULKH3G15',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Hari)',
+            'harga' => 48600,
+            'keterangan' => 'INTERNET MURAH HARIAN 15GB/3HR',
             'status' => 'Ada'
         ]);
 
@@ -1972,61 +1912,6 @@ class PriceSeeder extends Seeder
             'provider' => 'Telkomsel (Combo)',
             'harga' => 199400,
             'keterangan' => 'INTERNET MURAH 28GB,2GB OMG,600MNT+200SMS Tsel',
-            'status' => 'Ada'
-        ]);
-
-        //paket internet telkomsel hari
-        DB::table('prices')->insert([
-            'kode' => 'BULKH1G3',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Hari)',
-            'harga' => 24600,
-            'keterangan' => 'INTERNET MURAH HARIAN 3GB/1HR',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'BULKH3G1',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Hari)',
-            'harga' => 18600,
-            'keterangan' => 'INTERNET MURAH HARIAN 1GB/3HR',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'BULKH3G2',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Hari)',
-            'harga' => 24100,
-            'keterangan' => 'INTERNET MURAH HARIAN 2GB/3HR',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'BULKH3G3',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Hari)',
-            'harga' => 28600,
-            'keterangan' => 'INTERNET MURAH HARIAN 3GB/3HR',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'BULKH3G7',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Hari)',
-            'harga' => 28600,
-            'keterangan' => 'INTERNET MURAH HARIAN 7GB/3HR',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'BULKH3G15',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Hari)',
-            'harga' => 48600,
-            'keterangan' => 'INTERNET MURAH HARIAN 15GB/3HR',
             'status' => 'Ada'
         ]);
 
@@ -2194,6 +2079,124 @@ class PriceSeeder extends Seeder
             'status' => 'Ada'
         ]);
 
+        //paket internet zona 1-11
+        DB::table('prices')->insert([
+            'kode' => 'TDBMX6',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Zona 1-11)',
+            'harga' => 24300,
+            'keterangan' => '1GB Flash + 5GB MAXStream 30hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'TDBG3',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Zona 1-11)',
+            'harga' => 24300,
+            'keterangan' => '1GB + 2GB GAMES 30Hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'TDBM2',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Zona 1-11)',
+            'harga' => 24300,
+            'keterangan' => '1GB + 1GB MUSIC 30hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'TDBF1',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Zona 1-11)',
+            'harga' => 24800,
+            'keterangan' => '1GB Flash 30hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'TDBF4',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Zona 1-11)',
+            'harga' => 54055,
+            'keterangan' => '[4GB] 3GB Flash + 1GB OMG! 30hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'TDBF7',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Zona 1-11)',
+            'harga' => 87350,
+            'keterangan' => '[7GB] 5GB Flash + 2GB OMG! 30hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'TDBF10',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Zona 1-11)',
+            'harga' => 106955,
+            'keterangan' => '[10GB] 8GB Flash + 2GB OMG! 30hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'TDBF14',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Zona 1-11)',
+            'harga' => 118750,
+            'keterangan' => '[14GB] 12GB Flash + 2GB OMG! 30hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'TDBF27',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Zona 1-11)',
+            'harga' => 201055,
+            'keterangan' => '[27GB] 25GB Flash + 2GB OMG! 30hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'TDBF52',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Zona 1-11)',
+            'harga' => 246095,
+            'keterangan' => '[52GB] 50GB Flash + 2GB OMG! 30hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'TDBC6',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Zona 1-11)',
+            'harga' => 99099,
+            'keterangan' => '[6,5GB] 4,5GB Flash + 2GB OMG!+100mnt+60sms 30hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'TDBC19',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Zona 1-11)',
+            'harga' => 153995,
+            'keterangan' => '[19GB] 17GB Flash + 2GB OMG!+300mnt+100sms 30hr',
+            'status' => 'Ada'
+        ]);
+
+        DB::table('prices')->insert([
+            'kode' => 'TDBC30',
+            'detail_produk' => 'Paket Internet',
+            'provider' => 'Telkomsel (Zona 1-11)',
+            'harga' => 225615,
+            'keterangan' => '[30GB] 28GB Flash + 2GB OMG!+600mnt+200sms 30hr',
+            'status' => 'Ada'
+        ]);
+
         //paket internet bulk tsel semua zona
         DB::table('prices')->insert([
             'kode' => 'TDBP4',
@@ -2273,34 +2276,6 @@ class PriceSeeder extends Seeder
             'provider' => 'Telkomsel (Bulk Tsel Semua Zona)',
             'harga' => 226650,
             'keterangan' => '[30GB] 28GB Flash+2GB OMG!+600mnt+200sms 30hr',
-            'status' => 'Ada'
-        ]);
-
-        //paket internet telkomsel depok
-        DB::table('prices')->insert([
-            'kode' => 'BDEPOK4',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Depok)',
-            'harga' => 39450,
-            'keterangan' => '[4GB] 3GB Flash + 1GB OMG! 30hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'BDEPOK7',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Depok)',
-            'harga' => 64015,
-            'keterangan' => '[7GB] 5GB Flash + 2GB OMG! 30hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'BDEPOK10',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Telkomsel (Depok)',
-            'harga' => 90275,
-            'keterangan' => '[10GB] 8GB Flash + 2GB OMG! 30hr',
             'status' => 'Ada'
         ]);
 
@@ -2432,6 +2407,37 @@ class PriceSeeder extends Seeder
             'status' => 'Ada'
         ]);
 
+
+        // //paket internet telkomsel depok
+        // DB::table('prices')->insert([
+        //     'kode' => 'BDEPOK4',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Telkomsel (Depok)',
+        //     'harga' => 39450,
+        //     'keterangan' => '[4GB] 3GB Flash + 1GB OMG! 30hr',
+        //     'status' => 'Ada'
+        // ]);
+
+        // DB::table('prices')->insert([
+        //     'kode' => 'BDEPOK7',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Telkomsel (Depok)',
+        //     'harga' => 64015,
+        //     'keterangan' => '[7GB] 5GB Flash + 2GB OMG! 30hr',
+        //     'status' => 'Ada'
+        // ]);
+
+        // DB::table('prices')->insert([
+        //     'kode' => 'BDEPOK10',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Telkomsel (Depok)',
+        //     'harga' => 90275,
+        //     'keterangan' => '[10GB] 8GB Flash + 2GB OMG! 30hr',
+        //     'status' => 'Ada'
+        // ]);
+
+
+
         //paket internet smartfren
         DB::table('prices')->insert([
             'kode' => 'SMVB1',
@@ -2515,143 +2521,161 @@ class PriceSeeder extends Seeder
             'status' => 'Ada'
         ]);
 
-        DB::table('prices')->insert([
-            'kode' => 'TPM10',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri KPK(Kartu Perdana Kosong)',
-            'harga' => 117600,
-            'keterangan' => 'Unlock KPK AON 10GB + 20GB 4G 30HR',
-            'status' => 'Kosong'
-        ]);
+        // DB::table('prices')->insert([
+        //     'kode' => 'TPM10',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri KPK(Kartu Perdana Kosong)',
+        //     'harga' => 117600,
+        //     'keterangan' => 'Unlock KPK AON 10GB + 20GB 4G 30HR',
+        //     'status' => 'Kosong'
+        // ]);
 
-        DB::table('prices')->insert([
-            'kode' => 'TPM1',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri KPK(Kartu Perdana Kosong)',
-            'harga' => 18615,
-            'keterangan' => 'Unlock KPK AON 1GB + 1GB 4G 30Hr',
-            'status' => 'Kosong'
-        ]);
-        DB::table('prices')->insert([
-            'kode' => 'TPM2',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri KPK(Kartu Perdana Kosong)',
-            'harga' => 31015,
-            'keterangan' => 'Unlock KPK AON 2GB + 3GB 4G 30Hr',
-            'status' => 'Kosong'
-        ]);
-        DB::table('prices')->insert([
-            'kode' => 'TPM3',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri KPK(Kartu Perdana Kosong)',
-            'harga' => 45215,
-            'keterangan' => 'Unlock KPK AON 3GB + 6GB 4G 30Hr',
-            'status' => 'Kosong'
-        ]);
-        DB::table('prices')->insert([
-            'kode' => 'TPM4',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri KPK(Kartu Perdana Kosong)',
-            'harga' => 46615,
-            'keterangan' => 'Unlock KPK AON 4GB + 4GB 4G 30HR',
-            'status' => 'Kosong'
-        ]);
-        DB::table('prices')->insert([
-            'kode' => 'TPM5',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri KPK(Kartu Perdana Kosong)',
-            'harga' => 65050,
-            'keterangan' => 'Unlock KPK AON 5GB + 8GB 4G 30HR',
-            'status' => 'Kosong'
-        ]);
-        DB::table('prices')->insert([
-            'kode' => 'TPM6',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri KPK(Kartu Perdana Kosong)',
-            'harga' => 72850,
-            'keterangan' => 'Unlock KPK AON 6GB + 12GB 4G 30HR',
-            'status' => 'Kosong'
-        ]);
-        DB::table('prices')->insert([
-            'kode' => 'TPM8',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri KPK(Kartu Perdana Kosong)',
-            'harga' => 97600,
-            'keterangan' => 'Unlock KPK AON 8GB + 14GB 4G 30HR',
-            'status' => 'Kosong'
-        ]);
+        // DB::table('prices')->insert([
+        //     'kode' => 'TPM1',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri KPK(Kartu Perdana Kosong)',
+        //     'harga' => 18615,
+        //     'keterangan' => 'Unlock KPK AON 1GB + 1GB 4G 30Hr',
+        //     'status' => 'Kosong'
+        // ]);
+        // DB::table('prices')->insert([
+        //     'kode' => 'TPM2',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri KPK(Kartu Perdana Kosong)',
+        //     'harga' => 31015,
+        //     'keterangan' => 'Unlock KPK AON 2GB + 3GB 4G 30Hr',
+        //     'status' => 'Kosong'
+        // ]);
+        // DB::table('prices')->insert([
+        //     'kode' => 'TPM3',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri KPK(Kartu Perdana Kosong)',
+        //     'harga' => 45215,
+        //     'keterangan' => 'Unlock KPK AON 3GB + 6GB 4G 30Hr',
+        //     'status' => 'Kosong'
+        // ]);
+        // DB::table('prices')->insert([
+        //     'kode' => 'TPM4',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri KPK(Kartu Perdana Kosong)',
+        //     'harga' => 46615,
+        //     'keterangan' => 'Unlock KPK AON 4GB + 4GB 4G 30HR',
+        //     'status' => 'Kosong'
+        // ]);
+        // DB::table('prices')->insert([
+        //     'kode' => 'TPM5',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri KPK(Kartu Perdana Kosong)',
+        //     'harga' => 65050,
+        //     'keterangan' => 'Unlock KPK AON 5GB + 8GB 4G 30HR',
+        //     'status' => 'Kosong'
+        // ]);
+        // DB::table('prices')->insert([
+        //     'kode' => 'TPM6',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri KPK(Kartu Perdana Kosong)',
+        //     'harga' => 72850,
+        //     'keterangan' => 'Unlock KPK AON 6GB + 12GB 4G 30HR',
+        //     'status' => 'Kosong'
+        // ]);
+        // DB::table('prices')->insert([
+        //     'kode' => 'TPM8',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri KPK(Kartu Perdana Kosong)',
+        //     'harga' => 97600,
+        //     'keterangan' => 'Unlock KPK AON 8GB + 14GB 4G 30HR',
+        //     'status' => 'Kosong'
+        // ]);
 
         //Paket internet tri mini
         DB::table('prices')->insert([
-            'kode' => 'TMS1',
+            'kode' => 'TMH1',
             'detail_produk' => 'Paket Internet',
             'provider' => 'Three/Tri (Mini)',
-            'harga' => 5215,
-            'keterangan' => 'MIX SMALL [5 GB] 1GB + 4GB (24-09) 1Hr',
-            'status' => 'Kosong'
+            'harga' => 11355,
+            'keterangan' => 'TRI DATA MINI 1GB + 2K 5H',
+            'status' => 'Ada'
         ]);
 
         DB::table('prices')->insert([
-            'kode' => 'TMS2',
+            'kode' => 'TMH2',
             'detail_produk' => 'Paket Internet',
             'provider' => 'Three/Tri (Mini)',
-            'harga' => 10015,
-            'keterangan' => 'MIX SMALL [2.75 GB] 0.75GB + 2GB (4G) 3Hr',
-            'status' => 'Kosong'
+            'harga' => 15250,
+            'keterangan' => 'TRI DATA MINI 1,5GB + 2K 7H',
+            'status' => 'Ada'
         ]);
 
         DB::table('prices')->insert([
-            'kode' => 'TMS3',
+            'kode' => 'TMSV1',
             'detail_produk' => 'Paket Internet',
             'provider' => 'Three/Tri (Mini)',
-            'harga' => 14915,
-            'keterangan' => 'MIX SMALL [2.75 GB] 0.75GB + 2GB( 4G) 7Hr',
-            'status' => 'Kosong'
+            'harga' => 5445,
+            'keterangan' => 'MIX SMALL [5 GB] 1GB + 4GB (24-09) 1Hari',
+            'status' => 'Ada'
         ]);
 
         DB::table('prices')->insert([
-            'kode' => 'TMS4',
+            'kode' => 'TMSV2',
             'detail_produk' => 'Paket Internet',
             'provider' => 'Three/Tri (Mini)',
-            'harga' => 15015,
-            'keterangan' => 'MIX SMALL [5 GB] 1GB + 4GB (24-09) 7Hr',
-            'status' => 'Kosong'
-        ]);
-        DB::table('prices')->insert([
-            'kode' => 'TMS5',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri (Mini)',
-            'harga' => 19915,
-            'keterangan' => 'MIX SMALL [3 GB] 3Hr',
-            'status' => 'Kosong'
+            'harga' => 10445,
+            'keterangan' => 'MIX SMALL [1.5 GB] 500MB + 1GB YOUTBE 3Hari',
+            'status' => 'Ada'
         ]);
 
         DB::table('prices')->insert([
-            'kode' => 'TMS6',
+            'kode' => 'TMSV3',
             'detail_produk' => 'Paket Internet',
             'provider' => 'Three/Tri (Mini)',
-            'harga' => 24915,
-            'keterangan' => 'MIX SMALL [3.75 GB] 1.75GB + 2GB (4G) + VIU 7Hr',
-            'status' => 'Kosong'
+            'harga' => 15445,
+            'keterangan' => 'MIX SMALL [5 GB] 2.5GB + 2.5GB (01-09) 7Hari',
+            'status' => 'Ada'
         ]);
 
-        DB::table('prices')->insert([
-            'kode' => 'TMS7',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri (Mini)',
-            'harga' => 49015,
-            'keterangan' => 'MIX SMALL [12GB] 2GB + 10GB (4G) 30Hr',
-            'status' => 'Kosong'
-        ]);
+        // DB::table('prices')->insert([
+        //     'kode' => 'TMS4',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri (Mini)',
+        //     'harga' => 15015,
+        //     'keterangan' => 'MIX SMALL [5 GB] 1GB + 4GB (24-09) 7Hr',
+        //     'status' => 'Kosong'
+        // ]);
+        // DB::table('prices')->insert([
+        //     'kode' => 'TMS5',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri (Mini)',
+        //     'harga' => 19915,
+        //     'keterangan' => 'MIX SMALL [3 GB] 3Hr',
+        //     'status' => 'Kosong'
+        // ]);
 
-        DB::table('prices')->insert([
-            'kode' => 'TMS8',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri (Mini)',
-            'harga' => 88015,
-            'keterangan' => 'MIX SMALL [24GB] 4GB + 20GB (4G) 30Hr',
-            'status' => 'Kosong'
-        ]);
+        // DB::table('prices')->insert([
+        //     'kode' => 'TMS6',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri (Mini)',
+        //     'harga' => 24915,
+        //     'keterangan' => 'MIX SMALL [3.75 GB] 1.75GB + 2GB (4G) + VIU 7Hr',
+        //     'status' => 'Kosong'
+        // ]);
+
+        // DB::table('prices')->insert([
+        //     'kode' => 'TMS7',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri (Mini)',
+        //     'harga' => 49015,
+        //     'keterangan' => 'MIX SMALL [12GB] 2GB + 10GB (4G) 30Hr',
+        //     'status' => 'Kosong'
+        // ]);
+
+        // DB::table('prices')->insert([
+        //     'kode' => 'TMS8',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri (Mini)',
+        //     'harga' => 88015,
+        //     'keterangan' => 'MIX SMALL [24GB] 4GB + 20GB (4G) 30Hr',
+        //     'status' => 'Kosong'
+        // ]);
 
         //paket internet tri aon
         DB::table('prices')->insert([
@@ -2708,53 +2732,6 @@ class PriceSeeder extends Seeder
             'status' => 'Ada'
         ]);
 
-        //paket internet tri cinta
-        DB::table('prices')->insert([
-            'kode' => 'TCN6',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri (Cinta)',
-            'harga' => 73015,
-            'keterangan' => '[50GB] 6GB+4GB+20GB Weekend+20GB Kendo 30Hr',
-            'status' => 'Ada'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'TCN10',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri (Cinta)',
-            'harga' => 99015,
-            'keterangan' => '[50GB] 10GB+8GB+32GB Weekend+20GB Kendo 30Hr',
-            'status' => 'Ada'
-        ]);
-
-        //paket internet tri anynet
-        DB::table('prices')->insert([
-            'kode' => 'TNY2',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri (Anynet)',
-            'harga' => 34715,
-            'keterangan' => '2GB + 20Mnt TLP 30Hr',
-            'status' => 'Kosong'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'TNY3',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri (Anynet)',
-            'harga' => 59015,
-            'keterangan' => '2GB + 30GB 4GB(1GB/HARI) + 30Mnt TLP 30Hr',
-            'status' => 'Kosong'
-        ]);
-
-        DB::table('prices')->insert([
-            'kode' => 'TNY4',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri (Anynet)',
-            'harga' => 78415,
-            'keterangan' => '5GB + 30GB 4GB(1GB/HARI) + 30Mnt TLP 30Hr',
-            'status' => 'Kosong'
-        ]);
-
         //paket internet tri biasa
         DB::table('prices')->insert([
             'kode' => 'TRD1',
@@ -2762,7 +2739,7 @@ class PriceSeeder extends Seeder
             'provider' => 'Three/Tri',
             'harga' => 20800,
             'keterangan' => '1GB Masa Aktf Kartu + (1GB 30Hr)',
-            'status' => 'Kosong'
+            'status' => 'Ada'
         ]);
 
         DB::table('prices')->insert([
@@ -2771,7 +2748,7 @@ class PriceSeeder extends Seeder
             'provider' => 'Three/Tri',
             'harga' => 33050,
             'keterangan' => '2GB Masa Aktf Kartu + (3GB 30Hr)',
-            'status' => 'Kosong'
+            'status' => 'Ada'
         ]);
 
         DB::table('prices')->insert([
@@ -2780,7 +2757,7 @@ class PriceSeeder extends Seeder
             'provider' => 'Three/Tri',
             'harga' => 47605,
             'keterangan' => '3GB Masa Aktf Kartu + (6GB+UNLI WA&LINE 15Hr)',
-            'status' => 'Kosong'
+            'status' => 'Ada'
         ]);
 
         DB::table('prices')->insert([
@@ -2789,7 +2766,7 @@ class PriceSeeder extends Seeder
             'provider' => 'Three/Tri',
             'harga' => 48855,
             'keterangan' => '4GB Masa Aktf Kartu + (4GB+UNLI WA&LINE 15Hr)',
-            'status' => 'Kosong'
+            'status' => 'Ada'
         ]);
 
         DB::table('prices')->insert([
@@ -2798,7 +2775,7 @@ class PriceSeeder extends Seeder
             'provider' => 'Three/Tri',
             'harga' => 67615,
             'keterangan' => '5GB Masa Aktf Kartu + (8GB+UNLI WA&LINE 15Hr)',
-            'status' => 'Kosong'
+            'status' => 'Ada'
         ]);
 
         DB::table('prices')->insert([
@@ -2807,7 +2784,7 @@ class PriceSeeder extends Seeder
             'provider' => 'Three/Tri',
             'harga' => 76800,
             'keterangan' => '6GB Masa Aktf Kartu + (12GB+UNLI YTUBE 15Hr)',
-            'status' => 'Kosong'
+            'status' => 'Ada'
         ]);
 
         DB::table('prices')->insert([
@@ -2816,7 +2793,7 @@ class PriceSeeder extends Seeder
             'provider' => 'Three/Tri',
             'harga' => 100015,
             'keterangan' => '8GB Masa Aktf Kartu + (4GB+UNLI YTUBE 15Hr)',
-            'status' => 'Kosong'
+            'status' => 'Ada'
         ]);
 
         DB::table('prices')->insert([
@@ -2825,8 +2802,57 @@ class PriceSeeder extends Seeder
             'provider' => 'Three/Tri',
             'harga' => 121325,
             'keterangan' => '10GB Masa Aktf Kartu + (20GB+UNLI YTUBE 15Hr)',
-            'status' => 'Kosong'
+            'status' => 'Ada'
         ]);
+
+        // //paket internet tri cinta
+        // DB::table('prices')->insert([
+        //     'kode' => 'TCN6',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri (Cinta)',
+        //     'harga' => 73015,
+        //     'keterangan' => '[50GB] 6GB+4GB+20GB Weekend+20GB Kendo 30Hr',
+        //     'status' => 'Ada'
+        // ]);
+
+        // DB::table('prices')->insert([
+        //     'kode' => 'TCN10',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri (Cinta)',
+        //     'harga' => 99015,
+        //     'keterangan' => '[50GB] 10GB+8GB+32GB Weekend+20GB Kendo 30Hr',
+        //     'status' => 'Ada'
+        // ]);
+
+        // //paket internet tri anynet
+        // DB::table('prices')->insert([
+        //     'kode' => 'TNY2',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri (Anynet)',
+        //     'harga' => 34715,
+        //     'keterangan' => '2GB + 20Mnt TLP 30Hr',
+        //     'status' => 'Kosong'
+        // ]);
+
+        // DB::table('prices')->insert([
+        //     'kode' => 'TNY3',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri (Anynet)',
+        //     'harga' => 59015,
+        //     'keterangan' => '2GB + 30GB 4GB(1GB/HARI) + 30Mnt TLP 30Hr',
+        //     'status' => 'Kosong'
+        // ]);
+
+        // DB::table('prices')->insert([
+        //     'kode' => 'TNY4',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri (Anynet)',
+        //     'harga' => 78415,
+        //     'keterangan' => '5GB + 30GB 4GB(1GB/HARI) + 30Mnt TLP 30Hr',
+        //     'status' => 'Kosong'
+        // ]);
+
+
 
         //paket internet tri getmore
         DB::table('prices')->insert([
@@ -2883,51 +2909,51 @@ class PriceSeeder extends Seeder
             'status' => 'Ada'
         ]);
 
-        //paket internet tri extra kuota
-        DB::table('prices')->insert([
-            'kode' => 'TD1',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri (Extra Kuota)',
-            'harga' => 5095,
-            'keterangan' => 'TRI KUOTA ++ 80MB',
-            'status' => 'Kosong'
-        ]);
+        // //paket internet tri extra kuota
+        // DB::table('prices')->insert([
+        //     'kode' => 'TD1',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri (Extra Kuota)',
+        //     'harga' => 5095,
+        //     'keterangan' => 'TRI KUOTA ++ 80MB',
+        //     'status' => 'Kosong'
+        // ]);
 
-        DB::table('prices')->insert([
-            'kode' => 'TD2',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri (Extra Kuota)',
-            'harga' => 10015,
-            'keterangan' => 'TRI KUOTA ++ 300MB',
-            'status' => 'Kosong'
-        ]);
+        // DB::table('prices')->insert([
+        //     'kode' => 'TD2',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri (Extra Kuota)',
+        //     'harga' => 10015,
+        //     'keterangan' => 'TRI KUOTA ++ 300MB',
+        //     'status' => 'Kosong'
+        // ]);
 
-        DB::table('prices')->insert([
-            'kode' => 'TD3',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri (Extra Kuota)',
-            'harga' => 19015,
-            'keterangan' => 'TRI KUOTA ++ 650MB',
-            'status' => 'Kosong'
-        ]);
+        // DB::table('prices')->insert([
+        //     'kode' => 'TD3',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri (Extra Kuota)',
+        //     'harga' => 19015,
+        //     'keterangan' => 'TRI KUOTA ++ 650MB',
+        //     'status' => 'Kosong'
+        // ]);
 
-        DB::table('prices')->insert([
-            'kode' => 'TD4',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri (Extra Kuota)',
-            'harga' => 32615,
-            'keterangan' => 'TRI KUOTA ++ 1.25GB',
-            'status' => 'Kosong'
-        ]);
+        // DB::table('prices')->insert([
+        //     'kode' => 'TD4',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri (Extra Kuota)',
+        //     'harga' => 32615,
+        //     'keterangan' => 'TRI KUOTA ++ 1.25GB',
+        //     'status' => 'Kosong'
+        // ]);
 
-        DB::table('prices')->insert([
-            'kode' => 'TD5',
-            'detail_produk' => 'Paket Internet',
-            'provider' => 'Three/Tri (Extra Kuota)',
-            'harga' => 78415,
-            'keterangan' => 'TRI KUOTA ++ 4.25GB',
-            'status' => 'Kosong'
-        ]);
+        // DB::table('prices')->insert([
+        //     'kode' => 'TD5',
+        //     'detail_produk' => 'Paket Internet',
+        //     'provider' => 'Three/Tri (Extra Kuota)',
+        //     'harga' => 78415,
+        //     'keterangan' => 'TRI KUOTA ++ 4.25GB',
+        //     'status' => 'Kosong'
+        // ]);
 
         //paket internet xl combo
         DB::table('prices')->insert([

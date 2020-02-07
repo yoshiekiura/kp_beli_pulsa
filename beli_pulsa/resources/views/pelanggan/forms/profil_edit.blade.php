@@ -4,6 +4,14 @@
 
 @section('body')
 
+<h1 class="mt-4">Hai, {{$ids->username}}</h1>
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+    <li class="breadcrumb-item"><a href="/Profil">Profil</a></li>
+    <li class="breadcrumb-item">Edit Profil</li>
+</ol>
+
 @if(!Session::get('nama'))
         @php
             Session::flash('CobaPaksa','Anda Harus Login Terlebih Dahulu!');
@@ -70,10 +78,6 @@
         <td><input type="text" name="alamat" class="form-control input-lg" placeholder="Masukkan Alamat Anda" value="{{ $ids->alamat }}"></td>
     </tr>
 
-    <tr>
-        <th scope="row">No. Telfon</th>
-        <td><input type="text" name="nomor_telpon" class="form-control input-lg" style="float:right" value="{{ $ids->no_telpon }}"></td>
-    </tr>
 
     <tr>
         <th scope="row">Kata Sandi</th>
@@ -87,7 +91,6 @@
     </tbody>
   </table>
 </form>
-
 
 
   @endsection

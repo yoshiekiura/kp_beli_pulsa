@@ -66,21 +66,20 @@
                     <i class="far fa-user-circle"></i> {{Session::get('nama')}}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="/Login/index">Home</a>
                       <a class="dropdown-item" href="/Profil">Profil</a>
                       <a class="dropdown-item" href="/Riwayat">Riwayat Transaksi</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="/Logout">LOGOUT!</a>
+                      <a class="dropdown-item" href="/Logout">Log Out</a>
                     </div>
                 </li>
               </ul>
             @else
               <ul class="navbar-nav float-right">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url('/Login/create') }}" >Masuk</a>
+                  <a class="nav-link" href="{{ url('/Login/create') }}" ><i class="fas fa-sign-in-alt"></i> Masuk</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/Register/create') }}" >Mendaftar</a>
+                    <a class="nav-link" href="{{ url('/Register/create') }}" ><i class="fas fa-user-plus"></i> Mendaftar</a>
                   </li>
               </ul>
             @endif

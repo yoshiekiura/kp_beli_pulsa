@@ -43,10 +43,10 @@ class RegisterPelangganController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'username' => 'required|min:3|max:50',
+            'username' => 'required|min:5|alpha_num|max:20',
             'no_telpon' => 'required|min:12|numeric',
             'email' => 'required|email',
-            'password' => 'required|confirmed|min:5'
+            'password' => 'required|alpha_num|confirmed|min:8'
         ]);
 
         $username = $request -> input('username');
@@ -82,7 +82,7 @@ class RegisterPelangganController extends Controller
 
             $tambah->save();
             Session::put('nama', $request -> username);
-            return redirect('/Login/index');
+            return redirect('/Profil');
 
             // User::create([
             //     'nama'                 => $request -> username,

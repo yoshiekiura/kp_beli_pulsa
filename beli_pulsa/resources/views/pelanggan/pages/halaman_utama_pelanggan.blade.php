@@ -2,7 +2,7 @@
 @section('title','Beli Pulsa Murah Disini Aja :D')
 
 @section('body')
-<div class="card" style="margin-top: 100px">
+<div class="card" style="margin-top: 130px;margin-bottom: 100px">
     <div class="card-body">
         <div class="card" id="kanan">
             <h2 style="color:#fff;
@@ -17,25 +17,25 @@
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
                     <select class="browser-default custom-select">
                         <option selected disabled>-- Produk --</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        @foreach ($beli as $b)
+                        <option value="">{{$b->detail_produk}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
                     <select class="browser-default custom-select">
                         <option selected disabled>-- Provider --</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        @foreach ($beli as $b)
+                        <option value="">{{$b->provider}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
                     <select class="browser-default custom-select">
                         <option selected disabled>-- Voucher --</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        @foreach ($beli as $b)
+                        <option value="">@currency($b->harga)</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
