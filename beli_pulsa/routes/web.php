@@ -24,10 +24,14 @@ use App\UserEditProfil;
 //Route Halaman Awal
 Route::get('/', function () {
     $beli = DB::table('prices')->get();
-    // var_dump($beli);
-    // die;
-    return view('/pelanggan/pages/halaman_utama_pelanggan',['beli' => $beli]);
+    $produk = DB::table('prices')->groupBy('detail_produk')->get();
+
+    return view('/pelanggan/pages/halaman_utama_pelanggan',
+    ['beli' => $beli,
+     'produk' => $produk ]);
 });
+
+Route::post('dynamicdependent/cari','DynamicDependent@cari');
 
 
 //Route View Daftar Pelanggan dan Proses Daftar Pelanggan

@@ -15,29 +15,24 @@
             margin: 20px 200px 20px 200px;
             border-radius: 5px;"><div style="padding: 5px 0px 5px 0px">Order</div></h2>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
-                    <select class="browser-default custom-select">
-                        <option selected disabled>-- Produk --</option>
-                        @foreach ($beli as $b)
-                        <option value="">{{$b->detail_produk}}</option>
-                        @endforeach
+                    <select name="detail_produk" id="detail_produk" class="browser-default custom-select dynamic" data-dependent="provider">
+                        <option selected disabled value="">Select Produk</option>                       
+                        @foreach ($produk as $p)
+                            <option value="{{ $p->detail_produk}}">{{ $p->detail_produk}}</option>
+                        @endforeach 
                     </select>
                 </div>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
-                    <select class="browser-default custom-select">
-                        <option selected disabled>-- Provider --</option>
-                        @foreach ($beli as $b)
-                        <option value="">{{$b->provider}}</option>
-                        @endforeach
+                    <select name="provider" id="provider" class="browser-default custom-select dynamic" data-dependent="keterangan">
+                        <option value="">Select Provider</option>
                     </select>
                 </div>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
-                    <select class="browser-default custom-select">
-                        <option selected disabled>-- Voucher --</option>
-                        @foreach ($beli as $b)
-                        <option value="">@currency($b->harga)</option>
-                        @endforeach
+                    <select name="keterangan" id="keterangan" class="browser-default custom-select" >
+                        <option value="">Select Keterangan</option>
                     </select>
                 </div>
+                @csrf
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
                     <input type="text" class="form-control" placeholder="Nomor HP">
                 </div>
@@ -82,6 +77,28 @@
     @if(Session::has('Logout'))
         <div class="alert alert-danger" style="text-align: center;margin-top:25px; margin-left: 35px; border-radius: 25px; margin-right: 35px; border-radius: 25px; margin-bottom: 10dp;"><span class="glyphicon glyphicon-ok"></span><em> {!! session('Logout') !!}</em></div>
     @endif
+
+    <script>
+        $(document).ready(function(){
+
+            $('.dynamic').change(function(){
+                if($(this).val() != ''){
+                    var select = $(this).attr("id");
+                    var value = $(this).val();
+                    var dependent = $(this).data('dependent');
+                    var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        url: '{{ url("dynamicdependent/cari")}}',
+                        method:"POST",
+                        data:{select:select, value:value, _token:_token, dependent:dependent},
+                        success:function(result){
+                            $('#'+dependent).html(result);
+                        } 
+                    })
+                }
+            });
+        });
+    </script>
 
 @endsection
 

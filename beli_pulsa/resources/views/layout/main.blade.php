@@ -11,6 +11,12 @@
 
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/jquery.js') }}"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+
+
     <!-- <link rel="stylesheet" type="text/css" href="/css/csslogin.css"> -->
 
 
@@ -148,7 +154,7 @@
 
 
     <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    {{-- <script type="text/javascript" src="/js/jquery.min.js"></script> --}}
     <script type="text/javascript" src="/js/bootstrap.js"></script>
     <script type="text/javascript" src="/js/popper.js"></script>
     <script type="text/css" src="/css/csslogin.css"></script>
