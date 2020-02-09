@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Price;
+// use App\Price;
 use Illuminate\Support\Facades\DB;
 
 class HargaController extends Controller
@@ -22,44 +22,69 @@ class HargaController extends Controller
 
     // untuk menampilkan harga pulsa reguler axis dan xl
     public function axisxl(){
-        $pulsaReguler = Price::where(['provider' => 'Axis & XL', 'detail_produk' => 'Pulsa Reguler']);
-        $price = $pulsaReguler->get();
+        //$pulsaReguler = Price::where(['provider' => 'Axis & XL', 'detail_produk' => 'Pulsa Reguler']);
+        $price = DB::table('price_lists')
+        ->join('products','price_lists.id_product' ,'=', 'products.id')
+        ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+        ->where(['nama_provider' => 'Axis dan XL', 'nama_produk' => 'Pulsa Reguler'])
+        ->get(['nama_produk','nama_provider','keterangan','harga','status']);
+        //$price = $pulsaReguler->get();
         $judul = "Harga Pulsa Axis & XL";
-        $arr = array('price' => $price);
-        return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $arr]);
+        //$arr = array('price' => $price);
+        return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $price]);
     }
 
     // untuk menampilkan harga pulsa reguler Indosat
     public function indosat(){
-        $pulsaReguler = Price::where(['provider' => 'Indosat', 'detail_produk' => 'Pulsa Reguler']);
-        $price = $pulsaReguler->get();
+        // $pulsaReguler = Price::where(['provider' => 'Indosat', 'detail_produk' => 'Pulsa Reguler']);
+        // $price = $pulsaReguler->get();
+        $price = DB::table('price_lists')
+        ->join('products','price_lists.id_product' ,'=', 'products.id')
+        ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+        ->where(['nama_provider' => 'Indosat', 'nama_produk' => 'Pulsa Reguler'])
+        ->get(['nama_produk','nama_provider','keterangan','harga','status']);
         $judul = "Harga Pulsa Indosat";
-        $arr = array('price' => $price);
-        return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $arr]);
+        //$arr = array('price' => $price);
+        return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $price]);
     }
 
     public function smartfren(){
-        $pulsaReguler = Price::where(['provider' => 'Smartfren', 'detail_produk' => 'Pulsa Reguler']);
-        $price = $pulsaReguler->get();
+        // $pulsaReguler = Price::where(['provider' => 'Smartfren', 'detail_produk' => 'Pulsa Reguler']);
+        // $price = $pulsaReguler->get();
+        $price = DB::table('price_lists')
+        ->join('products','price_lists.id_product' ,'=', 'products.id')
+        ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+        ->where(['nama_provider' => 'Smartfren', 'nama_produk' => 'Pulsa Reguler'])
+        ->get(['nama_produk','nama_provider','keterangan','harga','status']);
         $judul = "Harga Pulsa Smartfren";
-        $arr = array('price' => $price);
-        return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $arr]);
+        //$arr = array('price' => $price);
+        return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $price]);
     }
 
     public function telkomsel(){
-        $pulsaReguler = Price::where(['provider' => 'Telkomsel', 'detail_produk' => 'Pulsa Reguler']);
-        $price = $pulsaReguler->get();
+        // $pulsaReguler = Price::where(['provider' => 'Telkomsel', 'detail_produk' => 'Pulsa Reguler']);
+        // $price = $pulsaReguler->get();
+        $price = DB::table('price_lists')
+        ->join('products','price_lists.id_product' ,'=', 'products.id')
+        ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+        ->where(['nama_provider' => 'Telkomsel', 'nama_produk' => 'Pulsa Reguler'])
+        ->get(['nama_produk','nama_provider','keterangan','harga','status']);
         $judul = "Harga Pulsa Telkomsel";
-        $arr = array('price' => $price);
-        return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $arr]);
+        // $arr = array('price' => $price);
+        return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $price]);
     }
 
     public function tri(){
-        $pulsaReguler = Price::where(['provider' => 'Tri', 'detail_produk' => 'Pulsa Reguler']);
-        $price = $pulsaReguler->get();
+        // $pulsaReguler = Price::where(['provider' => 'Tri', 'detail_produk' => 'Pulsa Reguler']);
+        // $price = $pulsaReguler->get();
+        $price = DB::table('price_lists')
+        ->join('products','price_lists.id_product' ,'=', 'products.id')
+        ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+        ->where(['nama_provider' => 'Telkomsel', 'nama_produk' => 'Pulsa Reguler'])
+        ->get(['nama_produk','nama_provider','keterangan','harga','status']);
         $judul = "Harga Pulsa Tri";
-        $arr = array('price' => $price);
-        return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $arr]);
+        //$arr = array('price' => $price);
+        return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $price]);
     }
 
     public function axis_bronet(){
