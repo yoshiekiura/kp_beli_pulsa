@@ -106,19 +106,19 @@
               </tr>
             </thead>
             <tbody>
-            @foreach ($arr['price'] as $harga)
+            @foreach ($arr as $harga)
                 @if ($harga->status == "Ada")
                     <tr class="table-success">
-                        <th scope="row">{{ $harga->detail_produk }}</th>
-                        <td>{{ $harga->provider }}</td>
+                        <th scope="row">{{ $harga->nama_produk }}</th>
+                        <td>{{ $harga->nama_provider }}</td>
                         <td>{{ $harga->keterangan }}</td>
                         <td>@currency($harga->harga)</td>
                         <td>{{$harga->status}}</td>
                     </tr>
                     @elseif ($harga->status == "Kosong")
                     <tr class="table-danger">
-                        <th scope="row">{{ $harga->detail_produk }}</th>
-                        <td>{{ $harga->provider }}</td>
+                        <th scope="row">{{ $harga->nama_produk }}</th>
+                        <td>{{ $harga->nama_provider }}</td>
                         <td>{{ $harga->keterangan }}</td>
                         <td>@currency($harga->harga)</td>
                         <td>{{$harga->status}}</td>

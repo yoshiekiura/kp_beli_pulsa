@@ -23,14 +23,22 @@ use App\UserEditProfil;
 
 //Route Halaman Awal
 Route::get('/', function () {
-    $beli = DB::table('prices')->get();
-    $produk = DB::table('prices')->groupBy('detail_produk')->get();
+    // $beli = DB::table('prices')->get();
+
+    // $produk = DB::table('prices')->groupBy('detail_produk')->get();
+    // return view('/pelanggan/pages/halaman_utama_pelanggan',
+    // ['beli' => $beli,
+    // 'produk' => $produk ]);
+    $produk = DB::table('price_lists')
+    ->join('products','price_lists.id_product' ,'=', 'products.id')
+    ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+    ->groupBy('id_product')->get();
     return view('/pelanggan/pages/halaman_utama_pelanggan',
-    ['beli' => $beli,
-    'produk' => $produk ]);
+    ['produk' => $produk ]);
 });
 
 Route::post('dynamicdependent/cari','DynamicDependent@cari');
+Route::post('kirim','DynamicDependent@kirim');
 
 
 //Route View Daftar Pelanggan dan Proses Daftar Pelanggan

@@ -4,6 +4,7 @@
 @section('body')
 <div class="card" style="margin-top: 130px;margin-bottom: 100px">
     <div class="card-body">
+        <form action="/kirim" method="post">
         <div class="card" id="kanan">
             <h2 style="color:#fff;
             font-size: 26px;
@@ -15,21 +16,21 @@
             margin: 20px 200px 20px 200px;
             border-radius: 5px;"><div style="padding: 5px 0px 5px 0px">Order</div></h2>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
-                    <select name="detail_produk" id="detail_produk" class="browser-default custom-select dynamic" data-dependent="provider">
-                        <option selected disabled value="">Select Produk</option>                       
+                    <select name="detail_produk" id="nama_produk" class="browser-default custom-select dynamic" data-dependent="nama_provider">
+                        <option selected disabled value="">Select Produk</option>
                         @foreach ($produk as $p)
-                            <option value="{{ $p->detail_produk}}">{{ $p->detail_produk}}</option>
-                        @endforeach 
+                            <option value="{{ $p->nama_produk}}">{{ $p->nama_produk}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
-                    <select name="provider" id="provider" class="browser-default custom-select dynamic" data-dependent="keterangan">
+                    <select name="provider" id="nama_provider" class="browser-default custom-select dynamic" data-dependent="keterangan">
                         <option value="">Select Provider</option>
                     </select>
                 </div>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
                     <select name="keterangan" id="keterangan" class="browser-default custom-select" >
-                        <option value="">Select Keterangan</option>
+                    <option value="">Select Keterangan</option>
                     </select>
                 </div>
                 @csrf
@@ -53,9 +54,9 @@
                         text-align: center;">RP -</h2>
                 </div>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
-                    <button style="width: 100%; border-width: 3px; font-size: 20px; font-weight: bold; " type="button" class="btn btn-outline-primary">PESAN SEKARANG</button>
+                    <button style="width: 100%; border-width: 3px; font-size: 20px; font-weight: bold; " type="submit" class="btn btn-outline-primary">PESAN SEKARANG</button>
                 </div>
-
+            </form>
         </div>
 
         <div class="kiri">
@@ -93,7 +94,7 @@
                         data:{select:select, value:value, _token:_token, dependent:dependent},
                         success:function(result){
                             $('#'+dependent).html(result);
-                        } 
+                        }
                     })
                 }
             });

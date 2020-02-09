@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Price;
+use Illuminate\Support\Facades\DB;
 
 class HargaController extends Controller
 {
     // untuk menampilkan harga produk keseluruhan
     public function index(){
-        $price = Price::all();
+        //$price = Price::all();
+        $price = DB::table('price_lists')
+        ->join('products','price_lists.id_product' ,'=', 'products.id')
+        ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+        ->get(['nama_produk','nama_provider','keterangan','harga','status']);
         $judul = "Daftar Harga";
-        $arr = array('price' => $price);
-        return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $arr]);
+        return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $price]);
 
     }
 
@@ -233,7 +237,7 @@ class HargaController extends Controller
         $arr = array('price' => $price);
         return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $arr]);
     }
-    
+
     public function telkomsel_depok(){
         $pulsaReguler = Price::where(['provider' => 'Telkomsel (Depok)', 'detail_produk' => 'Paket Internet']);
         $price = $pulsaReguler->get();
@@ -355,7 +359,7 @@ class HargaController extends Controller
     }
 
 
-    
-    
-    
+
+
+
 }
