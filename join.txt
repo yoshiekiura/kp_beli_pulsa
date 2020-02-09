@@ -1,0 +1,1 @@
+SELECT price_lists.kode, products.nama_produk, providers.nama_provider, price_lists.harga,price_lists.keterangan,price_lists.status FROM `price_lists` INNER join `products` on price_lists.id_product = products.id INNER JOIN providers on price_lists.id_provider = providers.id ORDER BY id_provider ASC
