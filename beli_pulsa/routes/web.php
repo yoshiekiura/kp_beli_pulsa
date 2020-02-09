@@ -40,7 +40,6 @@ Route::get('/', function () {
 Route::post('dynamicdependent/cari','DynamicDependent@cari');
 Route::post('kirim','DynamicDependent@kirim');
 
-
 //Route View Daftar Pelanggan dan Proses Daftar Pelanggan
 Route::get('/Register/create','RegisterPelangganController@create');
 Route::post('/Register','RegisterPelangganController@store');

@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
                     <select name="keterangan" id="keterangan" class="browser-default custom-select" >
-                    <option value="">Select Keterangan</option>
+                    <option value="">Select Voucher</option>
                     </select>
                 </div>
                 @csrf
