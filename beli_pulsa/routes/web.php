@@ -25,10 +25,9 @@ use App\UserEditProfil;
 Route::get('/', function () {
     $beli = DB::table('prices')->get();
     $produk = DB::table('prices')->groupBy('detail_produk')->get();
-
     return view('/pelanggan/pages/halaman_utama_pelanggan',
     ['beli' => $beli,
-     'produk' => $produk ]);
+    'produk' => $produk ]);
 });
 
 Route::post('dynamicdependent/cari','DynamicDependent@cari');
