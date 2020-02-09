@@ -1,0 +1,37 @@
+html, body, section 
+        {
+            height: 100%;
+        }
+ 
+        html 
+        {
+            scroll-behavior: smooth;
+        }
+ 
+        body 
+        {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+ 
+        section 
+        {
+            display: block;
+            padding: 25px;
+        }
+ 
+        a 
+        {
+            color: white;
+        }
+ 
+        #halaman1 
+        {
+            background-color: chocolate;
+            color: white;
+        }
+ 
+        #halaman2 
+        {
+            background-color: black;
+            color: white;
+        }

@@ -1,0 +1,26 @@
+<style>
+    * {margin: 0; padding: 0}
+    html {
+        scroll-behavior: smooth;
+    }
+    #section-1 {
+        height: 1366px;
+        color: white;
+        padding: 10px;
+        background-color: darkcyan;
+    }
+    #section-2 {
+        height: 1366px;
+        color: white;
+        padding: 10px;
+        background-color: darkorange;
+    }
+    a {
+        background-color: #222222;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+        margin-top: 20px;
+        display: inline-block;
+    }
+</style>
