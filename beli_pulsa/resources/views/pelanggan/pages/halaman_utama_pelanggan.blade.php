@@ -29,7 +29,7 @@
                     </select>
                 </div>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
-                    <select name="keterangan" id="keterangan" class="browser-default custom-select" >
+                    <select name="keterangan" id="keterangan" class="browser-default custom-select voucher" >
                     <option value="">Select Voucher</option>
                     </select>
                 </div>
@@ -96,8 +96,28 @@
                             $('#'+dependent).html(result);
                         }
                     })
+
+                    // reset vocer
+                    let html = '<option value="">Select Voucher</option>'
+                    $('.voucher').html(html);
                 }
             });
+            // $('.dynamic2').change(function(){
+            //     if($(this).val() != ''){
+            //         var select = $(this).attr("id");
+            //         var value = $(this).val();
+            //         var dependent = $(this).data('dependent');
+            //         var _token = $('input[name="_token"]').val();
+            //         $.ajax({
+            //             url: '{{ url("dynamicdependent/cari")}}',
+            //             method:"POST",
+            //             data:{select:select, value:value, _token:_token, dependent:dependent},
+            //             success:function(result){
+            //                 $('#'+dependent).html(result);
+            //             }
+            //         })
+            //     }
+            // });
         });
     </script>
 

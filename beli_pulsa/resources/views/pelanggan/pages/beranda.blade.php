@@ -35,7 +35,7 @@
                         <h2 class="judul-order">Pulsa Reguler</h2>
 
                     <div class="form-group form-group-ukuran">
-                        <select name="nama_provider" id="nama_provider" class="browser-default custom-select dynamic" data-dependent="keterangan">
+                        <select name="nama_provider" id="nama_provider" class="browser-default custom-select dynamic1" data-dependent="keterangan">
                             <option selected disabled value="">Select Provider</option>
                             @foreach ($produk_pulsa as $p)
                                 <option value="{{ $p->nama_provider}}">{{ $p->nama_provider}}</option>
@@ -43,11 +43,11 @@
                         </select>
                     </div>
                     <div class="form-group form-group-ukuran">
-                        <select name="keterangan" id="keterangan" class="browser-default custom-select" >
-                        <option value="">Select Voucher</option>
+                        <select name="keterangan" id="keterangan" class="browser-default custom-select opsi-pulsa" >
+                            <option value="">Select Voucher</option>
                         </select>
                     </div>
-
+                    @csrf
                     <div class="form-group form-group-ukuran">
                         <input type="text" class="form-control" placeholder="Nomor HP">
                     </div>
@@ -74,7 +74,7 @@
 
 
                             <div class="form-group form-group-ukuran">
-                                <select name="provider" id="nama_provider" class="browser-default custom-select dynamic" data-dependent="keterangan">
+                                <select name="provider" id="nama_provider" class="browser-default custom-select dynamic2" data-dependent="keterangan">
                                     <option value="">Select Provider</option>
                                     @foreach ($produk_internet as $p)
                                         <option value="{{ $p->nama_provider}}">{{ $p->nama_provider}}</option>
@@ -82,11 +82,11 @@
                                 </select>
                             </div>
                             <div class="form-group form-group-ukuran">
-                                <select name="keterangan" id="keterangan" class="browser-default custom-select" >
+                                <select name="keterangan" id="keterangan" class="browser-default custom-select opsi-paket" >
                                 <option value="">Select Voucher</option>
                                 </select>
                             </div>
-
+                            @csrf
                             <div class="form-group form-group-ukuran">
                                 <input type="text" class="form-control" placeholder="Nomor HP">
                             </div>
@@ -118,7 +118,7 @@
 <script>
     $(document).ready(function(){
 
-        $('.dynamic').change(function(){
+        $('.dynamic1').change(function(){
             if($(this).val() != ''){
                 var select = $(this).attr("id");
                 var value = $(this).val();
@@ -129,7 +129,29 @@
                     method:"POST",
                     data:{select:select, value:value, _token:_token, dependent:dependent},
                     success:function(result){
-                        $('#'+dependent).html(result);
+                        $('.opsi-pulsa').html(result);
+                    }
+                })
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+
+        $('.dynamic2').change(function(){
+            if($(this).val() != ''){
+                var select = $(this).attr("id");
+                var value = $(this).val();
+                var dependent = $(this).data('dependent');
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+                    url: '{{ url("dynamicdependent/cari")}}',
+                    method:"POST",
+                    data:{select:select, value:value, _token:_token, dependent:dependent},
+                    success:function(result){
+                        $('.opsi-paket').html(result);
                     }
                 })
             }
