@@ -11,6 +11,7 @@ html, body, section
         body 
         {
             font-family: Arial, Helvetica, sans-serif;
+
         }
  
         section 
@@ -32,6 +33,35 @@ html, body, section
  
         #halaman2 
         {
-            background-color: black;
+            background-color: #00c17b;
             color: white;
         }
+        
+        .separator {
+            color: white;
+            font-size: 1.875rem;
+            background-color: #262626;
+            padding: 1.618em 0;
+            text-align: center;
+          }
+
+          h3 {
+            font-size: 1.5em;
+            /* margin: 1.313em 0; */
+          }
+
+          .backTop {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            display: inline-block;  
+            padding: 1em;
+            margin: 1em;
+            background: #E8E8E8;
+            border: 2px solid #000;
+          }
+          .backTop:hover {
+            cursor: pointer;
+          }
+
+          
