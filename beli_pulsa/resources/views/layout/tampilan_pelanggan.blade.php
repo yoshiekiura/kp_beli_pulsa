@@ -47,7 +47,7 @@
 
 
 
-<body style="background-color:#F0F1F3">
+<body style="background-color:#F0F1F3; margin-top:50px">
     <nav class="navbar navbar-expand-lg navbar-dark bg-success navbar fixed-top" style="padding: 0px;">
     <div class="container">
       <a class="navbar-brand" href="{{ url('/') }}">TUKU PULSA</a>

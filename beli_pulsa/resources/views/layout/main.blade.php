@@ -10,10 +10,17 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <link rel="stylesheet" href="/my/mystyle.css">
+    <link rel="stylesheet" href="/my/footernew.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ URL::asset('js/jquery.js') }}"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    {{-- <script type="text/javascript" src="/js/jquery.min.js"></script> --}}
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/popper.js"></script>
+    <script type="text/css" src="/css/csslogin.css"></script>
 
 
 
@@ -60,7 +67,7 @@
 
 
 
-<body style="background-color:#F0F1F3">
+<body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar fixed-top" style="padding: 0px;">
 <div class="container">
@@ -110,12 +117,16 @@
         </div>
         </div>
     </nav>
-    <div class="container">
+
         @yield('body')
-    </div>
 
+    <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+          <small>Copyright &copy; CV. Mitra Informatika <?= date('Y') ?></small>
+        </div>
+      </footer>
 
-    <footer>
+    {{-- <footer>
         <div class="footer" id="footer">
             <div class="container">
                 <div class="row">
@@ -150,13 +161,9 @@
             </div>
         </div>
         <!--/.footer-bottom-->
-    </footer>
+    </footer> --}}
 
 
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    {{-- <script type="text/javascript" src="/js/jquery.min.js"></script> --}}
-    <script type="text/javascript" src="/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/js/popper.js"></script>
-    <script type="text/css" src="/css/csslogin.css"></script>
+
 </body>
 </html>

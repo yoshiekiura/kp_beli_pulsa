@@ -1,0 +1,119 @@
+html, body, section{
+            height: 100%;
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 50px;
+        }
+
+        section{
+            /* display: block; */
+            padding: 25px;
+        }
+
+        a{
+            color: white;
+        }
+
+        #pageone{
+            background: linear-gradient(110deg, #81ee05 60%, #04c924 60%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        #pagetwo{
+            background: linear-gradient(70deg, #2e302b 60%, #3c443d 60%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .separator {
+            color: white;
+            font-size: 1.875rem;
+            background-color: #262626;
+            padding: 1.618em 0;
+            text-align: center;
+          }
+
+          h3 {
+            font-size: 1.5em;
+            /* margin: 1.313em 0; */
+          }
+
+          /* kembali ke atas */
+          .backTop {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            display: inline-block;
+            padding: 1em;
+            margin: 1em;
+            background: #E8E8E8;
+            border: 2px solid #000;
+          }
+          .backTop:hover {
+            cursor: pointer;
+          }
+
+/* KONTEN DI DALAMNYA */
+/* HALAMAN 1 */
+.pfirst{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-left: -20px;
+}
+
+.psecond{
+    font-size: 50px; font-weight: bold; margin-left: -20px; margin-bottom: 0px;
+}
+
+.pthird{
+    font-size: 50px; font-weight: bold; margin-left: -20px;
+}
+
+.pfourth{
+    font-size: 20px; font-weight: bold; margin-top: 50px; margin-left: -20px;
+}
+
+/* .mycard-mid{
+    margin: auto;
+    position: relative;} */
+    /* top: 0; left: 0; bottom: 0; right: 0; */
+    /* height: 340px; */
+
+/* HALAMAN 2 */
+.judul-order{
+    color:#fff;
+            font-size: 26px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: block;
+            text-align: center;
+            background-color:black;
+            margin: 20px 200px 20px 200px;
+            border-radius: 5px;
+            padding: 5px 0px 5px 0px
+}
+
+.form-group-ukuran{
+    margin: 0px 30px 15px 30px;
+}
+
+.harga{
+    color: black;
+    font-size: 26px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+}
+
+.btn-pesan{
+    width: 100%; border-width: 3px; font-size: 20px; font-weight: bold;
+}

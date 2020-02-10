@@ -37,6 +37,10 @@ Route::get('/', function () {
     ['produk' => $produk ]);
 });
 
+Route::get('/cek', function () {
+    return view('/pelanggan/pages/beranda');
+});
+
 Route::post('dynamicdependent/cari','DynamicDependent@cari');
 Route::post('kirim','DynamicDependent@kirim');
 
