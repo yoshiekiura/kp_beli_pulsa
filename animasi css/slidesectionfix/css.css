@@ -50,6 +50,7 @@ html, body, section
             /* margin: 1.313em 0; */
           }
 
+          /* kembali ke atas */
           .backTop {
             position: fixed;
             bottom: 0;

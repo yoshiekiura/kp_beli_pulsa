@@ -38,7 +38,19 @@ Route::get('/', function () {
 });
 
 Route::get('/cek', function () {
-    return view('/pelanggan/pages/beranda');
+    $produk_pulsa = DB::table('price_lists')
+    ->join('products','price_lists.id_product' ,'=', 'products.id')
+    ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+    ->where('id_product',1)
+    ->groupBy('id_provider')->get();
+
+    $produk_internet = DB::table('price_lists')
+    ->join('products','price_lists.id_product' ,'=', 'products.id')
+    ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+    ->where('id_product',2)
+    ->groupBy('id_provider')->get();
+    return view('/pelanggan/pages/beranda',
+    ['produk_pulsa' => $produk_pulsa,'produk_internet' => $produk_internet ]);
 });
 
 Route::post('dynamicdependent/cari','DynamicDependent@cari');

@@ -35,11 +35,14 @@
                         <h2 class="judul-order">Pulsa Reguler</h2>
 
                     <div class="form-group form-group-ukuran">
-                        <select name="provider" id="nama_provider" class="browser-default custom-select dynamic" data-dependent="keterangan">
-                            <option value="">Select Provider</option>
+                        <select name="nama_provider" id="nama_provider" class="browser-default custom-select dynamic" data-dependent="keterangan">
+                            <option selected disabled value="">Select Provider</option>
+                            @foreach ($produk_pulsa as $p)
+                                <option value="{{ $p->nama_provider}}">{{ $p->nama_provider}}</option>
+                            @endforeach
                         </select>
                     </div>
-                    <div class="fform-group form-group-ukuran">
+                    <div class="form-group form-group-ukuran">
                         <select name="keterangan" id="keterangan" class="browser-default custom-select" >
                         <option value="">Select Voucher</option>
                         </select>
@@ -73,9 +76,12 @@
                             <div class="form-group form-group-ukuran">
                                 <select name="provider" id="nama_provider" class="browser-default custom-select dynamic" data-dependent="keterangan">
                                     <option value="">Select Provider</option>
+                                    @foreach ($produk_internet as $p)
+                                        <option value="{{ $p->nama_provider}}">{{ $p->nama_provider}}</option>
+                                    @endforeach
                                 </select>
                             </div>
-                            <div class="fform-group form-group-ukuran">
+                            <div class="form-group form-group-ukuran">
                                 <select name="keterangan" id="keterangan" class="browser-default custom-select" >
                                 <option value="">Select Voucher</option>
                                 </select>
@@ -108,7 +114,30 @@
 
 
 <div class="backTop">Back to Top</div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+
+        $('.dynamic').change(function(){
+            if($(this).val() != ''){
+                var select = $(this).attr("id");
+                var value = $(this).val();
+                var dependent = $(this).data('dependent');
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+                    url: '{{ url("dynamicdependent/cari")}}',
+                    method:"POST",
+                    data:{select:select, value:value, _token:_token, dependent:dependent},
+                    success:function(result){
+                        $('#'+dependent).html(result);
+                    }
+                })
+            }
+        });
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
         var $backToTop = $(".backTop");
         $backToTop.hide();

@@ -16,7 +16,7 @@
             margin: 20px 200px 20px 200px;
             border-radius: 5px;"><div style="padding: 5px 0px 5px 0px">Order</div></h2>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
-                    <select name="detail_produk" id="nama_produk" class="browser-default custom-select dynamic" data-dependent="nama_provider">
+                    <select name="nama_produk" id="nama_produk" class="browser-default custom-select dynamic" data-dependent="nama_provider">
                         <option selected disabled value="">Select Produk</option>
                         @foreach ($produk as $p)
                             <option value="{{ $p->nama_produk}}">{{ $p->nama_produk}}</option>
@@ -24,7 +24,7 @@
                     </select>
                 </div>
                 <div class="form-group" style="margin: 0px 30px 15px 30px;">
-                    <select name="provider" id="nama_provider" class="browser-default custom-select dynamic" data-dependent="keterangan">
+                    <select name="nama_provider" id="nama_provider" class="browser-default custom-select dynamic" data-dependent="keterangan">
                         <option value="">Select Provider</option>
                     </select>
                 </div>
