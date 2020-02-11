@@ -27,7 +27,7 @@ class DynamicDependent extends Controller
         ->where($select,$value)->groupBy($dependent)->get();
         //$data = DB::table('price_lists')->where($select,$value)->groupBy($dependent)->get();
 
-        //$output = '<option value="">Select '.ucfirst($dependent).'</option>';
+        //$output = '<option value="">Select '.ucfirst($dependent).'</option>';;
         $output = '<option value="">--Silahkan Pilih--</option>';
         foreach($data as $d){
             $output .= '<option value="'.$d->$dependent.'">'.$d->$dependent.'</option>';
@@ -37,7 +37,7 @@ class DynamicDependent extends Controller
     }
 
     function kirim(Request $request){
-
+        //test
         $siap = $request->input('keterangan');
 
         $cek = DB::table('price_lists')->where('keterangan',$siap)->get(['kode','harga']);

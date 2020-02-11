@@ -218,3 +218,5 @@ Route::get('/Login/cobapaksa', function () {
 Route::get('/kuntul', function () {
         return view('admin/forms/login');
 });
+
+//kosong
