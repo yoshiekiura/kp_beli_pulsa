@@ -6,15 +6,15 @@
 <div id="pageone">
     <section class="section">
 
-          <div class="container">
+          <div class="container animated bounceInDown delay-0s">
             <div class="card shadow-lg border-1 rounded-lg">
-              <div class="card-body">
+              <div class="card-body mb-5">
                 <div class="text-dark text-center">
-                    <p class="pfirst">Mau pulsa murah tapi nggak ribet ?</p>
-                    <p class="psecond">PESAN DISINI AJA</p>
-                    <p class="pthird">TUKUPULSA.COM</p>
-                    <p class="pfourth">Ada untuk Anda.</p>
-                    <a type="button" class="btn btn-primary" href="#pagetwo">Beli Sekarang</a>
+                    <p class="pfirst animated bounceInDown delay-1s">Mau pulsa murah tapi nggak ribet ?</p>
+                    <p class="psecond animated bounceInDown delay-2s">PESAN DISINI AJA</p>
+                    <p class="pthird animated bounceInDown delay-2s">TUKUPULSA.COM</p>
+                    <p class="pfourth animated bounceInDown delay-3s">Ada untuk Anda.</p>
+                    <a type="button" class="btn btn-primary animated bounceInDown delay-3s" id="beli" href="#pilih-paket">Beli Sekarang</a>
                 </div>
               </div>
             </div>
@@ -26,53 +26,55 @@
             <h3>Pilih Paket</h3>
         </div>
 
-<div id="pagetwo">
+<div id="pilih-paket">
     <section class="section">
-        <div class="container-fluid mt-5">
-            <div class="row">
+        <div class="container turuninDikit">
+            <div class="row  animated fadeInUp delay-0s">
                 <div class="col mb-3">
                     <div class="card shadow-lg border-1 rounded-lg">
+                        <form action="/beli" method="post">
                         <h2 class="judul-order">Pulsa Reguler</h2>
-
+                        <div class="form-group form-group-ukuran">
+                            <select name="nama_provider" id="nama_provider" class="browser-default custom-select dynamic1" data-dependent="keterangan">
+                                <option selected disabled value="">Select Provider</option>
+                                @foreach ($produk_pulsa as $p)
+                                    <option value="{{ $p->nama_provider}}">{{ $p->nama_provider}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     <div class="form-group form-group-ukuran">
-                        <select name="nama_provider" id="nama_provider" class="browser-default custom-select dynamic1" data-dependent="keterangan">
-                            <option selected disabled value="">Select Provider</option>
-                            @foreach ($produk_pulsa as $p)
-                                <option value="{{ $p->nama_provider}}">{{ $p->nama_provider}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group form-group-ukuran">
-                        <select name="keterangan" id="keterangan" class="browser-default custom-select opsi-pulsa" >
+                        <select name="keterangan" id="keterangan1" class="browser-default custom-select opsi-pulsa" >
                             <option value="">Select Voucher</option>
                         </select>
                     </div>
                     @csrf
                     <div class="form-group form-group-ukuran">
-                        <input type="text" class="form-control" placeholder="Nomor HP">
+                        <input type="text" name="nomor" class="form-control" placeholder="Nomor HP">
                     </div>
                     <div class="form-group form-group-ukuran">
-                        <select class="browser-default custom-select">
+                        <select name="bank" class="browser-default custom-select">
                             <option selected disabled>-- Pilih Pembayaran --</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="BNI">BNI</option>
+                            <option value="BRI">BRI</option>
+                            <option value="JATIM">Bank Jatim</option>
                         </select>
                     </div>
                     <div class="form-group form-group-ukuran">
-                        <h2 class="harga">RP -</h2>
+                        <h2 class="harga hr1">RP -</h2>
+                        <input type="hidden" name="harga" id="hr1" readonly>
+                        <input type="hidden" name="kode"  id="kode1" readonly>
                     </div>
                     <div class="form-group form-group-ukuran">
                         <button type="submit" class="btn btn-outline-primary btn-pesan">PESAN SEKARANG</button>
                     </div>
+                    </form>
                 </div>
             </div>
 
                 <div class="col">
                     <div class="card shadow-lg border-1 rounded-lg">
                         <h2 class="judul-order">Paket Internet</h2>
-
-
+                        <form action="/beli" method="post">
                             <div class="form-group form-group-ukuran">
                                 <select name="provider" id="nama_provider" class="browser-default custom-select dynamic2" data-dependent="keterangan">
                                     <option value="">Select Provider</option>
@@ -82,42 +84,48 @@
                                 </select>
                             </div>
                             <div class="form-group form-group-ukuran">
-                                <select name="keterangan" id="keterangan" class="browser-default custom-select opsi-paket" >
+                                <select name="keterangan" id="keterangan2" class="browser-default custom-select opsi-paket" >
                                 <option value="">Select Voucher</option>
                                 </select>
                             </div>
                             @csrf
                             <div class="form-group form-group-ukuran">
-                                <input type="text" class="form-control" placeholder="Nomor HP">
+                                <input type="text" name="nomor" class="form-control" placeholder="Nomor HP">
                             </div>
                             <div class="form-group form-group-ukuran">
-                                <select class="browser-default custom-select">
+                                <select name="bank" class="browser-default custom-select">
                                     <option selected disabled>-- Pilih Pembayaran --</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="BNI">BNI</option>
+                                    <option value="BRI">BRI</option>
+                                    <option value="JATIM">Bank Jatim</option>
                                 </select>
                             </div>
                             <div class="form-group form-group-ukuran">
-                                <h2 class="harga">RP -</h2>
+                                <h2 class="harga hr2" name="harga">RP -</h2>
+
+                                <input type="hidden" name="harga" id="hr2" readonly>
+                                <input type="hidden" name="kode"  id="kode2" readonly>
                             </div>
                             <div class="form-group form-group-ukuran">
                                 <button type="submit" class="btn btn-outline-primary btn-pesan">PESAN SEKARANG</button>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
     </section>
 </div>
-//test
-
 
 
 <div class="backTop">Back to Top</div>
 
 <script>
     $(document).ready(function(){
+
+        $('#beli').click(function(){
+            $('.card').addClass(' animated fadeInUp delay-1s');
+        });
 
         $('.dynamic1').change(function(){
             if($(this).val() != ''){
@@ -135,11 +143,6 @@
                 })
             }
         });
-    });
-</script>
-
-<script>
-    $(document).ready(function(){
 
         $('.dynamic2').change(function(){
             if($(this).val() != ''){
@@ -156,6 +159,48 @@
                     }
                 })
             }
+        });
+
+        $('#keterangan1').change(function(){
+            var provider = $('.dynamic1').val();
+            var ket = $(this).val();
+            var _token = $('input[name="_token"]').val();
+            //console.log(ket);
+
+            $.ajax({
+                url: '{{ url("dynamicdependent/bawaKodeHarga") }}',
+                method: 'POST',
+                data:{keterangan:ket, _token:_token},
+                dataType: "JSON",
+                success:function(data){
+                    //console.log(data);
+
+                    $('.hr1').html("RP. "+ data.harga);
+                    $('#hr1').val(data.harga);
+                    $('#kode1').val(data.kode);
+                }
+            });
+        });
+
+        $('#keterangan2').change(function(){
+            var provider = $('.dynamic2').val();
+            var ket = $(this).val();
+            var _token = $('input[name="_token"]').val();
+            //console.log(ket);
+
+            $.ajax({
+                url: '{{ url("dynamicdependent/bawaKodeHarga") }}',
+                method: 'POST',
+                data:{keterangan:ket, _token:_token},
+                dataType: "JSON",
+                success:function(data){
+                    //console.log(data);
+
+                    $('.hr2').html("RP. "+ data.harga);
+                    $('#hr2').val(data.harga);
+                    $('#kode2').val(data.kode);
+                }
+            });
         });
     });
 </script>

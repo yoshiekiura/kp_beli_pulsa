@@ -42,7 +42,7 @@
 @method('PUT')
 
 
-<table class="table table-striped table-bordered" style="margin-top: 50px;">
+<table class="table table-striped table-bordered animated heartBeat delay-1s" style="margin-top: 50px;">
     <thead>
         <tr>
             <th colspan="2">

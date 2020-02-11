@@ -5,7 +5,7 @@
 
 
 <div class="row justify-content-center">
-    <div class="col-lg-5 mb-5">
+    <div class="col-lg-5 animated bounceInDown delay-0s mb-5">
         <div class="card shadow-lg border-0 rounded-lg mt-5">
             <div class="card-header"><h3 class="text-center font-weight-light my-4">Masuk Akun Pelanggan</h3>
             </div>
@@ -43,10 +43,10 @@
                     </div>
                 </form>
                 <th colspan="2">
-                    <a href="#" style="float: right;" data-toggle="modal" data-target="#lupaPassword"><i class="far fa-question-circle" 
+                    <a href="#" style="float: right;" data-toggle="modal" data-target="#lupaPassword"><i class="far fa-question-circle"
                     style="height: auto; width: 30px; margin-left:40px"></i><p>Lupa Password ?</p></a>
                 </th>
-                   
+
             </div>
 
         </div>

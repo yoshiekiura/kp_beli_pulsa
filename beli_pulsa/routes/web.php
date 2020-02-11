@@ -22,7 +22,7 @@ use App\UserEditProfil;
 // Route::get('/home', 'HomeController@index')->name('home');
 
 //Route Halaman Awal
-Route::get('/', function () {
+Route::get('/cadangan', function () {
     // $beli = DB::table('prices')->get();
 
     // $produk = DB::table('prices')->groupBy('detail_produk')->get();
@@ -37,7 +37,7 @@ Route::get('/', function () {
     ['produk' => $produk ]);
 });
 
-Route::get('/cek', function () {
+Route::get('/', function () {
     $produk_pulsa = DB::table('price_lists')
     ->join('products','price_lists.id_product' ,'=', 'products.id')
     ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
@@ -52,9 +52,11 @@ Route::get('/cek', function () {
     return view('/pelanggan/pages/beranda',
     ['produk_pulsa' => $produk_pulsa,'produk_internet' => $produk_internet ]);
 });
-
+//filter
 Route::post('dynamicdependent/cari','DynamicDependent@cari');
-Route::post('kirim','DynamicDependent@kirim');
+Route::post('dynamicdependent/bawaKodeHarga','DynamicDependent@bawaKodeHarga');
+//beli
+Route::post('/beli','BeliController@beli');
 
 //Route View Daftar Pelanggan dan Proses Daftar Pelanggan
 Route::get('/Register/create','RegisterPelangganController@create');

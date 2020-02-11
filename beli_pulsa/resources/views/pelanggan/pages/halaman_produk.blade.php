@@ -10,7 +10,7 @@
 </ol>
 <div class="row mt-2">
 
-    <div class="col-2 mt-1">
+    <div class="col-2 mt-1 animated zoomInDown delay-1s">
         <div id="accordion">
             <div class="card mt-5">
               <div class="card-header bg-dark" id="headingTwo">
@@ -92,7 +92,7 @@
 
 
     <div class="table-responsive">
-        <table class="table table-bordered table-sm mt-2" id="dataTable">
+        <table class="table table-bordered table-md mt-2" id="dataTable">
             <thead class="thead-dark">
               <tr>
               <th colspan="5"><i class="far fa-list-alt"></i>  {{$judul}}</th>

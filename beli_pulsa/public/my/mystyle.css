@@ -16,20 +16,24 @@ html, body, section{
             padding: 25px;
         }
 
-        a{
-            color: white;
-        }
+        /* a{
+            color: blue;
+        } */
 
         #pageone{
             background: linear-gradient(110deg, #81ee05 60%, #04c924 60%);
-            color: white;
+            /* color: white; */
             min-height: 100vh;
         }
 
-        #pagetwo{
+        #pilih-paket{
             background: linear-gradient(70deg, #2e302b 60%, #3c443d 60%);
-            color: white;
+            /* color: white; */
             min-height: 100vh;
+        }
+
+        .turuninDikit{
+            margin-top: 100px;
         }
 
         .separator {

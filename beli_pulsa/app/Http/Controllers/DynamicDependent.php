@@ -30,20 +30,26 @@ class DynamicDependent extends Controller
         //$output = '<option value="">Select '.ucfirst($dependent).'</option>';;
         $output = '<option value="">--Silahkan Pilih--</option>';
         foreach($data as $d){
-            $output .= '<option value="'.$d->$dependent.'">'.$d->$dependent.'</option>';
+            $output .= '<option value="'.$d->kode.'">'.$d->$dependent.'</option>';
         }
         echo $output;
 
     }
 
-    function kirim(Request $request){
-        //test
-        $siap = $request->input('keterangan');
+    function bawaKodeHarga(Request $request){
+        $kode = $request->get('keterangan');
 
-        $cek = DB::table('price_lists')->where('keterangan',$siap)->get(['kode','harga']);
-        var_dump($cek);
-        die;
+        $data_price = DB::table('price_lists')
+        ->join('products','price_lists.id_product' ,'=', 'products.id')
+        ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+        ->where('kode',$kode)->get();
 
+        foreach($data_price as $d){
+            $data['harga'] = $d->harga;
+            $data['kode'] = $d->kode;
+        }
 
+        echo json_encode($data);
     }
+
 }

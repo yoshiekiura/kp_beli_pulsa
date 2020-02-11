@@ -36,7 +36,7 @@
         @endphp
     @endif
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered animated bounceInLeft delay-1s">
   <thead>
 
     <tr>
