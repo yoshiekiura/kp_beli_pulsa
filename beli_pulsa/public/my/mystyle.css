@@ -70,19 +70,27 @@ html, body, section{
     font-size: 20px;
     font-weight: bold;
     margin-top: 50px;
-    margin-left: -20px;
+    margin-bottom: 50px;
+    /* margin-left: -20px; */
 }
 
 .psecond{
-    font-size: 50px; font-weight: bold; margin-left: -20px; margin-bottom: 0px;
+    font-size: 50px; font-weight: bold; margin-bottom: 0px;
 }
 
 .pthird{
-    font-size: 50px; font-weight: bold; margin-left: -20px;
+    font-size: 50px; font-weight: bold;;
 }
 
 .pfourth{
-    font-size: 20px; font-weight: bold; margin-top: 50px; margin-left: -20px;
+    font-size: 20px; font-weight: bold; margin-top: 50px;
+}
+
+.alarm{
+    margin-left: 35px;
+    border-radius: 25px;
+    margin-right: 35px;
+    border-radius: 25px;
 }
 
 /* .mycard-mid{

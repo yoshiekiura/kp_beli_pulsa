@@ -11,10 +11,10 @@
               <div class="card-body mb-5">
                 <div class="text-dark text-center">
                     <p class="pfirst animated bounceInDown delay-1s">Mau pulsa murah tapi nggak ribet ?</p>
-                    <p class="psecond animated bounceInDown delay-2s">PESAN DISINI AJA</p>
-                    <p class="pthird animated bounceInDown delay-2s">TUKUPULSA.COM</p>
-                    <p class="pfourth animated bounceInDown delay-3s">Ada untuk Anda.</p>
-                    <a type="button" class="btn btn-primary animated bounceInDown delay-3s" id="beli" href="#pilih-paket">Beli Sekarang</a>
+                    <p class="psecond animated zoomIn delay-1s">PESAN DISINI AJA</p>
+                    <p class="pthird animated zoomIn delay-1s">TUKUPULSA.COM</p>
+                    <p class="pfourth animated bounceInUp delay-1s">Ada untuk Anda.</p>
+                    <a type="button" class="btn btn-primary animated jackInTheBox delay-2s" id="beli" href="#pilih-paket">Beli Sekarang</a>
                 </div>
               </div>
             </div>
@@ -34,6 +34,15 @@
                     <div class="card shadow-lg border-1 rounded-lg">
                         <form action="/beli" method="post">
                         <h2 class="judul-order">Pulsa Reguler</h2>
+                        @if (count($errors) > 0)
+                        <div class="alert alert-danger alarm">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                                </div>
+                        @endif
                         <div class="form-group form-group-ukuran">
                             <select name="nama_provider" id="nama_provider" class="browser-default custom-select dynamic1" data-dependent="keterangan">
                                 <option selected disabled value="">Select Provider</option>
@@ -43,7 +52,7 @@
                             </select>
                         </div>
                     <div class="form-group form-group-ukuran">
-                        <select name="keterangan" id="keterangan1" class="browser-default custom-select opsi-pulsa" >
+                        <select name="voucher" id="keterangan1" class="browser-default custom-select opsi-pulsa" >
                             <option value="">Select Voucher</option>
                         </select>
                     </div>
@@ -74,6 +83,15 @@
                 <div class="col">
                     <div class="card shadow-lg border-1 rounded-lg">
                         <h2 class="judul-order">Paket Internet</h2>
+                        @if (count($errors) > 0)
+                        <div class="alert alert-danger alarm">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                                </div>
+                        @endif
                         <form action="/beli" method="post">
                             <div class="form-group form-group-ukuran">
                                 <select name="provider" id="nama_provider" class="browser-default custom-select dynamic2" data-dependent="keterangan">
@@ -84,7 +102,7 @@
                                 </select>
                             </div>
                             <div class="form-group form-group-ukuran">
-                                <select name="keterangan" id="keterangan2" class="browser-default custom-select opsi-paket" >
+                                <select name="voucher" id="keterangan2" class="browser-default custom-select opsi-paket" >
                                 <option value="">Select Voucher</option>
                                 </select>
                             </div>

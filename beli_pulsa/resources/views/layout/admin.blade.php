@@ -11,8 +11,42 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <style type="text/css">
+            .preloader {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: 9999;
+              background-color: #fff;
+            }
+            .preloader .loading {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%,-50%);
+
+              font: 14px arial;
+            }
+            </style>
+            <script>
+                $(document).ready(function(){
+                $(".preloader").fadeOut();
+                })
+            </script>
     </head>
     <body class="sb-nav-fixed">
+        <div class="preloader">
+            <div class="loading">
+              <img src="/image/gif/poi.gif" width="80">
+              <p>Harap Tunggu</p>
+            </div>
+          </div>
+
+
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-success">
             <button class="btn btn-link btn-lg order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <a class="navbar-brand" href="Home">TUKU PULSA</a>
@@ -80,7 +114,8 @@
                 </footer>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+
+
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="/sbadmin4/src/js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>

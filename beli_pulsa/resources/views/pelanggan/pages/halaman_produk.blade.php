@@ -92,7 +92,7 @@
 
 
     <div class="table-responsive">
-        <table class="table table-bordered table-md mt-2" id="dataTable">
+        <table class="table table-bordered table-sm mt-2" id="dataTable">
             <thead class="thead-dark">
               <tr>
               <th colspan="5"><i class="far fa-list-alt"></i>  {{$judul}}</th>

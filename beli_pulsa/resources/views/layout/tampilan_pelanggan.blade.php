@@ -129,7 +129,7 @@
 
     <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
         <div class="container text-center">
-          <small>Copyright &copy; CV. Mitra Informatika <?= date('Y') ?></small>
+            <small>Copyright &copy; CV. Mitra Informatika <?= date('Y') ?> <a href="Login/Admin" class="text-secondary">LOGIN</a></small>
         </div>
       </footer>
 
