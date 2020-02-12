@@ -27,43 +27,39 @@
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/axis_bronet" style="text-decoration: none;">Axis (Bronet)</a>
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/axis_keren_zmua" style="text-decoration: none;">Axis (Keren Zmua)</a>
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/axis_owsem" style="text-decoration: none;">Axis (Owsem)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/indosat" style="text-decoration: none;">Indosat</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/indosat_unlimit" style="text-decoration: none;">Indosat (unlimit)</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/indosat" style="text-decoration: none;">Indosat (Fix)</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/indosat_unlimit" style="text-decoration: none;">Indosat (Unlimited)</a>
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/indosat_new_freedom_30hr" style="text-decoration: none;">Indosat (New Freedom 30Hr)</a>
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/indosat_yellow" style="text-decoration: none;">Indosat (Yellow)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/indosat_lainnya" style="text-decoration: none;">Indosat (Lainnya)</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/indosat_mini" style="text-decoration: none;">Indosat (Mini)</a>
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/indosat_freedom" style="text-decoration: none;">Indosat (Freedom)</a>
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_mini" style="text-decoration: none;">Telkomsel (Mini)</a>
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_369" style="text-decoration: none;">Telkomsel (369)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_zona_1_11" style="text-decoration: none;">Telkomsel (Zona 1-11)</a>
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_as" style="text-decoration: none;">Telkomsel (As)</a>
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_loop" style="text-decoration: none;">Telkomsel (Loop)</a>
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_simpati" style="text-decoration: none;">Telkomsel (Simpati)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_add" style="text-decoration: none;">Telkomsel (Add)</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_vas" style="text-decoration: none;">Telkomsel (Vas)</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_hari" style="text-decoration: none;">Telkomsel (Hari)</a>
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_bulan" style="text-decoration: none;">Telkomsel (Bulan)</a>
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_combo" style="text-decoration: none;">Telkomsel (Combo)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomse_hari" style="text-decoration: none;">Telkomsel (Hari)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_zona_1_8" style="text-decoration: none;">Telkomsel (Zona 1-8)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_zona_1_10" style="text-decoration: none;">Telkomsel (Zona 1-10)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_bulk_tsel_semua_zona" style="text-decoration: none;">Telkomsel (Bulk Tsel Semua Zona)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_depok" style="text-decoration: none;">Telkomsel (Depok)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_data_malam_00_07" style="text-decoration: none;">Telkomsel (Data Malam 00-07)</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_bulk_zona_1_8" style="text-decoration: none;">Telkomsel (Bulk Zona 1-8)</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_bulk_zona_1_10" style="text-decoration: none;">Telkomsel (Bulk Zona 1-10)</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_bulk_zona_1_11" style="text-decoration: none;">Telkomsel (Bulk Zona 1-11)</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_bulk_all_zona" style="text-decoration: none;">Telkomsel (Bulk All Zona)</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_malam_00_07" style="text-decoration: none;">Telkomsel (Malam 00-07)</a>
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/telkomsel_fix" style="text-decoration: none;">Telkomsel (Fix)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/paket_smartfren" style="text-decoration: none;">Smartfren</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/three_tri_kpk_kartu_perdana_kosong" style="text-decoration: none;">Three/Tri KPK(Kartu Perdana Kosong)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/three_tri_mini" style="text-decoration: none;">Three/Tri (Mini)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/three_tri_aon" style="text-decoration: none;">Three/Tri (Aon)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/three_tri_cinta" style="text-decoration: none;">Three/Tri (Cinta)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/three_tri_anynet" style="text-decoration: none;">Three/Tri (Anynet)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/three_tri" style="text-decoration: none;">Three/Tri</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/three_tri_getmore" style="text-decoration: none;">Three/Tri (Getmore)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/three_tri_khusus" style="text-decoration: none;">Three/Tri (Khusus)</a>
-                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/three_tri_extra_kuota" style="text-decoration: none;">Three/Tri (Extra Kuota)</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/pake_smartfren" style="text-decoration: none;">Smartfren</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/aktivasi_kpk_tri" style="text-decoration: none;">Aktivasi KPK (Kartu Perdana Kosong) Tri</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/tri_mini" style="text-decoration: none;">Tri (Mini)</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/tri_aon" style="text-decoration: none;">Tri (Aon)</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/tri_biasa" style="text-decoration: none;">Tri (Biasa)</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/tri_getmore" style="text-decoration: none;">Tri (Getmore)</a>
+                    <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/tri_khusus" style="text-decoration: none;">Tri (Khusus)</a>
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/xl_combo" style="text-decoration: none;">XL (Combo)</a>
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/xl_hotrod" style="text-decoration: none;">XL (Hotrod)</a>
                   </div>
 
-
+                  
               </div>
             </div>
             <div class="card mt-1">
