@@ -47,6 +47,8 @@ class DynamicDependent extends Controller
         foreach($data_price as $d){
             $data['harga'] = $d->harga;
             $data['kode'] = $d->kode;
+            $data['nama_produk'] = $d->nama_produk;
+            $data['keterangan'] = $d->keterangan;
         }
 
         echo json_encode($data);

@@ -44,7 +44,7 @@ class RegisterPelangganController extends Controller
     {
         $this->validate($request,[
             'username' => 'required|min:5|alpha_num|max:20',
-            'no_telpon' => 'required|min:12|numeric',
+            'no_telpon' => 'required|min:12',
             'email' => 'required|email',
             'password' => 'required|alpha_num|confirmed|min:8'
         ]);
@@ -61,13 +61,13 @@ class RegisterPelangganController extends Controller
 
         if($cek_user){
             Session::flash('Kesalahan','Username Sudah ada');
-            return redirect('/Register/create');
+            return redirect('/Daftar');
         }elseif($cek_no_telpon){
             Session::flash('Kesalahan','Nomor telfon Sudah ada');
-            return redirect('/Register/create');
+            return redirect('/Daftar');
         }elseif($cek_email){
             Session::flash('Kesalahan','Email Sudah ada');
-            return redirect('/Register/create');
+            return redirect('/Daftar');
         }else{
 
             $tambah = new Daftar;

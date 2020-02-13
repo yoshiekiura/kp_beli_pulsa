@@ -92,7 +92,7 @@
     </tr>
     <tr>
       <th scope="row">Tanggal Mendaftar</th>
-      <td>{{ $panggil->created_at }}</td>
+      <td>{{ $panggil->tanggal_mendaftar }}</td>
     </tr>
     <tr>
         <th colspan="2">

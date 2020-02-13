@@ -114,10 +114,10 @@
             @else
               <ul class="navbar-nav float-right">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url('/Login/create') }}" ><i class="fas fa-sign-in-alt"></i> Masuk</a>
+                  <a class="nav-link" href="{{ url('/Login') }}" ><i class="fas fa-sign-in-alt"></i> Masuk</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/Register/create') }}" ><i class="fas fa-user-plus"></i> Mendaftar</a>
+                    <a class="nav-link" href="{{ url('/Daftar') }}" ><i class="fas fa-user-plus"></i> Mendaftar</a>
                   </li>
               </ul>
             @endif

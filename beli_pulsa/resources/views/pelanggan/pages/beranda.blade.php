@@ -1,3 +1,4 @@
+
 @extends('layout/main')
 @section('title','Beli Pulsa Murah Disini Aja :D')
 
@@ -32,7 +33,7 @@
             <div class="row  animated fadeInUp delay-0s">
                 <div class="col mb-3">
                     <div class="card shadow-lg border-1 rounded-lg">
-                        <form action="/beli" method="post">
+                        <form action="/beli-pulsa" method="post">
                         <h2 class="judul-order">Pulsa Reguler</h2>
                         @if (count($errors) > 0)
                         <div class="alert alert-danger alarm">
@@ -43,35 +44,39 @@
                                 </ul>
                                 </div>
                         @endif
+
                         <div class="form-group form-group-ukuran">
                             <select name="nama_provider" id="nama_provider" class="browser-default custom-select dynamic1" data-dependent="keterangan">
                                 <option selected disabled value="">Select Provider</option>
                                 @foreach ($produk_pulsa as $p)
                                     <option value="{{ $p->nama_provider}}">{{ $p->nama_provider}}</option>
-                                @endforeach
-                            </select>
+                                    @endforeach
+                                </select>
                         </div>
                     <div class="form-group form-group-ukuran">
                         <select name="voucher" id="keterangan1" class="browser-default custom-select opsi-pulsa" >
-                            <option value="">Select Voucher</option>
+                            <option value="" selected>Select Voucher</option>
                         </select>
                     </div>
                     @csrf
                     <div class="form-group form-group-ukuran">
-                        <input type="text" name="nomor" class="form-control" placeholder="Nomor HP">
+                        <input type="number" name="nomor" class="form-control" placeholder="Nomor HP">
                     </div>
                     <div class="form-group form-group-ukuran">
                         <select name="bank" class="browser-default custom-select">
                             <option selected disabled>-- Pilih Pembayaran --</option>
-                            <option value="BNI">BNI</option>
-                            <option value="BRI">BRI</option>
-                            <option value="JATIM">Bank Jatim</option>
+                            @foreach ($bank as $b)
+                                    <option value="{{$b->id}}">{{  $b->nama_bank }}</option>
+                                    @endforeach
                         </select>
                     </div>
                     <div class="form-group form-group-ukuran">
                         <h2 class="harga hr1">RP -</h2>
                         <input type="hidden" name="harga" id="hr1" readonly>
                         <input type="hidden" name="kode"  id="kode1" readonly>
+                        <input type="hidden" name="nama_produk" id="produk1" readonly>
+                        <input type="hidden" name="keterangan" id="ket1" readonly>
+                        <input type="hidden" name="aku" value="{{base64_encode($unik)}}" readonly>
                     </div>
                     <div class="form-group form-group-ukuran">
                         <button type="submit" class="btn btn-outline-primary btn-pesan">PESAN SEKARANG</button>
@@ -92,9 +97,9 @@
                                 </ul>
                                 </div>
                         @endif
-                        <form action="/beli" method="post">
+                        <form action="/beli-paket" method="post">
                             <div class="form-group form-group-ukuran">
-                                <select name="provider" id="nama_provider" class="browser-default custom-select dynamic2" data-dependent="keterangan">
+                                <select name="nama_provider" id="nama_provider" class="browser-default custom-select dynamic2" data-dependent="keterangan">
                                     <option value="">Select Provider</option>
                                     @foreach ($produk_internet as $p)
                                         <option value="{{ $p->nama_provider}}">{{ $p->nama_provider}}</option>
@@ -103,19 +108,19 @@
                             </div>
                             <div class="form-group form-group-ukuran">
                                 <select name="voucher" id="keterangan2" class="browser-default custom-select opsi-paket" >
-                                <option value="">Select Voucher</option>
+                                <option value="" selected>Select Voucher</option>
                                 </select>
                             </div>
                             @csrf
                             <div class="form-group form-group-ukuran">
-                                <input type="text" name="nomor" class="form-control" placeholder="Nomor HP">
+                                <input type="number" name="nomor" class="form-control" placeholder="Nomor HP">
                             </div>
                             <div class="form-group form-group-ukuran">
                                 <select name="bank" class="browser-default custom-select">
                                     <option selected disabled>-- Pilih Pembayaran --</option>
-                                    <option value="BNI">BNI</option>
-                                    <option value="BRI">BRI</option>
-                                    <option value="JATIM">Bank Jatim</option>
+                                    @foreach ($bank as $b)
+                                    <option value="{{$b->id}}">{{  $b->nama_bank }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group form-group-ukuran">
@@ -123,6 +128,9 @@
 
                                 <input type="hidden" name="harga" id="hr2" readonly>
                                 <input type="hidden" name="kode"  id="kode2" readonly>
+                                <input type="hidden" name="nama_produk" id="produk2" readonly>
+                                <input type="hidden" name="keterangan" id="ket2" readonly>
+                                <input type="hidden" name="aku" value="{{base64_encode($unik)}}" readonly>
                             </div>
                             <div class="form-group form-group-ukuran">
                                 <button type="submit" class="btn btn-outline-primary btn-pesan">PESAN SEKARANG</button>
@@ -196,6 +204,8 @@
                     $('.hr1').html("RP. "+ data.harga);
                     $('#hr1').val(data.harga);
                     $('#kode1').val(data.kode);
+                    $('#produk1').val(data.nama_produk);
+                    $('#ket1').val(data.keterangan);
                 }
             });
         });
@@ -217,6 +227,8 @@
                     $('.hr2').html("RP. "+ data.harga);
                     $('#hr2').val(data.harga);
                     $('#kode2').val(data.kode);
+                    $('#produk2').val(data.nama_produk);
+                    $('#ket2').val(data.keterangan);
                 }
             });
         });

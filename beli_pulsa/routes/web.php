@@ -49,22 +49,29 @@ Route::get('/', function () {
     ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
     ->where('id_product',2)
     ->groupBy('id_provider')->get();
+
+    $bank = DB::table('banks')->get();
+
+    $kode_unik = rand(100,500);
     return view('/pelanggan/pages/beranda',
-    ['produk_pulsa' => $produk_pulsa,'produk_internet' => $produk_internet ]);
+    ['produk_pulsa' => $produk_pulsa,'produk_internet' => $produk_internet,'bank' => $bank,'unik' => $kode_unik ]);
 });
 //filter
 Route::post('dynamicdependent/cari','DynamicDependent@cari');
 Route::post('dynamicdependent/bawaKodeHarga','DynamicDependent@bawaKodeHarga');
+
 //beli
-Route::post('/beli','BeliController@beli');
+Route::post('/beli-pulsa','BeliController@beliPulsa');
+Route::post('/beli-paket','BeliController@beliPaket');
+
 
 //Route View Daftar Pelanggan dan Proses Daftar Pelanggan
-Route::get('/Register/create','RegisterPelangganController@create');
+Route::get('/Daftar','RegisterPelangganController@create');
 Route::post('/Register','RegisterPelangganController@store');
 
 
 //Route Login Pelanggan dan Proses Login
-Route::get('/Login/create','LoginPelangganController@create');
+Route::get('/Login','LoginPelangganController@create');
 Route::post('/Login','LoginPelangganController@store');
 Route::get('/Login/index','LoginPelangganController@index');
 
@@ -73,7 +80,7 @@ Route::get('/Login/index','LoginPelangganController@index');
 Route::get('/Logout', function () {
     Session::flush();
     Session::flash('Logout','Anda Sudah Keluar dari Akun anda.');
-    return redirect('/Login/create');
+    return redirect('/Login');
 });
 
 //Route daftar harga Semuanya
@@ -117,32 +124,6 @@ Route::get('/Harga/paket_internet/tri_getmore','HargaController@tri_getmore');
 Route::get('/Harga/paket_internet/tri_khusus','HargaController@tri_khusus');
 Route::get('/Harga/paket_internet/xl_combo','HargaController@xl_combo');
 Route::get('/Harga/paket_internet/xl_hotrod','HargaController@xl_hotrod');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -233,8 +214,5 @@ Route::get('/Login/cobapaksa', function () {
     return redirect('/Login/create');
 });
 
-Route::get('/kuntul', function () {
-        return view('admin/forms/login');
-});
 
 //kosong

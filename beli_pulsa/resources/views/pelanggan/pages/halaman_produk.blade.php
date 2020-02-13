@@ -10,7 +10,7 @@
 </ol>
 <div class="row mt-2">
 
-    <div class="col-2 mt-1 animated zoomInDown delay-1s">
+    <div class="col-2 mt-1 animated zoomInDown delay-0s">
         <div id="accordion">
             <div class="card mt-5">
               <div class="card-header bg-dark" id="headingTwo">
@@ -59,7 +59,7 @@
                     <a class="list-group-item text-dark py-1" href="/Harga/paket_internet/xl_hotrod" style="text-decoration: none;">XL (Hotrod)</a>
                   </div>
 
-                  
+
               </div>
             </div>
             <div class="card mt-1">
@@ -94,9 +94,9 @@
               <th colspan="5"><i class="far fa-list-alt"></i>  {{$judul}}</th>
               </tr>
               <tr>
-                <th scope="col" class="">Detail Produk</th>
-                <th scope="col" class="">Provider</th>
-                <th scope="col" class="">Keterangan</th>
+                <th scope="col" class="" style="width:0px">Detail Produk</th>
+                <th scope="col" class="" style="width: 80px">Provider</th>
+                <th scope="col" class="" >Keterangan</th>
                 <th scope="col" class="">Harga</th>
                 <th scope="col" class="">Stok</th>
               </tr>
