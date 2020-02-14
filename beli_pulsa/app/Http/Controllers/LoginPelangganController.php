@@ -54,7 +54,7 @@ class LoginPelangganController extends Controller
             return redirect('/Profil');
         }else{
             Session::flash('Kesalahan','Username dan Password yang anda Masukkan salah!');
-            return redirect('/Login/create');
+            return redirect('/Login');
         }
     }
 

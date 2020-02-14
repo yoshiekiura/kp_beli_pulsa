@@ -137,7 +137,7 @@ class ProfilController extends Controller
         UserEditProfil::destroy($id);
         Session::flush();
         Session::flash('Kesalahan','Berhasil Hapus Akun');
-            return redirect('/Register/create');
+            return redirect('/Daftar');
     }
 
     public function editPwd($id){

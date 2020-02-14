@@ -113,12 +113,12 @@ class SendEmailController extends Controller
         $data = ['email' => $email];
         Mail::to($select_email)->send(new SendForgotMail($data));
         Session::flash('Sukses','Cek email anda untuk mengembalikan kata sandi yang baru.');
-		return redirect('/Login/create');
+		return redirect('/Login');
             
         }else{
             Session::flush(); 
             Session::flash('Kesalahan','Email yang anda masukkan salah');
-            return redirect('/Login/create');
+            return redirect('/Login');
         }
 
     }
@@ -138,11 +138,11 @@ class SendEmailController extends Controller
                 ]);
         Session::flush();           
         Session::flash('Sukses','Kata sandi berhasil diganti, coba masuk kembali.');
-        return redirect('/Login/create');
+        return redirect('/Login');
     }else{
         Session::flush(); 
         Session::flash('Kesalahan','Email yang anda masukkan salah');
-        return redirect('/Login/create');
+        return redirect('/Login');
     }
     }
 }

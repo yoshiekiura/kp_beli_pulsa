@@ -24,7 +24,7 @@ class DynamicDependent extends Controller
         $data = DB::table('price_lists')
         ->join('products','price_lists.id_product' ,'=', 'products.id')
         ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
-        ->where($select,$value)->groupBy($dependent)->get();
+        ->where($select,$value)->groupBy($dependent)->orderBy('price_lists.kode')->get();
         //$data = DB::table('price_lists')->where($select,$value)->groupBy($dependent)->get();
 
         //$output = '<option value="">Select '.ucfirst($dependent).'</option>';;
