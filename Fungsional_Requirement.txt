@@ -16,10 +16,10 @@ keterangan : tb = tidak bisa, sb = sudah bisa, bg = belom garap, otw = perjalana
 •	Pelanggan dapat melihat harga pulsa setelah login/sebelum (sb)
 •	Pelanggan dapat menulis testimoni setelah pembayaran telah sukses (tb)
 •	Pelanggan dapat melihat testimoni tanpa login (sb)
-•	Pelanggan dapat print rincian transaksi (tb)
+•	Pelanggan dapat print rincian transaksi (sb)
 •	Pelanggan dapat melihat rincian transaksi (tb)
 •	Pelanggan dapat mencari rincian transaksi (tb)
-•	Pelanggan dapat menverifikasi akun melalui email (otw)
+•	Pelanggan dapat menverifikasi akun melalui email (sb)
 •	Pelanggan dapat melakukan complain saat pembelian pulsa (tb)
 
 	Admin
