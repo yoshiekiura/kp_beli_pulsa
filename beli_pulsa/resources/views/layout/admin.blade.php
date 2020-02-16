@@ -85,7 +85,7 @@
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
                             ></a>
                             <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="LihatPelanggan">Lihat Pelanggan</a><a class="nav-link" href="#">Lihat Komplain</a></nav>
+                                <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="LihatPelanggan">Lihat Pelanggan</a><a class="nav-link" href="LihatKomplain">Lihat Komplain</a></nav>
                             </div>
 
 

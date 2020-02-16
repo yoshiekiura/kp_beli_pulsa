@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Admin;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
@@ -27,6 +28,12 @@ class AdminController extends Controller
     public function lihat(){
         $user = User::All();
         return view ('admin/pages/daftar_pelanggan',compact('user'));
+    }
+
+    public function komplain(){
+        $user = DB::table('complaints')->get();
+
+        return view ('admin/pages/daftar_komplain',compact('user'));
     }
 
     /**

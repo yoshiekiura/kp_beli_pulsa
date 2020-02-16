@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Http\Controllers\BeliController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
@@ -61,8 +63,17 @@ Route::post('dynamicdependent/cari','DynamicDependent@cari');
 Route::post('dynamicdependent/bawaKodeHarga','DynamicDependent@bawaKodeHarga');
 
 //beli
-Route::post('/beli-pulsa','BeliController@beliPulsa');
-Route::post('/beli-paket','BeliController@beliPaket');
+Route::post('/beli','BeliController@beli');
+// Route::post('/beli-paket','BeliController@beliPaket');
+Route::get('/cetak_pdf', 'BeliController@cetak_pdf');
+
+//komplain
+Route::get('/Komplain/{pesan?}',function(){
+    $pesan = Request::get('pesan');
+// $kode = Request::get('kode');
+    return view('/pelanggan/forms/komplain',compact('pesan'));
+});
+Route::post('Komplain/Kirim', 'BeliController@komplain');
 
 
 //Route View Daftar Pelanggan dan Proses Daftar Pelanggan
@@ -166,6 +177,8 @@ Route::get('/lupas/{email?&kode?}', function(){
     }
 });
 
+
+
 Route::post('/proses_lupa_password', 'SendEmailController@proses_lupa_password');
 
 // Route::get('/Reset_pwd',function () {
@@ -200,6 +213,7 @@ Route::get('/coba/{email?&kode?}', function(){
 Route::resource('Login/Admin', 'AdminController');
 Route::get('Admin/Home', 'AdminController@home');
 Route::get('Admin/LihatPelanggan', 'AdminController@lihat');
+Route::get('Admin/LihatKomplain', 'AdminController@komplain');
 
 //Route Logout(Admin)!
 Route::get('/Admin/Logout', function () {
@@ -211,7 +225,7 @@ Route::get('/Admin/Logout', function () {
 //Route untuk coba paksa
 Route::get('/Login/cobapaksa', function () {
     Session::flash('CobaPaksa','Anda Harus Login Terlebih Dahulu!');
-    return redirect('/Login/create');
+    return redirect('/Login');
 });
 
 
