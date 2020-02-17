@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Transaction;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -30,24 +31,42 @@ class BeliController extends Controller
         $tanggal_beli = Carbon::now();
         $kode_unik = $request-> input('aku');
         $dekripsi = base64_decode($kode_unik);
-
-        $harga_total = $harga + $dekripsi;
-
-        $tujuan_beli = DB::table('banks')->where('id',$bank)->first();
-        // dd($request,$tanggal_beli,$tujuan_beli,$dekripsi,$harga_total);
+        $expired = date('Y-m-d H:i:s',strtotime('+3 hour',strtotime($tanggal_beli)));
         
-        $hasil = array('nama_produk' => $nama_produk,
+        $harga_total = $harga + $dekripsi;
+        
+        
+        $kirim = Transaction::create([
+                        'nama_produk' => $nama_produk,
                        'nama_provider' => $nama_provider,
                        'voucher' => $voucher,
-                       'telpon' => $telp,
+                       'no_telpon' => $telp,
                        'harga' => $harga,
+                       'kode' => $kode,
+                       'kode_unik' => $dekripsi,
                        'bank' => $bank,
                        'tanggal_beli' => $tanggal_beli,
-                       'kode_unik' => $dekripsi,
                        'harga_total' => $harga_total,
-                       'tujuan_beli' => $tujuan_beli                                  
-    ); 
-    return view('/pelanggan/pages/rincian',['hasil' => $hasil]);
+                       'expired' => $expired,
+        ])->id;
+
+        return redirect('/rincian-transaksi/'.$kirim);
+        // $db
+        // $tujuan_beli = DB::table('banks')->where('id',$bank)->first();
+        // dd($request,$tanggal_beli,$tujuan_beli,$dekripsi,$harga_total);
+        
+    //     $hasil = array('nama_produk' => $nama_produk,
+    //                    'nama_provider' => $nama_provider,
+    //                    'voucher' => $voucher,
+    //                    'telpon' => $telp,
+    //                    'harga' => $harga,
+    //                    'bank' => $bank,
+    //                    'tanggal_beli' => $tanggal_beli,
+    //                    'kode_unik' => $dekripsi,
+    //                    'harga_total' => $harga_total,
+    //                    'tujuan_beli' => $tujuan_beli                                  
+    // ); 
+    // return view('/pelanggan/pages/rincian',['hasil' => $hasil]);
     
 
 
@@ -55,6 +74,15 @@ class BeliController extends Controller
 
         // var_dump($nama_produk,$nama_provider,$voucher,$telp,$harga,$bank,$tanggal_beli,$kode);
         // die;
+    }
+
+    public function rincian(Request $request){
+        $hasil = DB::table('transactions')->where('transactions.id',$request->id)
+        ->join('banks','transactions.bank','=','banks.id')
+        ->first();
+        
+        // return view('/pelanggan/pages/a',['hasil' => $hasil]);
+        return view('/pelanggan/pages/rincian',['hasil' => $hasil]);
     }
 
     // function beliPaket(Request $request){

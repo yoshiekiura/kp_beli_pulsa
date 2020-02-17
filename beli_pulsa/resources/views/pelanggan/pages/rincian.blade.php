@@ -25,37 +25,37 @@
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">Produk</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label">{{ $hasil['nama_produk'] }}</label>
+                                <label for="staticEmail" class="col-form-label">{{ $hasil->nama_produk }}</label>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">Provider</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label">{{ $hasil['nama_provider'] }}</label>
+                                <label for="staticEmail" class="col-form-label">{{ $hasil->nama_provider }}</label>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">Voucher</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label">{{ $hasil['voucher'] }}</label>
+                                <label for="staticEmail" class="col-form-label">{{ $hasil->voucher }}</label>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">No. Telepon</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label">{{ $hasil['telpon'] }}</label>
+                                <label for="staticEmail" class="col-form-label">{{ $hasil->no_telpon }}</label>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">Pembayaran</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label">{{ ($hasil['tujuan_beli']->nama_bank) }}</label>
+                                <label for="staticEmail" class="col-form-label">{{ $hasil->nama_bank }}</label>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">Tanggal Pembelian</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label">{{ $hasil['tanggal_beli'] }}</label>
+                                <label for="staticEmail" class="col-form-label">{{ $hasil->tanggal_beli }}</label>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -99,31 +99,31 @@
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label ukuran">No. Rekening</label>
                             <div class="col-sm">
-                                <label for="staticEmail" class="col-form-label ukuran">{{ ($hasil['tujuan_beli']->no_rekening) }} </label>
+                                <label for="staticEmail" class="col-form-label ukuran">{{ $hasil->no_rekening }} </label>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label ukuran">Atas Nama</label>
                             <div class="col-sm">
-                                <label for="staticEmail" class="col-form-label ukuran">{{ ($hasil['tujuan_beli']->atas_nama) }}  </label>
+                                <label for="staticEmail" class="col-form-label ukuran">{{ $hasil->atas_nama }}  </label>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label ukuran">Harga</label>
                             <div class="col-sm">
-                                <label for="staticEmail" class="col-form-label ukuran">@currency($hasil['harga'])</label>
+                                <label for="staticEmail" class="col-form-label ukuran">@currency($hasil->harga)</label>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label ukuran">Kode Unik</label>
                             <div class="col-sm">
-                                <label for="staticEmail" class="col-form-label ukuran">@currency($hasil['kode_unik'])</label>
+                                <label for="staticEmail" class="col-form-label ukuran">@currency($hasil->kode_unik)</label>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label ukuran">Harga Total</label>
                             <div class="col-sm">
-                                <label for="staticEmail" class="col-form-label ukuran">@currency($hasil['harga_total']) </label>
+                                <label for="staticEmail" class="col-form-label ukuran">@currency($hasil->harga_total) </label>
                             </div>
                         </div>
                     </li>

@@ -64,6 +64,7 @@ Route::post('dynamicdependent/bawaKodeHarga','DynamicDependent@bawaKodeHarga');
 
 //beli
 Route::post('/beli','BeliController@beli');
+Route::get('/rincian-transaksi/{id}','BeliController@rincian');
 // Route::post('/beli-paket','BeliController@beliPaket');
 Route::get('/cetak_pdf', 'BeliController@cetak_pdf');
 
