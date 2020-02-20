@@ -1,13 +1,13 @@
-@extends('layout/tampilan_pelanggan')
+@extends('layout/main')
 @section('title','Riwayat Saya')
 
 @section('body')
 
     <h1>RIWAYAT TRANSAKSI</h1>
 
-        
 
-        
+
+
 
 
 
@@ -19,8 +19,8 @@
             header("Location: " . URL::to('/Login/cobapaksa'));
             exit();
         @endphp
-    @endif  
+    @endif
 
 
-    
+
 @endsection

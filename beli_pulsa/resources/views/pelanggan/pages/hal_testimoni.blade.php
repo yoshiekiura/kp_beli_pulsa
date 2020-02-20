@@ -1,10 +1,10 @@
-@extends('layout.tampilan_pelanggan')
+@extends('layout.main')
 @section('title','Beli Pulsa Murah Disini Aja :D')
 
 @section('body')
 
-
-<h1 class="mt-4"> Testimoni Para Pelanggan </h1>
+<div class="container">
+<h1 class="mt-5"> Testimoni Para Pelanggan </h1>
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item"><a href="/">Beranda</a></li>
     <li class="breadcrumb-item">Testimoni</li>
@@ -36,4 +36,6 @@
       {{ $join->links() }}
 </div>
 
+
+</div>
 @endsection

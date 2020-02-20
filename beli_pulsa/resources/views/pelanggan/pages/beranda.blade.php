@@ -6,9 +6,19 @@
 
 <div id="pageone">
     <section class="section">
-       
-                        
-          <div class="container animated bounceInDown delay-0s">
+
+
+          <div class="container mt-5 animated bounceInDown delay-0s">
+            @if (count($errors) > 0)
+            <div class="alert alert-danger alarm mt-3 animated jackInTheBox delay-2s">
+                    <h3 class="text-center">Kesalahan Pengisian</h3>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    </div>
+            @endif
             <div class="card shadow-lg border-1 rounded-lg">
               <div class="card-body mb-3">
                 <div class="text-dark text-center">
@@ -17,16 +27,7 @@
                     <p class="pthird animated zoomIn delay-1s">TUKUPULSA.COM</p>
                     <p class="pfourth animated bounceInUp delay-1s">Ada untuk Anda.</p>
                     <a type="button" class="btn btn-primary animated jackInTheBox delay-2s" id="beli" href="#pilih-paket">Beli Sekarang</a>
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger alarm mt-3 animated jackInTheBox delay-2s">
-                                <h3>Kesalahan Pengisian</h3>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                                </div>
-                        @endif
+
                 </div>
               </div>
             </div>
@@ -46,7 +47,7 @@
                     <div class="card shadow-lg border-1 rounded-lg">
                         <form action="/beli" method="post">
                         <h2 class="judul-order">Pulsa Reguler</h2>
-                        
+
                         <div class="form-group form-group-ukuran">
                             <select name="pulsa_op" id="pulsa_op" class="browser-default custom-select dynamic1" data-dependent="pulsa_nominal">
                                 <option selected disabled value="">Select Provider</option>
@@ -90,15 +91,6 @@
                 <div class="col">
                     <div class="card shadow-lg border-1 rounded-lg">
                         <h2 class="judul-order">Paket Internet</h2>
-                        @if (count($errors) > 0)
-                        <div class="alert alert-danger alarm">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                                </div>
-                        @endif
                         <form action="/beli" method="post">
                             <div class="form-group form-group-ukuran">
                                 <select name="pulsa_op" id="pulsa_op" class="browser-default custom-select dynamic2" data-dependent="pulsa_nominal">

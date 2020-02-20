@@ -1,4 +1,4 @@
-@extends('layout/tampilan_pelanggan')
+@extends('layout/main')
 @section('title','Rincian Transaksi')
 
 @section('body')
@@ -13,7 +13,7 @@
         <li class="breadcrumb-item"><a href="/">Beranda</a></li>
         <li class="breadcrumb-item">Rincian Transaksi</li>
     </ol>
-    
+
     <div class="row mt-5 mb-5">
         <div class="col-7">
             <div class="card">
@@ -92,7 +92,7 @@
         <div class="col-5">
             <div class="card">
                 <div class="card-header">
-                Pembayaran 
+                Pembayaran
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
@@ -131,28 +131,28 @@
             </div>
         </div>
     </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-       
-
-        
-
-        
 
 
 
 
 
 
-    
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @endsection

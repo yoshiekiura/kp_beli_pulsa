@@ -55,7 +55,7 @@ html, body, section{
             bottom: 0;
             right: 0;
             display: inline-block;
-            padding: 1em;
+            padding: 10px;
             margin: 1em;
             background: #E8E8E8;
             border: 2px solid #000;
@@ -88,9 +88,9 @@ html, body, section{
 
 .alarm{
     margin-left: 200px;
-    border-radius: 25px;
+    /* border-radius: 25px; */
     margin-right: 200px;
-    border-radius: 25px;
+    /* border-radius: 25px; */
 }
 
 /* .mycard-mid{

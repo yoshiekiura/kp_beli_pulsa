@@ -40,9 +40,9 @@ class DynamicDependent extends Controller
         $kode = $request->get('keterangan');
 
         $data_price = DB::table('price_lists')
-        ->join('products','price_lists.id_product' ,'=', 'products.id')
-        ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
-        ->where('kode',$kode)->get();
+        // ->join('products','price_lists.id_product' ,'=', 'products.id')
+        // ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+        ->where('pulsa_code',$kode)->get();
 
         foreach($data_price as $d){
             $data['harga'] = $d->harga;

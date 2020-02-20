@@ -1,7 +1,8 @@
-@extends('layout/tampilan_pelanggan')
+@extends('layout/main')
 @section('title','Komplain')
 
 @section('body')
+<div class="container">
 <h1 class="mt-4">Beri Komplain</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="/">Beranda</a></li>
@@ -22,14 +23,14 @@
           <input type="number" class="form-control" name="telp" id="tlp" aria-describedby="tlp">
           <small id="tlp" class="form-text text-muted">Masukan nomor HP sesuai yang ada di data transaksi yang anda komplain</small>
         </div>
-        
+
         <div class="form-group">
           <label for="pesan">Pesan</label>
           <textarea type="text" class="form-control" name="pesan" id="pesan">{{$pesan}}</textarea>
         </div>
-        
+
         <button type="submit" class="btn btn-primary mb-5">Kirim</button>
       </form>
 
-
+    </div>
 @endsection

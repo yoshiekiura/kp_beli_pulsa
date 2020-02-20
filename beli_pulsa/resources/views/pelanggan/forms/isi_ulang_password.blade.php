@@ -3,14 +3,14 @@
 
 @section('body')
 
-
+<div class="container">
 <div class="row justify-content-center">
     <div class="col-lg-5 mb-5">
         <div class="card shadow-lg border-0 rounded-lg mt-5">
             <div class="card-header">
                 <h3 class="text-center font-weight-light my-3">Ubah kata sandi anda<br></h3>
                 <h5 class="text-center font-weight-light my-2">{{$email}}</h4>
-            
+
             </div>
             <div class="card-body">
                 @if(Session::has('Sukses'))
@@ -44,10 +44,12 @@
                         <div style="text-align: center; margin-top: 20px;" >
                             <button type="submit" class="btn btn-secondary" id="submit">Ubah Password</button>
                         </div>
-                    </form>                   
+                    </form>
             </div>
 
         </div>
     </div>
+</div>
+
 </div>
 @endsection

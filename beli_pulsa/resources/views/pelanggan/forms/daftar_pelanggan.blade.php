@@ -2,7 +2,7 @@
 @section('title','Daftar Pelanggan')
 
 @section('body')
-
+<div class="container">
 <div class="row justify-content-center animated bounceInDown delay-0s">
     <div class="col-lg-5 mb-5">
         <div class="card shadow-lg border-0 rounded-lg mt-5">
@@ -60,5 +60,5 @@
     </script> --}}
 
 
-
+</div>
 @endsection

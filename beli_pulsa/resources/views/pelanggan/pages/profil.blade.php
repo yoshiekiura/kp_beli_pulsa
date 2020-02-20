@@ -1,10 +1,9 @@
-@extends('layout/tampilan_pelanggan')
+@extends('layout/main')
 @section('title','Profil Saya')
 
 @section('body')
-
-<h1 class="mt-4">Hai, {{$panggil->username}}</h1>
-
+<div class="container mt-5">
+<h1 class="mt-5">Hai, {{$panggil->username}}</h1>
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item"><a href="/">Beranda</a></li>
     <li class="breadcrumb-item">Profil</li>
@@ -131,4 +130,6 @@
       </div>
     </div>
   </div>
+
+</div>
 @endsection

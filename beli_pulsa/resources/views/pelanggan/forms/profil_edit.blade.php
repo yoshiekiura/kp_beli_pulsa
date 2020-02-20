@@ -1,9 +1,9 @@
 
-@extends('layout/tampilan_pelanggan')
+@extends('layout/main')
 @section('title','Edit Profil Akun Pelanggan')
 
 @section('body')
-
+<div class="container">
 <h1 class="mt-4">Hai, {{$ids->username}}</h1>
 
 <ol class="breadcrumb mb-4">
@@ -92,5 +92,5 @@
   </table>
 </form>
 
-
+</div>
   @endsection
