@@ -39,18 +39,24 @@ Route::get('/cadangan', function () {
     ['produk' => $produk ]);
 });
 
+// Route::get('/', function () {
+//     return view('/pelanggan/pages/beranda');
+// });
+
 Route::get('/', function () {
     $produk_pulsa = DB::table('price_lists')
-    ->join('products','price_lists.id_product' ,'=', 'products.id')
-    ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
-    ->where('id_product',1)
-    ->groupBy('id_provider')->get();
+    // ->join('products','price_lists.id_product' ,'=', 'products.id')
+    // ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+    ->where('pulsa_type','pulsa')
+    ->groupBy('pulsa_op')
+    ->get();
 
     $produk_internet = DB::table('price_lists')
-    ->join('products','price_lists.id_product' ,'=', 'products.id')
-    ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
-    ->where('id_product',2)
-    ->groupBy('id_provider')->get();
+    // ->join('products','price_lists.id_product' ,'=', 'products.id')
+    // ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+    ->where('pulsa_type','data')
+    ->groupBy('pulsa_op')
+    ->get();
 
     $bank = DB::table('banks')->get();
 

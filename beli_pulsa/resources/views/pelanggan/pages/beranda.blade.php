@@ -48,15 +48,15 @@
                         <h2 class="judul-order">Pulsa Reguler</h2>
                         
                         <div class="form-group form-group-ukuran">
-                            <select name="nama_provider" id="nama_provider" class="browser-default custom-select dynamic1" data-dependent="keterangan">
+                            <select name="pulsa_op" id="pulsa_op" class="browser-default custom-select dynamic1" data-dependent="pulsa_nominal">
                                 <option selected disabled value="">Select Provider</option>
                                 @foreach ($produk_pulsa as $p)
-                                    <option value="{{ $p->nama_provider}}">{{ $p->nama_provider}}</option>
+                                    <option value="{{ $p->pulsa_op }}">{{ $p->pulsa_op }}</option>
                                     @endforeach
                                 </select>
                         </div>
                     <div class="form-group form-group-ukuran">
-                        <select name="voucher" id="keterangan1" class="browser-default custom-select opsi-pulsa" >
+                        <select name="pulsa_nominal" id="keterangan1" class="browser-default custom-select opsi-pulsa" >
                             <option value="" selected>Select Voucher</option>
                         </select>
                     </div>
@@ -90,7 +90,7 @@
                 <div class="col">
                     <div class="card shadow-lg border-1 rounded-lg">
                         <h2 class="judul-order">Paket Internet</h2>
-                        {{-- @if (count($errors) > 0)
+                        @if (count($errors) > 0)
                         <div class="alert alert-danger alarm">
                                 <ul>
                                     @foreach ($errors->all() as $error)
@@ -98,18 +98,18 @@
                                     @endforeach
                                 </ul>
                                 </div>
-                        @endif --}}
+                        @endif
                         <form action="/beli" method="post">
                             <div class="form-group form-group-ukuran">
-                                <select name="nama_provider" id="nama_provider" class="browser-default custom-select dynamic2" data-dependent="keterangan">
+                                <select name="pulsa_op" id="pulsa_op" class="browser-default custom-select dynamic2" data-dependent="pulsa_nominal">
                                     <option value="">Select Provider</option>
                                     @foreach ($produk_internet as $p)
-                                        <option value="{{ $p->nama_provider}}">{{ $p->nama_provider}}</option>
+                                        <option value="{{ $p->pulsa_op}}">{{ $p->pulsa_op}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group form-group-ukuran">
-                                <select name="voucher" id="keterangan2" class="browser-default custom-select opsi-paket" >
+                                <select name="pulsa_nominal" id="keterangan2" class="browser-default custom-select opsi-paket" >
                                 <option value="" selected>Select Voucher</option>
                                 </select>
                             </div>
