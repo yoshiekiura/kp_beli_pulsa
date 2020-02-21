@@ -2,7 +2,7 @@
 @section('title','Profil Saya')
 
 @section('body')
-<div class="container mt-5">
+<div class="container tambah_bawah">
 <h1 class="mt-5">Hai, {{$panggil->username}}</h1>
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item"><a href="/">Beranda</a></li>

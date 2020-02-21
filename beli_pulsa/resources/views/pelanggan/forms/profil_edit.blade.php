@@ -3,7 +3,7 @@
 @section('title','Edit Profil Akun Pelanggan')
 
 @section('body')
-<div class="container">
+<div class="container tambah_bawah">
 <h1 class="mt-4">Hai, {{$ids->username}}</h1>
 
 <ol class="breadcrumb mb-4">

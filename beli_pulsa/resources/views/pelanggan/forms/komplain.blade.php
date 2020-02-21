@@ -2,7 +2,7 @@
 @section('title','Komplain')
 
 @section('body')
-<div class="container">
+<div class="container tambah_bawah">
 <h1 class="mt-4">Beri Komplain</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="/">Beranda</a></li>

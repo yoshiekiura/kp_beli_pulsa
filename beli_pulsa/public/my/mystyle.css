@@ -24,6 +24,7 @@ html, body, section{
             background: linear-gradient(110deg, #81ee05 60%, #04c924 60%);
             /* color: white; */
             min-height: 100vh;
+            
         }
 
         #pilih-paket{
@@ -128,4 +129,8 @@ html, body, section{
 
 .btn-pesan{
     width: 100%; border-width: 3px; font-size: 20px; font-weight: bold;
+}
+
+.container.tambah_bawah{
+    margin-top: 100px;
 }
