@@ -12,9 +12,13 @@ class HargaController extends Controller
     public function index(){
         //$price = Price::all();
         $price = DB::table('price_lists')
-        ->join('products','price_lists.id_product' ,'=', 'products.id')
-        ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
-        ->get(['nama_produk','nama_provider','keterangan','harga','status']);
+        ->where('pulsa_type','data')
+        ->orWhere('pulsa_type','pulsa')
+        ->get();
+
+        // ->join('products','price_lists.id_product' ,'=', 'products.id')
+        // ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+        // ->get(['nama_produk','nama_provider','keterangan','harga','status']);
         $judul = "Daftar Harga";
         return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $price]);
 
@@ -218,7 +222,7 @@ class HargaController extends Controller
         $judul = "Harga Paket Internet Telkomsel (As)";
         // $arr = array('price' => $price);
         return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $price]);
-       
+
     }
 
     public function telkomsel_loop(){
@@ -243,7 +247,7 @@ class HargaController extends Controller
         // $arr = array('price' => $price);
         return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $price]);
     }
-    
+
     public function telkomsel_vas(){
         $price = DB::table('price_lists')
         ->join('products','price_lists.id_product' ,'=', 'products.id')
@@ -332,7 +336,7 @@ class HargaController extends Controller
         // $arr = array('price' => $price);
         return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $price]);
     }
-    
+
     public function telkomsel_malam_00_07(){
         $price = DB::table('price_lists')
         ->join('products','price_lists.id_product' ,'=', 'products.id')
@@ -453,12 +457,12 @@ class HargaController extends Controller
         // $arr = array('price' => $price);
         return view('pelanggan/pages/halaman_produk',['judul' => $judul, 'arr' => $price]);
     }
-    
-    
-    
-    
 
- 
+
+
+
+
+
 
 
 }

@@ -50,7 +50,7 @@
 
                         <div class="form-group form-group-ukuran">
                             <select name="pulsa_op" id="pulsa_op" class="browser-default custom-select dynamic1" data-dependent="pulsa_nominal">
-                                <option selected disabled value="">Select Provider</option>
+                                <option selected disabled value="">-- Pilih Operator --</option>
                                 @foreach ($produk_pulsa as $p)
                                     <option value="{{ $p->pulsa_op }}">{{ $p->pulsa_op }}</option>
                                     @endforeach
@@ -58,10 +58,13 @@
                         </div>
                     <div class="form-group form-group-ukuran">
                         <select name="pulsa_nominal" id="keterangan1" class="browser-default custom-select opsi-pulsa" >
-                            <option value="" selected>Select Voucher</option>
+                            <option value="" selected>-- Pilih Nama Produk --</option>
                         </select>
                     </div>
                     @csrf
+                    <div class="form-group form-group-ukuran">
+                        <input type="text" class="form-control" id="masaaktif1" placeholder="Masa Aktif" disabled>
+                    </div>
                     <div class="form-group form-group-ukuran">
                         <input type="number" name="nomor" class="form-control" placeholder="Nomor HP">
                     </div>
@@ -77,8 +80,8 @@
                         <h2 class="harga hr1">RP -</h2>
                         <input type="hidden" name="harga" id="hr1" readonly>
                         <input type="hidden" name="kode"  id="kode1" readonly>
-                        <input type="hidden" name="nama_produk" id="produk1" readonly>
-                        <input type="hidden" name="keterangan" id="ket1" readonly>
+                        {{-- <input type="hidden" name="nama_produk" id="produk1" readonly> --}}
+                        {{-- <input type="hidden" name="keterangan" id="ket1" readonly> --}}
                         <input type="hidden" name="aku" value="{{base64_encode($unik)}}" readonly>
                     </div>
                     <div class="form-group form-group-ukuran">
@@ -94,7 +97,7 @@
                         <form action="/beli" method="post">
                             <div class="form-group form-group-ukuran">
                                 <select name="pulsa_op" id="pulsa_op" class="browser-default custom-select dynamic2" data-dependent="pulsa_nominal">
-                                    <option value="">Select Provider</option>
+                                    <option value="">-- Pilih Operator --</option>
                                     @foreach ($produk_internet as $p)
                                         <option value="{{ $p->pulsa_op}}">{{ $p->pulsa_op}}</option>
                                     @endforeach
@@ -102,10 +105,13 @@
                             </div>
                             <div class="form-group form-group-ukuran">
                                 <select name="pulsa_nominal" id="keterangan2" class="browser-default custom-select opsi-paket" >
-                                <option value="" selected>Select Voucher</option>
+                                <option value="" selected>-- Pilih Nama Produk --</option>
                                 </select>
                             </div>
                             @csrf
+                            <div class="form-group form-group-ukuran">
+                                <input type="text" class="form-control" id="masaaktif2" placeholder="Masa Aktif" disabled>
+                            </div>
                             <div class="form-group form-group-ukuran">
                                 <input type="number" name="nomor" class="form-control" placeholder="Nomor HP">
                             </div>
@@ -122,8 +128,8 @@
 
                                 <input type="hidden" name="harga" id="hr2" readonly>
                                 <input type="hidden" name="kode"  id="kode2" readonly>
-                                <input type="hidden" name="nama_produk" id="produk2" readonly>
-                                <input type="hidden" name="keterangan" id="ket2" readonly>
+                                {{-- <input type="hidden" name="nama_produk" id="produk2" readonly> --}}
+                                {{-- <input type="hidden" name="keterangan" id="ket2" readonly> --}}
                                 <input type="hidden" name="aku" value="{{base64_encode($unik)}}" readonly>
                             </div>
                             <div class="form-group form-group-ukuran">
@@ -195,11 +201,12 @@
                 success:function(data){
                     //console.log(data);
 
-                    $('.hr1').html("RP. "+ data.harga);
-                    $('#hr1').val(data.harga);
-                    $('#kode1').val(data.kode);
-                    $('#produk1').val(data.nama_produk);
-                    $('#ket1').val(data.keterangan);
+                    $('.hr1').html("RP. "+ data.pulsa_price);
+                    $('#hr1').val(data.pulsa_price);
+                    $('#masaaktif1').val("+ " +data.masaaktif + " Hari");
+                    $('#kode1').val(data.pulsa_code);
+                    // $('#produk1').val(data.pulsa_op);
+                    // $('#ket1').val(data.pulsa_nominal);
                 }
             });
         });
@@ -218,11 +225,12 @@
                 success:function(data){
                     //console.log(data);
 
-                    $('.hr2').html("RP. "+ data.harga);
-                    $('#hr2').val(data.harga);
-                    $('#kode2').val(data.kode);
-                    $('#produk2').val(data.nama_produk);
-                    $('#ket2').val(data.keterangan);
+                    $('.hr2').html("RP. "+ data.pulsa_price);
+                    $('#hr2').val(data.pulsa_price);
+                    $('#kode2').val(data.pulsa_code);
+                    $('#masaaktif2').val(data.masaaktif + " Hari");
+                    // $('#produk2').val(data.pulsa_op);
+                    // $('#ket2').val(data.pulsa_nominal);
                 }
             });
         });

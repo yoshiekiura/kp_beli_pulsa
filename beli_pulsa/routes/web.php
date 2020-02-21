@@ -34,7 +34,10 @@ Route::get('/cadangan', function () {
     $produk = DB::table('price_lists')
     ->join('products','price_lists.id_product' ,'=', 'products.id')
     ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+
     ->groupBy('id_product')->get();
+
+    var_dump($produk);
     return view('/pelanggan/pages/halaman_utama_pelanggan',
     ['produk' => $produk ]);
 });
@@ -54,6 +57,7 @@ Route::get('/', function () {
     $produk_internet = DB::table('price_lists')
     // ->join('products','price_lists.id_product' ,'=', 'products.id')
     // ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+    // ->where('status','active')
     ->where('pulsa_type','data')
     ->groupBy('pulsa_op')
     ->get();
@@ -64,15 +68,22 @@ Route::get('/', function () {
     return view('/pelanggan/pages/beranda',
     ['produk_pulsa' => $produk_pulsa,'produk_internet' => $produk_internet,'bank' => $bank,'unik' => $kode_unik ]);
 });
+
+
 //filter
 Route::post('dynamicdependent/cari','DynamicDependent@cari');
 Route::post('dynamicdependent/bawaKodeHarga','DynamicDependent@bawaKodeHarga');
+Route::post('/Cek-transaksip','DynamicDependent@kirim_transaksi');
 
 //beli
 Route::post('/beli','BeliController@beli');
 Route::get('/rincian-transaksi/{id}','BeliController@rincian');
 // Route::post('/beli-paket','BeliController@beliPaket');
 Route::get('/cetak_pdf', 'BeliController@cetak_pdf');
+
+//cek-transaksi
+Route::get('/Cek-transaksi','BeliController@cek_transaksi');
+Route::get('/Cek-transaksi/{no_telp}','DynamicDependent@tampil_transaksi');
 
 //komplain
 Route::get('/Komplain/{pesan?}',function(){

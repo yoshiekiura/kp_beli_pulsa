@@ -2,7 +2,7 @@
 @section('title','Beli Pulsa Murah Disini Aja :D')
 
 @section('body')
-
+<div class="container">
 <h1 class="mt-4">Pilih Paket</h1>
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item"><a href="/">Beranda</a></li>
@@ -88,45 +88,38 @@
 
 
     <div class="table-responsive">
-        <table class="table table-bordered table-sm mt-2" id="dataTable">
+        <table class="table table-striped table-dark table-sm mt-2" id="dataTable">
             <thead class="thead-dark">
               <tr>
-              <th colspan="5"><i class="far fa-list-alt"></i>  {{$judul}}</th>
+              <th colspan="6"><i class="far fa-list-alt"></i>  {{$judul}}</th>
               </tr>
               <tr>
-                <th scope="col" class="" style="width:0px">Detail Produk</th>
-                <th scope="col" class="" style="width: 80px">Provider</th>
-                <th scope="col" class="" >Keterangan</th>
-                <th scope="col" class="">Harga</th>
-                <th scope="col" class="">Stok</th>
+                <th scope="col">Type Produk</th>
+                <th scope="col" style="width: 50px">Operator</th>
+                <th scope="col" style="width: 50px">Nama Produk</th>
+                <th scope="col" style="width: 50px">Masa Aktif</th>
+                <th scope="col">Harga</th>
+                <th scope="col" style="width: 50px">Stok</th>
               </tr>
             </thead>
             <tbody>
             @foreach ($arr as $harga)
-                @if ($harga->status == "Ada")
-                    <tr class="table-success">
-                        <th scope="row">{{ $harga->nama_produk }}</th>
-                        <td>{{ $harga->nama_provider }}</td>
-                        <td>{{ $harga->keterangan }}</td>
-                        <td>@currency($harga->harga)</td>
+                    <tr>
+                        <th scope="row">{{ $harga->pulsa_type }}</th>
+                        <td>{{ $harga->pulsa_op }}</td>
+                        <td>{{ $harga->pulsa_nominal }}</td>
+                        <td>{{$harga->masaaktif}} Hari</td>
+                        <td>@currency($harga->pulsa_price)</td>
                         <td>{{$harga->status}}</td>
                     </tr>
-                    @elseif ($harga->status == "Kosong")
-                    <tr class="table-danger">
-                        <th scope="row">{{ $harga->nama_produk }}</th>
-                        <td>{{ $harga->nama_provider }}</td>
-                        <td>{{ $harga->keterangan }}</td>
-                        <td>@currency($harga->harga)</td>
-                        <td>{{$harga->status}}</td>
-                    </tr>
-                @endif
               @endforeach
             </tbody>
           </table>
+
         </div>
     </div>
 </div>
 <div class="mb-5"></div>
 
-
+</div>
 @endsection

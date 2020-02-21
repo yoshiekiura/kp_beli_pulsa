@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     //
-    protected $fillable = ['nama_produk','nama_provider','voucher','no_telpon','harga','kode','kode_unik','bank','tanggal_beli','harga_total','expired'];
+    protected $fillable = ['pulsa_code','id_bank','no_telpon','kode_unik','harga_total','tanggal_beli','expired','status_pembayaran','status_pengisian','status_transaksi'];
 }

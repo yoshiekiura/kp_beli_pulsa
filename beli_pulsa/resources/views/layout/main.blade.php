@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 
     {{-- <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"> --}}
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     {{-- <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"> --}}
 
 
@@ -30,6 +31,10 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="/sbadmin4/src/assets/demo/datatables-demo.js"></script>
     {{-- <script type="text/javascript" src="{{ URL::asset('js/jquery.js') }}"></script> --}}
     {{-- <script type="text/javascript" src="/js/bootstrap.min.js"></script> --}}
     {{-- <script type="text/javascript" src="/js/jquery.js"></script> --}}
@@ -95,7 +100,7 @@
                     <ul class="navbar-nav ml-auto">
 
                         <li class="nav-item"><a href="{{ url('/Harga') }}" class="nav-link text-uppercase font-weight-bold"><i class="fas fa-clipboard-list"></i> Daftar Harga</a></li>
-                        <li class="nav-item"><a href="{{ url('/') }}" class="nav-link text-uppercase font-weight-bold"><i class="fas fa-cart-plus"></i> Cek Transaksi</a></li>
+                        <li class="nav-item"><a href="{{ url('/Cek-transaksi') }}" class="nav-link text-uppercase font-weight-bold"><i class="fas fa-cart-plus"></i> Cek Transaksi</a></li>
                         <li class="nav-item"><a href="{{ url('/Testimoni') }}" class="nav-link text-uppercase font-weight-bold"><i class="fas fa-comment-dollar"></i> Testimoni</a></li>
 
                     </ul>

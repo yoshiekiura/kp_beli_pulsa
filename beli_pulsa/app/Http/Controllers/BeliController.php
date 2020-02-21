@@ -15,46 +15,49 @@ class BeliController extends Controller
     function beli(Request $request){
 
         $this->validate($request,[
-            'nama_provider' => 'required',
-            'voucher' => 'required',
+            'pulsa_op' => 'required',
+            'pulsa_nominal' => 'required',
             'nomor' => 'required|min:11|max:13',
             'bank' => 'required'
         ]);
 
-        $nama_produk  =    $request->  input('nama_produk');
-        $nama_provider  =    $request->  input('nama_provider');
-        $voucher  =    $request->  input('keterangan');
-        $telp  =    $request->  input('nomor');
-        $harga =    $request->  input('harga');
+        // $nama_produk  =    $request->  input('pulsa_type');
+        // $nama_provider  =    $request->  input('pulsa_op');
+        // $voucher  =    $request->  input('pulsa_nominal');
         $kode  =    $request->  input('kode');
         $bank  =    $request->  input('bank');
-        $tanggal_beli = Carbon::now();
+        $telp  =    $request->  input('nomor');
+        $harga =    $request->  input('harga');
         $kode_unik = $request-> input('aku');
         $dekripsi = base64_decode($kode_unik);
-        $expired = date('Y-m-d H:i:s',strtotime('+3 hour',strtotime($tanggal_beli)));
-        
         $harga_total = $harga + $dekripsi;
-        
-        
+        $tanggal_beli = Carbon::now();
+        $expired = date('Y-m-d H:i:s',strtotime('+3 hour',strtotime($tanggal_beli)));
+        // var_dump($sisiruit);
+        // die;
+        // ddd($kode);
         $kirim = Transaction::create([
-                        'nama_produk' => $nama_produk,
-                       'nama_provider' => $nama_provider,
-                       'voucher' => $voucher,
+                        // 'nama_produk' => $nama_produk,
+                    //    'nama_provider' => $nama_provider,
+                    //    'voucher' => $voucher,
+                        'pulsa_code' => $kode,
+                        'id_bank' => $bank,
                        'no_telpon' => $telp,
-                       'harga' => $harga,
-                       'kode' => $kode,
+                    //    'harga' => $harga,
                        'kode_unik' => $dekripsi,
-                       'bank' => $bank,
-                       'tanggal_beli' => $tanggal_beli,
                        'harga_total' => $harga_total,
-                       'expired' => $expired,
+                       'status_pembayaran' => "Menunggu",
+                       'status_pengisian' => "Menunggu",
+                       'status_transaksi' => "Menunggu",
+                       'tanggal_beli' => $tanggal_beli,
+                       'expired' => $expired
         ])->id;
 
         return redirect('/rincian-transaksi/'.$kirim);
         // $db
         // $tujuan_beli = DB::table('banks')->where('id',$bank)->first();
         // dd($request,$tanggal_beli,$tujuan_beli,$dekripsi,$harga_total);
-        
+
     //     $hasil = array('nama_produk' => $nama_produk,
     //                    'nama_provider' => $nama_provider,
     //                    'voucher' => $voucher,
@@ -64,13 +67,9 @@ class BeliController extends Controller
     //                    'tanggal_beli' => $tanggal_beli,
     //                    'kode_unik' => $dekripsi,
     //                    'harga_total' => $harga_total,
-    //                    'tujuan_beli' => $tujuan_beli                                  
-    // ); 
+    //                    'tujuan_beli' => $tujuan_beli
+    // );
     // return view('/pelanggan/pages/rincian',['hasil' => $hasil]);
-    
-
-
-
 
         // var_dump($nama_produk,$nama_provider,$voucher,$telp,$harga,$bank,$tanggal_beli,$kode);
         // die;
@@ -78,9 +77,12 @@ class BeliController extends Controller
 
     public function rincian(Request $request){
         $hasil = DB::table('transactions')->where('transactions.id',$request->id)
-        ->join('banks','transactions.bank','=','banks.id')
+        ->join('banks','transactions.id_bank','=','banks.id')
+        ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
         ->first();
-        
+
+        // var_dump($hasil);
+        // die;
         // return view('/pelanggan/pages/a',['hasil' => $hasil]);
         return view('/pelanggan/pages/rincian',['hasil' => $hasil]);
     }
@@ -118,7 +120,7 @@ class BeliController extends Controller
     //                    'tanggal_beli' => $tanggal_beli,
     //                    'kode_unik' => $dekripsi,
     //                    'harga_total' => $harga_total,
-    //                    'tujuan_beli' => $tujuan_beli); 
+    //                    'tujuan_beli' => $tujuan_beli);
     //             return view('/pelanggan/pages/rincian',['hasil' => $hasil]);
     //     }
 
@@ -138,7 +140,8 @@ class BeliController extends Controller
         $telp = $request -> input('telp');
         $pesan = $request -> input('pesan');
         $waktu = Carbon::now();
-        
+
+
         DB::table('complaints')->insert([
             'id_transaksi' => $id_transaksi,
             'nama' => $nama,
@@ -150,6 +153,12 @@ class BeliController extends Controller
 
         return Redirect('/');
         //var_dump($id_transaksi,$nama,$telp,$pesan);
+    }
+
+    function cek_transaksi(){
+        // echo ('sisiruit');
+        $data = "kosong";
+        return view('/pelanggan/forms/cek_transaksi',['data' => $data]);
     }
 
 

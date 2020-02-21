@@ -8,6 +8,7 @@
             exit();
         @endphp
     @endif   --}}
+    <div class="container">
     <h1 class="mt-4">Rincian Transaksi</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="/">Beranda</a></li>
@@ -25,19 +26,25 @@
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">Produk</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label">{{ $hasil->nama_produk }}</label>
+                                <label for="staticEmail" class="col-form-label">{{ $hasil->pulsa_type }}</label>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">Provider</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label">{{ $hasil->nama_provider }}</label>
+                                <label for="staticEmail" class="col-form-label">{{ $hasil->pulsa_op }}</label>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">Voucher</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label">{{ $hasil->voucher }}</label>
+                                <label for="staticEmail" class="col-form-label">{{ $hasil->pulsa_nominal }}</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="staticEmail" class="col-sm-5 col-form-label">Masa Aktif</label>
+                            <div class="col-sm-7">
+                                <label for="staticEmail" class="col-form-label">{{ $hasil->masaaktif }} Hari</label>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -61,13 +68,13 @@
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">Status Pembayaran</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label"><span class="badge badge-warning">Belom Bayar</span></label>
+                                <label for="staticEmail" class="col-form-label">{{$hasil->status_pembayaran}}</label>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">Status Pengisian</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label"><span class="badge badge-warning">Belom Diisi</span></label>
+                                <label for="staticEmail" class="col-form-label">{{ $hasil->status_pengisian }}</label>
                             </div>
                         </div>
                     </li>
@@ -111,7 +118,7 @@
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label ukuran">Harga</label>
                             <div class="col-sm">
-                                <label for="staticEmail" class="col-form-label ukuran">@currency($hasil->harga)</label>
+                                <label for="staticEmail" class="col-form-label ukuran">@currency($hasil->pulsa_price)</label>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -126,6 +133,10 @@
                                 <label for="staticEmail" class="col-form-label ukuran">@currency($hasil->harga_total) </label>
                             </div>
                         </div>
+                        <div class="dropdown-divider"></div>
+                        <p class="card-text" style="text-align:justify"><small>Produk akan otomatis dikirim setelah Anda mentransfer sesuai dengan permintaan sistem. Pembayaran berlaku sampai dengan <b>{{($hasil->expired) }}</b>,
+                        Silahkan melakukan transfer sebesar <b>@currency($hasil->harga_total)</b> ke nomor rekening diatas
+                        (Note: Nominal pembayaran harus sama)</small></p>
                     </li>
                 </ul>
             </div>
@@ -138,21 +149,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
 
 @endsection

@@ -45,13 +45,30 @@ class DynamicDependent extends Controller
         ->where('pulsa_code',$kode)->get();
 
         foreach($data_price as $d){
-            $data['harga'] = $d->harga;
-            $data['kode'] = $d->kode;
-            $data['nama_produk'] = $d->nama_produk;
-            $data['keterangan'] = $d->keterangan;
+            $data['masaaktif'] = $d->masaaktif;
+            $data['pulsa_price'] = $d->pulsa_price;
+            $data['pulsa_code'] = $d->pulsa_code;
+            // $data['pulsa_op'] = $d->pulsa_op;
+            // $data['pulsa_nominal'] = $d->pulsa_nominal;
         }
 
         echo json_encode($data);
+    }
+
+    function kirim_transaksi(Request $request){
+        $nomor = $request->get('nomor');
+        // $result = DB::table('transactions')->where('no_telpon',$nomor)
+        // ->get();
+
+        return redirect('/Cek-transaksi/'.$nomor);
+        // return view('/pelanggan/forms/cek_transaksi',['data' => $result]);
+    }
+    function tampil_transaksi($nomor){
+        $result = DB::table('transactions')->where('no_telpon',$nomor)
+        ->get();
+
+
+        return view('/pelanggan/forms/cek_transaksi',['data' => $result]);
     }
 
 }
