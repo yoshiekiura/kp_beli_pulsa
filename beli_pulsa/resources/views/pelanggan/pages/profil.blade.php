@@ -3,7 +3,7 @@
 
 @section('body')
 <div class="container tambah_bawah">
-<h1 class="mt-5">Hai, {{$panggil->username}}</h1>
+
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item"><a href="/">Beranda</a></li>
     <li class="breadcrumb-item">Profil</li>
@@ -35,73 +35,90 @@
         @endphp
     @endif
 
-<table class="table table-striped table-bordered animated bounceInLeft delay-1s">
-  <thead>
+    <div class="card animated bounceInLeft delay-0s">
+        <div class="card-header">
+            <h4 class="card-title text-center mt-2">Hai, {{$panggil->username}}</h5>
+        </div>
+        <div class="card-body">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Nama Lengkap</label>
+                    <div class="col-sm-10">
+                        <label class="col-form-label">: {{ $panggil->nama }}</label>
+                    </div>
+              </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Username</label>
+                    <div class="col-sm-10">
+                        <label class="col-form-label">: {{ $panggil->username }}</label>
+                    </div>
+              </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <label class="col-form-label">: {{ $panggil->email }}</label>
+                    </div>
+              </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                    <div class="col-sm-10">
+                        <label class="col-form-label">: {{ $panggil->jenis_kelamin }}</label>
+                    </div>
+              </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Alamat</label>
+                    <div class="col-sm-10">
+                        <label class="col-form-label">: {{ $panggil->alamat }}</label>
+                    </div>
+              </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Nomor Telepon</label>
+                    <div class="col-sm-10">
+                        <label class="col-form-label">: {{ $panggil->no_telpon }}</label>
+                    </div>
+              </div>
+              @if ( $panggil->status_akun == "Belum Terverifikasi")
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Status Akun</label>
+                    <div class="col-sm-10">
+                        <label class="col-form-label">: {{ $panggil->status_akun }}</label>
+                        <a style="vertical-align: text-bottom;" href="/SendEmail"><span style="margin-left: 50px; padding:5px" class="badge badge-primary">Kirim Verifikasi Email</span></a>
+                    </div>
+              </div>
+              @elseif ( $panggil->status_akun == "Terverifikasi")
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Status Akun</label>
+                    <div class="col-sm-10">
+                        <label class="col-form-label">: {{ $panggil->status_akun }}</label>
+                    </div>
+              </div>
+              @endif
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Saldo</label>
+                    <div class="col-sm-10">
+                        <label class="col-form-label">: @currency(0)</label>
+                    </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Total Transaksi</label>
+                    <div class="col-sm-10">
+                        <label class="col-form-label">: @currency(0)</label>
+                    </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Tanggal Mendaftar</label>
+                    <div class="col-sm-10">
+                        <label class="col-form-label">: {{ $panggil->tanggal_mendaftar }}</label>
+                    </div>
+              </div>
 
-    <tr>
-        <th colspan="2">
-            <a style="float: right;" href="/Pengaturan/{{ $panggil->id }}"><i style="height: 35px;width: 35px;" class="fas fa-cogs"></i> Edit</a>
-        </th>
-    </tr>
+        </div>
+        <div class="card-footer text-muted">
+            <a style="float: left" href="/Pengaturan/{{ $panggil->id }}"><i style=" margin-left:20px" class="fas fa-cogs"></i> <p>Edit Akun</p></a>
+            <a href="#" style="float: right;" data-toggle="modal" data-target="#hapusAkun"><i class="fas fa-trash-alt" style=" margin-left:30px"></i><p>Hapus Akun</p></a>
+        </div>
+      </div>
 
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="col">Nama Lengkap</th>
-      <td scope="col">{{ $panggil->nama }}</td>
-    </tr>
-    <tr>
-      <th scope="row">Username</th>
-      <td>{{ $panggil->username }}</td>
-    </tr>
-    <tr>
-      <th scope="row">Email</th>
-      <td>{{ $panggil->email }}</td>
-    </tr>
-    <tr>
-      <th scope="row">Jenis Kelamin</th>
-      <td>{{ $panggil->jenis_kelamin }}</td>
-    </tr>
-    <tr>
-      <th scope="row">Alamat</th>
-      <td>{{ $panggil->alamat }}</td>
-    </tr>
-    <tr>
-      <th scope="row">No. Telfon</th>
-      <td>{{ $panggil->no_telpon }}</td>
-    </tr>
-    @if ( $panggil->status_akun == "Belum Terverifikasi")
-      <tr>
-        <th scope="row" style="vertical-align: inherit;">Status Akun</th>
-        <td class="text-danger">{{ $panggil->status_akun }}<a style="vertical-align: text-bottom;" href="/SendEmail"><button style="margin-left: 50px;" type="button" class="btn btn-secondary">Kirim Verifikasi Email</button></a></td>
-      </tr>
-    @elseif ( $panggil->status_akun == "Terverifikasi")
-      <tr>
-        <th scope="row" style="vertical-align: inherit;">Status Akun</th>
-        <td class="text-primary">{{ $panggil->status_akun }}</td>
-      </tr>
-    @endif
-    <tr>
-      <th scope="row">Saldo</th>
-      <td>@currency(0)</td>
-    </tr>
-    <tr>
-      <th scope="row">Total Transaksi</th>
-      <td>@currency(0)</td>
-    </tr>
-    <tr>
-      <th scope="row">Tanggal Mendaftar</th>
-      <td>{{ $panggil->tanggal_mendaftar }}</td>
-    </tr>
-    <tr>
-        <th colspan="2">
-            <a href="#" style="float: right;" data-toggle="modal" data-target="#hapusAkun"><i class="fas fa-trash-alt" style="height: 25px;width: 25px; margin-left:30px"></i><p>Hapus Akun</p></a>
-        </th>
-    </tr>
-  </tbody>
-</table>
-
-
+      <div class="mt-5"></div>
 
 <!-- Modal -->
 <div class="modal fade" id="hapusAkun" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

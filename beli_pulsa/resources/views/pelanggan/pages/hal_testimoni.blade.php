@@ -4,7 +4,6 @@
 @section('body')
 
 <div class="container tambah_bawah">
-<h1 class="mt-5"> Testimoni Para Pelanggan </h1>
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item"><a href="/">Beranda</a></li>
     <li class="breadcrumb-item">Testimoni</li>

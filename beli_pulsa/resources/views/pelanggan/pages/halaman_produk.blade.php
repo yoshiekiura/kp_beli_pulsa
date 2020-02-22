@@ -3,14 +3,12 @@
 
 @section('body')
 <div class="container tambah_bawah">
-<h1 class="mt-4">Pilih Paket</h1>
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item"><a href="/">Beranda</a></li>
     <li class="breadcrumb-item">Daftar Harga</li>
 </ol>
-<div class="row mt-2">
-
-    <div class="col-2 mt-1 animated zoomInDown delay-0s">
+<div class="row mt-3">
+    {{-- <div class="col-2 mt-1 animated zoomInDown delay-0s">
         <div id="accordion">
             <div class="card mt-5">
               <div class="card-header bg-dark" id="headingTwo">
@@ -83,23 +81,59 @@
           </div>
 
 
-    </div>
-    <div class="col-10">
-
+    </div> --}}
+    <div class="col-12">
+        @if($judul == "Daftar Harga")
+        <ul class="nav nav-tabs mb-4">
+            <li class="nav-item">
+              <a class="nav-link active text-dark" href="/Harga"><b>Lihat Semua</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/Harga/Pulsa"><b>Pulsa</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/Harga/Data"><b>Data</b></a>
+            </li>
+          </ul>
+          @elseif($judul == "Daftar Harga Pulsa")
+          <ul class="nav nav-tabs mb-4">
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/Harga"><b>Lihat Semua</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-dark" href="/Harga/Pulsa"><b>Pulsa</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/Harga/Data"><b>Data</b></a>
+            </li>
+          </ul>
+          @elseif($judul == "Daftar Harga Data")
+          <ul class="nav nav-tabs mb-4">
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/Harga"><b>Lihat Semua</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/Harga/Pulsa"><b>Pulsa</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-dark" href="/Harga/Data"><b>Data</b></a>
+            </li>
+          </ul>
+          @endif
 
     <div class="table-responsive">
-        <table class="table table-striped table-dark table-sm mt-2" id="dataTable">
+        <table class="table table-striped table-dark table-sm" id="dataTable">
             <thead class="thead-dark">
               <tr>
               <th colspan="6"><i class="far fa-list-alt"></i>  {{$judul}}</th>
               </tr>
               <tr>
-                <th scope="col">Type Produk</th>
-                <th scope="col" style="width: 50px">Operator</th>
-                <th scope="col" style="width: 50px">Nama Produk</th>
-                <th scope="col" style="width: 50px">Masa Aktif</th>
-                <th scope="col">Harga</th>
-                <th scope="col" style="width: 50px">Stok</th>
+                <th scope="col" style="width:100px">Type Produk</th>
+                <th scope="col" style="width: 200px">Operator</th>
+                <th scope="col" style="width: 350px">Nama Produk</th>
+                <th scope="col" style="width: 90px">Masa Aktif</th>
+                <th scope="col" style="width: 90px">Harga</th>
+                <th scope="col" style="width: 70px">Stok</th>
               </tr>
             </thead>
             <tbody>

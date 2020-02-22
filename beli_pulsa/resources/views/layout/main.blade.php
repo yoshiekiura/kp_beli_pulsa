@@ -107,7 +107,7 @@
                     @if(Session::get('nama'))
                     <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle text-uppercase font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="far fa-user-circle"></i> {{Session::get('nama')}}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
