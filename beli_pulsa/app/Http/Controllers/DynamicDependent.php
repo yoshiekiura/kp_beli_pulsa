@@ -63,12 +63,43 @@ class DynamicDependent extends Controller
         return redirect('/Cek-transaksi/'.$nomor);
         // return view('/pelanggan/forms/cek_transaksi',['data' => $result]);
     }
+
     function tampil_transaksi($nomor){
         $result = DB::table('transactions')->where('no_telpon',$nomor)
         ->get();
+            
+        // $result = DB::table('transactions')->where('no_telpon','like','%'.$nomor.'%')
+        // ->get();
+        // var_dump($result);
+        if($result){
+            return view('/pelanggan/forms/cek_transaksi',['data' => $result]);
+        }else{
+            // var_dump($result);
+            $kosong = 'tidak ada';
+            return view('/pelanggan/forms/cek_transaksi',['data' => $kosong]);
+        }
+        // return view('/pelanggan/forms/cek_transaksi',['data' => $result]);
+    }
 
+    function tampil_hasil_rincian($id){
 
-        return view('/pelanggan/forms/cek_transaksi',['data' => $result]);
+        $result = DB::table('transactions')
+        ->join('price_lists','price_lists.pulsa_code' ,'=', 'transactions.pulsa_code')
+        ->join('banks','banks.id' ,'=', 'transactions.id_bank')
+        ->where('transactions.id',$id)
+        ->first();
+            // var_dump($result);
+        // $result = DB::table('transactions')->where('no_telpon','like','%'.$nomor.'%')
+        // ->get();
+        // var_dump($result);
+        // if($result){
+        //     return view('/pelanggan/pages/rincian',['data' => $result]);
+        // }else{
+        //     // var_dump($result);
+        //     $kosong = 'tidak ada';
+        //     return view('/pelanggan/forms/cek_transaksi',['data' => $kosong]);
+        // }
+        return view('/pelanggan/pages/rincian',['hasil' => $result]);
     }
 
 }

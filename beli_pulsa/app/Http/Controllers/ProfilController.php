@@ -63,7 +63,7 @@ class ProfilController extends Controller
      */
     public function edit($id)
     {
-        $ids = DB::table('users')->where('id',$id)->first();
+        $ids = DB::table('users')->where('id_user',$id)->first();
         return view('/pelanggan/forms/profil_edit',compact('ids'));
     }
 
@@ -82,7 +82,7 @@ class ProfilController extends Controller
         ]);
 
         $password = $request->input('password');
-        $cekpassword = DB::table('users')->where('id',$id)->first();
+        $cekpassword = DB::table('users')->where('id_user',$id)->first();
 
         if(Hash::check($password, $cekpassword->password)){
 
@@ -90,7 +90,7 @@ class ProfilController extends Controller
                 'nama' => 'required|min:3|max:50',
             ]);
 
-            UserEditProfil::where('id', $id)
+            UserEditProfil::where('id_user', $id)
             ->update([
             'nama' => $request->nama,
             'alamat' => $request->alamat,
@@ -115,7 +115,7 @@ class ProfilController extends Controller
     public function hapus(Request $hapus, $id){
 
         $pwd = $hapus->input('password');
-        $cekpassword = DB::table('users')->where('id',$id)->first();
+        $cekpassword = DB::table('users')->where('id_user',$id)->first();
 
         if(Hash::check($pwd, $cekpassword->password)){
             $hapus->validate([
@@ -142,14 +142,14 @@ class ProfilController extends Controller
 
     public function editPwd($id){
         //
-        $ids = DB::table('users')->where('id',$id)->first();
+        $ids = DB::table('users')->where('id_user',$id)->first();
         return view('/pelanggan/forms/password_edit',compact('ids'));
     }
 
     public function updatePwd(Request $request, $id){
 
         $password = $request->input('pwd');
-        $cekpassword = DB::table('users')->where('id',$id)->first();
+        $cekpassword = DB::table('users')->where('id_user',$id)->first();
 
         if(Hash::check($password, $cekpassword->password)){
 
@@ -168,7 +168,7 @@ class ProfilController extends Controller
 
             if($passwordbaru == $passwordcek){
 
-                    UserEditProfil::where('id', $id)
+                    UserEditProfil::where('id_user', $id)
                     ->update([
                     'password' =>Hash::make($request->pwd_baru)
                     ]);

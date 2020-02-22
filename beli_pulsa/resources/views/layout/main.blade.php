@@ -112,7 +112,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="/Profil">Profil</a>
-                      <a class="dropdown-item" href="/Riwayat">Riwayat Transaksi</a>
+                      <a class="dropdown-item" href="{{ url('/Riwayat/'.Session::get('nama')) }}">Riwayat Transaksi</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="/Logout">LOGOUT!</a>
                     </div>

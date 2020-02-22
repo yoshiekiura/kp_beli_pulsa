@@ -113,7 +113,7 @@
 
         </div>
         <div class="card-footer text-muted">
-            <a style="float: left" href="/Pengaturan/{{ $panggil->id }}"><i style=" margin-left:20px" class="fas fa-cogs"></i> <p>Edit Akun</p></a>
+            <a style="float: left" href="/Pengaturan/{{ $panggil->id_user }}"><i style=" margin-left:20px" class="fas fa-cogs"></i> <p>Edit Akun</p></a>
             <a href="#" style="float: right;" data-toggle="modal" data-target="#hapusAkun"><i class="fas fa-trash-alt" style=" margin-left:30px"></i><p>Hapus Akun</p></a>
         </div>
       </div>
@@ -131,7 +131,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="{{ url('/Pengaturan/hapus/'.$panggil->id) }}" method="post">
+          <form action="{{ url('/Pengaturan/hapus/'.$panggil->id_user) }}" method="post">
             @method('delete')
             @csrf
                 <div class="form-group">

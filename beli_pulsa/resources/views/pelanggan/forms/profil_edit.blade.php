@@ -37,7 +37,7 @@
         </div>
 @endif
 
-<form action="{{ url('/Pengaturan/Update/'.$ids->id) }}" method="post">
+<form action="{{ url('/Pengaturan/Update/'.$ids->id_user) }}" method="post">
 @csrf
 @method('PUT')
 
@@ -50,8 +50,8 @@
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group mr-2" role="group" aria-label="First group">
                       <a href="#" class="btn btn-secondary active">Edit Profile</a>
-                      <a href="{{ url('/Pengaturan/Pwd/'.$ids->id) }}" class="btn btn-secondary">Edit Password</a>
-                      <a href="{{ url('/Pengaturan/Pin/'.$ids->id) }}" class="btn btn-secondary">Edit Pin</a>
+                      <a href="{{ url('/Pengaturan/Pwd/'.$ids->id_user) }}" class="btn btn-secondary">Edit Password</a>
+                      <a href="{{ url('/Pengaturan/Pin/'.$ids->id_user) }}" class="btn btn-secondary">Edit Pin</a>
                 </div>
 
             </th>

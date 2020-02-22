@@ -157,7 +157,7 @@ class BeliController extends Controller
 
     function cek_transaksi(){
         // echo ('sisiruit');
-        $data = "kosong";
+        $data = "belum_diisi";
         return view('/pelanggan/forms/cek_transaksi',['data' => $data]);
     }
 

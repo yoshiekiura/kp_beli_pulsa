@@ -29,34 +29,57 @@
                     </div>
             {{-- <div id="result"></div> --}}
                 </form>
-                @if($data == 'kosong')
-                <p>Tidak ada data</p>
-                @else
-
-              <table class="table">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">No.</th>
-                    <th scope="col">Tanggal Beli</th>
-                    <th scope="col">No. Telepon</th>
-                    <th scope="col">Harga</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Lihat</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach ($data as $d)
-                  <tr>
-                    <th>{{ $loop->iteration }}</th>
-                    <td>{{$d->tanggal_beli}}</td>
-                    <td>{{$d->no_telpon}}</td>
-                    <td>@currency($d->harga_total)</td>
-                    <td>{{$d->status_transaksi}}</td>
-                    <td><a href="" type="button" class="btn btn-primary">Lihat</a></td>
-                  </tr>
-                  @endforeach
-                @endif
-                </tbody>
+                @if($data == 'belum_diisi')
+                  <table class="table">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Tanggal Beli</th>
+                        <th scope="col">No. Telepon</th>
+                        <th scope="col">Harga</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Lihat</th>
+                      </tr>
+                    </thead>   
+                  </table>
+                @elseif($data == 'tidak ada')
+                <table class="table">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">UHUY</th>
+                      <th scope="col">Tanggal Beli</th>
+                      <th scope="col">No. Telepon</th>
+                      <th scope="col">Harga</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Lihat</th>
+                    </tr>
+                  </thead>   
+                </table>
+                @else                
+                <table class="table">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">No.</th>
+                      <th scope="col">Tanggal Beli</th>
+                      <th scope="col">No. Telepon</th>
+                      <th scope="col">Harga</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Lihat</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach ($data as $d)
+                    <tr>
+                      <th>{{$loop->iteration }}</th>
+                      <td>{{$d->tanggal_beli}}</td>
+                      <td>{{$d->no_telpon}}</td>
+                      <td>@currency($d->harga_total)</td>
+                      <td>{{$d->status_transaksi}}</td>
+                      <td><a href="{{ url('/Cek-rincian/'.$d->id) }}" type="button" class="btn btn-primary">Lihat</a></td>
+                    </tr>
+                    @endforeach
+                  @endif
+                  </tbody>
 
               </table>
 
@@ -66,6 +89,7 @@
               SISIRUIT
             </div>
           </div>
+          <div class="mt-5"></div>
 </div>
 
 

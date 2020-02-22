@@ -84,6 +84,7 @@ Route::get('/cetak_pdf', 'BeliController@cetak_pdf');
 //cek-transaksi
 Route::get('/Cek-transaksi','BeliController@cek_transaksi');
 Route::get('/Cek-transaksi/{no_telp}','DynamicDependent@tampil_transaksi');
+Route::get('/Cek-rincian/{id}', 'DynamicDependent@tampil_hasil_rincian');
 
 //komplain
 Route::get('/Komplain/{pesan?}',function(){
@@ -177,7 +178,7 @@ Route::put('/Pengaturan/Update/Pwd/{id}', 'ProfilController@updatePwd');
 Route::put('/Pengaturan/Update/Pin/{id}', 'ProfilController@updatePin');
 
 //Route Riwayat
-Route::get('/Riwayat','RiwayatController@index');
+Route::get('/Riwayat/{nama}','RiwayatController@index');
 
 //Route Send Email
 Route::get('/SendEmail','SendEmailController@index');

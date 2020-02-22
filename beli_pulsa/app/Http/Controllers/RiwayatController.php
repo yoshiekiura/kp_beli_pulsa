@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class RiwayatController extends Controller
 {
@@ -11,9 +12,16 @@ class RiwayatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($nama)
     {
-        return view('/pelanggan/pages/riwayat');
+        $cari = DB::table('users')->select('no_telpon')->where('username',$nama)->get();
+
+        $hasil = DB::table('transactions')
+        ->join('users','users.no_telpon' ,'=', 'transactions.no_telpon')
+        ->where('users.no_telpon',$cari[0]->no_telpon)
+        ->get();
+        // var_dump($cari[0]->no_telpon);
+        return view('/pelanggan/pages/riwayat',['data' => $hasil]);
     }
 
     /**
