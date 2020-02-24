@@ -19,6 +19,14 @@ class CreateTestimonialsTable extends Migration
             $table->string('komentar');
             $table->timestamps();
         });
+
+        Schema::table('testimonials', function (Blueprint $table) {
+            // $table->foreign('id_harga')
+            // ->references('id')->on('price_lists')
+            // ->onDelete('cascade');
+            $table->foreign('id_user')->references('id_user')->on('users')
+            ->onDelete('cascade');
+        });
     }
 
     /**

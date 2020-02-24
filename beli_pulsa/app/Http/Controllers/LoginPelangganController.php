@@ -50,7 +50,7 @@ class LoginPelangganController extends Controller
         $cek_user_password = User::where('username', $username)->first();
 
         if($cek_user_password && Hash::check($password, $cek_user_password->password)){
-            Session::put('nama', $cek_user_password->username);
+            Session::put('nama',$cek_user_password->username);
             return redirect('/Profil');
         }else{
             Session::flash('Kesalahan','Username dan Password yang anda Masukkan salah!');

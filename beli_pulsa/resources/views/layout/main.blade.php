@@ -50,50 +50,14 @@
 
     <!-- <link rel="stylesheet" type="text/css" href="/css/csslogin.css"> -->
 
-
-
     <title>@yield('title')</title>
 
 </head>
-<style>
-
-    /* .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus{
-    color: white;
-    }
-
-    .navbar-brand{
-    font-size: 30px;
-    margin-right: 30px;
-    }
-
-    .nav-link{
-    font-size: 18px;
-    }
-
-    .navbar-expand-lg .navbar-nav .nav-link {
-    padding-right: 1rem;
-    padding-left: 1rem;
-    } */
-
-    /* .kiri {
-      float: left;
-      width: 50%;
-    }
-
-    #kanan {
-      float: right;
-      width: 50%;
-    } */
-
-
-
-
-</style>
 
 <body>
     <header class="header">
         <nav class="navbar navbar-expand-sm fixed-top py-3">
-            <div class="container"><a href="{{ url('/') }}" class="navbar-brand text-uppercase font-weight-bold">Tuku Pentol</a>
+            <div class="container"><a href="{{ url('/') }}" class="navbar-brand text-uppercase font-weight-bold">Tuku SISIRUIT</a>
                 <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
 
                 <div id="navbarSupportedContent" class="collapse navbar-collapse">
@@ -114,7 +78,7 @@
                       <a class="dropdown-item" href="/Profil">Profil</a>
                       <a class="dropdown-item" href="{{ url('/Riwayat/'.Session::get('nama')) }}">Riwayat Transaksi</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="/Logout">LOGOUT!</a>
+                      <a class="dropdown-item" href="/Logout">LOGOUT!!!</a>
                     </div>
                     </li>
                     </ul>

@@ -122,14 +122,14 @@
           @endif
 
     <div class="table-responsive">
-        <table class="table table-striped table-dark table-sm" id="dataTable">
+        <table class="table table-hover table-dark table-sm" id="dataTable">
             <thead class="thead-dark">
               <tr>
               <th colspan="6"><i class="far fa-list-alt"></i>  {{$judul}}</th>
               </tr>
               <tr>
                 <th scope="col" style="width:100px">Type Produk</th>
-                <th scope="col" style="width: 200px">Operator</th>
+                <th scope="col" style="width: 150px">Operator</th>
                 <th scope="col" style="width: 350px">Nama Produk</th>
                 <th scope="col" style="width: 90px">Masa Aktif</th>
                 <th scope="col" style="width: 90px">Harga</th>
@@ -139,7 +139,7 @@
             <tbody>
             @foreach ($arr as $harga)
                     <tr>
-                        <th scope="row">{{ $harga->pulsa_type }}</th>
+                        <th scope="row">Paket {{ $harga->pulsa_type }}</th>
                         <td>{{ $harga->pulsa_op }}</td>
                         <td>{{ $harga->pulsa_nominal }}</td>
                         <td>{{$harga->masaaktif}} Hari</td>

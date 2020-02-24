@@ -12,11 +12,12 @@ class BankSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('banks')->insert([
-            'nama_bank' => 'BNI',
-            'no_rekening' => '0452579637',
-            'atas_nama' => 'MUH ILYAS ISTIQAMA M'
-        ]);
+        // DB::table('banks')->insert([
+        //     'nama' => 'MUH ILYAS ISTIQAMA M',
+        //     'no_rekening' => '0452579637',
+        //     'atas_nama' => 'MUH ILYAS ISTIQAMA M',
+        //     'bank' => 'BNI'
+        // ]);
 
         DB::table('banks')->insert([
             'nama_bank' => 'BPD Jatim',

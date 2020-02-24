@@ -28,9 +28,9 @@ class BeliController extends Controller
         $bank  =    $request->  input('bank');
         $telp  =    $request->  input('nomor');
         $harga =    $request->  input('harga');
-        $kode_unik = $request-> input('aku');
-        $dekripsi = base64_decode($kode_unik);
-        $harga_total = $harga + $dekripsi;
+        $kode_unik = rand(100,500);
+        // $dekripsi = base64_decode($kode_unik);
+        $harga_total = $harga + $kode_unik;
         $tanggal_beli = Carbon::now();
         $expired = date('Y-m-d H:i:s',strtotime('+3 hour',strtotime($tanggal_beli)));
         // var_dump($sisiruit);
@@ -40,17 +40,17 @@ class BeliController extends Controller
                         // 'nama_produk' => $nama_produk,
                     //    'nama_provider' => $nama_provider,
                     //    'voucher' => $voucher,
-                        'pulsa_code' => $kode,
-                        'id_bank' => $bank,
-                       'no_telpon' => $telp,
+                    'pulsa_code' => $kode,
+                    'id_bank' => $bank,
+                    'no_telpon' => $telp,
                     //    'harga' => $harga,
-                       'kode_unik' => $dekripsi,
-                       'harga_total' => $harga_total,
-                       'status_pembayaran' => "Menunggu",
-                       'status_pengisian' => "Menunggu",
-                       'status_transaksi' => "Menunggu",
-                       'tanggal_beli' => $tanggal_beli,
-                       'expired' => $expired
+                    'kode_unik' => $kode_unik,
+                    'harga_total' => $harga_total,
+                    'status_pembayaran' => "Menunggu",
+                    'status_pengisian' => "Menunggu",
+                    'status_transaksi' => "Menunggu",
+                    'tanggal_beli' => $tanggal_beli,
+                    'expired' => $expired
         ])->id;
 
         return redirect('/rincian-transaksi/'.$kirim);
@@ -124,9 +124,14 @@ class BeliController extends Controller
     //             return view('/pelanggan/pages/rincian',['hasil' => $hasil]);
     //     }
 
-    function cetak_pdf(){
+    function cetak_pdf(Request $request){
 
-        $pdf = PDF::loadview('rincian_pdf');
+        $hasil = DB::table('transactions')->where('transactions.id',$request->id)
+        ->join('banks','transactions.id_bank','=','banks.id')
+        ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
+        ->first();
+
+        $pdf = PDF::loadview('rincian_pdf',['hasil' => $hasil]);
         // return $pdf->download('laporan-rincian-pdf');
         return $pdf->stream();
     }

@@ -26,7 +26,7 @@
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">Produk</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label">{{ $hasil->pulsa_type }}</label>
+                                <label for="staticEmail" class="col-form-label">Paket {{ $hasil->pulsa_type }}</label>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -80,7 +80,7 @@
                     </li>
                 </ul>
                 <div class="card-footer text-muted">
-                    <a href="/cetak_pdf"><i class="fas fa-print"></i> PRINT</a>
+                <a href="/cetak_pdf/{{$hasil->id}}" target="_blank"><i class="fas fa-print"></i> PRINT</a>
                     <div class="btn-group dropup float-right">
                         <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-exclamation"></i> Komplain

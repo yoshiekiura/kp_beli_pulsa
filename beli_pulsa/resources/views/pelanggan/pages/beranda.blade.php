@@ -49,7 +49,7 @@
                         <h2 class="judul-order">Pulsa Reguler</h2>
 
                         <div class="form-group form-group-ukuran">
-                            <select name="pulsa_op" id="pulsa_op" class="browser-default custom-select dynamic1" data-dependent="pulsa_nominal">
+                            <select name="pulsa_op" id="pulsa_op" class="browser-default custom-select dynamic1" data-dependent="pulsa_nominal" required>
                                 <option selected disabled value="">-- Pilih Operator --</option>
                                 @foreach ($produk_pulsa as $p)
                                     <option value="{{ $p->pulsa_op }}">{{ $p->pulsa_op }}</option>
@@ -57,7 +57,7 @@
                                 </select>
                         </div>
                     <div class="form-group form-group-ukuran">
-                        <select name="pulsa_nominal" id="keterangan1" class="browser-default custom-select opsi-pulsa" >
+                        <select name="pulsa_nominal" id="keterangan1" class="browser-default custom-select opsi-pulsa" required>
                             <option value="" selected>-- Pilih Nama Produk --</option>
                         </select>
                     </div>
@@ -65,11 +65,17 @@
                     <div class="form-group form-group-ukuran">
                         <input type="text" class="form-control" id="masaaktif1" placeholder="Masa Aktif" disabled>
                     </div>
+                    @if(Session::get('nama'))
                     <div class="form-group form-group-ukuran">
-                        <input type="number" name="nomor" class="form-control" placeholder="Nomor HP">
+                    <input type="number" name="nomor" class="form-control" placeholder="Nomor HP" value="{{$nomor[0]->no_telpon}}" readonly required>
                     </div>
+                    @else
+                        <div class="form-group form-group-ukuran">
+                            <input type="number" name="nomor" class="form-control" placeholder="Nomor HP" required>
+                        </div>
+                    @endif
                     <div class="form-group form-group-ukuran">
-                        <select name="bank" class="browser-default custom-select">
+                        <select name="bank" class="browser-default custom-select" required>
                             <option selected disabled>-- Pilih Pembayaran --</option>
                             @foreach ($bank as $b)
                                     <option value="{{$b->id}}">{{  $b->nama_bank }}</option>
@@ -80,9 +86,7 @@
                         <h2 class="harga hr1">RP -</h2>
                         <input type="hidden" name="harga" id="hr1" readonly>
                         <input type="hidden" name="kode"  id="kode1" readonly>
-                        {{-- <input type="hidden" name="nama_produk" id="produk1" readonly> --}}
-                        {{-- <input type="hidden" name="keterangan" id="ket1" readonly> --}}
-                        <input type="hidden" name="aku" value="{{base64_encode($unik)}}" readonly>
+
                     </div>
                     <div class="form-group form-group-ukuran">
                         <button type="submit" class="btn btn-outline-primary btn-pesan">PESAN SEKARANG</button>
@@ -96,7 +100,7 @@
                         <h2 class="judul-order">Paket Internet</h2>
                         <form action="/beli" method="post">
                             <div class="form-group form-group-ukuran">
-                                <select name="pulsa_op" id="pulsa_op" class="browser-default custom-select dynamic2" data-dependent="pulsa_nominal">
+                                <select name="pulsa_op" id="pulsa_op" class="browser-default custom-select dynamic2" data-dependent="pulsa_nominal" required>
                                     <option value="">-- Pilih Operator --</option>
                                     @foreach ($produk_internet as $p)
                                         <option value="{{ $p->pulsa_op}}">{{ $p->pulsa_op}}</option>
@@ -104,7 +108,7 @@
                                 </select>
                             </div>
                             <div class="form-group form-group-ukuran">
-                                <select name="pulsa_nominal" id="keterangan2" class="browser-default custom-select opsi-paket" >
+                                <select name="pulsa_nominal" id="keterangan2" class="browser-default custom-select opsi-paket" required>
                                 <option value="" selected>-- Pilih Nama Produk --</option>
                                 </select>
                             </div>
@@ -112,11 +116,17 @@
                             <div class="form-group form-group-ukuran">
                                 <input type="text" class="form-control" id="masaaktif2" placeholder="Masa Aktif" disabled>
                             </div>
+                            @if(Session::get('nama'))
+                                <div class="form-group form-group-ukuran">
+                                    <input type="number" name="nomor" class="form-control" placeholder="Nomor HP" value="{{$nomor[0]->no_telpon}}" readonly required>
+                                </div>
+                            @else
+                                <div class="form-group form-group-ukuran">
+                                    <input type="number" name="nomor" class="form-control" placeholder="Nomor HP" required>
+                                </div>
+                            @endif
                             <div class="form-group form-group-ukuran">
-                                <input type="number" name="nomor" class="form-control" placeholder="Nomor HP">
-                            </div>
-                            <div class="form-group form-group-ukuran">
-                                <select name="bank" class="browser-default custom-select">
+                                <select name="bank" class="browser-default custom-select" required>
                                     <option selected disabled>-- Pilih Pembayaran --</option>
                                     @foreach ($bank as $b)
                                     <option value="{{$b->id}}">{{  $b->nama_bank }}</option>
@@ -128,9 +138,8 @@
 
                                 <input type="hidden" name="harga" id="hr2" readonly>
                                 <input type="hidden" name="kode"  id="kode2" readonly>
-                                {{-- <input type="hidden" name="nama_produk" id="produk2" readonly> --}}
-                                {{-- <input type="hidden" name="keterangan" id="ket2" readonly> --}}
-                                <input type="hidden" name="aku" value="{{base64_encode($unik)}}" readonly>
+
+
                             </div>
                             <div class="form-group form-group-ukuran">
                                 <button type="submit" class="btn btn-outline-primary btn-pesan">PESAN SEKARANG</button>
