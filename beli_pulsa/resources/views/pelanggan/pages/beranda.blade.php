@@ -78,7 +78,7 @@
                         <select name="bank" class="browser-default custom-select" required>
                             <option selected disabled>-- Pilih Pembayaran --</option>
                             @foreach ($bank as $b)
-                                    <option value="{{$b->id}}">{{  $b->nama_bank }}</option>
+                                    <option value="{{$b->id}}">{{  $b->bank }}</option>
                                     @endforeach
                         </select>
                     </div>
@@ -129,7 +129,7 @@
                                 <select name="bank" class="browser-default custom-select" required>
                                     <option selected disabled>-- Pilih Pembayaran --</option>
                                     @foreach ($bank as $b)
-                                    <option value="{{$b->id}}">{{  $b->nama_bank }}</option>
+                                    <option value="{{$b->id}}">{{  $b->bank }}</option>
                                     @endforeach
                                 </select>
                             </div>
