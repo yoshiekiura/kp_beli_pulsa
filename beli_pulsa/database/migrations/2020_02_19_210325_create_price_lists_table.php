@@ -14,7 +14,7 @@ class CreatePriceListsTable extends Migration
     public function up()
     {
         Schema::create('price_lists', function (Blueprint $table) {
-            $table->string('pulsa_code',255)->primary();
+            $table->string('pulsa_code')->primary();
             $table->string('pulsa_op');
             $table->string('pulsa_nominal');
             $table->double('pulsa_price');
