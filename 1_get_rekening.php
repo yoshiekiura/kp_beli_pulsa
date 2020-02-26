@@ -30,7 +30,7 @@
 	$base_url	= "https://flopipay.com/api.php"; // Server API
 	$url_server = $base_url . "/rekening"; // URL API
 	$data = array(
-		"key"	=> "e174bde0b6d194f1dba4f8299f394b9a", // Key API
+		"key"	=> "5b916684d9bb389a03a331db262cc31d", // Key API
 	);
 
 	$ch = curl_init();

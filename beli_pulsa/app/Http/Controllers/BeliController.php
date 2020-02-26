@@ -46,9 +46,9 @@ class BeliController extends Controller
                     //    'harga' => $harga,
                     'kode_unik' => $kode_unik,
                     'harga_total' => $harga_total,
-                    'status_pembayaran' => "Menunggu",
-                    'status_pengisian' => "Menunggu",
-                    'status_transaksi' => "Menunggu",
+                    'status_pembayaran' => 0,
+                    'status_pengisian' => 0,
+                    'status_transaksi' => 0,
                     'tanggal_beli' => $tanggal_beli,
                     'expired' => $expired
         ])->id;

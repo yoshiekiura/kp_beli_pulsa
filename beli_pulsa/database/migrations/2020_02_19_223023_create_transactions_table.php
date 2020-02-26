@@ -26,9 +26,9 @@ class CreateTransactionsTable extends Migration
             $table->string('no_telpon');
             $table->string('kode_unik');
             $table->double('harga_total');
-            $table->string('status_pembayaran');
-            $table->string('status_pengisian');
-            $table->string('status_transaksi');
+            $table->integer('status_pembayaran');
+            $table->integer('status_pengisian');
+            $table->integer('status_transaksi');
             $table->dateTime('tanggal_beli');
             $table->dateTime('expired');
             $table->timestamps();

@@ -203,6 +203,8 @@ Route::resource('Login/Admin', 'AdminController');
 Route::get('Admin/Home', 'AdminController@home');
 Route::get('Admin/LihatPelanggan', 'AdminController@lihat');
 Route::get('Admin/LihatKomplain', 'AdminController@komplain');
+Route::get('Admin/TransaksiPembelian', 'AdminController@transaksi_pembelian');
+
 
 //Route Logout(Admin)!
 Route::get('/Admin/Logout', function () {
@@ -218,4 +220,5 @@ Route::get('/Login/cobapaksa', function () {
 });
 
 
-//kosong
+//get data mutasi
+// Route::

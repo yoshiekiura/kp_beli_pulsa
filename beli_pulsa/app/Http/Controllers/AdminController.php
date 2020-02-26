@@ -36,6 +36,21 @@ class AdminController extends Controller
         return view ('admin/pages/daftar_komplain',compact('user'));
     }
 
+    public function transaksi_pembelian(){
+
+        $data = DB::table('transactions')
+        ->join('price_lists','price_lists.pulsa_code' ,'=', 'transactions.pulsa_code')
+        ->join('banks','banks.id' ,'=', 'transactions.id_bank')
+        // ->where('pulsa_type','pulsa')
+        // ->where('status','active')
+        // ->groupBy('pulsa_op')
+        ->get();
+
+        // $data = DB::table('transactions')->get();
+
+        return view ('admin/pages/daftar_transaksi',['hasil' => $data]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

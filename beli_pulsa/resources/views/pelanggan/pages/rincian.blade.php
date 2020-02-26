@@ -65,18 +65,48 @@
                                 <label for="staticEmail" class="col-form-label">{{ $hasil->tanggal_beli }}</label>
                             </div>
                         </div>
+                        @if($hasil->status_transaksi == 0)
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">Status Pembayaran</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label">{{$hasil->status_pembayaran}}</label>
+                                <label for="staticEmail" class="col-form-label">Menunggu</label>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">Status Pengisian</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label">{{ $hasil->status_pengisian }}</label>
+                                <label for="staticEmail" class="col-form-label">Menunggu</label>
                             </div>
                         </div>
+                        @endif
+                        @if($hasil->status_transaksi == 1)
+                        <div class="form-group row">
+                            <label for="staticEmail" class="col-sm-5 col-form-label">Status Pembayaran</label>
+                            <div class="col-sm-7">
+                                <label for="staticEmail" class="col-form-label">Dibayar</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="staticEmail" class="col-sm-5 col-form-label">Status Pengisian</label>
+                            <div class="col-sm-7">
+                                <label for="staticEmail" class="col-form-label">Dibayar</label>
+                            </div>
+                        </div>
+                        @endif
+                        @if($hasil->status_transaksi == 2)
+                        <div class="form-group row">
+                            <label for="staticEmail" class="col-sm-5 col-form-label">Status Pembayaran</label>
+                            <div class="col-sm-7">
+                                <label for="staticEmail" class="col-form-label">Selesai</label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="staticEmail" class="col-sm-5 col-form-label">Status Pengisian</label>
+                            <div class="col-sm-7">
+                                <label for="staticEmail" class="col-form-label">Selesai</label>
+                            </div>
+                        </div>
+                        @endif
                     </li>
                 </ul>
                 <div class="card-footer text-muted">
