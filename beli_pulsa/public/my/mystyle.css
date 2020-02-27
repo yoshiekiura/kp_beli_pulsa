@@ -21,15 +21,21 @@ html, body, section{
         } */
 
         #pageone{
-            background: linear-gradient(110deg, #81ee05 60%, #04c924 60%);
+            /* background: linear-gradient(110deg, #81ee05 60%, #04c924 60%); */
+            background-color: #faa499;
+            background-image: linear-gradient(319deg, #faa499 0%, #f7dd85 37%, #ffc55c 100%);
+
             /* color: white; */
             min-height: 100vh;
-            
+
         }
 
         #pilih-paket{
-            background: linear-gradient(70deg, #2e302b 60%, #3c443d 60%);
+            /* background: linear-gradient(70deg, #2e302b 60%, #3c443d 60%); */
             /* color: white; */
+            background-color: #ff7d59;
+            background-image: linear-gradient(319deg, #ff7d59 0%, #ff583a 37%, #f4a698 100%);
+
             min-height: 100vh;
         }
 

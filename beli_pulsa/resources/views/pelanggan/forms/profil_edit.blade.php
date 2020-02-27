@@ -41,12 +41,66 @@
 @csrf
 @method('PUT')
 
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active text-dark" href="#">Edit Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="{{ url('/Pengaturan/Pwd/'.$ids->id_user) }}">Edit Password</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="{{ url('/Pengaturan/Pin/'.$ids->id_user) }}">Edit Pin</a>
+    </li>
+  </ul>
 
-<table class="table table-striped table-bordered animated heartBeat delay-1s" style="margin-top: 50px;">
+  <div class="container">
+      <div class="row">
+          <div class="col">
+            <div class="card mt-5 mb-5">
+                <div class="card-header">
+                  Profil
+                </div>
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
+                        <div class="col-sm-10">
+                          <input type="text" name="nama" class="form-control" id="nama" value="{{ $ids->nama }}" placeholder="Masukkan Nama">
+                        </div>
+                      </div>
+                    <div class="form-group row">
+                        <label for="jk" class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                        <div class="col-sm-10">
+                            <select class="form-control input-lg" name="jenis_kelamin">
+                                <option value="">Pilih Jenis Kelamin</option>
+                                <option value="Laki-Laki">Laki - Laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                        <div class="col-sm-10">
+                          <input type="text" name="alamat" class="form-control" id="alamat" value="{{ $ids->alamat }}" placeholder="Masukkan Alamat">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="pwd" class="col-sm-2 col-form-label">Kata Sandi</label>
+                        <div class="col-sm-10">
+                          <input type="password" name="password" class="form-control" id="pwd" placeholder="Masukkan Password">
+                        </div>
+                      </div>
+                </div>
+                <div class="card-footer text-muted text-center">
+                    <input class="btn btn-primary" value="Simpan" type="submit">
+                </div>
+              </div>
+          </div>
+      </div>
+  </div>
+{{-- <table class="table table-striped table-bordered animated heartBeat delay-1s" style="margin-top: 50px;">
     <thead>
         <tr>
             <th colspan="2">
-
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group mr-2" role="group" aria-label="First group">
                       <a href="#" class="btn btn-secondary active">Edit Profile</a>
@@ -89,7 +143,7 @@
         <td><input class="btn btn-primary" value="Simpan" type="submit"></td>
     </tr>
     </tbody>
-  </table>
+  </table> --}}
 </form>
 
 </div>

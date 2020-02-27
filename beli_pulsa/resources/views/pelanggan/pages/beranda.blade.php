@@ -41,12 +41,12 @@
 
 <div id="pilih-paket">
     <section class="section">
-        <div class="container turuninDikit">
+        <div class="container container-responsive turuninDikit">
             <div class="row  animated fadeInUp delay-0s">
                 <div class="col mb-3">
                     <div class="card shadow-lg border-1 rounded-lg">
                         <form action="/beli" method="post">
-                        <h2 class="judul-order">Pulsa Reguler</h2>
+                        <h2 class="text-center mt-4 mb-4"><span class="badge badge-pill badge-dark">PULSA REGULER</span></h2>
 
                         <div class="form-group form-group-ukuran">
                             <select name="pulsa_op" id="pulsa_op" class="browser-default custom-select dynamic1" data-dependent="pulsa_nominal" required>
@@ -71,7 +71,7 @@
                     </div>
                     @else
                         <div class="form-group form-group-ukuran">
-                            <input type="number" name="nomor" class="form-control" placeholder="Nomor HP" required>
+                            <input type="number" name="nomor" class="form-control" placeholder="-- Nomor HP --" required>
                         </div>
                     @endif
                     <div class="form-group form-group-ukuran">
@@ -97,7 +97,7 @@
 
                 <div class="col">
                     <div class="card shadow-lg border-1 rounded-lg">
-                        <h2 class="judul-order">Paket Internet</h2>
+                        <h2 class="text-center mt-4 mb-4"><span class="badge badge-pill badge-dark">PAKET INTERNET</span></h2>
                         <form action="/beli" method="post">
                             <div class="form-group form-group-ukuran">
                                 <select name="pulsa_op" id="pulsa_op" class="browser-default custom-select dynamic2" data-dependent="pulsa_nominal" required>
@@ -118,11 +118,11 @@
                             </div>
                             @if(Session::get('nama'))
                                 <div class="form-group form-group-ukuran">
-                                    <input type="number" name="nomor" class="form-control" placeholder="Nomor HP" value="{{$nomor[0]->no_telpon}}" readonly required>
+                                    <input type="number" name="nomor" class="form-control" placeholder="-- Nomor HP --" value="{{$nomor[0]->no_telpon}}" readonly required>
                                 </div>
                             @else
                                 <div class="form-group form-group-ukuran">
-                                    <input type="number" name="nomor" class="form-control" placeholder="Nomor HP" required>
+                                    <input type="number" name="nomor" class="form-control" placeholder="-- Nomor HP --" required>
                                 </div>
                             @endif
                             <div class="form-group form-group-ukuran">
@@ -153,7 +153,7 @@
 </div>
 
 
-<div class="backTop">Back to Top</div>
+<div class="backTop"><i class="fas fa-chevron-up"></i></div>
 
 <script>
     $(document).ready(function(){

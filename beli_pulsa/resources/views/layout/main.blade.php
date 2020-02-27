@@ -57,7 +57,7 @@
 <body>
     <header class="header">
         <nav class="navbar navbar-expand-sm fixed-top py-3">
-            <div class="container"><a href="{{ url('/') }}" class="navbar-brand text-uppercase font-weight-bold">Tuku SISIRUIT</a>
+            <div class="container"><a href="{{ url('/') }}" class="navbar-brand text-uppercase font-weight-bold">Tukupulsa.com</a>
                 <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
 
                 <div id="navbarSupportedContent" class="collapse navbar-collapse">

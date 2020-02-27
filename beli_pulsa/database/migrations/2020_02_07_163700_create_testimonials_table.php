@@ -17,6 +17,7 @@ class CreateTestimonialsTable extends Migration
             $table->increments('id');
             $table->integer('id_user')->unsigned();
             $table->string('komentar');
+            $table->dateTime('buat_komentar');
             $table->timestamps();
         });
 

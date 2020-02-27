@@ -10,25 +10,30 @@
 }
 
 .navbar .nav-link {
-    color: #fff;
+    /* color: #fff; */
+    color: #262626;
 }
 
 .navbar .nav-link:hover,
 .navbar .nav-link:focus {
-    color: #fff;
+    /* color: #fff; */
+    color: #262626;
     text-decoration: none;
 }
 
 .navbar .navbar-brand {
-    color: #fff;
+    /* color: #fff; */
+    color: #262626;
 }
 
 
 /* Change navbar styling on scroll */
 .navbar.active {
-    background: #81ee05;
+    background-color: #ffbd77;
+    background-image: linear-gradient(319deg, #ffbd77 0%, #f0f4a4 37%, #acfcd9 100%);
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
 }
+
 
 .navbar.active .nav-link {
     color: #262626;
@@ -73,7 +78,8 @@
 body {
     min-height: 110vh;
     /* background-color: #4ca1af; */
-    background: linear-gradient(110deg, #81ee05 60%, #04c924 60%);
+    background-color: #faa499;
+    background-image: linear-gradient(319deg, #faa499 0%, #f7dd85 37%, #ffc55c 100%);
     /* background-image: linear-gradient(135deg, #32b4ff 0%, #c0d0d3 100%); */
     /* margin-bottom: 50px; */
 }

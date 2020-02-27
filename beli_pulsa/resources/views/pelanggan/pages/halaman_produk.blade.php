@@ -122,7 +122,7 @@
           @endif
 
     <div class="table-responsive">
-        <table class="table table-hover table-dark table-sm" id="dataTable">
+        <table class="table table-hover table-light table-sm" id="dataTable">
             <thead class="thead-dark">
               <tr>
               <th colspan="6"><i class="far fa-list-alt"></i>  {{$judul}}</th>

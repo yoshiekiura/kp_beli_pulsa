@@ -21,6 +21,7 @@ class TestimoniController extends Controller
         ->paginate(10);
         // var_dump($join);
         // die;
+
         return view('pelanggan/pages/hal_testimoni',compact('join'));
     }
 

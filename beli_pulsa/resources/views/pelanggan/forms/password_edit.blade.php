@@ -41,8 +41,49 @@
 @csrf
 @method('PUT')
 
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="/Pengaturan/{{ $ids->id_user }}">Edit Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active text-dark" href="#">Edit Password</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark" href="{{ url('/Pengaturan/Pin/'.$ids->id_user) }}">Edit Pin</a>
+    </li>
+  </ul>
 
-<table class="table table-striped table-bordered animated heartBeat delay-1s" style="margin-top: 50px;">
+  <div class="card mt-5 mb-5">
+    <div class="card-header">
+      Password
+    </div>
+    <div class="card-body">
+        <div class="form-group row">
+            <label for="pwd" class="col-sm-2 col-form-label">Password Saat Ini</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="pwd" name="pwd">
+            </div>
+          </div>
+        <div class="form-group row">
+            <label for="pwd_baru" class="col-sm-2 col-form-label">Password Baru</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="pwd_baru" name="pwd_baru">
+            </div>
+          </div>
+        <div class="form-group row">
+            <label for="pwd_cek" class="col-sm-2 col-form-label">Masukkan Kembali Password Baru</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="pwd_cek" name="pwd_cek">
+            </div>
+          </div>
+    </div>
+    <div class="card-footer text-center text-muted">
+        <input class="btn btn-primary" value="Simpan" type="submit">
+    </div>
+  </div>
+
+
+{{-- <table class="table table-striped table-bordered animated heartBeat delay-1s" style="margin-top: 50px;">
     <thead>
         <tr>
             <th colspan="2">
@@ -78,7 +119,7 @@
         <td><input class="btn btn-primary" value="Simpan" type="submit"></td>
     </tr>
     </tbody>
-  </table>
+  </table> --}}
 </form>
 
 </div>
