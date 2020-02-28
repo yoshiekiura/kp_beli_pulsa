@@ -6,8 +6,6 @@
 
 <div id="pageone">
     <section class="section">
-
-
           <div class="container mt-5 animated bounceInDown delay-0s">
             @if (count($errors) > 0)
             <div class="alert alert-danger alarm mt-3 animated jackInTheBox delay-2s">
@@ -19,18 +17,42 @@
                     </ul>
                     </div>
             @endif
-            <div class="card shadow-lg border-1 rounded-lg">
+
+            {{-- <div class="card shadow-lg border-1 rounded-lg">
               <div class="card-body mb-3">
                 <div class="text-dark text-center">
                     <p class="pfirst animated bounceInDown delay-1s">Mau pulsa murah tapi nggak ribet ?</p>
                     <p class="psecond animated zoomIn delay-1s">PESAN DISINI AJA</p>
                     <p class="pthird animated zoomIn delay-1s">TUKUPULSA.COM</p>
                     <p class="pfourth animated bounceInUp delay-1s">Ada untuk Anda.</p>
-                    <a type="button" class="btn btn-primary animated jackInTheBox delay-2s" id="beli" href="#pilih-paket">Beli Sekarang</a>
+                    <a type="button" class="btn btn-info animated jackInTheBox delay-2s" id="beli" href="#pilih-paket">Beli Sekarang</a>
 
                 </div>
               </div>
-            </div>
+            </div> --}}
+
+            <div class="row no-gutters bg-light position-relative rounded-left rounded-right turuninDikit shadow-lg p-3 mb-4 bg-white rounded">
+                <div class="col-md-6 mb-md-0 p-md-4">
+                  <img src="/image/image1.jpg" class="w-100" alt="picture">
+                </div>
+                <div class="col-md-6 position-static p-4 pl-md-0">
+                    <div class="text-dark text-center">
+                        <h6 class="font-weight-bold animated bounceInDown delay-1s mt-5 mb-3">Mau pulsa murah tapi nggak ribet ?</h6>
+                        <h3 class="font-weight-bold animated zoomIn delay-1s">PESAN DISINI AJA</h3>
+                        <h5 class="font-weight-bold animated zoomIn delay-1s">TUKUPULSA.COM</h5>
+                        <h6 class="font-weight-bold animated bounceInUp delay-1s mt-3 mb-5">Ada untuk Anda.</h6>
+                        <a type="button" class="btn btn-info animated jackInTheBox delay-2s mt-5" id="beli" href="#pilih-paket">BELI SEKARANG</a>
+                    </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="row text-center animated bounceInUp delay-3s">
+              <div class="col-lg">
+                  <p class="font-weight-bold">DAFTAR UNTUK JADI ANGGOTA TUKUPULSA.COM</p>
+                  <a href="/Daftar" class="btn btn-warning font-weight-bold mr-3">DAFTAR SEKARANG <i class="fas fa-user-plus"></i></a>
+                  <a href="/Login" class="btn btn-success font-weight-bold">LOGIN <i class="fas fa-sign-in-alt"></i></a>
+              </div>
           </div>
         </section>
         </div>

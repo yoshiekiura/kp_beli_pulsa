@@ -131,7 +131,8 @@ class BeliController extends Controller
         ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
         ->first();
 
-        $pdf = PDF::loadview('rincian_pdf',['hasil' => $hasil]);
+
+        $pdf = PDF::loadview('rincian_pdff',['hasil' => $hasil]);
         // return $pdf->download('laporan-rincian-pdf');
         return $pdf->stream();
     }

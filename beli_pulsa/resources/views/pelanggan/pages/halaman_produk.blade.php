@@ -122,13 +122,13 @@
           @endif
 
     <div class="table-responsive">
-        <table class="table table-hover table-light table-sm" id="dataTable">
+        <table class="table table-hover table-light table-striped table-sm" id="dataTable">
             <thead class="thead-dark">
               <tr>
               <th colspan="6"><i class="far fa-list-alt"></i>  {{$judul}}</th>
               </tr>
               <tr>
-                <th scope="col" style="width:100px">Type Produk</th>
+                <th scope="col" style="width: 100px">Type Produk</th>
                 <th scope="col" style="width: 150px">Operator</th>
                 <th scope="col" style="width: 350px">Nama Produk</th>
                 <th scope="col" style="width: 90px">Masa Aktif</th>

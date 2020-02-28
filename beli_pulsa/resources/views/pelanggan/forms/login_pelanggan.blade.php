@@ -10,10 +10,10 @@
             <div class="card-header"><h3 class="text-center font-weight-light my-4">Masuk Akun Pelanggan</h3>
             </div>
             <div class="card-body">
-                @if(Session::has('Sukses'))
+                        @if(Session::has('Sukses'))
                         <div class="alert alert-success" style="text-align: center;margin-top:10px; margin-left: 35px; border-radius: 25px; margin-right: 35px; border-radius: 25px; margin-bottom: 10dp;"><span class="glyphicon glyphicon-ok"></span><em> {!! session('Sukses') !!}</em></div>
                         @endif
-            @if(Session::has('Kesalahan'))
+                        @if(Session::has('Kesalahan'))
                         <div class="alert alert-danger" style="text-align: center;margin-top:25px; margin-left: 35px; border-radius: 25px; margin-right: 35px; border-radius: 25px; margin-bottom: 10dp;"><span class="glyphicon glyphicon-ok"></span><em> {!! session('Kesalahan') !!}</em></div>
                         @endif
 

@@ -13,7 +13,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-        <style type="text/css">
+        {{-- <style type="text/css">
             .preloader {
               position: fixed;
               top: 0;
@@ -31,20 +31,20 @@
 
               font: 14px arial;
             }
-            </style>
-            <script>
+            </style> --}}
+            {{-- <script>
                 $(document).ready(function(){
                 $(".preloader").fadeOut();
                 })
-            </script>
+            </script> --}}
     </head>
     <body class="sb-nav-fixed">
-        <div class="preloader">
+        {{-- <div class="preloader">
             <div class="loading">
               <img src="/image/gif/poi.gif" width="80">
               <p>Harap Tunggu</p>
             </div>
-          </div>
+          </div> --}}
 
 
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-success">

@@ -4,19 +4,6 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
-    {{-- @if(!Session::get('nama'))
-        @php
-            header("Location: " . URL::to('/Login/cobapaksa'));
-            exit();
-        @endphp
-    @endif   --}}
-    <div class="container tambah_bawah">
-    <h1 class="mt-4">Rincian Transaksi</h1>
-    <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="/">Beranda</a></li>
-        <li class="breadcrumb-item">Rincian Transaksi</li>
-    </ol>
-
     <div class="row mt-5 mb-5">
         <div class="col-7">
             <div class="card">
@@ -58,7 +45,7 @@
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">Pembayaran</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label">{{ $hasil->nama_bank }}</label>
+                                <label for="staticEmail" class="col-form-label">{{ $hasil->bank }}</label>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -79,17 +66,6 @@
                                 <label for="staticEmail" class="col-form-label">{{ $hasil->status_pengisian }}</label>
                             </div>
                         </div>
-                    </li>
-                </ul>
-              </div>
-        </div>
-        <div class="col-5">
-            <div class="card">
-                <div class="card-header">
-                Pembayaran
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label ukuran">No. Rekening</label>
                             <div class="col-sm">
@@ -126,7 +102,7 @@
                         (Note: Nominal pembayaran harus sama)</small></p>
                     </li>
                 </ul>
-            </div>
+              </div>
         </div>
     </div>
 

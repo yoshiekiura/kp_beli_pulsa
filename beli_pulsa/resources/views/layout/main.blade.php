@@ -56,7 +56,7 @@
 
 <body>
     <header class="header">
-        <nav class="navbar navbar-expand-sm fixed-top py-3">
+        <nav class="navbar navbar-expand-sm fixed-top py-2">
             <div class="container"><a href="{{ url('/') }}" class="navbar-brand text-uppercase font-weight-bold">Tukupulsa.com</a>
                 <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
 
@@ -76,6 +76,8 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="/Profil">Profil</a>
+                      <a class="dropdown-item" href="#">Isi Saldo</a>
+                      <a class="dropdown-item" href="#">Mutasi</a>
                       <a class="dropdown-item" href="{{ url('/Riwayat/'.Session::get('nama')) }}">Riwayat Transaksi</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="/Logout">LOGOUT!!!</a>

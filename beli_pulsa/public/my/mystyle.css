@@ -22,8 +22,10 @@ html, body, section{
 
         #pageone{
             /* background: linear-gradient(110deg, #81ee05 60%, #04c924 60%); */
-            background-color: #faa499;
-            background-image: linear-gradient(319deg, #faa499 0%, #f7dd85 37%, #ffc55c 100%);
+
+            /* background-color: #faa499; */
+            /* background-image: linear-gradient(319deg, #faa499 0%, #f7dd85 37%, #ffc55c 100%); */
+            background-color: #E4DBBF;
 
             /* color: white; */
             min-height: 100vh;
@@ -31,10 +33,12 @@ html, body, section{
         }
 
         #pilih-paket{
+            background-color: #E4DBBF;
+            /* background-color: #404040; */
             /* background: linear-gradient(70deg, #2e302b 60%, #3c443d 60%); */
             /* color: white; */
-            background-color: #ff7d59;
-            background-image: linear-gradient(319deg, #ff7d59 0%, #ff583a 37%, #f4a698 100%);
+            /* background-color: #ff7d59; */
+            /* background-image: linear-gradient(319deg, #ff7d59 0%, #ff583a 37%, #f4a698 100%); */
 
             min-height: 100vh;
         }
@@ -44,9 +48,9 @@ html, body, section{
         }
 
         .separator {
-            color: white;
+            color: black;
             font-size: 1.875rem;
-            background-color: #262626;
+            background-color: #69d2e7;
             padding: 1.618em 0;
             text-align: center;
           }
@@ -77,7 +81,7 @@ html, body, section{
     font-size: 20px;
     font-weight: bold;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
     /* margin-left: -20px; */
 }
 
@@ -90,7 +94,7 @@ html, body, section{
 }
 
 .pfourth{
-    font-size: 20px; font-weight: bold; margin-top: 50px;
+    font-size: 20px; font-weight: bold; margin-top: 15px;
 }
 
 .alarm{

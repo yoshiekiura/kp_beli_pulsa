@@ -40,7 +40,7 @@
                         <th scope="col">Status</th>
                         <th scope="col">Lihat</th>
                       </tr>
-                    </thead>   
+                    </thead>
                   </table>
                 @elseif($data == 'tidak ada')
                 <table class="table">
@@ -53,9 +53,9 @@
                       <th scope="col">Status</th>
                       <th scope="col">Lihat</th>
                     </tr>
-                  </thead>   
+                  </thead>
                 </table>
-                @else                
+                @else
                 <table class="table">
                   <thead class="thead-light">
                     <tr>
@@ -85,8 +85,8 @@
 
 
             </div>
-            <div class="card-footer text-muted">
-              SISIRUIT
+            <div class="card-footer text-muted text-center">
+              hehe
             </div>
           </div>
           <div class="mt-5"></div>
