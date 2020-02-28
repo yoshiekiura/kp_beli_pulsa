@@ -83,13 +83,13 @@
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">Status Pembayaran</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label">Dibayar</label>
+                                <label for="staticEmail" class="col-form-label">Proses</label>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-5 col-form-label">Status Pengisian</label>
                             <div class="col-sm-7">
-                                <label for="staticEmail" class="col-form-label">Dibayar</label>
+                                <label for="staticEmail" class="col-form-label">Proses</label>
                             </div>
                         </div>
                         @endif

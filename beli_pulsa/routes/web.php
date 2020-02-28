@@ -78,6 +78,10 @@ Route::get('/', function () {
     ['produk_pulsa' => $produk_pulsa,'produk_internet' => $produk_internet,'bank' => $bank,'nomor' => $nomor]);
 });
 
+//Beli_pulsa_mobile
+Route::post('mobilepulsa/pulsa','MobilePulsa@pulsa');
+Route::post('mobilepulsa/terimarespon','MobilePulsa@terima_respon');
+
 
 //filter
 Route::post('dynamicdependent/cari','DynamicDependent@cari');

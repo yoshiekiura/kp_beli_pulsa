@@ -21,6 +21,8 @@
                         </ol>
                         
                     <div class="table-responsive">
+                      <form action="/mobilepulsa/pulsa" method="POST">
+                      @csrf
                           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                           <thead class="thead-dark">
                             <tr>
@@ -40,24 +42,29 @@
                             <tr>
                               <th scope="row">{{$loop->iteration}}</th>
                               <td>Paket {{ $item->pulsa_type}}</td>
+                              <input type="hidden" name="pulsa_code" value="{{ $item->pulsa_code}}">
                               <td>{{ $item->pulsa_op}}</td>
                               <td>{{ $item->pulsa_nominal}}</td>
+                              <input type="hidden" name="no_telpon" value="{{ $item->no_telpon}}">
                               <td>{{ $item->no_telpon}}</td>
                               <td>{{ $item->bank}} ( {{ $item->atas_nama}} )</td>
                               <td>{{ $item->tanggal_beli}}</td>
                               @if($item->status_transaksi == 0)
                               <td>Menunggu</td>
-                              <td><button>Menunggu Pembayaran</button></td>
-                              @endif
-                              @if($item->status_transaksi == 1)
-                              <td><button>Bayar</button></td>
-                              @endif
-                              @if($item->status_transaksi == 2)
+                              <td><input type="submit" value="Bayar"></td>
+                              
+                              @elseif($item->status_transaksi == 1)
+                              <td>Proses</td>
+                              <td></td>
+                              
+                              @elseif($item->status_transaksi == 2)
                               <td>Selesai</td>
+                              <td></td>
                               @endif
                           </tr>
                             @endforeach
                           </tbody>
+                          </form>
                         </table>
 
                     </div>
