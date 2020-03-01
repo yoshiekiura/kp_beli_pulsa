@@ -104,7 +104,7 @@ class MobilePulsa extends Controller
 
                 $insert = "INSERT INTO price_lists (pulsa_code, pulsa_op, pulsa_nominal, pulsa_price, pulsa_type, masaaktif, status) VALUES 
                         ('$mydata->pulsa_code','$mydata->pulsa_op','$mydata->pulsa_nominal','$mydata->pulsa_price'+100,'$mydata->pulsa_type','$mydata->masaaktif','$mydata->status')";   
-                
+                $conn->query($insert);
             }
         }
 

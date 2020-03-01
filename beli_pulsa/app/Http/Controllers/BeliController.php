@@ -167,5 +167,73 @@ class BeliController extends Controller
         return view('/pelanggan/forms/cek_transaksi',['data' => $data]);
     }
 
+    public function payment(){
+
+        $post = $_POST;
+    
+        if(!empty($post)) {
+            $method = @$post['method'];
+            $data 	= @$post['data'];
+            if($method=='update_laporan_mutasi') {
+                foreach($data as $key => $c) {
+                    $jenis_mutasi     = $c['jenis_mutasi'];
+                    $nominal          = $c['nominal'];
+                    $bank             = $c['bank'];
+                    $no_rekening      = $c['no_rekening'];
+                    $atas_nama        = $c['atas_nama'];
+                    $keterangan       = $c['keterangan'];
+                    $waktu_cek_mutasi = $c['waktu_cek_mutasi'];
+                    $waktu_mutasi     = $c['waktu_mutasi'];
+                    $saldo            = $c['saldo'];
+                    $nama_bank        = 'BCA';
+                     
+                    
+                    if ($jenis_mutasi=='CR') {
+                        DB::table('balances')->insert([
+                            'bank' => $bank,
+                            'date' => $waktu_cek_mutasi,
+                            'type' => $jenis_mutasi,
+                            'note' => $keterangan,
+                            'amount' => $nominal,
+                            'balance' => $saldo
+                        ]);
+                        $ambil = DB::table('transactions')->where('harga_total',$nominal)->where('status',0)->first();
+                        if($ambil){
+                            $username   = "085706579632";
+                            $apiKey   = "6135e4a3701bdd7b";
+                            $ref_id  = uniqid('');
+                            // $code = 'xld25000';
+                            $signature  = md5($username.$apiKey.$ref_id);
+
+                            $json = '{
+                                    "commands"    : "topup",
+                                    "username"    : "'.$username.'",
+                                    "ref_id"      : "'.$ref_id.'",
+                                    "hp"          : "'.$ambil->no_telpon.'",
+                                    "pulsa_code"  : "'.$ambil->pulsa_code.'",
+                                    "sign"        : "'.$signature.'"
+                                    }';
+
+
+                            $url = "https://testprepaid.mobilepulsa.net/v1/legacy/index";
+
+                            $ch  = curl_init();
+                            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+                            curl_setopt($ch, CURLOPT_URL, $url);
+                            curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+                            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                            $data = curl_exec($ch);
+                            curl_close($ch);
+                            $hasil = json_decode($data);
+                        }
+                    }
+                }
+            } 
+        }
+    
+    }
+
 
     }

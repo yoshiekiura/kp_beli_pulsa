@@ -82,6 +82,12 @@ Route::get('/', function () {
 Route::post('mobilepulsa/pulsa','MobilePulsa@pulsa');
 Route::post('mobilepulsa/terimarespon','MobilePulsa@terima_respon');
 
+//flopi payment
+Route::post('/payment','BeliController@payment');
+
+Route::get('/tambahharga','MobilePulsa@tambahharga');
+Route::get('/tambahbank','MobilePulsa@tambahbank');
+
 
 //filter
 Route::post('dynamicdependent/cari','DynamicDependent@cari');
