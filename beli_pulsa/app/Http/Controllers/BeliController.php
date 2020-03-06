@@ -197,7 +197,7 @@ class BeliController extends Controller
                             'amount' => $nominal,
                             'balance' => $saldo
                         ]);
-                        $ambil = DB::table('transactions')->where('harga_total',$nominal)->where('status',0)->first();
+                        $ambil = DB::table('transactions')->where('harga_total',$nominal)->where('status_pembayaran',0)->first();
                         if($ambil){
                             $username   = "085706579632";
                             $apiKey   = "6135e4a3701bdd7b";
@@ -224,9 +224,9 @@ class BeliController extends Controller
                             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
                             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-                            $data = curl_exec($ch);
+                            $oke = curl_exec($ch);
                             curl_close($ch);
-                            $hasil = json_decode($data);
+                            // $hasil = json_decode($data);
                         }
                     }
                 }

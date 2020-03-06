@@ -80,7 +80,9 @@ Route::get('/', function () {
 
 //Beli_pulsa_mobile
 Route::post('mobilepulsa/pulsa','MobilePulsa@pulsa');
-Route::post('mobilepulsa/terimarespon','MobilePulsa@terima_respon');
+Route::post('/terima_respon','MobilePulsa@terima_respon');
+Route::post('/belipulsacoba','MobilePulsa@belipulsacoba');
+
 
 //flopi payment
 Route::post('/payment','BeliController@payment');

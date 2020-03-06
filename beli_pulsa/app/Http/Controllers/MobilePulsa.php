@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class MobilePulsa extends Controller
 {
@@ -52,22 +52,57 @@ class MobilePulsa extends Controller
     }
 
     public function terima_respon(){
-    
-        $post = $_POST;
+
+        $data = file_get_contents('php://input');
+        $hasil = json_decode($data);
+        $pulsa_code       = $hasil->data->code;
+        $no_telpon        = $hasil->data->hp;
+        if($hasil->data->message != 'SUCCESS'){
+
+            DB::table('transactions')->where('pulsa_code',$pulsa_code)
+            ->where('no_telpon',$no_telpon)
+            ->update([  'status_pembayaran' => 3,
+                        'status_pengisian' => 3,
+                        'status_transaksi' => 3 ]); 
+        }else{
+
+            DB::table('transactions')->where('pulsa_code',$pulsa_code)
+            ->where('no_telpon',$no_telpon)
+            ->update([  'status_pembayaran' => 2,
+                        'status_pengisian' => 2,
+                        'status_transaksi' => 2 ]);
+        } 
         
-        if(!empty($post)) {
-            $data 	= @$post['data'];
-                foreach($data->data as $c) {
-                    $pulsa_code       = $c->code;
-                    $no_telpon        = $c->hp;
-                    
-                    DB::table('transactions')->where('pulsa_code',$pulsa_code)
-                    ->where('no_telpon',$no_telpon)
-                    ->update([  'status_pembayaran' => 5,
-                        'status_pengisian' => 5,
-                        'status_transaksi' =>5 ]);
-                }
-            } 
+        }
+
+        public function belipulsacoba(){
+            $username   = "085706579632";
+            $apiKey   = "6135e4a3701bdd7b";
+            $ref_id  = uniqid('');
+            // $code = 'xld25000';
+            $signature  = md5($username.$apiKey.$ref_id);
+
+            $json = '{
+                    "commands"    : "topup",
+                    "username"    : "'.$username.'",
+                    "ref_id"      : "'.$ref_id.'",
+                    "hp"          : "081245367367",
+                    "pulsa_code"  : "hsmart10000",
+                    "sign"        : "'.$signature.'"
+                    }';
+
+
+            $url = "https://testprepaid.mobilepulsa.net/v1/legacy/index";
+
+            $ch  = curl_init();
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            $oke = curl_exec($ch);
+            curl_close($ch);
         }
 
         public function tambahharga(){
@@ -97,13 +132,20 @@ class MobilePulsa extends Controller
             // print_r($data);
             $x = json_decode($data);
             // die;
-            set_time_limit(500);
+            
             foreach($x->data as $mydata){
 
                 // echo $mydata->pulsa_price."\n";
 
-                $insert = "INSERT INTO price_lists (pulsa_code, pulsa_op, pulsa_nominal, pulsa_price, pulsa_type, masaaktif, status) VALUES 
-                        ('$mydata->pulsa_code','$mydata->pulsa_op','$mydata->pulsa_nominal','$mydata->pulsa_price'+100,'$mydata->pulsa_type','$mydata->masaaktif','$mydata->status')";   
+                DB::table('price_lists')->insert([
+                    'pulsa_code' => $mydata->pulsa_code,
+                    'pulsa_op' => $mydata->pulsa_op,
+                    'pulsa_nominal' => $mydata->pulsa_nominal,
+                    'pulsa_price' => $mydata->pulsa_price +100,
+                    'pulsa_type' => $mydata->pulsa_type,
+                    'masaaktif' => $mydata->masaaktif,
+                    'status' => $mydata->status
+                ]);  
                 
             }
         }
@@ -142,9 +184,14 @@ class MobilePulsa extends Controller
                         $atas_nama   = $c->atas_nama;
                         $bank 		 = $c->bank;
 
-                        $insert = "INSERT INTO banks (nama, no_rekening, atas_nama, bank) VALUES 
-                        ('$nama','$no_rekening','$atas_nama','$bank')";   
-                        $conn->query($insert);
+                        DB::table('banks')->insert([
+                            'nama' => $nama,
+                            'no_rekening' => $no_rekening,
+                            'atas_nama' => $atas_nama,
+                            'bank' => $bank
+                        ]);
+                          
+                        
                     }
                 }
             }
