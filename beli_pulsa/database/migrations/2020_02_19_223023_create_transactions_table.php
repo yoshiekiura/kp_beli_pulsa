@@ -16,7 +16,7 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('id_user')->unsigned()->nullable();
-            $table->string('pulsa_code')->unsigned();
+            $table->string('pulsa_code');
             $table->integer('id_bank')->unsigned();
             $table->string('no_telpon');
             $table->string('kode_unik');

@@ -73,7 +73,7 @@
                         <div class="form-group form-group-ukuran">
                             <select name="pulsa_op" id="pulsa_op" class="browser-default custom-select dynamic1" data-dependent="pulsa_nominal" required>
                                 <option selected disabled value="">-- Pilih Operator --</option>
-                                @foreach ($produk_pulsa as $p)
+                                    @foreach ($produk_pulsa as $p)
                                     <option value="{{ $p->pulsa_op }}">{{ $p->pulsa_op }}</option>
                                     @endforeach
                                 </select>
@@ -99,7 +99,7 @@
                     <div class="form-group form-group-ukuran">
                         <select name="bank" class="browser-default custom-select" required>
                             <option selected disabled>-- Pilih Pembayaran --</option>
-                            @foreach ($bank as $b)
+                                    @foreach ($bank as $b)
                                     <option value="{{$b->id}}">{{  $b->bank }}</option>
                                     @endforeach
                         </select>

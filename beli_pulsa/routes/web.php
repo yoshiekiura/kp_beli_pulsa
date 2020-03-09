@@ -62,6 +62,9 @@ Route::get('/', function () {
     ->groupBy('pulsa_op')
     ->get();
 
+    var_dump($produk_pulsa);
+    die;
+
     $produk_internet = DB::table('price_lists')
     // ->join('products','price_lists.id_product' ,'=', 'products.id')
     // ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
