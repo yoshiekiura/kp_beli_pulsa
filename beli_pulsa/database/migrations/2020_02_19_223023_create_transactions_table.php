@@ -15,14 +15,9 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            // $table->string('nama_produk');
-            // $table->string('nama_provider');
-            // $table->string('voucher');
-            $table->string('pulsa_code');
-            // $table->bigInteger('id_harga')->unsigned();
+            $table->integer('id_user')->unsigned()->nullable();
+            $table->string('pulsa_code')->unsigned();
             $table->integer('id_bank')->unsigned();
-            // $table->integer('harga');
-            // $table->string('kode');
             $table->string('no_telpon');
             $table->string('kode_unik');
             $table->double('harga_total');
@@ -38,7 +33,14 @@ class CreateTransactionsTable extends Migration
             // $table->foreign('id_harga')
             // ->references('id')->on('price_lists')
             // ->onDelete('cascade');
-            $table->foreign('pulsa_code')->references('pulsa_code')->on('price_lists')
+            $table->foreign('pulsa_code')
+            ->references('pulsa_code')
+            ->on('price_lists')
+            ->onDelete('cascade');
+
+            $table->foreign('id_user')
+            ->references('id')
+            ->on('users')
             ->onDelete('cascade');
 
             $table->foreign('id_bank')
