@@ -9,49 +9,48 @@ use Illuminate\Support\Facades\Session;
 class MobilePulsaController extends Controller
 {
     public function tambahharga(){
-        $username   = "085706579632";
-        $apiKey   = "6135e4a3701bdd7b";
-        $signature  = md5($username.$apiKey.'pl');
+            $username   = "085706579632";
+            $apiKey   = "6135e4a3701bdd7b";
+            
 
-        $json = '{
-                    "commands" : "pricelist",
-                    "username" : "085706579632",
-                    "sign"     : "ef00f513848103219022e8d19decfca1",
-                    "status"   : "all"
-                }';
+            $json = '{
+                        "commands" : "pricelist",
+                        "username" : "085706579632",
+                        "sign"     : "ef00f513848103219022e8d19decfca1",
+                        "status"   : "all"
+                    }';
 
-        $url = "https://testprepaid.mobilepulsa.net/v1/legacy/index";
+            $url = "https://testprepaid.mobilepulsa.net/v1/legacy/index";
 
-        $ch  = curl_init();
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $ch  = curl_init();
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-        $data = curl_exec($ch);
-        curl_close($ch);
+            $data = curl_exec($ch);
+            curl_close($ch);
 
-        // print_r($data);
-        // $x = json_decode($data);
-        var_dump($ch);
-        die;
+            // print_r($data);
 
-        foreach($x->data as $mydata){
+            $x = json_decode($data);
+            
+            foreach($x->data as $mydata){
 
-            // echo $mydata->pulsa_price."\n";
+                // echo $mydata->pulsa_price;
 
-            DB::table('price_lists')->insert([
-                'pulsa_code' => $mydata->pulsa_code,
-                'pulsa_op' => $mydata->pulsa_op,
-                'pulsa_nominal' => $mydata->pulsa_nominal,
-                'pulsa_price' => $mydata->pulsa_price +100,
-                'pulsa_type' => $mydata->pulsa_type,
-                'masaaktif' => $mydata->masaaktif,
-                'status' => $mydata->status
-            ]);
-
-        }
+                DB::table('price_lists')->insert([
+                    'pulsa_code' => $mydata->pulsa_code,
+                    'pulsa_op' => $mydata->pulsa_op,
+                    'pulsa_nominal' => $mydata->pulsa_nominal,
+                    'pulsa_price' => $mydata->pulsa_price +100,
+                    'pulsa_type' => $mydata->pulsa_type,
+                    'masaaktif' => $mydata->masaaktif,
+                    'status' => $mydata->status
+                ]);  
+                
+            }
     }
 
     public function tambahBank(){

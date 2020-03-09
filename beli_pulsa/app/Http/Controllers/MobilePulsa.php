@@ -108,7 +108,7 @@ class MobilePulsa extends Controller
         public function tambahharga(){
             $username   = "085706579632";
             $apiKey   = "6135e4a3701bdd7b";
-            $signature  = md5($username.$apiKey.'bl');
+            $signature  = md5($username.$apiKey.'pl');
 
             $json = '{
                         "commands" : "pricelist",
@@ -129,25 +129,26 @@ class MobilePulsa extends Controller
             $data = curl_exec($ch);
             curl_close($ch);
 
+            print_r($data);
             // print_r($data);
-            $x = json_decode($data);
+            // $x = json_decode($data);
             // die;
             
-            foreach($x->data as $mydata){
+            // foreach($x->data as $mydata){
 
-                // echo $mydata->pulsa_price."\n";
+            //     // echo $mydata->pulsa_price."\n";
 
-                DB::table('price_lists')->insert([
-                    'pulsa_code' => $mydata->pulsa_code,
-                    'pulsa_op' => $mydata->pulsa_op,
-                    'pulsa_nominal' => $mydata->pulsa_nominal,
-                    'pulsa_price' => $mydata->pulsa_price +100,
-                    'pulsa_type' => $mydata->pulsa_type,
-                    'masaaktif' => $mydata->masaaktif,
-                    'status' => $mydata->status
-                ]);  
+            //     DB::table('price_lists')->insert([
+            //         'pulsa_code' => $mydata->pulsa_code,
+            //         'pulsa_op' => $mydata->pulsa_op,
+            //         'pulsa_nominal' => $mydata->pulsa_nominal,
+            //         'pulsa_price' => $mydata->pulsa_price +100,
+            //         'pulsa_type' => $mydata->pulsa_type,
+            //         'masaaktif' => $mydata->masaaktif,
+            //         'status' => $mydata->status
+            //     ]);  
                 
-            }
+            // }
         }
 
         public function tambahbank(){
