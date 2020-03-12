@@ -13,7 +13,6 @@
                                 <tr>
                                 <th scope="col" style="width: 40px">No.</th>
                                 <th scope="col">Nama</th>
-                                <th scope="col">Username</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Jenis Kelamin</th>
                                 <th scope="col">Alamat</th>
@@ -22,16 +21,17 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($customer as $c)
                             <tr>
-                                <th scope="row">#</th>
-                                <td></td>
-                                <td>#</td>
-                                <td>#</td>
-                                <td>#</td>
-                                <td>#</td>
-                                <td>#</td>
-                                <td>#</td>
+                                <th scope="row">{{$loop->iteration }}</th>
+                                <td>{{$c->nama}}</td>
+                                <td>{{$c->email}}</td>
+                                <td>{{$c->jenis_kelamin}}</td>
+                                <td>{{$c->alamat}}</td>
+                                <td>{{$c->no_telpon}}</td>
+                                <td>{{$c->tanggal_mendaftar}}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

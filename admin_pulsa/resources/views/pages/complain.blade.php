@@ -21,15 +21,17 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($komplain as $k)
                             <tr>
-                                <th scope="row">#</th>
-                                <td>#</td>
-                                <td>#</td>
-                                <td>#</td>
-                                <td>#</td>
-                                <td>#</td>
+                                <th scope="row">{{$loop->iteration }}</th>
+                                <td>{{$k->id_transaksi}}</td>
+                                <td>{{$k->nama}}</td>
+                                <td>{{$k->no_telpon}}</td>
+                                <td>{{$k->pesan}}</td>
+                                <td>{{$k->created_at}}</td>
                                 <td>#</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
