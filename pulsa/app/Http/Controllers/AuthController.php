@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
+
+use App\User;
+use App\Customer;
+
+class AuthController extends Controller
+{
+    public function postLogin(Request $request){
+        if(Auth::attempt($request->only('no_telpon','password'))){
+            return redirect('/beli');
+        }
+        Session::flash('gagal','Masukkan Nomor Telepon atau Password dengan Benar');
+        return redirect('/login');
+    }
+
+    public function postDaftar(Request $request){
+        // var_dump($request->password); die;
+        $telp = $request->input('no_telpon');
+        $email = $request->input('email');
+
+        $cek = DB::table('users')
+        ->where('no_telpon', $telp)
+        ->orWhere('email', $email)
+        ->get();
+
+        if($cek){
+            Session::flash('gagal','Nomor Telepon atau Email Sudah Terdaftar');
+            return redirect('/daftar');
+        } else {
+
+            $user = new User;
+            $user->role = "customer";
+            $user->no_telpon = $request->no_telpon;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+            $user->remember_token = Str::random(60);
+            $user->save();
+            $request->request->add(['id_user' => $user->id,'tanggal_mendaftar' => Carbon::now(),'status_akun' => '0']);
+            $customer = Customer::create($request->all());
+            // var_dump($customer); die;
+            Session::flash('gagal','Akun telah Terdaftar! Silahkan Login');
+            return redirect('/login');
+        }
+    }
+
+    public function logout(){
+        Auth::logout();
+        Session::flash('gagal','Masukkan Nomor Telepon atau Password dengan Benar');
+        return redirect('/login');
+    }
+}
