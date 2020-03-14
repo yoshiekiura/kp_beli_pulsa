@@ -22,6 +22,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="/assets/lte/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- jQuery -->
+    {{-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> --}}
+<script src="/assets/lte/plugins/jquery/jquery.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini sidebar-collapse">
     <div class="wrapper">
@@ -166,7 +169,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <img src="/assets/lte/dist/img/user.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-            <a href="/profil" class="d-block">Pemilik Akun</a>
+            <a href="/profil" class="d-block">{{Auth()->user()->email}}</a>
             </div>
         </div>
 
@@ -183,7 +186,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/riwayat-transaksi" class="nav-link">
+                <a href="/riwayat-transaksi/{{Auth()->user()->id}}" class="nav-link">
                     <i class="fas fa-history"></i>
                     <p>Riwayat Transaksi</p>
                 </a>

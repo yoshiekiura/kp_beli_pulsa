@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Hash;
 use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder

@@ -19,51 +19,49 @@
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label">Produk</label>
                                 <div class="col-sm-7">
-                                    <p class="col-form-label">: Paket Pulsa</p>
+                                    <label class="col-form-label">: Paket {{$hasil->pulsa_type}}</label>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label">Provider</label>
                                 <div class="col-sm-7">
-                                    <p class="col-form-label">: Indosat</p>
+                                    <label class="col-form-label">: {{ $hasil->pulsa_op }}</label>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label">Voucher</label>
                                 <div class="col-sm-7">
-                                    <p class="col-form-label">: 10000</p>
+                                    <label class="col-form-label">: {{ $hasil->pulsa_nominal }}</label>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label">Masa Aktif</label>
                                 <div class="col-sm-7">
-                                    <p class="col-form-label">: 10 Hari</p>
+                                    <label class="col-form-label">: {{ $hasil->masaaktif }}</label>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label">No. Telepon</label>
                                 <div class="col-sm-7">
-                                    <p class="col-form-label">: 0857XXXXXXXX</p>
+                                    <label class="col-form-label">: {{$hasil->no_telpon}}</label>
                                 </div>
                             </div>
-
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label">Tanggal Pembelian</label>
                                 <div class="col-sm-7">
-                                    <p class="col-form-label">: NOW</p>
+                                    <label class="col-form-label">: {{ $hasil->tanggal_beli }}</label>
                                 </div>
                             </div>
-
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label">Status Pembayaran</label>
                                 <div class="col-sm-7">
-                                    <p class="col-form-label">: Menunggu</p>
+                                    <label class="col-form-label">: {{ $hasil->status_pembayaran }}</label>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label">Status Pengisian</label>
                                 <div class="col-sm-7">
-                                    <p class="col-form-label">: Menunggu</p>
+                                    <label class="col-form-label">: {{ $hasil->status_pengisian }}</label>
                                 </div>
                             </div>
                         </li>
@@ -80,42 +78,42 @@
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label">Pembayaran</label>
                                 <div class="col-sm-7">
-                                    <p class="col-form-label">: BCA</p>
+                                    <label class="col-form-label">: {{ $hasil->bank }}</label>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label ukuran">No. Rekening</label>
                                 <div class="col-sm">
-                                    <p class="col-form-label ukuran">: XXX</p>
+                                    <label class="col-form-label ukuran">: {{ $hasil->no_rekening }}</label>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label ukuran">Atas Nama</label>
                                 <div class="col-sm">
-                                    <p class="col-form-label ukuran">: Rahasia</p>
+                                    <label class="col-form-label ukuran">: {{ $hasil->atas_nama }}</label>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label ukuran">Harga</label>
                                 <div class="col-sm">
-                                    <p class="col-form-label ukuran">: Rp.1</p>
+                                    <label class="col-form-label ukuran">: @currency($hasil->pulsa_price)</label>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label ukuran">Kode Unik</label>
                                 <div class="col-sm">
-                                    <p class="col-form-label ukuran">: Rp.666</p>
+                                    <label class="col-form-label ukuran">: @currency($hasil->kode_unik)</label>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label ukuran">Harga Total</label>
                                 <div class="col-sm">
-                                    <p class="col-form-label ukuran">: Rp. 667</p>
+                                    <label class="col-form-label ukuran">: @currency($hasil->harga_total)</label>
                                 </div>
                             </div>
                             <div class="dropdown-divider"></div>
-                            <p class="card-text" style="text-align:justify"><small>Produk akan otomatis dikirim setelah Anda mentransfer sesuai dengan permintaan sistem. Pembayaran berlaku sampai dengan <b>19-06-99</b>,
-                            Silahkan melakukan transfer sebesar <b>Rp. 667</b> ke nomor rekening diatas
+                            <p class="card-text" style="text-align:justify"><small>Produk akan otomatis dikirim setelah Anda mentransfer sesuai dengan permintaan sistem. Pembayaran berlaku sampai dengan <b>{{ $hasil->expired }}</b>,
+                            Silahkan melakukan transfer sebesar <b>@currency($hasil->harga_total)</b> ke nomor rekening diatas
                             (Note: Nominal pembayaran harus sama)</small></p>
                         </li>
                     </ul>

@@ -40,14 +40,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($semua as $s)
                                     <tr>
-                                        <th scope="row">#</th>
-                                        <td>#</td>
-                                        <td>#</td>
-                                        <td>#</td>
-                                        <td>#</td>
-                                        <td>#</td>
+                                        <th scope="row">Paket {{$s->pulsa_type}}</th>
+                                        <td>{{$s->pulsa_op}}</td>
+                                        <td>{{$s->pulsa_nominal}}</td>
+                                        <td>{{$s->masaaktif}} Hari</td>
+                                        <td>@currency($s->pulsa_price)</td>
+                                        <td>{{$s->status}}</td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -66,14 +68,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($pulsa as $p)
                                     <tr>
-                                        <th scope="row">+</th>
-                                        <td>+</td>
-                                        <td>+</td>
-                                        <td>+</td>
-                                        <td>+</td>
-                                        <td>+</td>
+                                        <th scope="row">Paket {{$p->pulsa_type}}</th>
+                                        <td>{{$p->pulsa_op}}</td>
+                                        <td>{{$p->pulsa_nominal}}</td>
+                                        <td>{{$p->masaaktif}} Hari</td>
+                                        <td>{{$p->pulsa_price}}</td>
+                                        <td>{{$p->status}}</td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -92,14 +96,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($data as $d)
                                     <tr>
-                                        <th scope="row">@</th>
-                                        <td>@</td>
-                                        <td>@</td>
-                                        <td>@</td>
-                                        <td>@</td>
-                                        <td>@</td>
+                                        <th scope="row">Paket {{$d->pulsa_type}}</th>
+                                        <td>{{$d->pulsa_op}}</td>
+                                        <td>{{$d->pulsa_nominal}}</td>
+                                        <td>{{$d->masaaktif}} Hari</td>
+                                        <td>{{$d->pulsa_price}}</td>
+                                        <td>{{$d->status}}</td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -110,78 +116,208 @@
     </div>
 </div>
 
-<div class="card card-default card-primary card-outline">
-    <div class="card-header">
-        <h3 class="card-title">Pilih paket yang akan dibeli</h3>
-        <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-        </div>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-12">
+<div class="row">
+    <div class="col-6">
+        <div class="card card-default card-primary card-outline">
+            <div class="card-header">
+                <h3 class="card-title">Paket Pulsa</h3>
+            </div>
+            <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Pilih Type Paket</label>
-                            <select class="form-control select2" style="width: 100%;">
-                                <option selected="selected">-- Pilih Type Paket --</option>
-                                <option>Alaska</option>
-                                <option disabled="disabled">California (disabled)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Pilih Nama Produk</label>
-                            <select class="form-control select2" style="width: 100%;">
-                                <option selected="selected">-- Pilih Nama Produk --</option>
-                                <option>Alaska</option>
-                                <option disabled="disabled">California (disabled)</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Pilih Operator</label>
-                            <select class="form-control select2" style="width: 100%;">
-                                <option selected="selected">-- Pilih Operator --</option>
-                                <option>Alaska</option>
-                                <option disabled="disabled">California (disabled)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Pilih Pembayaran</label>
-                            <select class="form-control select2" style="width: 100%;">
-                                <option selected="selected">-- Pilih Pembayaran --</option>
-                                <option>BCA</option>
-                                <option>Saldo Deposit</option>
-                                <option disabled="disabled">California (disabled)</option>
-                            </select>
-                        </div>
+                    <div class="col-md-12">
+                        <form action="#" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label>Pilih Operator</label>
+                                <select class="form-control dynamic1" name="pulsa_op" id="pulsa_op" data-dependent="pulsa_nominal" style="width: 100%;">
+                                    <option selected disabled value="">-- Pilih Operator --</option>
+                                                @foreach ($produk_pulsa as $q)
+                                                    <option value="{{ $q->pulsa_op }}">{{ $q->pulsa_op }}</option>
+                                                @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Pilih Nama Produk</label>
+                                <select class="form-control opsi-pulsa" name="pulsa_nominal" id="keterangan1" style="width: 100%;">
+                                    <option selected="selected">-- Pilih Nama Produk --</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Pilih Pembayaran</label>
+                                <select class="form-control" style="width: 100%;">
+                                    <option selected disabled>-- Pilih Pembayaran --</option>
+                                            @foreach ($bank as $b)
+                                            <option value="{{$b->id}}">{{  $b->bank }}</option>
+                                            @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="masaaktif">Masa Aktif</label>
+                                <input type="text" class="form-control" id="masaaktif1" placeholder="Masa Aktif" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="nohp">No. Telepon</label>
+                                <input type="number" name="nomor" class="form-control" placeholder="-- Nomor Telepon --">
+                                {{-- <input type="number" class="form-control" id="nohp" placeholder="Nomor Telepon"> --}}
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="hr1" placeholder="Harga Paket" readonly>
+                            </div>
+                            <input type="hidden" name="harga" id="hr1" readonly>
+                            <input type="hidden" name="kode"  id="kode1" readonly>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="masaaktif">Masa Aktif</label>
-                    <input type="text" class="form-control" id="masaaktif" placeholder="Masa Aktif" disabled>
-                </div>
-                <div class="form-group">
-                    <label for="nohp">No. Telepon</label>
-                    <input type="number" class="form-control" id="nohp" placeholder="Nomor Telepon">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Harga Paket" readonly>
-                </div>
+            <div class="card-footer text-center">
+                <button type="submit" class="btn btn-warning">Proses</button>
             </div>
-            <div class="col-md-4"></div>
         </div>
     </div>
-        <div class="card-footer text-center">
-            <a href="/rincian-transaksi-pelanggan"><button type="submit" class="btn btn-warning">Proses</button></a>
+    <div class="col-6">
+        <div class="card card-default card-primary card-outline">
+            <div class="card-header">
+                <h3 class="card-title">Paket Data</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="#" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label>Pilih Operator</label>
+                                <select class="form-control dynamic2" name="pulsa_op" id="pulsa_op" data-dependent="pulsa_nominal" style="width: 100%;">
+                                    <option selected disabled value="">-- Pilih Operator --</option>
+                                                @foreach ($produk_data as $q)
+                                                    <option value="{{ $q->pulsa_op }}">{{ $q->pulsa_op }}</option>
+                                                @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Pilih Nama Produk</label>
+                                <select class="form-control opsi-paket" name="pulsa_nominal" id="keterangan2" style="width: 100%;">
+                                    <option selected="selected">-- Pilih Nama Produk --</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Pilih Pembayaran</label>
+                                <select class="form-control select2" style="width: 100%;">
+                                    <option selected disabled>-- Pilih Pembayaran --</option>
+                                            @foreach ($bank as $b)
+                                            <option value="{{$b->id}}">{{  $b->bank }}</option>
+                                            @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="masaaktif">Masa Aktif</label>
+                                <input type="text" class="form-control" id="masaaktif2" placeholder="Masa Aktif" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="nohp">No. Telepon</label>
+                                <input type="number" name="nomor" class="form-control" placeholder="-- Nomor Telepon --">
+                                {{-- <input type="number" class="form-control" id="nohp" placeholder="Nomor Telepon"> --}}
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="hr2" placeholder="Harga Paket" readonly>
+                            </div>
+                            <input type="hidden" name="harga" id="hr2" readonly>
+                            <input type="hidden" name="kode"  id="kode2" readonly>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <button type="submit" class="btn btn-warning">Proses</button>
+            </div>
         </div>
+    </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+
+        $('.dynamic1').change(function(){
+            if($(this).val() != ''){
+                var select = $(this).attr("id");
+                var value = $(this).val();
+                var dependent = $(this).data('dependent');
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+                    url: '{{ url("Ajax/cari")}}',
+                    method:"POST",
+                    data:{select:select, value:value, _token:_token, dependent:dependent},
+                    success:function(result){
+                        $('.opsi-pulsa').html(result);
+                    }
+                })
+            }
+        });
+
+        $('.dynamic2').change(function(){
+            if($(this).val() != ''){
+                var select = $(this).attr("id");
+                var value = $(this).val();
+                var dependent = $(this).data('dependent');
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+                    url: '{{ url("Ajax/cari")}}',
+                    method:"POST",
+                    data:{select:select, value:value, _token:_token, dependent:dependent},
+                    success:function(result){
+                        $('.opsi-paket').html(result);
+                    }
+                })
+            }
+        });
+
+        $('#keterangan1').change(function(){
+            var provider = $('.dynamic1').val();
+            var ket = $(this).val();
+            var _token = $('input[name="_token"]').val();
+            console.log(ket);
+
+            $.ajax({
+                url: '{{ url("Ajax/bawaKodeHarga") }}',
+                method: 'POST',
+                data:{keterangan:ket, _token:_token},
+                dataType: "JSON",
+                success:function(data){
+                    //console.log(data);
+
+                    $('.hr1').html(data.pulsa_price);
+                    $('#hr1').val(data.pulsa_price);
+                    $('#masaaktif1').val("+ " +data.masaaktif + " Hari");
+                    $('#kode1').val(data.pulsa_code);
+                    // $('#produk1').val(data.pulsa_op);
+                    // $('#ket1').val(data.pulsa_nominal);
+                }
+            });
+        });
+
+        $('#keterangan2').change(function(){
+            var provider = $('.dynamic2').val();
+            var ket = $(this).val();
+            var _token = $('input[name="_token"]').val();
+            //console.log(ket);
+
+            $.ajax({
+                url: '{{ url("Ajax/bawaKodeHarga") }}',
+                method: 'POST',
+                data:{keterangan:ket, _token:_token},
+                dataType: "JSON",
+                success:function(data){
+                    //console.log(data);
+
+                    $('.hr2').html(data.pulsa_price);
+                    $('#hr2').val(data.pulsa_price);
+                    $('#kode2').val(data.pulsa_code);
+                    $('#masaaktif2').val(data.masaaktif + " Hari");
+                    // $('#produk2').val(data.pulsa_op);
+                    // $('#ket2').val(data.pulsa_nominal);
+                }
+            });
+        });
+    });
+</script>
 
 @endsection

@@ -21,6 +21,9 @@
                 <div class="single-about-box">
                     <i class="icofont icofont-login"></i>
                     <h4>Daftar Akun TUKUPULSA</h4>
+                    @if(Session::has('gagal'))
+                        <p class="login-box-msg">{!! session('gagal') !!}</p>
+                     @endif
                     <form method="post" action="/postDaftar">
                         @csrf
                         <div class="form-group row">

@@ -21,6 +21,7 @@ Route::get('/', function () {
     ->where('status','active')
     ->groupBy('pulsa_op')
     ->get();
+
     $produk_data = DB::table('price_lists')
     ->where('pulsa_type','data')
     ->where('status','active')
@@ -38,6 +39,7 @@ Route::get('/', function () {
     $pulsa = DB::table('price_lists')->where('pulsa_type', 'pulsa')->get();
     return view('/pages/index',['semua'=>$semua,'data'=>$data,'pulsa'=>$pulsa,'produk_pulsa' => $produk_pulsa,'produk_data' => $produk_data,'bank' => $bank]);
 });
+Route::post('/postBeli','BeliController@beli');
 
 //filter
 Route::post('Ajax/cari','AjaxController@cari');
@@ -47,6 +49,7 @@ Route::post('/Cek-transaksip','AjaxController@kirim_transaksi');
 Route::get('/cek_transaksi', function () {
     return view('forms/cek_transaksi');
 });
+Route::get('/rincian-transaksi/{id}', 'BeliController@tampilBeli');
 
 //auth
 Route::get('/login', function () {
@@ -63,23 +66,38 @@ Route::get('/logout', 'AuthController@logout');
 Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
 // Route::group(['middleware' => 'auth'], function () {
     Route::get('/beli', function () {
-        return view('/pages/buy_customer');
+        $produk_pulsa = DB::table('price_lists')
+        ->where('pulsa_type','pulsa')
+        ->where('status','active')
+        ->groupBy('pulsa_op')
+        ->get();
+
+        $produk_data = DB::table('price_lists')
+        ->where('pulsa_type','data')
+        ->where('status','active')
+        ->groupBy('pulsa_op')
+        ->get();
+
+
+    $bank = DB::table('banks')->get();
+
+    $semua = DB::table('price_lists')
+    ->where('pulsa_type', 'data')
+    ->orWhere('pulsa_type', 'pulsa')
+    ->get();
+
+    $data = DB::table('price_lists')->where('pulsa_type', 'data')->get();
+    $pulsa = DB::table('price_lists')->where('pulsa_type', 'pulsa')->get();
+        return view('/pages/buy_customer',['semua'=>$semua,'data'=>$data,'pulsa'=>$pulsa,'produk_pulsa' => $produk_pulsa,'produk_data' => $produk_data,'bank' => $bank]);
     });
-    Route::get('/rincian-transaksi', function () {
-        return view('/pages/detail_transaction');
-    });
-    Route::get('/rincian-transaksi-pelanggan', function () {
+    Route::get('/rincian-transaksi-pelanggan/{id}', function () {
         return view('/pages/detail_transaction_customer');
     });
     Route::get('/riwayat-transaksi', function () {
         return view('/pages/history_transaction_customer');
     });
-    Route::get('/profil', function () {
-        return view('/pages/profil_customer');
-    });
-    Route::get('/pengaturan-akun', function () {
-        return view('/forms/setting_customer');
-    });
+    Route::get('/profil', 'ProfilController@tampilProfil');
+    Route::get('/pengaturan-akun', 'ProfilController@pengaturanAkun');
 });
 
 // Route::get('/login-admin', 'AuthController@loginadmin')->name('loginAdmin');

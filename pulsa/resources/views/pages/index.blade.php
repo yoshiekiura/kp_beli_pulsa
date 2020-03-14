@@ -160,7 +160,7 @@
                         <h4>Paket Pulsa</h4>
                         <p>Beli pulsa disini aja</p>
                     </div>
-                    <form action="#" method="post">
+                    <form action="/postBeli" method="post">
                     <div class="price">
                         <span>Rp.</span><h1 class="hr1">-</h1>
                         <p>Harga</p>
@@ -197,7 +197,7 @@
                             <input type="hidden" name="harga" id="hr1" readonly>
                             <input type="hidden" name="kode"  id="kode1" readonly>
                         </ul>
-                        <a href="/rincian-transaksi"><button class="appao-btn" type="submit">Pesan Sekarang</button></a>
+                        <button class="appao-btn" type="submit">Pesan Sekarang</button>
                     </div>
                 </form>
                 </div>
@@ -208,7 +208,7 @@
                         <h4>Paket Data</h4>
                         <p>Beli paket data disini aja</p>
                     </div>
-                    <form action="#" method="post">
+                    <form action="/postBeli" method="post">
                         <div class="price">
                             <span>Rp.</span><h1 class="hr2">-</h1>
                             <p>Harga</p>
@@ -245,7 +245,7 @@
                                 <input type="hidden" name="harga" id="hr2" readonly>
                                 <input type="hidden" name="kode"  id="kode2" readonly>
                             </ul>
-                            <a href="/rincian-transaksi"><button class="appao-btn" type="submit">Pesan Sekarang</button></a>
+                            <button class="appao-btn" type="submit">Pesan Sekarang</button>
                         </div>
                     </form>
                 </div>

@@ -49,7 +49,7 @@
 					<div class="col-lg-2 col-md-3 col-6">
 						<div class="logo">
 							{{-- <a href="#home"><img src="assets/img/logo.png" alt="logo" /></a> --}}
-							<a href="#home"><img src="assets/img/logomi.png" alt="logo" /></a>
+							<a href="#home"><img src="../assets/img/logomi.png" alt="logo" /></a>
 						</div>
 					</div>
 					<div class="col-lg-10 col-md-9 col-6">
@@ -147,7 +147,7 @@
                                 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by Colorlib
                                 {{-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> --}}
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                            <p><a href="/login-admin">Login Admin</a></p>
+
                         </div>
                     </div>
 				</div>

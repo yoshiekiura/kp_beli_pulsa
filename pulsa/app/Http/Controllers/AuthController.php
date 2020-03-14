@@ -33,7 +33,8 @@ class AuthController extends Controller
         ->orWhere('email', $email)
         ->get();
 
-        if($cek){
+        // var_dump(count($cek)); die;
+        if(count($cek)!=0){
             Session::flash('gagal','Nomor Telepon atau Email Sudah Terdaftar');
             return redirect('/daftar');
         } else {
