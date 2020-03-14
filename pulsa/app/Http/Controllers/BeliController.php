@@ -57,6 +57,7 @@ class BeliController extends Controller
         // var_dump($hasil);
         // die;
         // return view('/pelanggan/pages/a',['hasil' => $hasil]);
+        // Session::flash('alert', "Berhasil di pesan!");
         return view('/pages/detail_transaction',['hasil' => $hasil]);
     }
 

@@ -22,8 +22,8 @@
                     {{-- <i class="icofont icofont-ruler-pencil"></i>
                     <h4>Responsive Design</h4>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p> --}}
-                    <form action="#" method="post">
-                        @csrf
+                    <form action="/cek_transaksi" method="get">
+                        {{-- @csrf --}}
                         <div class="input-group mb-3">
                                 <input type="number" name="nomor" class="form-control" placeholder="Masukkan Nomor Telepon" aria-label="Masukkan Nomor Telepon" aria-describedby="button-addon">
                                 <div class="input-group-append">
@@ -42,7 +42,25 @@
                             <th scope="col">Lihat</th>
                             </tr>
                         </thead>
-                        </table>
+                        <tbody>
+                            @foreach ($data as $d)
+                            <tr>
+                                <th scope="row">{{$loop->iteration }}</th>
+                                <td>{{$d->tanggal_beli}}</td>
+                                <td>{{$d->no_telpon}}</td>
+                                <td>@currency($d->harga_total)</td>
+                                @if($d->status_pembayaran == 0)
+                                <td>Belum Bayar.</td>
+                                @elseif($d->status_pembayaran == 1)
+                                <td>Pending.</td>
+                                @elseif($d->status_pembayaran == 2)
+                                <td>Selesai.</td>
+                                @endif
+                                <td>Lihat</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
 

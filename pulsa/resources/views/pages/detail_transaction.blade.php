@@ -5,6 +5,12 @@
 @section('content')
 
 
+{{-- @if(!Session::has('alert'))
+    @php
+        header("Location: " . URL::to('/#beli'));
+        exit();
+    @endphp
+@endif --}}
 
 <section class="about-area ptb-90" id="listHarga">
     <div class="container">

@@ -23,14 +23,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($data as $d)
                                     <tr>
-                                        <th scope="row">#</th>
-                                        <td>#</td>
-                                        <td>#</td>
-                                        <td>#</td>
-                                        <td>#</td>
+                                        <th scope="row">{{$loop->iteration }}</th>
+                                        <td>{{$d->tanggal_beli}}</td>
+                                        <td>{{$d->no_telpon}}</td>
+                                        <td>@currency($d->harga_total)</td>
+                                        @if($d->status_pembayaran == 0)
+                                        <td>Belum Bayar.</td>
+                                        @elseif($d->status_pembayaran == 1)
+                                        <td>Pending.</td>
+                                        @elseif($d->status_pembayaran == 2)
+                                        <td>Selesai.</td>
+                                        @endif
                                         <td><button class="badge badge-primary">Lihat</button></td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
