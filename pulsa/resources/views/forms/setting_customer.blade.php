@@ -9,7 +9,7 @@
     <div class="card-header">
         <ul class="nav nav-pills mb-3" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">Edit Profile</a>
+                <a class="nav-link" id="profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">Edit Profile</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="pwd-tab" data-toggle="pill" href="#pills-pwd" role="tab" aria-controls="pills-pwd" aria-selected="false">Edit Password</a>
@@ -22,18 +22,22 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-12">
+                <h1>uwu</h1>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <form action="/putEditProfil" method="post">
+                            @method('PUT')
+                            @csrf
                         <div class="form-group row">
                             <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
                                 <div class="col-sm-10">
-                                    <input type="nama" class="form-control" value="{{$customer[0]->nama}}" id="nama" placeholder="Nama Lengkap">
+                                    <input type="text" class="form-control" name="nama" value="{{$customer[0]->nama}}" id="nama" placeholder="Nama Lengkap">
                                 </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control input-lg">
+                                    <select class="form-control input-lg" name="jenis_kelamin">
                                         <option value="">Pilih Jenis Kelamin</option>
                                         <option value="Laki-Laki">Laki - Laki</option>
                                         <option value="Perempuan">Perempuan</option>
@@ -43,45 +47,56 @@
                         <div class="form-group row">
                             <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
-                                    <input type="nama" class="form-control" value="{{$customer[0]->alamat}}" id="alamat" placeholder="Alamat">
+                                    <input type="text" name=alamat class="form-control" value="{{$customer[0]->alamat}}" id="alamat" placeholder="Alamat">
                                 </div>
                         </div>
                         <div class="form-group row">
                             <label for="password" class="col-sm-2 col-form-label">Masukkan Password</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="password" placeholder="Password">
+                                    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                                 </div>
                         </div>
                         <button type="submit" class="btn btn-warning float-right">Simpan</button>
+                        </form>
                     </div>
+
+
                     <div class="tab-pane fade" id="pills-pwd" role="tabpanel" aria-labelledby="pwd-tab">
+                        <form action="/postEditPassword" method="post">
+                            @method('PUT')
+                            @csrf
                         <div class="form-group row">
-                            <label for="password" class="col-sm-2 col-form-label">Password Sekarang</label>
+                            <label for="passwordlama" class="col-sm-2 col-form-label">Password Sekarang</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="password" placeholder="Password Sekarang">
+                                    <input type="password" class="form-control" name="password_lama" id="passwordlama" placeholder="Password Sekarang">
                                 </div>
                         </div>
                         <div class="form-group row">
                             <label for="new_password" class="col-sm-2 col-form-label">Password Baru</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="new_password" placeholder="Password Baru">
+                                    <input type="password" class="form-control" name="password_baru" id="new_password" placeholder="Password Baru">
                                 </div>
                         </div>
                         <div class="form-group row">
                             <label for="konfirmasi_password" class="col-sm-2 col-form-label">Konfirmasi Password Baru</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" id="konfirmasi_password" placeholder="Konfirmasi Password Baru">
+                                    <input type="password" class="form-control" name="password_cek" id="konfirmasi_password" placeholder="Konfirmasi Password Baru">
                                 </div>
                         </div>
                         <button type="submit" class="btn btn-warning float-right">Simpan</button>
+                    </form>
                     </div>
+
+
                     <div class="tab-pane fade" id="pills-pin" role="tabpanel" aria-labelledby="pin-tab">
                         <-- Maintenance -->
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
+
 </div>
 
 <div class="card card-default collapsed-card card-primary card-outline">
@@ -124,4 +139,20 @@
     </div>
 </div>
 
+
+<script>
+    $(document).ready(function(){
+        $(".submit").click(function(){
+            var data = $('.form-user').serialize();
+            $.ajax({
+                type:'POST',
+                url: "/postEditPassword",
+                data: data,
+                success: function(){
+                    $('.tampildata').html(result);
+                }
+            });
+        });
+    });
+</script>
 @endsection

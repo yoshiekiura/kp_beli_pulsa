@@ -49,7 +49,7 @@ Route::post('/Cek-transaksip','AjaxController@kirim_transaksi');
 Route::get('/cek_transaksi', function () {
     return view('forms/cek_transaksi');
 });
-Route::get('/rincian-transaksi/{id}', 'BeliController@tampilBeli');
+Route::get('/rincian-transaksi/{rahasia}', 'BeliController@tampilBeli');
 
 //auth
 Route::get('/login', function () {
@@ -86,13 +86,15 @@ Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
         return view('/pages/buy_customer',['semua'=>$semua,'data'=>$data,'pulsa'=>$pulsa,'produk_pulsa' => $produk_pulsa,'produk_data' => $produk_data,'bank' => $bank]);
     });
     Route::post('/postBeliCustomer','BeliController@beliCustomer');
-    Route::get('/rincian-transaksi-customer/{id}', 'BeliController@tampilBeliCustomer');
+    Route::get('/rincian-transaksi-customer/{rahasia}', 'BeliController@tampilBeliCustomer');
 
     Route::get('/riwayat-transaksi', function () {
         return view('/pages/history_transaction_customer');
     });
     Route::get('/profil', 'ProfilController@tampilProfil');
     Route::get('/pengaturan-akun', 'ProfilController@pengaturanAkun');
+    Route::put('/putEditProfil', 'ProfilController@editProfil');
+    Route::put('/putEditPassword', 'ProfilController@editPassword');
 });
 
 

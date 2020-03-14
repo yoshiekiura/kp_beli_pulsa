@@ -162,8 +162,8 @@ class ProfilController extends Controller
             $passwordbaru = $request->input('pwd_baru');
             $passwordcek = $request->input('pwd_cek');
 
-            var_dump($passwordbaru);
-            var_dump($passwordcek);
+            // var_dump($passwordbaru);
+            // var_dump($passwordcek);
 
 
             if($passwordbaru == $passwordcek){

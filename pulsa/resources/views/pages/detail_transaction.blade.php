@@ -5,7 +5,6 @@
 @section('content')
 
 
-
 <section class="about-area ptb-90" id="listHarga">
     <div class="container">
         <div class="row">
@@ -135,5 +134,5 @@
     </div>
 </section><!-- about section end -->
 
-
+{{-- {{ Session::flush(); }} --}}
 @endsection

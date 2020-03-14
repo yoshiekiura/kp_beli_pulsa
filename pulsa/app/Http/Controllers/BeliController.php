@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Transaction;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Crypt;
 
 class BeliController extends Controller
 {
@@ -22,9 +23,10 @@ class BeliController extends Controller
             $kode_unik = rand(100,500);
             $cek = DB::table('transactions')
             ->where('kode_unik',$kode_unik)
-            ->where('status_pembayaran',  0)
-            ->where('status_pengisian', 0)->get();
-        }while($cek->count() != 0);
+            ->where('status_pembayaran', 0)
+            ->where('status_pengisian', 0)->count();
+            // var_dump($cek);die;
+        }while($cek != 0);
 
         // $dekripsi = base64_decode($kode_unik);
         $harga_total = $harga + $kode_unik;
@@ -45,11 +47,14 @@ class BeliController extends Controller
         'expired' => $expired
         ])->id;
 
-        return redirect('/rincian-transaksi/'.$kirim);
+        $enkripsi = Crypt::encrypt($kirim);
+
+        return redirect('/rincian-transaksi/'.$enkripsi);
     }
 
     public function tampilBeli(Request $request){
-        $hasil = DB::table('transactions')->where('transactions.id',$request->id)
+        $decrypt = Crypt::decrypt($request->id);
+        $hasil = DB::table('transactions')->where('transactions.id',$decrypt)
         ->join('banks','transactions.id_bank','=','banks.id')
         ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
         ->first();
@@ -72,8 +77,8 @@ class BeliController extends Controller
             $cek = DB::table('transactions')
             ->where('kode_unik',$kode_unik)
             ->where('status_pembayaran',  0)
-            ->where('status_pengisian', 0)->get();
-        }while($cek->count() != 0);
+            ->where('status_pengisian', 0)->count();
+        }while($cek != 0);
 
         $harga_total = $harga + $kode_unik;
         $tanggal_beli = Carbon::now();
@@ -94,16 +99,19 @@ class BeliController extends Controller
         'expired' => $expired
         ])->id;
 
+        // $enkripsi = Crypt::encrypt($kirim);
+        // var_dump()
+        $enkripsi = Crypt::encrypt($kirim);
 
-        return redirect('/rincian-transaksi-customer/'.$kirim);
+        return redirect('/rincian-transaksi-customer/'.$enkripsi);
     }
 
     public function tampilBeliCustomer(Request $request){
-        $hasil = DB::table('transactions')->where('transactions.id',$request->id)
+        $decrypt = Crypt::decrypt($request->id);
+        $hasil = DB::table('transactions')->where('transactions.id',$decrypt)
         ->join('banks','transactions.id_bank','=','banks.id')
         ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
         ->first();
-
         // var_dump($hasil);
         // die;
         // return view('/pelanggan/pages/a',['hasil' => $hasil]);
