@@ -56,15 +56,35 @@
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label">Status Pembayaran</label>
+                                @if($hasil->status_pembayaran == 0)
                                 <div class="col-sm-7">
-                                    <label class="col-form-label">: {{ $hasil->status_pembayaran }}</label>
+                                    <label class="col-form-label">: Belum Bayar</label>
                                 </div>
+                                @elseif($hasil->status_pembayaran == 1)
+                                <div class="col-sm-7">
+                                    <label class="col-form-label">: Pending</label>
+                                </div>
+                                @elseif($hasil->status_pembayaran == 3)
+                                <div class="col-sm-7">
+                                    <label class="col-form-label">: Selesai</label>
+                                </div>
+                                @endif
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label">Status Pengisian</label>
+                                @if($hasil->status_pengisian == 0)
                                 <div class="col-sm-7">
-                                    <label class="col-form-label">: {{ $hasil->status_pengisian }}</label>
+                                    <label class="col-form-label">: Belum Bayar</label>
                                 </div>
+                                @elseif($hasil->status_pengisian == 1)
+                                <div class="col-sm-7">
+                                    <label class="col-form-label">: Pending</label>
+                                </div>
+                                @elseif($hasil->status_pengisian == 3)
+                                <div class="col-sm-7">
+                                    <label class="col-form-label">: Selesai</label>
+                                </div>
+                                @endif
                             </div>
                         </li>
                     </ul>
