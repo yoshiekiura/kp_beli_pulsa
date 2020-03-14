@@ -19,7 +19,6 @@ class CreateCustomersTable extends Migration
             $table->string('nama');
             $table->string('jenis_kelamin')->nullable();
             $table->string('alamat')->nullable();
-            $table->integer('status_akun');
             $table->dateTime('tanggal_mendaftar');
             $table->timestamps();
         });

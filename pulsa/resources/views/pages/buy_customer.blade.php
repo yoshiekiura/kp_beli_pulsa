@@ -125,7 +125,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <form action="#" method="post">
+                        <form action="/postBeliCustomer" method="post">
                             @csrf
                             <div class="form-group">
                                 <label>Pilih Operator</label>
@@ -144,7 +144,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Pilih Pembayaran</label>
-                                <select class="form-control" style="width: 100%;">
+                                <select class="form-control" name="bank" style="width: 100%;">
                                     <option selected disabled>-- Pilih Pembayaran --</option>
                                             @foreach ($bank as $b)
                                             <option value="{{$b->id}}">{{  $b->bank }}</option>
@@ -161,17 +161,17 @@
                                 {{-- <input type="number" class="form-control" id="nohp" placeholder="Nomor Telepon"> --}}
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="hr1" placeholder="Harga Paket" readonly>
+                                <input type="text" class="form-control hr1" placeholder="Harga Paket" readonly>
                             </div>
                             <input type="hidden" name="harga" id="hr1" readonly>
                             <input type="hidden" name="kode"  id="kode1" readonly>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card-footer text-center">
-                <button type="submit" class="btn btn-warning">Proses</button>
-            </div>
+                <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-warning">Proses</button>
+                </div>
+            </form>
         </div>
     </div>
     <div class="col-6">
@@ -182,7 +182,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <form action="#" method="post">
+                        <form action="/postBeliCustomer" method="post">
                             @csrf
                             <div class="form-group">
                                 <label>Pilih Operator</label>
@@ -201,7 +201,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Pilih Pembayaran</label>
-                                <select class="form-control select2" style="width: 100%;">
+                                <select class="form-control select2" name="bank" style="width: 100%;">
                                     <option selected disabled>-- Pilih Pembayaran --</option>
                                             @foreach ($bank as $b)
                                             <option value="{{$b->id}}">{{  $b->bank }}</option>
@@ -218,17 +218,17 @@
                                 {{-- <input type="number" class="form-control" id="nohp" placeholder="Nomor Telepon"> --}}
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="hr2" placeholder="Harga Paket" readonly>
+                                <input type="text" class="form-control hr2" placeholder="Harga Paket" readonly>
                             </div>
                             <input type="hidden" name="harga" id="hr2" readonly>
                             <input type="hidden" name="kode"  id="kode2" readonly>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card-footer text-center">
-                <button type="submit" class="btn btn-warning">Proses</button>
-            </div>
+                <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-warning">Proses</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -284,7 +284,7 @@
                 success:function(data){
                     //console.log(data);
 
-                    $('.hr1').html(data.pulsa_price);
+                    $('.hr1').val(data.pulsa_price);
                     $('#hr1').val(data.pulsa_price);
                     $('#masaaktif1').val("+ " +data.masaaktif + " Hari");
                     $('#kode1').val(data.pulsa_code);
@@ -307,8 +307,8 @@
                 dataType: "JSON",
                 success:function(data){
                     //console.log(data);
-
-                    $('.hr2').html(data.pulsa_price);
+                    // console.log($('.hr2').html(data.pulsa_price));
+                    $('.hr2').val(data.pulsa_price);
                     $('#hr2').val(data.pulsa_price);
                     $('#kode2').val(data.pulsa_code);
                     $('#masaaktif2').val(data.masaaktif + " Hari");

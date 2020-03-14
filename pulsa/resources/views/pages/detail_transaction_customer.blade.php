@@ -3,6 +3,8 @@
 @section('title',"TUKUPULSA.COM | Rincian Transaksi")
 @section('content')
 
+
+
 <div class="card card-default card-primary card-outline">
     <div class="card-header">
         Rincian Transaksi
@@ -37,7 +39,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label">Masa Aktif</label>
                                 <div class="col-sm-7">
-                                    <label class="col-form-label">: {{ $hasil->masaaktif }}</label>
+                                    <label class="col-form-label">: {{ $hasil->masaaktif }} Hari</label>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -124,5 +126,6 @@
         <button type="button" class="btn btn-outline-info btn-lg btn-block mt-2">Print Pembelian</button>
     </div>
 </div>
+
 
 @endsection

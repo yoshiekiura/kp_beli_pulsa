@@ -4,6 +4,8 @@
 @section('header',"Rincian Transaksi")
 @section('content')
 
+
+
 <section class="about-area ptb-90" id="listHarga">
     <div class="container">
         <div class="row">
@@ -44,7 +46,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-5 col-form-label">Masa Aktif</label>
                                 <div class="col-sm-7">
-                                    <label class="col-form-label">: {{ $hasil->masaaktif }}</label>
+                                    <label class="col-form-label">: {{ $hasil->masaaktif }} Hari</label>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -132,5 +134,6 @@
     </div>
     </div>
 </section><!-- about section end -->
+
 
 @endsection

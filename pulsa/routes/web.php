@@ -71,28 +71,23 @@ Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
         ->where('status','active')
         ->groupBy('pulsa_op')
         ->get();
-
         $produk_data = DB::table('price_lists')
         ->where('pulsa_type','data')
         ->where('status','active')
         ->groupBy('pulsa_op')
         ->get();
-
-
-    $bank = DB::table('banks')->get();
-
-    $semua = DB::table('price_lists')
-    ->where('pulsa_type', 'data')
-    ->orWhere('pulsa_type', 'pulsa')
-    ->get();
-
-    $data = DB::table('price_lists')->where('pulsa_type', 'data')->get();
-    $pulsa = DB::table('price_lists')->where('pulsa_type', 'pulsa')->get();
+        $bank = DB::table('banks')->get();
+        $semua = DB::table('price_lists')
+        ->where('pulsa_type', 'data')
+        ->orWhere('pulsa_type', 'pulsa')
+        ->get();
+        $data = DB::table('price_lists')->where('pulsa_type', 'data')->get();
+        $pulsa = DB::table('price_lists')->where('pulsa_type', 'pulsa')->get();
         return view('/pages/buy_customer',['semua'=>$semua,'data'=>$data,'pulsa'=>$pulsa,'produk_pulsa' => $produk_pulsa,'produk_data' => $produk_data,'bank' => $bank]);
     });
-    Route::get('/rincian-transaksi-pelanggan/{id}', function () {
-        return view('/pages/detail_transaction_customer');
-    });
+    Route::post('/postBeliCustomer','BeliController@beliCustomer');
+    Route::get('/rincian-transaksi-customer/{id}', 'BeliController@tampilBeliCustomer');
+
     Route::get('/riwayat-transaksi', function () {
         return view('/pages/history_transaction_customer');
     });
@@ -100,32 +95,5 @@ Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
     Route::get('/pengaturan-akun', 'ProfilController@pengaturanAkun');
 });
 
-// Route::get('/login-admin', 'AuthController@loginadmin')->name('loginAdmin');
-// Route::post('/postAdminLogin','AuthController@postAdminLogin');
-// Route::get('/logout-admin', 'AuthController@logoutAdmin');
-
-// admin middleware
-// Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
-//     Route::group(['middleware' => 'auth'], function () {
-//     Route::get('/update-harga', 'MobilePulsaController@updateHarga');
-//     Route::get('/update-bank', 'MobilePulsaController@updateBank');
-
-//     Route::get('/admin-dashboard', function () {
-//         $bank = DB::table('banks')->count();
-//         $customer = DB::table('users')->count();
-//         $harga = DB::table('price_lists')->count();
-//         return view('/admin/pages/index',['bank'=>$bank,'customer'=>$customer,'harga'=>$harga]);
-//     });
-
-//     Route::get('/purchase', function () {
-//         return view('/admin/pages/purchase');
-//     });
-//     Route::get('/daftar-pelanggan', function () {
-//         return view('/admin/pages/list_customer');
-//     });
-//     Route::get('/lihat-komplain', function () {
-//         return view('/admin/pages/complain');
-//     });
-// });
 
 
