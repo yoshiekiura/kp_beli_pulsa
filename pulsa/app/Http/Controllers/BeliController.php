@@ -52,8 +52,9 @@ class BeliController extends Controller
         return redirect('/rincian-transaksi/'.$enkripsi);
     }
 
-    public function tampilBeli(Request $request){
-        $decrypt = Crypt::decrypt($request->id);
+    public function tampilBeli($enkripsi){
+        $decrypt = Crypt::decrypt($enkripsi);
+        // var_dump($decrypt);die;
         $hasil = DB::table('transactions')->where('transactions.id',$decrypt)
         ->join('banks','transactions.id_bank','=','banks.id')
         ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
@@ -107,8 +108,8 @@ class BeliController extends Controller
         return redirect('/rincian-transaksi-customer/'.$enkripsi);
     }
 
-    public function tampilBeliCustomer(Request $request){
-        $decrypt = Crypt::decrypt($request->id);
+    public function tampilBeliCustomer($enkripsi){
+        $decrypt = Crypt::decrypt($enkripsi);
         $hasil = DB::table('transactions')->where('transactions.id',$decrypt)
         ->join('banks','transactions.id_bank','=','banks.id')
         ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
