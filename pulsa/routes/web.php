@@ -28,6 +28,8 @@ Route::get('/', function () {
     ->groupBy('pulsa_op')
     ->get();
 
+    // var_dump($produk_data);die;
+
     $bank = DB::table('banks')->get();
 
     $semua = DB::table('price_lists')

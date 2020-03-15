@@ -62,7 +62,7 @@
 
 
                     <div class="tab-pane fade" id="pills-pwd" role="tabpanel" aria-labelledby="pwd-tab">
-                        <form action="/postEditPassword" method="post">
+                        <form action="/putEditPassword" method="post">
                             @method('PUT')
                             @csrf
                         <div class="form-group row">

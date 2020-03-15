@@ -56,7 +56,7 @@ class AuthController extends Controller
 
     public function logout(){
         Auth::logout();
-        Session::flash('gagal','Masukkan Nomor Telepon atau Password dengan Benar');
+        Session::flash('gagal','Anda Logout !');
         return redirect('/login');
     }
 }
