@@ -49,10 +49,13 @@ Route::post('/Ajax/bawaKodeHarga','AjaxController@bawaKodeHarga');
 Route::post('/Cek-transaksip','AjaxController@kirim_transaksi');
 
 
-Route::get('/cek_transaksi', function () {
-    return view('forms/cek_transaksi');
-});
+Route::get('/cek_transaksi', 'RiwayatController@cari');
+// function () {
+//     return view('forms/cek_transaksi');
+// });
 Route::get('/rincian-transaksi/{rahasia}', 'BeliController@tampilBeli');
+Route::get('/rincian/transaksi/{id}', 'RiwayatController@hasilRiwayat');
+
 
 //auth
 Route::get('/login', function () {
@@ -92,6 +95,8 @@ Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
     Route::get('/rincian-transaksi-customer/{rahasia}', 'BeliController@tampilBeliCustomer');
 
     Route::get('/riwayat-transaksi/{id}', 'RiwayatController@tampilRiwayat');
+    Route::get('/rincian_transaction_customer/{id}', 'RiwayatController@tampilRincian_Customer');
+
 
     Route::get('/profil', 'ProfilController@tampilProfil');
     Route::get('/pengaturan-akun', 'ProfilController@pengaturanAkun');

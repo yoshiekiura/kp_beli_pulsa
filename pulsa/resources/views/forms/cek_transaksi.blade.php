@@ -56,7 +56,7 @@
                                 @elseif($d->status_pembayaran == 2)
                                 <td>Selesai.</td>
                                 @endif
-                                <td>Lihat</td>
+                                <td><a href="/rincian/transaksi/{{$d->id}}"><button class="badge badge-primary">Lihat</button></a></td>
                             </tr>
                             @endforeach
                         </tbody>

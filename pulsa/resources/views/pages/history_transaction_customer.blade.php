@@ -36,7 +36,7 @@
                                         @elseif($d->status_pembayaran == 2)
                                         <td>Selesai.</td>
                                         @endif
-                                        <td><button class="badge badge-primary">Lihat</button></td>
+                                        <td><a href="/rincian_transaction_customer/{{$d->id}}"><button class="badge badge-primary">Lihat</button></a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
