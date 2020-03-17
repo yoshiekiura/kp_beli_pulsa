@@ -22,20 +22,16 @@
                     <i class="icofont icofont-login"></i>
                     <h4>Login Akun TUKUPULSA</h4>
                     @if(Session::has('gagal'))
-<<<<<<< HEAD
-                        <p class="login-box-msg">{!! session('gagal') !!}</p>
+                        <p class="login-box-msg mb-3">{!! session('gagal') !!}</p>
                     @endif
                     @if(Session::has('Sukses'))
                         <p class="login-box-msg">{!! session('Sukses') !!}</p>
-=======
-                        <p class="login-box-msg mb-3">{!! session('gagal') !!}</p>
                     @endif
                     @if (count($errors) > 0)
                             @foreach ($errors->all() as $error)
                             <p class="login-box-msg mb-3">{{ $error }}</p>
                             @endforeach
                         
->>>>>>> f882bf4c5ca7a164239ca4971a0faa04379e8cd2
                     @endif
                     <form method="POST" action="/postLogin">
                         @csrf
