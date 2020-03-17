@@ -166,6 +166,12 @@
                         <p>Harga</p>
                     </div>
                     <div class="price-details">
+                        @if (count($errors) > 0)
+                            @foreach ($errors->all() as $error)
+                            <p class="login-box-msg mb-3">{{ $error }}</p>
+                            @endforeach
+                        
+                        @endif
                         <ul>
                             {{-- <li>Email Marketing</li>
                             <li>Email Builder</li>
@@ -185,7 +191,7 @@
                             </select>
                             @csrf
                             <input type="text" class="form-control" id="masaaktif1" placeholder="Masa Aktif" disabled>
-                            <input type="number" name="nomor" class="form-control" placeholder="-- Nomor Telepon --" required>
+                            <input type="number" name="nomor" class="form-control" placeholder="-- Nomor Telepon --" min="0" maxlength="13" required>
 
                             <select class="form-control mb-3" name="bank" required>
                                     <option selected disabled>-- Pilih Pembayaran --</option>
@@ -194,8 +200,8 @@
                                     @endforeach
                             </select>
 
-                            <input type="hidden" name="harga" id="hr1" readonly>
-                            <input type="hidden" name="kode"  id="kode1" readonly>
+                            <input type="hidden" name="harga" id="hr1" readonly required>
+                            <input type="hidden" name="kode"  id="kode1" readonly required>
                         </ul>
                         <button class="appao-btn" type="submit">Pesan Sekarang</button>
                     </div>
@@ -214,6 +220,12 @@
                             <p>Harga</p>
                         </div>
                         <div class="price-details">
+                            @if (count($errors) > 0)
+                            @foreach ($errors->all() as $error)
+                            <p class="login-box-msg mb-3">{{ $error }}</p>
+                            @endforeach
+                        
+                            @endif
                             <ul>
                                 {{-- <li>Email Marketing</li>
                                 <li>Email Builder</li>
@@ -233,7 +245,7 @@
                                 </select>
                                 @csrf
                                 <input type="text" class="form-control" id="masaaktif2" placeholder="Masa Aktif" disabled>
-                                <input type="number" name="nomor" class="form-control" placeholder="-- Nomor Telepon --" required>
+                                <input type="number" name="nomor" class="form-control" placeholder="-- Nomor Telepon --" min="0" maxlength="13" required>
 
                                 <select class="form-control mb-3" name="bank" required>
                                         <option selected disabled>-- Pilih Pembayaran --</option>
@@ -242,8 +254,8 @@
                                         @endforeach
                                 </select>
 
-                                <input type="hidden" name="harga" id="hr2" readonly>
-                                <input type="hidden" name="kode"  id="kode2" readonly>
+                                <input type="hidden" name="harga" id="hr2" readonly required>
+                                <input type="hidden" name="kode"  id="kode2" readonly required>
                             </ul>
                             <button class="appao-btn" type="submit">Pesan Sekarang</button>
                         </div>

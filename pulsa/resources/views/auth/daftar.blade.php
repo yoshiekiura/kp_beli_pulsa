@@ -22,38 +22,44 @@
                     <i class="icofont icofont-login"></i>
                     <h4>Daftar Akun TUKUPULSA</h4>
                     @if(Session::has('gagal'))
-                        <p class="login-box-msg">{!! session('gagal') !!}</p>
-                     @endif
+                        <p class="login-box-msg mb-3">{!! session('gagal') !!}</p>
+                    @endif
+                    @if (count($errors) > 0)
+                            @foreach ($errors->all() as $error)
+                            <p class="login-box-msg mb-3">{{ $error }}</p>
+                            @endforeach
+                        
+                    @endif
                     <form method="post" action="/postDaftar">
                         @csrf
                         <div class="form-group row">
                             <label for="nama" class="col-sm-2 col-form-label">Nama Pengguna</label>
                             <div class="col-sm-10">
-                                <input type="text" name="nama" class="form-control-plaintext" id="nama" placeholder="Nama Pengguna">
+                                <input type="text" name="nama" value="{{ old('nama') }}" class="form-control-plaintext" id="nama" placeholder="Contoh: Tuku Pulsa" minlength="5" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="nohp" class="col-sm-2 col-form-label">Nomor Telepon</label>
                             <div class="col-sm-10">
-                                <input type="number" name="no_telpon" class="form-control-plaintext" id="nohp" placeholder="Nomor Telepon">
+                                <input type="number" name="no_telpon" value="{{ old('no_telpon') }}" class="form-control-plaintext" id="nohp" placeholder="Contoh: 085X-XXXX-XXXX" min="0" maxlength="13" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="email" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input type="email" name="email" class="form-control-plaintext" id="email" placeholder="Email">
+                                <input type="email" name="email" class="form-control-plaintext" value="{{ old('email') }}" id="email" placeholder="Contoh: XXXXXX@gmail.com" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="pwd" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
-                                <input type="password" name="password" class="form-control-plaintext" id="pwd" placeholder="Password">
+                                <input type="password" name="password" class="form-control-plaintext" id="pwd" placeholder="Contoh: password" minlength="8" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="pwdKonfirm" class="col-sm-2 col-form-label">Konfirmasi Password</label>
                             <div class="col-sm-10">
-                                <input type="password" name="password_konfirm" class="form-control-plaintext" id="pwdKonfirm" placeholder="Konfirmasi Password">
+                                <input type="password" name="password_confirmation" class="form-control-plaintext" id="pwdKonfirm" placeholder="Masukkan password diatas" minlength="8" required>
                             </div>
                         </div>
                         <input type="submit" value="Daftar" class="btn btn-outline-success btn-lg btn-block mb-3"></button>

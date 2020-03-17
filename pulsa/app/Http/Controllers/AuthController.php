@@ -16,6 +16,11 @@ use App\Customer;
 class AuthController extends Controller
 {
     public function postLogin(Request $request){
+        $this->validate($request,[
+            'no_telpon' => 'required|numeric|min:0',
+            'password' => 'required|confirmed|min:8'
+        ]);
+
         if(Auth::attempt($request->only('no_telpon','password'))){
             return redirect('/beli');
         }
@@ -24,6 +29,13 @@ class AuthController extends Controller
     }
 
     public function postDaftar(Request $request){
+        $this->validate($request,[
+            'nama' => 'required|min:5',
+            'no_telpon' => 'required|numeric|min:0',
+            'email' => 'required|email',
+            'password' => 'required|confirmed|min:8'
+        ]);
+
         // var_dump($request->password); die;
         $telp = $request->input('no_telpon');
         $email = $request->input('email');

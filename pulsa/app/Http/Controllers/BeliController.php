@@ -13,6 +13,12 @@ class BeliController extends Controller
 {
     //
     public function beli(Request $request){
+        $this->validate($request,[
+            'pulsa_op' => 'required',
+            'pulsa_nominal' => 'required',
+            'nomor' => 'required|numeric|min:0',
+            'bank' => 'required'
+        ]);
 
         $kode  =    $request->  input('kode');
         $bank  =    $request->  input('bank');
@@ -69,6 +75,13 @@ class BeliController extends Controller
 
     public function beliCustomer(Request $request){
 
+        $this->validate($request,[
+            'pulsa_op' => 'required',
+            'pulsa_nominal' => 'required',
+            'nomor' => 'required|numeric|min:0',
+            'bank' => 'required'
+        ]);
+        
         $kode  =    $request->  input('kode');
         $bank  =    $request->  input('bank');
         $telp  =    $request->  input('nomor');

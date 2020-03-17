@@ -30,10 +30,15 @@
             @if(Session::has('Kesalahan'))
             <p class="login-box-msg">{!! session('Kesalahan') !!}</p>
             @endif
+            @if (count($errors) > 0)
+            @foreach ($errors->all() as $error)
+            <p class="login-box-msg">{{ $error }}</p>
+            @endforeach
+            @endif
         <form action="/postLogin" method="post">
             @csrf
             <div class="input-group mb-3">
-            <input type="email" class="form-control" placeholder="Email" name="email">
+            <input type="email" class="form-control" placeholder="Email" name="email" required>
             <div class="input-group-append">
                 <div class="input-group-text">
                     <span class="fas fa-envelope"></span>
@@ -41,7 +46,15 @@
             </div>
             </div>
             <div class="input-group mb-3">
-            <input type="password" class="form-control" placeholder="Password" name="password">
+            <input type="password" class="form-control" placeholder="Password" minlength="8" name="password" required>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+                </div>
+            </div>
+            </div>
+            <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Konfirmasi Password" minlength="8" name="password_confirmation" required>
             <div class="input-group-append">
                 <div class="input-group-text">
                 <span class="fas fa-lock"></span>
