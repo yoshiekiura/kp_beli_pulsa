@@ -23,7 +23,10 @@
                     <h4>Login Akun TUKUPULSA</h4>
                     @if(Session::has('gagal'))
                         <p class="login-box-msg">{!! session('gagal') !!}</p>
-                     @endif
+                    @endif
+                    @if(Session::has('Sukses'))
+                        <p class="login-box-msg">{!! session('Sukses') !!}</p>
+                    @endif
                     <form method="POST" action="/postLogin">
                         @csrf
                         <div class="form-group row">
@@ -40,10 +43,37 @@
                         </div>
                         <input type="submit" class="btn btn-outline-success btn-lg btn-block mb-3" value="Login"></input>
                     </form>
-                    <a href="#" class="text-warning">Lupa Password ?</a>
+                    <a href="#" class="text-warning" data-toggle="modal" data-target="#lupaPassword">Lupa Password ?</a>
                     <p>Belum punya akun TUKUPULSA? <a href="/daftar" class="text-warning mt-3">Daftar disini</a></p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="lupaPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Lupa password akun anda ?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <form action="{{ url('/Lupa_password') }}" method="post">
+                @csrf
+                    <div class="form-group">
+                        <label for="hapus">Silakan masukkan email pada isian dibawah !</label>
+                        <input id="hapus" type="text" placeholder="Masukkan Email Anda" name="email" class="form-control input-sm mt-4">
+                    </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
+            <button type="submit" class="btn btn-primary" style="margin-bottom: 0px;">Reset Password</button>
+            </form>
+            </div>
+        </div>
         </div>
     </div>
 </section>
