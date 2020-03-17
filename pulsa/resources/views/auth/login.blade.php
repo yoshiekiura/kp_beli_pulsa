@@ -22,23 +22,39 @@
                     <i class="icofont icofont-login"></i>
                     <h4>Login Akun TUKUPULSA</h4>
                     @if(Session::has('gagal'))
+<<<<<<< HEAD
                         <p class="login-box-msg">{!! session('gagal') !!}</p>
                     @endif
                     @if(Session::has('Sukses'))
                         <p class="login-box-msg">{!! session('Sukses') !!}</p>
+=======
+                        <p class="login-box-msg mb-3">{!! session('gagal') !!}</p>
+                    @endif
+                    @if (count($errors) > 0)
+                            @foreach ($errors->all() as $error)
+                            <p class="login-box-msg mb-3">{{ $error }}</p>
+                            @endforeach
+                        
+>>>>>>> f882bf4c5ca7a164239ca4971a0faa04379e8cd2
                     @endif
                     <form method="POST" action="/postLogin">
                         @csrf
                         <div class="form-group row">
-                            <label for="telp" class="col-sm-2 col-form-label">Username</label>
+                            <label for="telp" class="col-sm-2 col-form-label">Nomor Telepon</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control-plaintext" id="telp" name="no_telpon"  placeholder="Nomor Telepon">
+                                <input type="number" class="form-control-plaintext" value="{{ old('no_telpon') }}" id="telp" name="no_telpon" placeholder="Contoh: 085X-XXXX-XXXX" min="0" maxlength="13" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="pwd" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control-plaintext" id="pwd" placeholder="Password" name="password">
+                                <input type="password" class="form-control-plaintext" id="pwd" placeholder="Contoh: password" minlength="8" required name="password">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="pwdKonfirm" class="col-sm-2 col-form-label">Konfirmasi Password</label>
+                            <div class="col-sm-10">
+                                <input type="password" name="password_confirmation" class="form-control-plaintext" id="pwdKonfirm" placeholder="Masukkan password diatas" minlength="8" required>
                             </div>
                         </div>
                         <input type="submit" class="btn btn-outline-success btn-lg btn-block mb-3" value="Login"></input>

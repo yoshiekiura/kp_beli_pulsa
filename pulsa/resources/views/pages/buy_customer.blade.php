@@ -125,26 +125,31 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
+                        @if (count($errors) > 0)
+                            @foreach ($errors->all() as $error)
+                            <p class="login-box-msg mb-3">{{ $error }}</p>
+                            @endforeach
+                        @endif
                         <form action="/postBeliCustomer" method="post">
                             @csrf
                             <div class="form-group">
                                 <label>Pilih Operator</label>
-                                <select class="form-control dynamic1" name="pulsa_op" id="pulsa_op" data-dependent="pulsa_nominal" style="width: 100%;">
+                                <select class="form-control dynamic1" name="pulsa_op" id="pulsa_op" data-dependent="pulsa_nominal" style="width: 100%;" required>
                                     <option selected disabled value="">-- Pilih Operator --</option>
-                                                @foreach ($produk_pulsa as $q)
-                                                    <option value="{{ $q->pulsa_op }}">{{ $q->pulsa_op }}</option>
-                                                @endforeach
+                                    @foreach ($produk_pulsa as $q)
+                                        <option value="{{ $q->pulsa_op }}">{{ $q->pulsa_op }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Pilih Nama Produk</label>
-                                <select class="form-control opsi-pulsa" name="pulsa_nominal" id="keterangan1" style="width: 100%;">
+                                <select class="form-control opsi-pulsa" name="pulsa_nominal" id="keterangan1" style="width: 100%;" required>
                                     <option selected="selected">-- Pilih Nama Produk --</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Pilih Pembayaran</label>
-                                <select class="form-control" name="bank" style="width: 100%;">
+                                <select class="form-control" name="bank" style="width: 100%;" required>
                                     <option selected disabled>-- Pilih Pembayaran --</option>
                                             @foreach ($bank as $b)
                                             <option value="{{$b->id}}">{{  $b->bank }}</option>
@@ -157,14 +162,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="nohp">No. Telepon</label>
-                                <input type="number" name="nomor" class="form-control" placeholder="-- Nomor Telepon --">
+                                <input type="number" name="nomor" class="form-control" placeholder="-- Nomor Telepon --" min="0" maxlength="13" required>
                                 {{-- <input type="number" class="form-control" id="nohp" placeholder="Nomor Telepon"> --}}
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control hr1" placeholder="Harga Paket" readonly>
                             </div>
-                            <input type="hidden" name="harga" id="hr1" readonly>
-                            <input type="hidden" name="kode"  id="kode1" readonly>
+                            <input type="hidden" name="harga" id="hr1" readonly required>
+                            <input type="hidden" name="kode"  id="kode1" readonly required>
                         </div>
                     </div>
                 </div>
@@ -182,6 +187,11 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
+                        @if (count($errors) > 0)
+                            @foreach ($errors->all() as $error)
+                            <p class="login-box-msg mb-3">{{ $error }}</p>
+                            @endforeach
+                        @endif
                         <form action="/postBeliCustomer" method="post">
                             @csrf
                             <div class="form-group">
@@ -195,17 +205,17 @@
                             </div>
                             <div class="form-group">
                                 <label>Pilih Nama Produk</label>
-                                <select class="form-control opsi-paket" name="pulsa_nominal" id="keterangan2" style="width: 100%;">
+                                <select class="form-control opsi-paket" name="pulsa_nominal" id="keterangan2" style="width: 100%;" required>
                                     <option selected="selected">-- Pilih Nama Produk --</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Pilih Pembayaran</label>
-                                <select class="form-control select2" name="bank" style="width: 100%;">
+                                <select class="form-control select2" name="bank" style="width: 100%;" required>
                                     <option selected disabled>-- Pilih Pembayaran --</option>
-                                            @foreach ($bank as $b)
-                                            <option value="{{$b->id}}">{{  $b->bank }}</option>
-                                            @endforeach
+                                    @foreach ($bank as $b)
+                                    <option value="{{$b->id}}">{{  $b->bank }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
@@ -214,14 +224,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="nohp">No. Telepon</label>
-                                <input type="number" name="nomor" class="form-control" placeholder="-- Nomor Telepon --">
+                                <input type="number" name="nomor" class="form-control" placeholder="-- Nomor Telepon --" min="0" maxlength="13" required>
                                 {{-- <input type="number" class="form-control" id="nohp" placeholder="Nomor Telepon"> --}}
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control hr2" placeholder="Harga Paket" readonly>
                             </div>
-                            <input type="hidden" name="harga" id="hr2" readonly>
-                            <input type="hidden" name="kode"  id="kode2" readonly>
+                            <input type="hidden" name="harga" id="hr2" readonly required>
+                            <input type="hidden" name="kode"  id="kode2" readonly required>
                         </div>
                     </div>
                 </div>
