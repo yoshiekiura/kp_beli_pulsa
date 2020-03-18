@@ -22,7 +22,7 @@
                     {{-- <i class="icofont icofont-ruler-pencil"></i>
                     <h4>Responsive Design</h4>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p> --}}
-                    <form action="/cek_transaksi" method="get">
+                    <form action="/cek_transaksi/proses" method="get">
                         {{-- @csrf --}}
                         <div class="input-group mb-3">
                                 <input type="number" name="nomor" class="form-control" placeholder="Masukkan Nomor Telepon" aria-label="Masukkan Nomor Telepon" aria-describedby="button-addon">
@@ -56,7 +56,7 @@
                                 @elseif($d->status_pembayaran == 2)
                                 <td>Selesai.</td>
                                 @endif
-                                <td><a href="/rincian/transaksi/{{$d->id}}"><button class="badge badge-primary">Lihat</button></a></td>
+                                <td><a href="/rincian/transaksi/{{$dataId}}"><button class="badge badge-primary">Lihat</button></a></td>
                             </tr>
                             @endforeach
                         </tbody>

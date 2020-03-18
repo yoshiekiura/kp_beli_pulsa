@@ -186,7 +186,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/riwayat-transaksi/{{Auth()->user()->id}}" class="nav-link">
+                <a href="/riwayat-transaksi/{{$id}}" class="nav-link">
                     <i class="fas fa-history"></i>
                     <p>Riwayat Transaksi</p>
                 </a>

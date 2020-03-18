@@ -15,19 +15,21 @@ use Illuminate\Support\Facades\DB;
 class ProfilController extends Controller
 {
     public function tampilProfil(){
+        $ambilId = Crypt::encrypt(Auth()->user()->id);
         // $id = Crypt::decrypt($id);
         $profil = Customer::where('id_user',Auth()->user()->id)->get();
         // var_dump($profil); die;
-        return view('pages/profil_customer',compact('profil'));
+        return view('pages/profil_customer',['profil'=>$profil, 'id' => $ambilId]);
     }
 
     public function pengaturanAkun(){
+        $ambilId = Crypt::encrypt(Auth()->user()->id);
         $customer = Customer::where('id_user',Auth()->user()->id)->get();
         // $users = User::where('id',Auth()->user()->id)->get();
 
         // var_dump($users);
         // die;
-        return view('forms/setting_customer',['customer'=>$customer]);
+        return view('forms/setting_customer',['customer'=>$customer, 'id' => $ambilId]);
     }
 
     public function editProfil(Request $request){
