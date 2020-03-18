@@ -22,7 +22,17 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-12">
-                <h1>uwu</h1>
+                <h5>
+                    @if(Session::has('gagal'))
+                    <p class="login-box-msg mb-3">{!! session('gagal') !!}</p>
+                    @endif
+                    @if (count($errors) > 0)
+                            @foreach ($errors->all() as $error)
+                            <p class="login-box-msg mb-3">{{ $error }}</p>
+                            @endforeach
+
+                    @endif
+                </h5>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="profile-tab">
                         <form action="/putEditProfil" method="post">
@@ -31,7 +41,7 @@
                         <div class="form-group row">
                             <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="nama" value="{{$customer[0]->nama}}" id="nama" placeholder="Nama Lengkap">
+                                    <input type="text" class="form-control" name="nama" value="{{$customer[0]->nama}}" id="nama" placeholder="Nama Lengkap" minlength="3" required>
                                 </div>
                         </div>
                         <div class="form-group row">
@@ -53,7 +63,7 @@
                         <div class="form-group row">
                             <label for="password" class="col-sm-2 col-form-label">Masukkan Password</label>
                                 <div class="col-sm-10">
-                                    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
                                 </div>
                         </div>
                         <button type="submit" class="btn btn-warning float-right">Simpan</button>
@@ -68,19 +78,19 @@
                         <div class="form-group row">
                             <label for="passwordlama" class="col-sm-2 col-form-label">Password Sekarang</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="password_lama" id="passwordlama" placeholder="Password Sekarang">
+                                    <input type="password" class="form-control" name="password_lama" id="passwordlama" placeholder="Password Sekarang" minlength="8" required>
                                 </div>
                         </div>
                         <div class="form-group row">
                             <label for="new_password" class="col-sm-2 col-form-label">Password Baru</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="password_baru" id="new_password" placeholder="Password Baru">
+                                    <input type="password" class="form-control" name="password_baru" id="new_password" placeholder="Password Baru" minlength="8" required>
                                 </div>
                         </div>
                         <div class="form-group row">
                             <label for="konfirmasi_password" class="col-sm-2 col-form-label">Konfirmasi Password Baru</label>
                                 <div class="col-sm-10">
-                                    <input type="password" class="form-control" name="password_cek" id="konfirmasi_password" placeholder="Konfirmasi Password Baru">
+                                    <input type="password" class="form-control" name="password_cek" id="konfirmasi_password" placeholder="Konfirmasi Password Baru" minlength="8" required>
                                 </div>
                         </div>
                         <button type="submit" class="btn btn-warning float-right">Simpan</button>

@@ -154,9 +154,9 @@ class ProfilController extends Controller
         if(Hash::check($password, $cekpassword->password)){
 
             $request->validate([
-                'pwd' => 'required|min:8',
-                'pwd_baru' => 'required|min:8',
-                'pwd_cek' => 'required|min:8'
+                'password_lama' => 'required|min:8',
+                'password_baru' => 'required|min:8',
+                'password_cek' => 'required|min:8'
             ]);
 
             $passwordbaru = $request->input('pwd_baru');
@@ -172,16 +172,16 @@ class ProfilController extends Controller
                     ->update([
                     'password' =>Hash::make($request->pwd_baru)
                     ]);
-                    Session::flash('Sukses','Berhasil Merubah Password Anda.');
+                    Session::flash('salah','Berhasil Merubah Password Anda.');
                     return redirect('/Profil');
             }
             else{
-                Session::flash('password_salah','Password yang dimasukkan tidak sama');
+                Session::flash('salah','Password yang dimasukkan tidak sama');
                 return redirect('/Pengaturan/Pwd/'.$id);
             }
         }
         else{
-            Session::flash('password_salah','Password yang dimasukkan salah, masukkan password yang tepat');
+            Session::flash('salah','Password yang dimasukkan salah, masukkan password yang tepat');
             return redirect('/Pengaturan/Pwd/'.$id);
         }
     }

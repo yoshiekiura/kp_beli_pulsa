@@ -3,6 +3,14 @@
 @section('header',"Profil")
 @section('content')
 
+@if (Session::has('gagal'))
+
+<div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <h5><i class="icon fas fa-check"></i> Selamat!</h5>
+    {!! session('alert') !!}
+</div>
+@endif
 
 <div class="row">
     <div class="col-md-6">
