@@ -22,6 +22,7 @@ class AuthController extends Controller
         ]);
 
         if(Auth::attempt($request->only('no_telpon','password'))){
+            Session::flash('login');
             return redirect('/beli');
         }
         Session::flash('gagal','Masukkan Nomor Telepon atau Password dengan Benar');

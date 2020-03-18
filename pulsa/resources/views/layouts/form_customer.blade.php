@@ -38,7 +38,7 @@
 	</head>
 	<body data-spy="scroll" data-target=".header" data-offset="50">
 		<!-- Page loader -->
-	    <div id="preloader"></div>
+	    {{-- <div id="preloader"></div> --}}
 		<!-- header section start -->
 		<header class="header">
 			<div class="container">

@@ -127,6 +127,9 @@ Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
     Route::get('/pengaturan-akun', 'ProfilController@pengaturanAkun');
     Route::put('/putEditProfil', 'ProfilController@editProfil');
     Route::put('/putEditPassword', 'ProfilController@editPassword');
+
+    Route::delete('/Pengaturan/hapus/{id}','ProfilController@hapusAkun');
+    Route::get('/Destroy/{id}','ProfilController@destroy');
 });
 
 

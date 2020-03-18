@@ -3,14 +3,14 @@
     @section('header',"Beli Sekarang")
     @section('content')
 
-@if (Session::has('gagal'))
+    @if (Session::has('login'))
 
-<div class="alert alert-success alert-dismissible">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <h5><i class="icon fas fa-check"></i> Selamat!</h5>
-    {!! session('alert') !!}
-</div>
-@endif
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h5><i class="icon fas fa-check"></i> Selamat Bergabung! <b>{{ Auth()->user()->email}}</b></h5>
+        {!! session('alert') !!}
+    </div>
+    @endif
 
 <div class="card card-default collapsed-card card-primary card-outline">
     <div class="card-header">

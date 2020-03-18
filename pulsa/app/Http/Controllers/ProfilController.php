@@ -9,6 +9,8 @@ use Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+
 
 class ProfilController extends Controller
 {
@@ -90,5 +92,30 @@ class ProfilController extends Controller
         }
 
         // var_dump($cek_pwd_lama);
+    }
+
+    public function hapusAkun(Request $hapus,$id){
+        $pwd = $hapus->input('password');
+        $cekpassword = DB::table('users')->where('id',$id)->first();
+
+        if(Hash::check($pwd, $cekpassword->password)){
+            $hapus->validate([
+                'password' => 'required|min:8'
+            ]);
+            return redirect('/Destroy/'.$id);
+
+    }else{
+        $hapus->validate([
+            'password' => 'required|min:8'
+        ]);
+        Session::flash('gagal','Password Anda Kurang Tepat. Silahkan Masukkan Kembali');
+                return redirect('/pengaturan-akun');
+    }
+    }
+    public function destroy($id){
+        User::destroy($id);
+        Auth::logout();
+        Session::flash('gagal','Berhasil Hapus Akun');
+            return redirect('/daftar');
     }
 }

@@ -135,6 +135,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                <form action="{{ url('/Pengaturan/hapus/'.Auth()->user()->id) }}" method="post">
+                        @method('delete')
+                        @csrf
                     <div class="form-group">
                         <label for="hapus">Jika anda yakin menghapus akun anda, Masukkan password pada isian dibawah !</label>
                         <input id="hapus" type="password" placeholder="Masukkan Password Anda" name="password" class="form-control input-sm mt-4">
@@ -142,7 +145,8 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Kembali</button>
-                    <button type="button" class="btn btn-warning">Hapus Sekarang</button>
+                    <button type="submit" class="btn btn-warning">Hapus Sekarang</button>
+                </form>
                 </div>
             </div>
         </div>

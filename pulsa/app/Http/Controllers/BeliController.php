@@ -26,7 +26,7 @@ class BeliController extends Controller
         $harga =    $request->  input('harga');
 
         do{
-            $kode_unik = rand(100,500);
+            $kode_unik = rand(100,250);
             $cek = DB::table('transactions')
             ->where('kode_unik',$kode_unik)
             ->where('status_pembayaran', 0)
@@ -81,14 +81,14 @@ class BeliController extends Controller
             'nomor' => 'required|numeric|min:0',
             'bank' => 'required'
         ]);
-        
+
         $kode  =    $request->  input('kode');
         $bank  =    $request->  input('bank');
         $telp  =    $request->  input('nomor');
         $harga =    $request->  input('harga');
 
         do{
-            $kode_unik = rand(100,500);
+            $kode_unik = rand(100,250);
             $cek = DB::table('transactions')
             ->where('kode_unik',$kode_unik)
             ->where('status_pembayaran',  0)

@@ -6,7 +6,7 @@
 
 		<!-- hero area start -->
 <section class="hero-area" id="home">
-    <div class="player" data-property="{videoURL:'http://youtu.be/kn-1D5z3-Cs',containment:'#home',autoPlay:true, mute:true, startAt:0, showControls:false, loop:true, opacity:1}"></div>
+    {{-- <div class="player" data-property="{videoURL:'http://youtu.be/kn-1D5z3-Cs',containment:'#home',autoPlay:true, mute:true, startAt:0, showControls:false, loop:true, opacity:1}"></div> --}}
     <div class="container">
         <div class="row">
             <div class="col-lg-7">
