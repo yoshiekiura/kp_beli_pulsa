@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'role' => 'customer',
+            'role' => 'admin',
             'no_telpon' => '085155113160',
             'email' => 'rendycahya6@gmail.com',
             'password' => Hash::make('bilabong'),
