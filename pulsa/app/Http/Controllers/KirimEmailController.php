@@ -24,9 +24,9 @@ class KirimEmailController extends Controller
         Mail::to($select_email)->send(new SendForgotMail($data));
         Session::flash('Sukses','Cek email anda, Permintaan Lupa Password sudah dikirim melalui email.');
 		return redirect('/login');
-            
+
         }else{
-            Session::flush(); 
+            Session::flush();
             Session::flash('Kesalahan','Email yang anda masukkan salah');
             return redirect('/login');
         }
@@ -47,7 +47,7 @@ class KirimEmailController extends Controller
                 ->update([
                 'password' => Hash::make($request -> password)
                 ]);
-        Session::flush();           
+        Session::flush();
         Session::flash('Sukses','Kata sandi berhasil diganti, coba masuk kembali.');
         return redirect('/login');
     }

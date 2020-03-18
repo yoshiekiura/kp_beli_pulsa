@@ -68,6 +68,31 @@ Route::get('/daftar', function () {
 });
 Route::get('/logout', 'AuthController@logout');
 
+//flopi payment
+Route::post('/payment','MobilePulsaController@payment');
+Route::post('/terima_respon','MobilePulsaController@terima_respon');
+
+//Route Lupa Password
+Route::post('/Lupa_password','KirimEmailController@lupa_password');
+
+Route::get('/lupas/{email?&kode?}', function(){
+    $email = Request::get('email');
+    $kode = Request::get('kode');
+
+    $cek_data = DB::table('users')
+    ->where('email',$email)
+    ->where('remember_token',$kode)
+    ->first();
+
+    if($cek_data){
+        Session::put('email', $email);
+        return view('auth/isi_ulang_password',['email' => $email]);
+    }
+});
+
+Route::post('/proses_lupa_password', 'KirimEmailController@proses_lupa_password');
+
+
 //pelanggan
 Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
 // Route::group(['middleware' => 'auth'], function () {
@@ -104,29 +129,6 @@ Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
     Route::put('/putEditPassword', 'ProfilController@editPassword');
 });
 
-//flopi payment
-Route::post('/payment','MobilePulsaController@payment');
-Route::post('/terima_respon','MobilePulsaController@terima_respon');
-
-//Route Lupa Password
-Route::post('/Lupa_password','KirimEmailController@lupa_password');
-
-Route::get('/lupas/{email?&kode?}', function(){
-    $email = Request::get('email');
-    $kode = Request::get('kode');
-
-    $cek_data = DB::table('users')
-    ->where('email',$email)
-    ->where('remember_token',$kode)
-    ->first();
-
-    if($cek_data){
-        Session::put('email', $email);
-        return view('isi_ulang_password',['email' => $email]);
-    }
-});
-
-Route::post('/proses_lupa_password', 'KirimEmailController@proses_lupa_password');
 
 
 
