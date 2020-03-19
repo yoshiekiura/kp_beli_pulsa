@@ -7,7 +7,7 @@
 
     <div class="alert alert-success alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <h5><i class="icon fas fa-check"></i> Selamat Bergabung! <b>{{ Auth()->user()->email}}</b></h5>
+        <h5><i class="icon fas fa-check"></i> Selamat Bergabung! <b>{{ Auth()->user()->nama}}</b></h5>
         {!! session('alert') !!}
     </div>
     @endif

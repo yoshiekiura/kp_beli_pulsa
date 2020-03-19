@@ -169,7 +169,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <img src="/assets/lte/dist/img/user.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-            <a href="/profil" class="d-block">{{Auth()->user()->email}}</a>
+            <a href="/profil" class="d-block">{{Auth()->user()->nama}}</a>
             </div>
         </div>
 

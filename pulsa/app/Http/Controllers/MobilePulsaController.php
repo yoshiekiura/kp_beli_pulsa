@@ -8,110 +8,6 @@ use Illuminate\Support\Facades\Session;
 
 class MobilePulsaController extends Controller
 {
-    public function updateHarga(){
-
-        DB::table('price_lists')->delete();
-
-        $username   = "085706579632";
-        $apiKey   = "6135e4a3701bdd7b";
-        $signature  = md5($username.$apiKey.'bl');
-
-        $json = '{
-                    "commands" : "pricelist",
-                    "username" : "085706579632",
-                    "sign"     : "ef00f513848103219022e8d19decfca1",
-                    "status"   : "all"
-                }';
-
-        $url = "https://testprepaid.mobilepulsa.net/v1/legacy/index";
-
-        $ch  = curl_init();
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        $data = curl_exec($ch);
-        curl_close($ch);
-
-        // var_dump($data);
-        $x = json_decode($data);
-        // die;
-
-        foreach($x->data as $mydata){
-
-            // echo $mydata->pulsa_price."\n";
-
-            DB::table('price_lists')->insert([
-                'pulsa_code' => $mydata->pulsa_code,
-                'pulsa_op' => $mydata->pulsa_op,
-                'pulsa_nominal' => $mydata->pulsa_nominal,
-                'pulsa_price' => $mydata->pulsa_price +100,
-                'pulsa_type' => $mydata->pulsa_type,
-                'masaaktif' => $mydata->masaaktif,
-                'status' => $mydata->status
-            ]);
-
-        }
-        Session::flash('alert', "Berhasil Mengupdate !");
-                    return redirect('/admin-dashboard');
-    }
-
-    public function updateBank(){
-
-        DB::table('banks')->delete();
-
-        $base_url	= "https://flopipay.com/api.php"; // Server API
-        $url_server = $base_url . "/rekening"; // URL API
-        $data = array(
-            "key"	=> "5b916684d9bb389a03a331db262cc31d", // Key API
-        );
-
-        $ch = curl_init();
-        $param_curl = array(
-            CURLOPT_URL             => $url_server,
-            CURLOPT_POST            => true,
-            CURLOPT_POSTFIELDS      => http_build_query($data),
-            CURLOPT_SSL_VERIFYHOST  => 0,
-            CURLOPT_SSL_VERIFYPEER  => 0,
-            CURLOPT_RETURNTRANSFER  => true,
-            CURLOPT_HEADER          => false
-        );
-        curl_setopt_array($ch, $param_curl);
-        $result = curl_exec($ch);
-        curl_close($ch);
-
-        // var_dump($result);
-        // die;
-
-        if(!empty($result))
-        {
-            $respon = json_decode($result);
-            // var_dump($respon);
-            if($respon->status == '200') // Jika Sukses, Kode 200 untuk sukses, 201 untuk gagal.
-            {
-                foreach($respon->data as $key => $c)
-                {
-                    $nama 		 = $c->nama;
-                    $no_rekening = $c->no_rekening;
-                    $atas_nama   = $c->atas_nama;
-                    $bank 		 = $c->bank;
-
-                    DB::table('banks')->insert([
-                        'nama' => $nama,
-                        'no_rekening' => $no_rekening,
-                        'atas_nama' => $atas_nama,
-                        'bank' => $bank
-                    ]);
-
-                }
-                Session::flash('alert', "Berhasil Mengupdate !");
-                    return redirect('/admin-dashboard');
-            }
-        }
-    }
-
     public function payment(){
 
         $post = $_POST;
@@ -142,10 +38,16 @@ class MobilePulsaController extends Controller
                             'amount' => $nominal,
                             'balance' => $saldo
                         ]);
-                        $ambil = DB::table('transactions')->where('harga_total',$nominal)->where('status_pembayaran',0)->first();
+
+                        DB::table('transactions')->where('harga_total',$nominal)
+                        ->where('status_pembayaran',0)
+                        ->update(['status_pembayaran' => 1]); 
+
+                        $ambil = DB::table('transactions')->where('harga_total',$nominal)->where('status_pembayaran',1)->first();
                         if($ambil){
                             $username   = "085706579632";
-                            $apiKey   = "6135e4a3701bdd7b";
+                            // $apiKey   = "7475e4a3d01dcc59747"; //ori
+                            $apiKey   = "6135e4a3701bdd7b"; //dev
                             $ref_id  = uniqid('');
                             // $code = 'xld25000';
                             $signature  = md5($username.$apiKey.$ref_id);
@@ -160,7 +62,9 @@ class MobilePulsaController extends Controller
                                     }';
 
 
-                            $url = "https://testprepaid.mobilepulsa.net/v1/legacy/index";
+                            // $url = "https://api.mobilepulsa.net/v1/legacy/index"; //ori
+                            $url = "https://testprepaid.mobilepulsa.net/v1/legacy/index"; //dev
+                            
 
                             $ch  = curl_init();
                             curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
@@ -190,16 +94,15 @@ class MobilePulsaController extends Controller
 
             DB::table('transactions')->where('pulsa_code',$pulsa_code)
             ->where('no_telpon',$no_telpon)
-            ->update([  'status_pembayaran' => 3,
-                        'status_pengisian' => 3,
-                        'status_transaksi' => 3 ]); 
+            ->update([  'status_pengisian' => 2]); 
         }else{
 
             DB::table('transactions')->where('pulsa_code',$pulsa_code)
             ->where('no_telpon',$no_telpon)
-            ->update([  'status_pembayaran' => 2,
-                        'status_pengisian' => 2,
-                        'status_transaksi' => 2 ]);
+            ->where('status_pembayaran',1)
+            ->where('status_transaksi',0)
+            ->update([  'status_pengisian' => 1,
+                        'status_transaksi' => 1 ]);
         } 
         
     }

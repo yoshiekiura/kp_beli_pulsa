@@ -60,11 +60,11 @@
                                 <div class="col-sm-7">
                                     <label class="col-form-label">: Belum Bayar</label>
                                 </div>
-                                @elseif($hasil->status_pembayaran == 1)
+                                @elseif($hasil->status_pembayaran == 2)
                                 <div class="col-sm-7">
-                                    <label class="col-form-label">: Pending</label>
+                                    <label class="col-form-label">: Gagal</label>
                                 </div>
-                                @elseif($hasil->status_pembayaran == 3)
+                                @elseif($hasil->status_pembayaran == 1)
                                 <div class="col-sm-7">
                                     <label class="col-form-label">: Selesai</label>
                                 </div>
@@ -76,11 +76,11 @@
                                 <div class="col-sm-7">
                                     <label class="col-form-label">: Belum Bayar</label>
                                 </div>
-                                @elseif($hasil->status_pengisian == 1)
+                                @elseif($hasil->status_pengisian == 2)
                                 <div class="col-sm-7">
-                                    <label class="col-form-label">: Pending</label>
+                                    <label class="col-form-label">: Gagal</label>
                                 </div>
-                                @elseif($hasil->status_pengisian == 3)
+                                @elseif($hasil->status_pengisian == 1)
                                 <div class="col-sm-7">
                                     <label class="col-form-label">: Selesai</label>
                                 </div>

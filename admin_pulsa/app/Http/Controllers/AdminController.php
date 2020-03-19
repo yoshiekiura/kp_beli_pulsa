@@ -47,17 +47,19 @@ class AdminController extends Controller
         DB::table('price_lists')->delete();
 
         $username   = "085706579632";
-        $apiKey   = "6135e4a3701bdd7b";
+        // $apiKey   = "7475e4a3d01dcc59747"; //ori
+        $apiKey   = "6135e4a3701bdd7b"; //dev
         $signature  = md5($username.$apiKey.'pl');
 
         $json = '{
                     "commands" : "pricelist",
                     "username" : "085706579632",
-                    "sign"     : "ef00f513848103219022e8d19decfca1",
+                    "sign"     : "' . $signature . '",
                     "status"   : "all"
                 }';
 
-        $url = "https://testprepaid.mobilepulsa.net/v1/legacy/index";
+        // $url = "https://api.mobilepulsa.net/v1/legacy/index"; //ori
+        $url = "https://testprepaid.mobilepulsa.net/v1/legacy/index"; //dev
 
         $ch  = curl_init();
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
@@ -72,6 +74,7 @@ class AdminController extends Controller
         // var_dump($data);
         $x = json_decode($data);
         // die;
+        // var_dump($data); die;
 
         foreach($x->data as $mydata){
 

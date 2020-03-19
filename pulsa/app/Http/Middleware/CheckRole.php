@@ -20,7 +20,7 @@ class CheckRole
 
             return $next($request);
         }
-        Session::flash('gagal','JANGAN PAKEK AKUN ADMIN COK');
+        Session::flash('gagal','Akun BOT');
         return redirect('/login');
     }
 }
