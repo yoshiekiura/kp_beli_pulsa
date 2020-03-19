@@ -31,7 +31,7 @@
                                 </div>
                         </div>
                     </form>
-                    <table class="table" id="table">
+                    <table class="table">
                         <thead class="thead-light">
                             <tr>
                             <th scope="col">No.</th>

@@ -105,11 +105,12 @@ class RiwayatController extends Controller
         
         $id = Crypt::decrypt($data);
         $hasil = DB::table('transactions')
-        ->join('users','users.id','=', 'transactions.id_user')
+        // ->join('users','users.id','=', 'transactions.id_user')
         ->join('price_lists','price_lists.pulsa_code','=', 'transactions.pulsa_code')
         ->join('banks','banks.id','=', 'transactions.id_bank')
         ->where('transactions.id',$id)
         ->first();
+
         // var_dump($hasil); die;
         return view('/pages/detail_transaction',['hasil' => $hasil]);
 
