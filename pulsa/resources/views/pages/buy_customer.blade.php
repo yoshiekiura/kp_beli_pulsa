@@ -160,7 +160,7 @@
                                 <select class="form-control" name="bank" style="width: 100%;" required>
                                     <option selected disabled>-- Pilih Pembayaran --</option>
                                             @foreach ($bank as $b)
-                                            <option value="{{$b->id}}">{{  $b->bank }}</option>
+                                            <option value="{{$b->id_bank}}">{{  $b->bank }}</option>
                                             @endforeach
                                 </select>
                             </div>
@@ -222,7 +222,7 @@
                                 <select class="form-control select2" name="bank" style="width: 100%;" required>
                                     <option selected disabled>-- Pilih Pembayaran --</option>
                                     @foreach ($bank as $b)
-                                    <option value="{{$b->id}}">{{  $b->bank }}</option>
+                                    <option value="{{$b->id_bank}}">{{  $b->bank }}</option>
                                     @endforeach
                                 </select>
                             </div>
