@@ -67,8 +67,9 @@ class RiwayatController extends Controller
 
     public function hasilRiwayat($id){
 
-        $data = Crypt::encrypt($id);
-        // var_dump($id);die;
+        $var = base64_decode($id);
+        $data = Crypt::encrypt($var);
+        // var_dump($var);die;
 
         // $hasil = DB::table('transactions')
         // // ->select('transactions.id AS id')
