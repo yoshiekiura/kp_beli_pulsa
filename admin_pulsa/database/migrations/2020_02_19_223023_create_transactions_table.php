@@ -44,7 +44,7 @@ class CreateTransactionsTable extends Migration
             ->onDelete('cascade');
 
             $table->foreign('id_bank')
-            ->references('id')->on('banks')
+            ->references('id_bank')->on('banks')
             ->onDelete('cascade');
         });
     }
