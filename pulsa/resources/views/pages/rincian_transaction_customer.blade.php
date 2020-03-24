@@ -144,7 +144,7 @@
                                     </div>
                                 </div>
                                 <button type="button" class="btn btn-outline-warning btn-lg btn-block mt-5">Komplain</button>
-                                <button type="button" class="btn btn-outline-info btn-lg btn-block mt-2">Print Pembelian</button>
+                                <a href="/cetak_pdf/{{$ambilId}}"><button type="button" class="btn btn-outline-info btn-lg btn-block mt-2">Print Pembelian</button></a>
                             </div>
                         </div>
             </div>

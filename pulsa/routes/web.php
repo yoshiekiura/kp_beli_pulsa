@@ -96,6 +96,9 @@ Route::get('/lupas/{email?&kode?}', function(){
 
 Route::post('/proses_lupa_password', 'KirimEmailController@proses_lupa_password');
 
+//Cetak PDF
+Route::get('/cetak_pdf/{rahasia}', 'RiwayatController@cetak_pdf');
+
 
 //pelanggan
 Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {

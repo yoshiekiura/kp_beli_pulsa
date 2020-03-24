@@ -66,11 +66,17 @@ class BeliController extends Controller
         ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
         ->first();
 
-        // var_dump($hasil);
-        // die;
-        // return view('/pelanggan/pages/a',['hasil' => $hasil]);
-        // Session::flash('alert', "Berhasil di pesan!");
-        return view('/pages/detail_transaction',['hasil' => $hasil]);
+        $ambilId = DB::table('transactions')
+        ->select('transactions.id')
+        ->where('transactions.id',$decrypt)
+        ->join('banks','transactions.id_bank','=','banks.id')
+        ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
+        ->first();
+        $hasilId = Crypt::encrypt($ambilId);
+
+        // var_dump($ambilId); die;
+
+        return view('/pages/detail_transaction',['hasil' => $hasil,'ambilId' => $hasilId]);
     }
 
     public function beliCustomer(Request $request){
@@ -122,15 +128,23 @@ class BeliController extends Controller
     }
 
     public function tampilBeliCustomer($enkripsi){
-        $ambilId = Crypt::encrypt(Auth()->user()->id);
+        $ambilId1 = Crypt::encrypt(Auth()->user()->id);
         $decrypt = Crypt::decrypt($enkripsi);
         $hasil = DB::table('transactions')->where('transactions.id',$decrypt)
         ->join('banks','transactions.id_bank','=','banks.id')
         ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
         ->first();
+
+        $ambilId = DB::table('transactions')
+        ->select('transactions.id')
+        ->where('transactions.id',$decrypt)
+        ->join('banks','transactions.id_bank','=','banks.id')
+        ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
+        ->first();
+        $hasilId = Crypt::encrypt($ambilId);
         // var_dump($hasil);
         // die;
         // return view('/pelanggan/pages/a',['hasil' => $hasil]);
-        return view('/pages/detail_transaction_customer',['hasil' => $hasil, 'id' => $ambilId]);
+        return view('/pages/detail_transaction_customer',['hasil' => $hasil, 'id' => $ambilId1, 'ambilId' => $hasilId]);
     }
 }

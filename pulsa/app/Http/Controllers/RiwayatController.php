@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
+use PDF;
 
 class RiwayatController extends Controller
 {
@@ -50,6 +51,7 @@ class RiwayatController extends Controller
 
         if($id->count()>0){
             $hasilid = Crypt::encrypt($id[0]->id);
+            // var_dump($id[0]->id); die;
             return view('forms/cek_transaksi',['data' => $hasil, 'dataId' => $hasilid]);
         }else{
             return view('forms/cek_transaksi',['data' => $hasil]);
@@ -72,8 +74,16 @@ class RiwayatController extends Controller
         ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
         ->get();
 
+        $hasilId = DB::table('transactions')
+        ->select('transactions.id')
+        ->where('transactions.id_user',$decrypt)
+        // ->join('banks','transactions.id_bank','=','banks.id')
+        ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
+        ->get();
+
         if($hasil->count()>0){
             $idTransaksi = Crypt::encrypt($hasil[0]->id);
+            // var_dump($hasilId); die;
             return view('/pages/history_transaction_customer',['data' => $hasil,'id' => $ambilId, 'idTransaksi' => $idTransaksi]);
         }else{
             return view('/pages/history_transaction_customer',['data' => $hasil,'id' => $ambilId]);
@@ -87,7 +97,7 @@ class RiwayatController extends Controller
 
     public function tampilRincian_Customer($id){
 
-        $ambilId = Crypt::encrypt(Auth()->user()->id);
+        $ambilId1 = Crypt::encrypt(Auth()->user()->id);
 
         $decrypt = Crypt::decrypt($id);
 
@@ -97,7 +107,15 @@ class RiwayatController extends Controller
         ->first();
         // var_dump($hasil); die;
 
-        return view('/pages/rincian_transaction_customer',['hasil' => $data, 'id' => $ambilId]);
+        $ambilId = DB::table('transactions')
+        ->select('transactions.id')
+        ->where('transactions.id',$decrypt)
+        ->join('banks','transactions.id_bank','=','banks.id')
+        ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
+        ->first();
+        $hasilId = Crypt::encrypt($ambilId);
+
+        return view('/pages/rincian_transaction_customer',['hasil' => $data, 'id' => $ambilId1, 'ambilId' => $hasilId]);
     }
     
 
@@ -111,9 +129,31 @@ class RiwayatController extends Controller
         ->where('transactions.id',$id)
         ->first();
 
-        // var_dump($hasil); die;
-        return view('/pages/detail_transaction',['hasil' => $hasil]);
+        $ambilId = DB::table('transactions')
+        ->select('transactions.id')
+        ->where('transactions.id',$id)
+        ->join('banks','transactions.id_bank','=','banks.id')
+        ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
+        ->first();
+        $hasilId = Crypt::encrypt($ambilId);
 
+        // var_dump($hasil); die;
+        return view('/pages/detail_transaction',['hasil' => $hasil,'ambilId' => $hasilId]);
+
+    }
+
+    public function cetak_pdf($ambilId){
+
+        $id = Crypt::decrypt($ambilId);
+        // var_dump($id->id); die;
+        $hasil = DB::table('transactions')->where('transactions.id',$id->id)
+        ->join('banks','transactions.id_bank','=','banks.id')
+        ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
+        ->first();
+        // var_dump($hasil); die;
+
+        $pdf = PDF::loadview('cetak_pdf',['hasil'=>$hasil]);
+    	return $pdf->download('laporan-transaksi-pdf');
     }
 
 }
