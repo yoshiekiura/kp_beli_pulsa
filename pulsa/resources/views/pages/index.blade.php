@@ -170,7 +170,7 @@
                             @foreach ($errors->all() as $error)
                             <p class="login-box-msg mb-3">{{ $error }}</p>
                             @endforeach
-                        
+
                         @endif
                         <ul>
                             {{-- <li>Email Marketing</li>
@@ -196,7 +196,7 @@
                             <select class="form-control mb-3" name="bank" required>
                                     <option selected disabled>-- Pilih Pembayaran --</option>
                                     @foreach ($bank as $b)
-                                    <option value="{{$b->id}}">{{  $b->bank }}</option>
+                                    <option value="{{$b->id_bank}}">{{  $b->bank }}</option>
                                     @endforeach
                             </select>
 
@@ -224,7 +224,7 @@
                             @foreach ($errors->all() as $error)
                             <p class="login-box-msg mb-3">{{ $error }}</p>
                             @endforeach
-                        
+
                             @endif
                             <ul>
                                 {{-- <li>Email Marketing</li>
@@ -250,7 +250,7 @@
                                 <select class="form-control mb-3" name="bank" required>
                                         <option selected disabled>-- Pilih Pembayaran --</option>
                                         @foreach ($bank as $b)
-                                        <option value="{{$b->id}}">{{  $b->bank }}</option>
+                                        <option value="{{$b->id_bank}}">{{  $b->bank }}</option>
                                         @endforeach
                                 </select>
 

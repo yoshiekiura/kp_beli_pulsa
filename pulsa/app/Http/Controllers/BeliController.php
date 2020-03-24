@@ -62,21 +62,23 @@ class BeliController extends Controller
         $decrypt = Crypt::decrypt($enkripsi);
         // var_dump($decrypt);die;
         $hasil = DB::table('transactions')->where('transactions.id',$decrypt)
-        ->join('banks','transactions.id_bank','=','banks.id')
+        ->join('banks','transactions.id_bank','=','banks.id_bank')
         ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
         ->first();
 
-        $ambilId = DB::table('transactions')
-        ->select('transactions.id')
-        ->where('transactions.id',$decrypt)
-        ->join('banks','transactions.id_bank','=','banks.id')
-        ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
-        ->first();
-        $hasilId = Crypt::encrypt($ambilId);
+        // var_dump($hasil);die;
+
+        // $ambilId = DB::table('transactions')
+        // ->select('transactions.id')
+        // ->where('transactions.id',$decrypt)
+        // ->join('banks','transactions.id_bank','=','banks.id_bank')
+        // ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
+        // ->first();
+        // $hasilId = Crypt::encrypt($ambilId);
 
         // var_dump($ambilId); die;
 
-        return view('/pages/detail_transaction',['hasil' => $hasil,'ambilId' => $hasilId]);
+        return view('/pages/detail_transaction',['hasil' => $hasil,'data' => $enkripsi]);
     }
 
     public function beliCustomer(Request $request){
@@ -128,23 +130,23 @@ class BeliController extends Controller
     }
 
     public function tampilBeliCustomer($enkripsi){
-        $ambilId1 = Crypt::encrypt(Auth()->user()->id);
+        // $ambilId1 = Crypt::encrypt(Auth()->user()->id);
         $decrypt = Crypt::decrypt($enkripsi);
         $hasil = DB::table('transactions')->where('transactions.id',$decrypt)
-        ->join('banks','transactions.id_bank','=','banks.id')
+        ->join('banks','transactions.id_bank','=','banks.id_bank')
         ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
         ->first();
 
-        $ambilId = DB::table('transactions')
-        ->select('transactions.id')
-        ->where('transactions.id',$decrypt)
-        ->join('banks','transactions.id_bank','=','banks.id')
-        ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
-        ->first();
-        $hasilId = Crypt::encrypt($ambilId);
+        // $ambilId = DB::table('transactions')
+        // ->select('transactions.id')
+        // ->where('transactions.id',$decrypt)
+        // ->join('banks','transactions.id_bank','=','banks.id')
+        // ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
+        // ->first();
+        // $hasilId = Crypt::encrypt($ambilId);
         // var_dump($hasil);
         // die;
         // return view('/pelanggan/pages/a',['hasil' => $hasil]);
-        return view('/pages/detail_transaction_customer',['hasil' => $hasil, 'id' => $ambilId1, 'ambilId' => $hasilId]);
+        return view('/pages/detail_transaction_customer',['hasil' => $hasil,'data' => $enkripsi]);
     }
 }

@@ -60,6 +60,8 @@ Route::get('/cek_transaksi/luar/{rahasia}','RiwayatController@hasilRiwayatLuar')
 Route::get('/rincian-transaksi/{rahasia}', 'BeliController@tampilBeli');
 Route::get('/rincian/transaksi/{id}', 'RiwayatController@hasilRiwayat');
 
+Route::get('/rahasia/{rahasia}', 'RiwayatController@rahasia');
+
 
 //auth
 Route::get('/login', function () {
