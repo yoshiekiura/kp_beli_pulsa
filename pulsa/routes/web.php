@@ -52,12 +52,12 @@ Route::post('/Cek-transaksip','AjaxController@kirim_transaksi');
 
 Route::get('/cek_transaksi', 'RiwayatController@cari');
 Route::get('/cek_transaksi/proses', 'RiwayatController@no_rahasia');
-Route::get('/cek_transaksi/luar/{rahasia}','RiwayatController@hasilRiwayatLuar');
+Route::get('/cek_transaksi/nomor-telp/{rahasia}','RiwayatController@hasilRiwayatLuar');
 
 Route::get('/rincian-transaksi/{rahasia}', 'BeliController@tampilBeli');
 Route::get('/rincian/transaksi/{id}', 'RiwayatController@hasilRiwayat');
 
-Route::get('/rahasia/{rahasia}', 'RiwayatController@rahasia');
+Route::get('/rincian-luar/{rahasia}', 'RiwayatController@rahasia');
 
 //komplain
 Route::get('/Komplain/{pesan?}{id?}',function(){
@@ -144,6 +144,9 @@ Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
 
     Route::get('/riwayat-transaksi/{id}', 'RiwayatController@tampilRiwayat');
     Route::get('/rincian_transaction_customer/{id}', 'RiwayatController@tampilRincian_Customer');
+    Route::get('/rincian-customer/{id}', 'RiwayatController@rincian_customerDalam');
+    
+
 
 
     Route::get('/profil', 'ProfilController@tampilProfil');

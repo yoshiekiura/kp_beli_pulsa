@@ -130,7 +130,7 @@ class BeliController extends Controller
     }
 
     public function tampilBeliCustomer($enkripsi){
-        // $ambilId1 = Crypt::encrypt(Auth()->user()->id);
+        $ambilId1 = Crypt::encrypt(Auth()->user()->id);
         $decrypt = Crypt::decrypt($enkripsi);
         $hasil = DB::table('transactions')->where('transactions.id',$decrypt)
         ->join('banks','transactions.id_bank','=','banks.id_bank')
@@ -147,7 +147,7 @@ class BeliController extends Controller
         // var_dump($hasil);
         // die;
         // return view('/pelanggan/pages/a',['hasil' => $hasil]);
-        return view('/pages/detail_transaction_customer',['hasil' => $hasil,'data' => $enkripsi]);
+        return view('/pages/detail_transaction_customer',['hasil' => $hasil,'data' => $enkripsi, 'id' => $ambilId1]);
     }
 
     public function komplain(Request $request){

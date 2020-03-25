@@ -29,7 +29,7 @@ class RiwayatController extends Controller
         $cari = $request->input('nomor');
         $hasil = Crypt::encrypt($cari);
 
-        return redirect('/cek_transaksi/luar/'.$hasil);
+        return redirect('/cek_transaksi/nomor-telp/'.$hasil);
     }
 
     public function hasilRiwayatLuar($enkripsi){
@@ -79,7 +79,7 @@ class RiwayatController extends Controller
         // ->where('transactions.id',$id)
         // ->first();
 
-        return redirect('/rahasia/'.$data);
+        return redirect('/rincian-luar/'.$data);
         // var_dump($hasil); die;
         // var_dump($hasil); die;
 
@@ -134,20 +134,31 @@ class RiwayatController extends Controller
 
     public function tampilRincian_Customer($id){
 
+        $var = base64_decode($id);
+        $data = Crypt::encrypt($var);
+
+        return redirect('/rincian-customer/'.$data);
+
+    }
+
+    public function rincian_customerDalam($data){
+
         $ambilId1 = Crypt::encrypt(Auth()->user()->id);
 
-        $decrypt = Crypt::decrypt($id);
+        $decrypt = Crypt::decrypt($data);
 
-        $data = DB::table('transactions')->where('transactions.id',$decrypt)
-        ->join('banks','transactions.id_bank','=','banks.id')
-        ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
+        $data = DB::table('transactions')
+        ->join('banks','banks.id_bank','=', 'transactions.id_bank')
+        ->join('price_lists','price_lists.pulsa_code','=', 'transactions.pulsa_code')
+        ->where('transactions.id',$decrypt)
         ->first();
+
         // var_dump($hasil); die;
 
         $ambilId = DB::table('transactions')
         ->select('transactions.id')
         ->where('transactions.id',$decrypt)
-        ->join('banks','transactions.id_bank','=','banks.id')
+        ->join('banks','transactions.id_bank','=','banks.id_bank')
         ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
         ->first();
         $hasilId = Crypt::encrypt($ambilId);
