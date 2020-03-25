@@ -19,7 +19,7 @@ class AdminController extends Controller
         $hasil = DB::table('transactions')
         ->join('users','users.id','=', 'transactions.id_user')
         ->join('price_lists','price_lists.pulsa_code','=', 'transactions.pulsa_code')
-        ->join('banks','banks.id','=', 'transactions.id_bank')
+        ->join('banks','banks.id_bank','=', 'transactions.id_bank')
         ->orderBy('transactions.id','ASC')
         ->get();
 
@@ -39,6 +39,7 @@ class AdminController extends Controller
         // ->join('transactions','transactions.id', '=', 'complaints.id_transaksi')
         // ->get();
         $komplain = DB::table('complaints')
+        ->where('status',0)
         ->get();
         return view('/pages/complain',['komplain' => $komplain]);
     }

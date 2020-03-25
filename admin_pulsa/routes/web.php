@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     return view('auth/login_admin');
@@ -23,7 +24,17 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function () {
     Route::get('/transaksi-pembelian', 'AdminController@transaksiPembelian');
     Route::get('/daftar-pelanggan', 'AdminController@daftarPelanggan');
     Route::get('/komplain', 'AdminController@komplain');
+
+    Route::get('/aksiComplain/{id?}', function(){
+        $id = Request::get('id');
+
+        DB::table('complaints')->where('id',$id)
+        ->update(['status' => 1]);
+
+        return redirect('/komplain');
+    });
+
+    Route::get('/update-harga', 'AdminController@updateharga');
+    Route::get('/update-bank', 'AdminController@updatebank');
 });
 
-Route::get('/update-harga', 'AdminController@updateharga');
-Route::get('/update-bank', 'AdminController@updatebank');

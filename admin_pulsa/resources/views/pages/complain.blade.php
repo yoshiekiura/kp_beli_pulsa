@@ -8,6 +8,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="table-responsive">
+
                     <table class="table table-bordered table-striped" id="example1">
                         <thead>
                                 <tr>
@@ -17,7 +18,7 @@
                                 <th scope="col">Nomor Telepon</th>
                                 <th scope="col">Pesan</th>
                                 <th scope="col">Tanggal Komplain</th>
-                                <th scope="col">Sudah Dilakukan</th>
+                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -28,12 +29,13 @@
                                 <td>{{$k->nama}}</td>
                                 <td>{{$k->no_telpon}}</td>
                                 <td>{{$k->pesan}}</td>
-                                <td>{{$k->created_at}}</td>
-                                <td>#</td>
+                                <td>{{$k->waktu_komplain}}</td>
+                                <td><a href="/aksiComplain/?id={{$k->id}}" class="badge badge-success">Sudah Dilakukan</a></td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>
