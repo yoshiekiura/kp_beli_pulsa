@@ -31,6 +31,8 @@
         <link rel="icon" type="image/png" href="/assets/img/favicon.ico" />
         {{-- Punya Data table --}}
         <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css"/>
+
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 		<!--[if lt IE 9]>
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -216,6 +218,8 @@
         <script src="/assets/js/main.js"></script>
         {{-- punya data table --}}
         <script type="text/javascript" src="/assets/js/datatables.min.js"></script>
+
+
         <script>
             $(document).ready( function () {
             $('#table').DataTable();

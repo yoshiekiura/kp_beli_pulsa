@@ -54,13 +54,24 @@ Route::get('/cek_transaksi', 'RiwayatController@cari');
 Route::get('/cek_transaksi/proses', 'RiwayatController@no_rahasia');
 Route::get('/cek_transaksi/luar/{rahasia}','RiwayatController@hasilRiwayatLuar');
 
-// function () {
-//     return view('forms/cek_transaksi');
-// });
 Route::get('/rincian-transaksi/{rahasia}', 'BeliController@tampilBeli');
 Route::get('/rincian/transaksi/{id}', 'RiwayatController@hasilRiwayat');
 
 Route::get('/rahasia/{rahasia}', 'RiwayatController@rahasia');
+
+//komplain
+Route::get('/Komplain/{pesan?}{id?}',function(){
+    $pesan = Request::get('pesan');
+    $mentah = Request::get('id');
+    $id = Crypt::decrypt($mentah);
+    $kode = Crypt::encrypt($id);
+
+    $no_telpon = DB::table('transactions')->where('id',$id)->first('no_telpon');
+
+    return view('forms/complaint',['pesan' => $pesan,'kode' => $kode,'no_telpon' => $no_telpon]);
+});
+Route::post('Komplain/Kirim', 'BeliController@komplain');
+
 
 
 //auth
@@ -142,6 +153,18 @@ Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
 
     Route::delete('/Pengaturan/hapus/{id}','ProfilController@hapusAkun');
     Route::get('/Destroy/{id}','ProfilController@destroy');
+
+    Route::get('/astagfirullah/{pesan?}{id?}',function(){
+        $pesan = Request::get('pesan');
+        $mentah = Request::get('id');
+        $id = Crypt::decrypt($mentah);
+        $kode = Crypt::encrypt($id);
+
+        $no_telpon = DB::table('transactions')->where('id',$id)->first('no_telpon');
+
+        return view('forms/complaint_customer',['pesan' => $pesan,'kode' => $kode,'no_telpon' => $no_telpon]);
+    });
+    Route::post('Komplain/customer/Kirim', 'BeliController@komplainCustomer');
 });
 
 

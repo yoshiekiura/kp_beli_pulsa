@@ -24,11 +24,11 @@
             <div class="col-md-12">
                 <h5>
                     @if(Session::has('gagal'))
-                    <p class="login-box-msg mb-3">{!! session('gagal') !!}</p>
+                    <p class="login-box-msg mb-3 text-danger">{!! session('gagal') !!}</p>
                     @endif
                     @if (count($errors) > 0)
                             @foreach ($errors->all() as $error)
-                            <p class="login-box-msg mb-3">{{ $error }}</p>
+                            <p class="login-box-msg mb-3 text-danger">{{ $error }}</p>
                             @endforeach
 
                     @endif

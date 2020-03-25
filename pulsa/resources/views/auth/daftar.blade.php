@@ -22,13 +22,13 @@
                     <i class="icofont icofont-login"></i>
                     <h4>Daftar Akun TUKUPULSA</h4>
                     @if(Session::has('gagal'))
-                        <p class="login-box-msg mb-3">{!! session('gagal') !!}</p>
+                        <p class="login-box-msg mb-3 text-danger">{!! session('gagal') !!}</p>
                     @endif
                     @if (count($errors) > 0)
                             @foreach ($errors->all() as $error)
-                            <p class="login-box-msg mb-3">{{ $error }}</p>
+                            <p class="login-box-msg mb-3 text-danger">{{ $error }}</p>
                             @endforeach
-                        
+
                     @endif
                     <form method="post" action="/postDaftar">
                         @csrf

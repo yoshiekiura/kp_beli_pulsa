@@ -147,7 +147,18 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-outline-warning btn-lg btn-block mt-5">Komplain</button>
+        {{-- <button type="button" class="btn btn-outline-warning btn-lg btn-block mt-5">Komplain</button> --}}
+        <div class="dropdown">
+            <button type="button" class="btn btn-outline-warning btn-lg btn-block mt-5 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Komplain
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{{url('/Komplain')}}?pesan={{'Sudah+membayar+tapi+status+pengisian+masih+pending'}}&id={{$data}}">Sudah membayar tapi status pengisian masih pending</a>
+                <a class="dropdown-item" href="{{url('/Komplain')}}?pesan={{'Keterangan+status+pengisian+sukses+tapi+pulsa+belum+masuk'}}&id={{$data}}">Keterangan status pengisian sukses tapi pulsa belum masuk</a>
+                <a class="dropdown-item" href="{{url('/Komplain')}}?pesan={{'Data+transfer+salah'}}&id={{$data}}">Data transfer salah</a>
+                <a class="dropdown-item" href="{{url('/Komplain')}}?id={{$data}}">Masalah lainnya</a>
+            </div>
+        </div>
         <a href="/cetak_pdf/{{$data}}"><button type="button" class="btn btn-outline-info btn-lg btn-block mt-2">Print Pembelian</button></a>
     </div>
     </div>

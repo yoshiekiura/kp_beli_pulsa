@@ -169,7 +169,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <img src="/assets/lte/dist/img/user.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-            <a href="/profil" class="d-block">{{Auth()->user()->nama}}</a>
+            <a href="/profil" class="d-block">{{Auth()->user()->email}}</a>
             </div>
         </div>
 
@@ -186,16 +186,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/riwayat-transaksi/{{$id}}" class="nav-link">
+                <a href="/riwayat-transaksi/{{Auth()->user()->id}}" class="nav-link">
                     <i class="fas fa-history"></i>
                     <p>Riwayat Transaksi</p>
-                </a>
-            </li>
-            <li class="nav-header">Deposit</li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-money-check-alt"></i>
-                    <p>Isi Deposit</p>
                 </a>
             </li>
             </ul>

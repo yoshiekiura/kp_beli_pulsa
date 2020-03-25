@@ -19,15 +19,17 @@ class CreateComplaintsTable extends Migration
             $table->string('nama');
             $table->string('no_telpon');
             $table->char('pesan');
+            $table->integer('status');
+            $table->dateTime('waktu_komplain');
+
             $table->timestamps();
         });
 
-        // Schema::table('complaints', function (Blueprint $table) {
-        //     $table->foreign('id_transaksi')
-        //     ->references('id')->on('transactions')
-        //     ->onDelete('cascade');
-
-        // });
+        Schema::table('complaints', function (Blueprint $table) {
+            $table->foreign('id_transaksi')
+            ->references('id')->on('transactions')
+            ->onDelete('cascade');
+        });
     }
 
     /**

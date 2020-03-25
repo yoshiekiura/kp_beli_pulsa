@@ -281,54 +281,42 @@
                 <div class="testimonial-wrap">
                     <div class="single-testimonial-box">
                         <div class="author-img">
-                            <img src="assets/img/author/author1.jpg" alt="author" />
+                            <img src="assets/img/user1.png" alt="author" />
                         </div>
                         <h5>Mary Balogh</h5>
                         <p>Wadidaw, Pulsanya cepet banget masuknya. Good</p>
-                        <div class="author-rating">
+                        {{-- <div class="author-rating">
                             <i class="icofont icofont-star"></i>
                             <i class="icofont icofont-star"></i>
                             <i class="icofont icofont-star"></i>
                             <i class="icofont icofont-star"></i>
                             <i class="icofont icofont-star"></i>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="single-testimonial-box">
                         <div class="author-img">
-                            <img src="assets/img/author/author2.jpg" alt="author" />
+                            <img src="assets/img/user1.png" alt="author" />
                         </div>
                         <h5>Upik Balogh</h5>
                         <p>Pengen beli pulsa tapi gaada duit hehehe</p>
-                        <div class="author-rating">
+                        {{-- <div class="author-rating">
                             <i class="icofont icofont-star"></i>
 
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="single-testimonial-box">
                         <div class="author-img">
-                            <img src="assets/img/author/author2.jpg" alt="author" />
+                            <img src="assets/img/user1.png" alt="author" />
                         </div>
                         <h5>Samsudin</h5>
                         <p>Jadi ketagihan beli data disini</p>
-                        <div class="author-rating">
+                        {{-- <div class="author-rating">
                             <i class="icofont icofont-star"></i>
                             <i class="icofont icofont-star"></i>
                             <i class="icofont icofont-star"></i>
                             <i class="icofont icofont-star"></i>
                             <i class="icofont icofont-star"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-thumb">
-                    <div class="thumb-prev">
-                        <div class="author-img">
-                            <img src="assets/img/author/author2.jpg" alt="author" />
-                        </div>
-                    </div>
-                    <div class="thumb-next">
-                        <div class="author-img">
-                            <img src="assets/img/author/author2.jpg" alt="author" />
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

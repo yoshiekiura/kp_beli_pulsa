@@ -19,6 +19,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="single-about-box">
+                    @if(Session::has('sukses'))
+                        <p class="login-box-msg mb-3 text-success">{!! session('sukses') !!}</p>
+                    @endif
                     {{-- <i class="icofont icofont-ruler-pencil"></i>
                     <h4>Responsive Design</h4>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p> --}}

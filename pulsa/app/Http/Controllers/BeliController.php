@@ -149,4 +149,65 @@ class BeliController extends Controller
         // return view('/pelanggan/pages/a',['hasil' => $hasil]);
         return view('/pages/detail_transaction_customer',['hasil' => $hasil,'data' => $enkripsi]);
     }
+
+    public function komplain(Request $request){
+        $this->validate($request,[
+            'nama' => 'required|min:5',
+            'no_telpon' => 'required|numeric|min:0',
+            'id' => 'required',
+            'pesan' => 'required'
+        ]);
+
+        $kode = $request->input('id');
+        $id = Crypt::decrypt($kode);
+        // var_dump($id);die;
+
+        $nama = $request -> input('nama');
+        $telp = $request -> input('no_telpon');
+        $pesan = $request -> input('pesan');
+        $waktu = Carbon::now();
+
+
+        DB::table('complaints')->insert([
+            'id_transaksi' => $id,
+            'nama' => $nama,
+            'no_telpon' => $telp,
+            'pesan' => $pesan,
+            'status' => 0,
+            'waktu_komplain' => $waktu,
+
+        ]);
+        Session::flash('sukses','Komplain anda telah dikirim. silahkan menunggu perbaikan dari admin');
+        return Redirect('/cek_transaksi');
+    }
+    public function komplainCustomer(Request $request){
+        $this->validate($request,[
+            'nama' => 'required|min:5',
+            'no_telpon' => 'required|numeric|min:0',
+            'id' => 'required',
+            'pesan' => 'required'
+        ]);
+
+        $kode = $request->input('id');
+        $id = Crypt::decrypt($kode);
+        // var_dump($id);die;
+
+        $nama = $request -> input('nama');
+        $telp = $request -> input('no_telpon');
+        $pesan = $request -> input('pesan');
+        $waktu = Carbon::now();
+
+
+        DB::table('complaints')->insert([
+            'id_transaksi' => $id,
+            'nama' => $nama,
+            'no_telpon' => $telp,
+            'pesan' => $pesan,
+            'status' => 0,
+            'waktu_komplain' => $waktu,
+
+        ]);
+        Session::flash('login','Komplain anda telah dikirim. silahkan menunggu perbaikan dari admin');
+        return Redirect('/beli');
+    }
 }
