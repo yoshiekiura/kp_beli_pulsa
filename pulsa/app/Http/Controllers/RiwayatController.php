@@ -100,32 +100,17 @@ class RiwayatController extends Controller
 
 
 
-    public function tampilRiwayat($id){
+    public function tampilRiwayat(){
 
-        $ambilId = Crypt::encrypt(Auth()->user()->id);
-
-        $decrypt = Crypt::decrypt($id);
-
-        $hasil = DB::table('transactions')->where('transactions.id_user',$decrypt)
+        $ambilId = Auth()->user()->id;
+        // var_dump($ambilId); die;
+        $hasil = DB::table('transactions')->where('transactions.id_user',$ambilId)
         // ->join('banks','transactions.id_bank','=','banks.id')
         ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
         ->get();
 
-        $hasilId = DB::table('transactions')
-        ->select('transactions.id')
-        ->where('transactions.id_user',$decrypt)
-        // ->join('banks','transactions.id_bank','=','banks.id')
-        ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
-        ->get();
-
-        if($hasil->count()>0){
-            $idTransaksi = Crypt::encrypt($hasil[0]->id);
-            // var_dump($hasilId); die;
-            return view('/pages/history_transaction_customer',['data' => $hasil,'id' => $ambilId, 'idTransaksi' => $idTransaksi]);
-        }else{
-            return view('/pages/history_transaction_customer',['data' => $hasil,'id' => $ambilId]);
-        }
-
+        return view('/pages/history_transaction_customer',['data' => $hasil]);
+        
 
         // var_dump($idTransaksi); die;
 

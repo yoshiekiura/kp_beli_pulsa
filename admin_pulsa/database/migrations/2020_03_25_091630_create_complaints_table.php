@@ -15,7 +15,7 @@ class CreateComplaintsTable extends Migration
     {
         Schema::create('complaints', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_transaksi')->unsigned();
+            $table->bigInteger('id_transaksi')->unsigned();
             $table->string('nama');
             $table->string('no_telpon');
             $table->char('pesan');

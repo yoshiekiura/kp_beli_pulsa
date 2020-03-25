@@ -118,8 +118,6 @@ Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
 // Route::group(['middleware' => 'auth'], function () {
     Route::get('/beli', function () {
 
-        $ambilId = Crypt::encrypt(Auth()->user()->id);
-
         $produk_pulsa = DB::table('price_lists')
         ->where('pulsa_type','pulsa')
         ->where('status','active')
@@ -137,7 +135,7 @@ Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
         ->get();
         $data = DB::table('price_lists')->where('pulsa_type', 'data')->get();
         $pulsa = DB::table('price_lists')->where('pulsa_type', 'pulsa')->get();
-        return view('/pages/buy_customer',['semua'=>$semua,'data'=>$data,'pulsa'=>$pulsa,'produk_pulsa' => $produk_pulsa,'produk_data' => $produk_data,'bank' => $bank, 'id' => $ambilId]);
+        return view('/pages/buy_customer',['semua'=>$semua,'data'=>$data,'pulsa'=>$pulsa,'produk_pulsa' => $produk_pulsa,'produk_data' => $produk_data,'bank' => $bank]);
     });
     Route::post('/postBeliCustomer','BeliController@beliCustomer');
     Route::get('/rincian-transaksi-customer/{rahasia}', 'BeliController@tampilBeliCustomer');
