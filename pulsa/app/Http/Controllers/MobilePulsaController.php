@@ -11,7 +11,7 @@ class MobilePulsaController extends Controller
     public function payment(){
 
         $post = $_POST;
-    
+
         if(!empty($post)) {
             $method = @$post['method'];
             $data 	= @$post['data'];
@@ -27,8 +27,8 @@ class MobilePulsaController extends Controller
                     $waktu_mutasi     = $c['waktu_mutasi'];
                     $saldo            = $c['saldo'];
                     $nama_bank        = 'BCA';
-                     
-                    
+
+
                     if ($jenis_mutasi=='CR') {
                         DB::table('balances')->insert([
                             'bank' => $bank,
@@ -41,9 +41,18 @@ class MobilePulsaController extends Controller
 
                         DB::table('transactions')->where('harga_total',$nominal)
                         ->where('status_pembayaran',0)
-                        ->update(['status_pembayaran' => 1]); 
+                        ->where('status_pengisian',0)
+                        ->where('status_transaksi',0)
+                        ->update(['status_pembayaran' => 1]);
 
-                        $ambil = DB::table('transactions')->where('harga_total',$nominal)->where('status_pembayaran',1)->first();
+
+
+                        $ambil = DB::table('transactions')
+                        ->where('harga_total',$nominal)
+                        ->where('status_pembayaran',1)
+                        ->where('status_pengisian',0)
+                        ->where('status_transaksi',0)
+                        ->first();
                         if($ambil){
                             $username   = "085706579632";
                             // $apiKey   = "7475e4a3d01dcc59747"; //ori
@@ -64,7 +73,7 @@ class MobilePulsaController extends Controller
 
                             // $url = "https://api.mobilepulsa.net/v1/legacy/index"; //ori
                             $url = "https://testprepaid.mobilepulsa.net/v1/legacy/index"; //dev
-                            
+
 
                             $ch  = curl_init();
                             curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
@@ -79,9 +88,9 @@ class MobilePulsaController extends Controller
                         }
                     }
                 }
-            } 
+            }
         }
-    
+
     }
 
     public function terima_respon(){
@@ -94,16 +103,21 @@ class MobilePulsaController extends Controller
 
             DB::table('transactions')->where('pulsa_code',$pulsa_code)
             ->where('no_telpon',$no_telpon)
-            ->update([  'status_pengisian' => 2]); 
+            ->where('status_pembayaran',1)
+            ->where('status_pengisian',0)
+            ->where('status_transaksi',0)
+            ->update([  'status_pengisian' => 2,
+                        'status_transaksi' => 2]);
         }else{
 
             DB::table('transactions')->where('pulsa_code',$pulsa_code)
             ->where('no_telpon',$no_telpon)
             ->where('status_pembayaran',1)
+            ->where('status_pengisian',0)
             ->where('status_transaksi',0)
             ->update([  'status_pengisian' => 1,
                         'status_transaksi' => 1 ]);
-        } 
-        
+        }
+
     }
 }
