@@ -16,6 +16,7 @@ class AjaxController extends Controller
         $data = DB::table('price_lists')
         // ->join('products','price_lists.id_product' ,'=', 'products.id')
         // ->join('providers','price_lists.id_provider' ,'=', 'providers.id')
+        ->where('pulsa_price','>',10000)
         ->where($select,$value)->groupBy($dependent)->get();
         //$data = DB::table('price_lists')->where($select,$value)->groupBy($dependent)->get();
 
