@@ -21,7 +21,6 @@ class CreateComplaintsTable extends Migration
             $table->char('pesan');
             $table->integer('status');
             $table->dateTime('waktu_komplain');
-
             $table->timestamps();
         });
 
