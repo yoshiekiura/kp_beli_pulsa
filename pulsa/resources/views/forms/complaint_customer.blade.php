@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <div class="single-about-box">
+            <div class="single-about-box text-left">
                     @if (count($errors) > 0)
                             @foreach ($errors->all() as $error)
                             <p class="login-box-msg mb-3 text-danger">{{ $error }}</p>

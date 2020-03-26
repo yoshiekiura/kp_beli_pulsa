@@ -62,7 +62,7 @@ class AuthController extends Controller
             $request->request->add(['id_user' => $user->id,'tanggal_mendaftar' => Carbon::now(),'status_akun' => '0']);
             $customer = Customer::create($request->all());
             // var_dump($customer); die;
-            Session::flash('gagal','Akun telah Terdaftar! Silahkan Login');
+            Session::flash('Sukses','Akun telah Terdaftar! Silahkan Login');
             return redirect('/login');
         }
     }

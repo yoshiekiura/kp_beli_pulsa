@@ -25,7 +25,7 @@
                         <p class="login-box-msg mb-3 text-danger">{!! session('gagal') !!}</p>
                     @endif
                     @if(Session::has('Sukses'))
-                        <p class="login-box-msg text-success">{!! session('Sukses') !!}</p>
+                        <p class="login-box-msg mb-3 text-success">{!! session('Sukses') !!}</p>
                     @endif
                     @if (count($errors) > 0)
                             @foreach ($errors->all() as $error)

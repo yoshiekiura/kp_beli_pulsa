@@ -110,7 +110,7 @@ class RiwayatController extends Controller
         ->get();
 
         return view('/pages/history_transaction_customer',['data' => $hasil]);
-        
+
 
         // var_dump($idTransaksi); die;
 
@@ -128,11 +128,11 @@ class RiwayatController extends Controller
 
     public function rincian_customerDalam($data){
 
-        $ambilId1 = Crypt::encrypt(Auth()->user()->id);
+        // $ambilId1 = Crypt::encrypt(Auth()->user()->id);
 
         $decrypt = Crypt::decrypt($data);
 
-        $data = DB::table('transactions')
+        $hasil = DB::table('transactions')
         ->join('banks','banks.id_bank','=', 'transactions.id_bank')
         ->join('price_lists','price_lists.pulsa_code','=', 'transactions.pulsa_code')
         ->where('transactions.id',$decrypt)
@@ -140,15 +140,15 @@ class RiwayatController extends Controller
 
         // var_dump($hasil); die;
 
-        $ambilId = DB::table('transactions')
-        ->select('transactions.id')
-        ->where('transactions.id',$decrypt)
-        ->join('banks','transactions.id_bank','=','banks.id_bank')
-        ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
-        ->first();
-        $hasilId = Crypt::encrypt($ambilId);
+        // $ambilId = DB::table('transactions')
+        // ->select('transactions.id')
+        // ->where('transactions.id',$decrypt)
+        // ->join('banks','transactions.id_bank','=','banks.id_bank')
+        // ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
+        // ->first();
+        // $hasilId = Crypt::encrypt($ambilId);
 
-        return view('/pages/rincian_transaction_customer',['hasil' => $data, 'id' => $ambilId1, 'ambilId' => $hasilId]);
+        return view('/pages/detail_transaction_customer',['hasil' => $hasil, 'data' => $data ]);
     }
 
     public function cetak_pdf($ambilId){

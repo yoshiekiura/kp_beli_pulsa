@@ -203,13 +203,13 @@
 	    <!-- YTPlayer JS -->
 	    <script src="/assets/js/jquery.mb.YTPlayer.min.js"></script>
 		<!-- jQuery Easing JS -->
-		<script src="/assets/js/jquery.easing.1.3.js"></script>
+		{{-- <script src="/assets/js/jquery.easing.1.3.js"></script> --}}
 		<!-- Gmap JS -->
 		<script src="/assets/js/gmap3.min.js"></script>
         <!-- Google map api -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnKyOpsNq-vWYtrwayN3BkF3b4k3O9A_A"></script>
+        {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnKyOpsNq-vWYtrwayN3BkF3b4k3O9A_A"></script> --}}
 		<!-- Custom map JS -->
-		<script src="/assets/js/custom-map.js"></script>
+		{{-- <script src="/assets/js/custom-map.js"></script> --}}
 		<!-- WOW JS -->
 		<script src="/assets/js/wow-1.3.0.min.js"></script>
 		<!-- Switcher JS -->
@@ -225,5 +225,6 @@
             $('#table').DataTable();
         } );
         </script>
+
 	</body>
 </html>

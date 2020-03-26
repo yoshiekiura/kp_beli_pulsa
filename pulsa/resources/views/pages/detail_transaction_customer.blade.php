@@ -9,6 +9,11 @@
     <div class="card-header">
         Rincian Transaksi
     </div>
+    @if (count($errors) > 0)
+        @foreach ($errors->all() as $error)
+        <p class="login-box-msg mb-2 mt-4 text-danger">{{ $error }} pada form testimoni anda</p>
+        @endforeach
+    @endif
     <div class="card-body">
         <div class="row">
             <div class="col-md-6">
@@ -153,9 +158,64 @@
                 <a class="dropdown-item" href="{{url('/astagfirullah/')}}?id={{$data}}">Masalah lainnya</a>
             </div>
         </div>
+        @if($hasil->status_transaksi == 1)
+        <script>
+            alert('Pembelian anda telah berhasil. Berikan testimoni untuk pembelian anda');
+        </script>
+        <button type="button" class="btn btn-outline-success btn-lg btn-block mt-2" data-toggle="modal" data-target="#exampleModal">
+            Beri Testimoni
+        </button>
+        {{-- <a href="/cetak_pdf/{{$data}}"><button type="button" class="btn btn-outline-success btn-lg btn-block mt-2"></button></a> --}}
+        @endif
         <a href="/cetak_pdf/{{$data}}"><button type="button" class="btn btn-outline-info btn-lg btn-block mt-2">Print Pembelian</button></a>
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Testimoni</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <form action="/kirim-testimoni-customer" method="post">
+                @csrf
+            <div class="form-group">
+                <label for="tlp">No. Telepon</label>
+                    <input type="number" class="form-control" name="no_telpon" id="tlp" value="{{$hasil->no_telpon}}" aria-describedby="tlp" min="0" maxlength="13" required readonly>
+                <small id="tlp" class="form-text text-muted">Nomor telpon anda akan disamarkan</small>
+            </div>
 
+            <div class="form-group">
+                <label for="komentar">Komentar</label>
+                <textarea type="text" class="form-control" name="komentar" id="komentar" placeholder="Berikan komentar anda" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="vol">Beri Rating</label>
+                <input type="range" class="form-control" name="rating" id="vol" min="1" max="5" value="1" oninput="nilai(value)" required>
+                <small class="form-text text-muted">Anda memberikan rating <output for="vol" id="volume">1</output></small>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+        {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button> --}}
+        <button type="submit" class="btn btn-success">Simpan</button>
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+<script>
+    function nilai(vol) {
+        document.querySelector('#volume').value = vol;
+    }
+</script>
 @endsection

@@ -279,45 +279,19 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
                 <div class="testimonial-wrap">
+                    @foreach ($testimoni as $t)
                     <div class="single-testimonial-box">
+                        <p>{{$t->buat_komentar}}</p>
                         <div class="author-img">
                             <img src="assets/img/user1.png" alt="author" />
                         </div>
-                        <h5>Mary Balogh</h5>
-                        <p>Wadidaw, Pulsanya cepet banget masuknya. Good</p>
-                        {{-- <div class="author-rating">
-                            <i class="icofont icofont-star"></i>
-                            <i class="icofont icofont-star"></i>
-                            <i class="icofont icofont-star"></i>
-                            <i class="icofont icofont-star"></i>
-                            <i class="icofont icofont-star"></i>
-                        </div> --}}
-                    </div>
-                    <div class="single-testimonial-box">
-                        <div class="author-img">
-                            <img src="assets/img/user1.png" alt="author" />
+                        <h5>{{$t->no_telpon}}</h5>
+                        <p><b>{{ $t->komentar }}</b></p>
+                        <div class="author-rating">
+                            {{ $t->rating }}<i class="icofont icofont-star"></i>
                         </div>
-                        <h5>Upik Balogh</h5>
-                        <p>Pengen beli pulsa tapi gaada duit hehehe</p>
-                        {{-- <div class="author-rating">
-                            <i class="icofont icofont-star"></i>
-
-                        </div> --}}
                     </div>
-                    <div class="single-testimonial-box">
-                        <div class="author-img">
-                            <img src="assets/img/user1.png" alt="author" />
-                        </div>
-                        <h5>Samsudin</h5>
-                        <p>Jadi ketagihan beli data disini</p>
-                        {{-- <div class="author-rating">
-                            <i class="icofont icofont-star"></i>
-                            <i class="icofont icofont-star"></i>
-                            <i class="icofont icofont-star"></i>
-                            <i class="icofont icofont-star"></i>
-                            <i class="icofont icofont-star"></i>
-                        </div> --}}
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

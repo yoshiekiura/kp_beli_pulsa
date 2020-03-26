@@ -4,11 +4,16 @@
     @section('content')
 
     @if (Session::has('login'))
-
     <div class="alert alert-success alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <h5><i class="icon fas fa-check"></i> Selamat Bergabung! <b>{{ Auth()->user()->nama}}</b></h5>
-        {!! session('alert') !!}
+        <h5><i class="icon fas fa-check"></i> Selamat Bergabung! <b>{{ Auth()->user()->email}}</b></h5>
+    </div>
+    @endif
+
+    @if (Session::has('sukses'))
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h5>{!! session('sukses') !!}</h5>
     </div>
     @endif
 
@@ -302,7 +307,7 @@
                 success:function(data){
                     //console.log(data);
 
-                    $('.hr1').val(data.pulsa_price);
+                    $('.hr1').val("Rp. " + data.pulsa_price);
                     $('#hr1').val(data.pulsa_price);
                     $('#masaaktif1').val("+ " +data.masaaktif + " Hari");
                     $('#kode1').val(data.pulsa_code);
@@ -326,7 +331,7 @@
                 success:function(data){
                     //console.log(data);
                     // console.log($('.hr2').html(data.pulsa_price));
-                    $('.hr2').val(data.pulsa_price);
+                    $('.hr2').val("Rp. " + data.pulsa_price);
                     $('#hr2').val(data.pulsa_price);
                     $('#kode2').val(data.pulsa_code);
                     $('#masaaktif2').val(data.masaaktif + " Hari");

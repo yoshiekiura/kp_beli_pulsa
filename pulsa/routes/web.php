@@ -32,6 +32,9 @@ Route::get('/', function () {
     // var_dump($produk_data);die;
 
     $bank = DB::table('banks')->get();
+    $testimoni = DB::table('testimonials')->get();
+
+    // var_dump($testimoni);die;
 
     $semua = DB::table('price_lists')
     ->where('pulsa_type', 'data')
@@ -40,7 +43,7 @@ Route::get('/', function () {
 
     $data = DB::table('price_lists')->where('pulsa_type', 'data')->get();
     $pulsa = DB::table('price_lists')->where('pulsa_type', 'pulsa')->get();
-    return view('/pages/index',['semua'=>$semua,'data'=>$data,'pulsa'=>$pulsa,'produk_pulsa' => $produk_pulsa,'produk_data' => $produk_data,'bank' => $bank]);
+    return view('/pages/index',['semua'=>$semua,'data'=>$data,'pulsa'=>$pulsa,'produk_pulsa' => $produk_pulsa,'produk_data' => $produk_data,'bank' => $bank,'testimoni' => $testimoni]);
 });
 Route::post('/postBeli','BeliController@beli');
 
@@ -72,6 +75,8 @@ Route::get('/Komplain/{pesan?}{id?}',function(){
 });
 Route::post('Komplain/Kirim', 'BeliController@komplain');
 
+//post testi
+Route::post('/kirim-testimoni', 'TestimoniController@testimoni');
 
 
 //auth
@@ -115,17 +120,17 @@ Route::get('/cetak_pdf/{rahasia}', 'RiwayatController@cetak_pdf');
 
 //pelanggan
 Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
-// Route::group(['middleware' => 'auth'], function () {
-    Route::get('/beli', function () {
+    // Route::group(['middleware' => 'auth'], function () {
+        Route::get('/beli', function () {
 
-        $produk_pulsa = DB::table('price_lists')
-        ->where('pulsa_type','pulsa')
-        ->where('status','active')
-        ->groupBy('pulsa_op')
-        ->get();
-        $produk_data = DB::table('price_lists')
-        ->where('pulsa_type','data')
-        ->where('status','active')
+            $produk_pulsa = DB::table('price_lists')
+            ->where('pulsa_type','pulsa')
+            ->where('status','active')
+            ->groupBy('pulsa_op')
+            ->get();
+            $produk_data = DB::table('price_lists')
+            ->where('pulsa_type','data')
+            ->where('status','active')
         ->groupBy('pulsa_op')
         ->get();
         $bank = DB::table('banks')->get();
@@ -145,6 +150,7 @@ Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
     Route::get('/rincian-customer/{id}', 'RiwayatController@rincian_customerDalam');
 
 
+    Route::post('/kirim-testimoni-customer', 'TestimoniController@testimoniCustomer');
 
 
     Route::get('/profil', 'ProfilController@tampilProfil');

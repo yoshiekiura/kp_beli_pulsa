@@ -15,18 +15,11 @@ class CreateTestimonialsTable extends Migration
     {
         Schema::create('testimonials', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('id_user')->unsigned();
+            $table->string('no_telpon');
             $table->string('komentar');
+            $table->integer('rating');
             $table->dateTime('buat_komentar');
             $table->timestamps();
-        });
-
-        Schema::table('testimonials', function (Blueprint $table) {
-            // $table->foreign('id_harga')
-            // ->references('id')->on('price_lists')
-            // ->onDelete('cascade');
-            $table->foreign('id_user')->references('id')->on('users')
-            ->onDelete('cascade');
         });
     }
 
