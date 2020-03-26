@@ -36,7 +36,7 @@ class AdminController extends Controller
         (float)$rata2rating = null;
 
         if((float)$ditambah + (float)$banyaktestimoni == 0 ){
-            // (float)$rata2rating = xxx;
+            (float)$rata2rating = 0.0;
         }else{
             (float)$rata2rating = (float)$ditambah / (float)$banyaktestimoni;
         }
