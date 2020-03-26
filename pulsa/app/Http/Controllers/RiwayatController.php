@@ -171,10 +171,6 @@ class RiwayatController extends Controller
         ->orderBy('id','DESC')
         ->get();
 
-
-        return view('/pages/history_transaction_customer',['data' => $hasil]);
-
-
         $hasil = DB::table('transactions')
         ->where('id_user',$ambilId)
         ->where('status_pembayaran',0)
@@ -209,7 +205,6 @@ class RiwayatController extends Controller
         }
 
     }
-
 
     public function tampilRiwayatUser(){
 

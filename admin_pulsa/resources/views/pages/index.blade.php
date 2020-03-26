@@ -103,7 +103,7 @@
                     </p>
 
                     <div class="progress-group">
-                      Rating 5
+                      Bintang 5
                         <span class="float-right"><b>{{$rating5}}</b></span>
                       <div class="progress progress-sm">
                         <div class="progress-bar bg-primary" style="width: {{$rating5}}px"></div>
@@ -112,7 +112,7 @@
                     <!-- /.progress-group -->
 
                     <div class="progress-group">
-                      Rating 4
+                      Bintang 4
                       <span class="float-right"><b>{{$rating4}}</b></span>
                       <div class="progress progress-sm">
                         <div class="progress-bar bg-danger" style="width: {{$rating4}}px"></div>
@@ -121,7 +121,7 @@
 
                     <!-- /.progress-group -->
                     <div class="progress-group">
-                      <span class="progress-text">Rating 3</span>
+                      <span class="progress-text">Bintang 3</span>
                       <span class="float-right"><b>{{$rating3}}</b></span>
                       <div class="progress progress-sm">
                         <div class="progress-bar bg-success" style="width: {{$rating3}}px"></div>
@@ -130,7 +130,7 @@
 
                     <!-- /.progress-group -->
                     <div class="progress-group">
-                        Rating 2
+                        Bintang 2
                       <span class="float-right"><b>{{$rating2}}</b></span>
                       <div class="progress progress-sm">
                         <div class="progress-bar bg-warning" style="width: {{$rating2}}px"></div>
@@ -139,7 +139,7 @@
 
                     <!-- /.progress-group -->
                     <div class="progress-group">
-                        Rating 1
+                        Bintang 1
                       <span class="float-right"><b>{{$rating1}}</b></span>
                       <div class="progress progress-sm">
                         <div class="progress-bar bg-info" style="width: {{$rating1}}px"></div>

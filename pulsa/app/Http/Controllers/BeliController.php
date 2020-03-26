@@ -179,7 +179,7 @@ class BeliController extends Controller
                 ->where('no_telpon',$telp)
                 ->where('status_pembayaran',0)
                 ->where('status_pengisian',0)
-                ->where('status_transaksi',0)            
+                ->where('status_transaksi',0)
                 ->update([
                     'status_pembayaran' => 2,
                     'status_pengisian' => 2,
@@ -193,7 +193,7 @@ class BeliController extends Controller
                     ->where('status_pengisian', 0)->count();
                     // var_dump($cek);die;
                 }while($cek != 0);
-    
+
                 // $dekripsi = base64_decode($kode_unik);
                 $harga_total = $harga + $kode_unik;
                 $tanggal_beli = Carbon::now();
@@ -213,9 +213,9 @@ class BeliController extends Controller
                 'tanggal_beli' => $tanggal_beli,
                 'expired' => $expired
                 ])->id;
-        
+
                 $enkripsi = Crypt::encrypt($kirim);
-        
+
                 return redirect('/rincian-transaksi-customer/'.$enkripsi);
             }
 
@@ -229,7 +229,7 @@ class BeliController extends Controller
                     ->where('status_pengisian', 0)->count();
                     // var_dump($cek);die;
                 }while($cek != 0);
-        
+
                 // $dekripsi = base64_decode($kode_unik);
                 $harga_total = $harga + $kode_unik;
                 $tanggal_beli = Carbon::now();
@@ -249,9 +249,9 @@ class BeliController extends Controller
                 'tanggal_beli' => $tanggal_beli,
                 'expired' => $expired
                 ])->id;
-        
+
                 $enkripsi = Crypt::encrypt($kirim);
-        
+
                 return redirect('/rincian-transaksi-customer/'.$enkripsi);
             }
     }
