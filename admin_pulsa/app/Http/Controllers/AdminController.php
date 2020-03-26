@@ -12,7 +12,34 @@ class AdminController extends Controller
         $bank = DB::table('banks')->count();
         $customer = DB::table('users')->where('role','customer')->count();
         $harga = DB::table('price_lists')->count();
-        return view('pages/index',['bank'=>$bank,'customer'=>$customer,'harga'=>$harga]);
+
+        $rating5 = DB::table('testimonials')->where('rating',5)->count();
+        $rating4 = DB::table('testimonials')->where('rating',4)->count();
+        $rating3 = DB::table('testimonials')->where('rating',3)->count();
+        $rating2 = DB::table('testimonials')->where('rating',2)->count();
+        $rating1 = DB::table('testimonials')->where('rating',1)->count();
+
+        $pendapatan = DB::table('transactions')->where('status_pembayaran',1)->where('status_pengisian',1)->where('status_transaksi',1)->sum('harga_total');
+
+        $pembeli = DB::table('transactions')->where('status_pembayaran',1)->where('status_pengisian',1)->where('status_transaksi',1)->count();
+
+        $r5 = $rating5 * 5;
+        $r4 = $rating4 * 4;
+        $r3 = $rating3 * 3;
+        $r2 = $rating2 * 2;
+        $r1 = $rating1 * 1;
+
+        $ditambah = $r1 + $r2 + $r3 + $r4 + $r5;
+
+        $banyaktestimoni = DB::table('testimonials')->count();
+
+        (float)$rata2rating = (float)$ditambah / (float)$banyaktestimoni;
+        // var_dump($rata2rating);die;
+
+
+
+
+        return view('pages/index',['bank'=>$bank,'customer'=>$customer,'harga'=>$harga,'rating5' => $rating5,'rating4'=>$rating4,'rating3'=>$rating3,'rating2'=>$rating2,'rating1'=>$rating1,'pendapatan'=>$pendapatan,'pembeli'=>$pembeli,'rataratarating'=>$rata2rating]);
     }
 
     public function transaksiPembelian(){

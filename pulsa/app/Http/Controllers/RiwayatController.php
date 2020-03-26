@@ -50,20 +50,20 @@ class RiwayatController extends Controller
                 ->where('no_telpon',$cari)
                 ->where('status_pembayaran',0)
                 ->where('status_pengisian',0)
-                ->where('status_transaksi',0)            
+                ->where('status_transaksi',0)
                 ->update([
                     'status_pembayaran' => 2,
                     'status_pengisian' => 2,
                     'status_transaksi' => 2,
                 ]);
-        
+
                 return redirect('/cek_transaksi/nomor-telp/'.$hasil);
             }
         }else{
 
             return redirect('/cek_transaksi/nomor-telp/'.$hasil);
         }
-        
+
     }
 
     public function hasilRiwayatLuar($enkripsi){
@@ -108,7 +108,7 @@ class RiwayatController extends Controller
 
         // $sekarang = Carbon::now()->toDateTimeString();
         // // var_dump($sekarang); die;
-        
+
         // $cek = DB::table('transactions')
         // ->select('transactions.expired')
         // ->join('banks','banks.id_bank','=', 'transactions.id_bank')
@@ -143,7 +143,7 @@ class RiwayatController extends Controller
 
     public function rahasia($data){
         $encrip = Crypt::decrypt($data);
-    
+
         $hasil = DB::table('transactions')
         ->join('banks','banks.id_bank','=', 'transactions.id_bank')
         ->join('price_lists','price_lists.pulsa_code','=', 'transactions.pulsa_code')
@@ -167,7 +167,7 @@ class RiwayatController extends Controller
         ->get();
 
         return view('/pages/history_transaction_customer',['data' => $hasil]);
-        
+
 
         // var_dump($idTransaksi); die;
 
