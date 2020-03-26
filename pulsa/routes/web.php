@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Crypt;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//ASTAGA
 // pelanggan
 Route::get('/', function () {
     $produk_pulsa = DB::table('price_lists')
