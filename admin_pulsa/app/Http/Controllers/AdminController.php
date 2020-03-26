@@ -33,7 +33,15 @@ class AdminController extends Controller
 
         $banyaktestimoni = DB::table('testimonials')->count();
 
-        (float)$rata2rating = (float)$ditambah / (float)$banyaktestimoni;
+        (float)$rata2rating = null;
+
+        if((float)$ditambah + (float)$banyaktestimoni == 0 ){
+            // (float)$rata2rating = xxx;
+        }else{
+            (float)$rata2rating = (float)$ditambah / (float)$banyaktestimoni;
+        }
+
+        
         // var_dump($rata2rating);die;
 
 
@@ -44,10 +52,10 @@ class AdminController extends Controller
 
     public function transaksiPembelian(){
         $hasil = DB::table('transactions')
-        ->join('users','users.id','=', 'transactions.id_user')
+        // ->join('users','users.id','=', 'transactions.id_user')
         ->join('price_lists','price_lists.pulsa_code','=', 'transactions.pulsa_code')
         ->join('banks','banks.id_bank','=', 'transactions.id_bank')
-        ->orderBy('transactions.id','ASC')
+        ->orderBy('transactions.id','DESC')
         ->get();
 
         return view('/pages/purchase',['data' => $hasil]);
