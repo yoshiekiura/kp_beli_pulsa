@@ -158,38 +158,102 @@ class BeliController extends Controller
         $telp  =    $request->  input('nomor');
         $harga =    $request->  input('harga');
 
-        do{
-            $kode_unik = rand(100,250);
-            $cek = DB::table('transactions')
-            ->where('kode_unik',$kode_unik)
-            ->where('status_pembayaran',  0)
-            ->where('status_pengisian', 0)->count();
-        }while($cek != 0);
+        $sekarang = Carbon::now()->toDateTimeString();
 
-        $harga_total = $harga + $kode_unik;
-        $tanggal_beli = Carbon::now();
-        $expired = date('Y-m-d H:i:s',strtotime('+3 hour',strtotime($tanggal_beli)));
-        $id_user = Auth()->user()->id;
+        $noTelp_cek = DB::table('transactions')
+        ->where('no_telpon',$telp)
+        ->where('status_pembayaran',0)
+        ->where('status_pengisian',0)
+        ->where('status_transaksi',0)
+        ->get();
 
-        $kirim = Transaction::create([
-        'id_user' => $id_user,
-        'pulsa_code' => $kode,
-        'id_bank' => $bank,
-        'no_telpon' => $telp,
-        'kode_unik' => $kode_unik,
-        'harga_total' => $harga_total,
-        'status_pembayaran' => 0,
-        'status_pengisian' => 0,
-        'status_transaksi' => 0,
-        'tanggal_beli' => $tanggal_beli,
-        'expired' => $expired
-        ])->id;
+        // var_dump($noTelp_cek[0]->expired);
+        // var_dump($sekarang);
+        // die;
 
-        // $enkripsi = Crypt::encrypt($kirim);
-        // var_dump()
-        $enkripsi = Crypt::encrypt($kirim);
+        if($noTelp_cek->count() > 0 ){
+            if($noTelp_cek[0]->status_pembayaran == 0 AND $sekarang <= $noTelp_cek[0]->expired ){
+                return redirect('/beli');
+            }elseif($noTelp_cek[0]->status_pembayaran == 0 AND $sekarang >= $noTelp_cek[0]->expired){
+                DB::table('transactions')
+                ->where('no_telpon',$telp)
+                ->where('status_pembayaran',0)
+                ->where('status_pengisian',0)
+                ->where('status_transaksi',0)            
+                ->update([
+                    'status_pembayaran' => 2,
+                    'status_pengisian' => 2,
+                    'status_transaksi' => 2,
+                ]);
+                do{
+                    $kode_unik = rand(100,250);
+                    $cek = DB::table('transactions')
+                    ->where('kode_unik',$kode_unik)
+                    ->where('status_pembayaran', 0)
+                    ->where('status_pengisian', 0)->count();
+                    // var_dump($cek);die;
+                }while($cek != 0);
+    
+                // $dekripsi = base64_decode($kode_unik);
+                $harga_total = $harga + $kode_unik;
+                $tanggal_beli = Carbon::now();
+                $expired = date('Y-m-d H:i:s',strtotime('+3 hour',strtotime($tanggal_beli)));
+                $id_user = Auth()->user()->id;
+                // var_dump($kode,$bank,$telp,$harga,$kode_unik,$harga_total,$tanggal_beli,$expired);
+                $kirim = Transaction::create([
+                'id_user' => $id_user,
+                'pulsa_code' => $kode,
+                'id_bank' => $bank,
+                'no_telpon' => $telp,
+                'kode_unik' => $kode_unik,
+                'harga_total' => $harga_total,
+                'status_pembayaran' => 0,
+                'status_pengisian' => 0,
+                'status_transaksi' => 0,
+                'tanggal_beli' => $tanggal_beli,
+                'expired' => $expired
+                ])->id;
+        
+                $enkripsi = Crypt::encrypt($kirim);
+        
+                return redirect('/rincian-transaksi-customer/'.$enkripsi);
+            }
 
-        return redirect('/rincian-transaksi-customer/'.$enkripsi);
+        }else{
+
+                do{
+                    $kode_unik = rand(100,250);
+                    $cek = DB::table('transactions')
+                    ->where('kode_unik',$kode_unik)
+                    ->where('status_pembayaran', 0)
+                    ->where('status_pengisian', 0)->count();
+                    // var_dump($cek);die;
+                }while($cek != 0);
+        
+                // $dekripsi = base64_decode($kode_unik);
+                $harga_total = $harga + $kode_unik;
+                $tanggal_beli = Carbon::now();
+                $expired = date('Y-m-d H:i:s',strtotime('+3 hour',strtotime($tanggal_beli)));
+                $id_user = Auth()->user()->id;
+                // var_dump($kode,$bank,$telp,$harga,$kode_unik,$harga_total,$tanggal_beli,$expired);
+                $kirim = Transaction::create([
+                'id_user' => $id_user,
+                'pulsa_code' => $kode,
+                'id_bank' => $bank,
+                'no_telpon' => $telp,
+                'kode_unik' => $kode_unik,
+                'harga_total' => $harga_total,
+                'status_pembayaran' => 0,
+                'status_pengisian' => 0,
+                'status_transaksi' => 0,
+                'tanggal_beli' => $tanggal_beli,
+                'expired' => $expired
+                ])->id;
+        
+                $enkripsi = Crypt::encrypt($kirim);
+        
+                return redirect('/rincian-transaksi-customer/'.$enkripsi);
+            }
     }
 
     public function tampilBeliCustomer($enkripsi){

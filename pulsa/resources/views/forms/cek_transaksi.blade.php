@@ -55,9 +55,9 @@
                                 @if($d->status_pembayaran == 0)
                                 <td>Belum Bayar.</td>
                                 @elseif($d->status_pembayaran == 1)
-                                <td>Pending.</td>
-                                @elseif($d->status_pembayaran == 2)
                                 <td>Selesai.</td>
+                                @elseif($d->status_pembayaran == 2)
+                                <td>Gagal.</td>
                                 @endif
                                 <td><a href="/rincian/transaksi/{{base64_encode($d->id)}}"><button class="badge badge-primary">Lihat</button></a></td>
                             </tr>
