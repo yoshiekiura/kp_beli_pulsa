@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
+use Carbon\Carbon;
+
 use PDF;
 
 class RiwayatController extends Controller
@@ -27,9 +29,41 @@ class RiwayatController extends Controller
     public function no_rahasia(Request $request){
 
         $cari = $request->input('nomor');
+        // var_dump($cari); die;
         $hasil = Crypt::encrypt($cari);
 
-        return redirect('/cek_transaksi/nomor-telp/'.$hasil);
+        $sekarang = Carbon::now()->toDateTimeString();
+
+        $noTelp_cek = DB::table('transactions')
+        ->where('no_telpon',$cari)
+        ->where('status_pembayaran',0)
+        ->where('status_pengisian',0)
+        ->where('status_transaksi',0)
+        ->orderBy('id','DESC')
+        ->get();
+
+        if($noTelp_cek->count() > 0 ){
+
+            if($noTelp_cek[0]->status_pembayaran == 0 AND $sekarang >= $noTelp_cek[0]->expired){
+
+                DB::table('transactions')
+                ->where('no_telpon',$cari)
+                ->where('status_pembayaran',0)
+                ->where('status_pengisian',0)
+                ->where('status_transaksi',0)            
+                ->update([
+                    'status_pembayaran' => 2,
+                    'status_pengisian' => 2,
+                    'status_transaksi' => 2,
+                ]);
+        
+                return redirect('/cek_transaksi/nomor-telp/'.$hasil);
+            }
+        }else{
+
+            return redirect('/cek_transaksi/nomor-telp/'.$hasil);
+        }
+        
     }
 
     public function hasilRiwayatLuar($enkripsi){
@@ -56,9 +90,9 @@ class RiwayatController extends Controller
         if($hasil->count()>0){
             // $hasilid = Crypt::encrypt($id[0]->id);
             // var_dump($id[0]->id); die;
-            return view('forms/cek_transaksi',['data' => $hasil]);
+            return view('/forms/cek_transaksi',['data' => $hasil]);
         }else{
-            return view('forms/cek_transaksi',['data' => $hasil]);
+            return view('/forms/cek_transaksi',['data' => $hasil]);
         }
 
         // var_dump($hasilid); die;
@@ -68,27 +102,48 @@ class RiwayatController extends Controller
     public function hasilRiwayat($id){
 
         $var = base64_decode($id);
-        $data = Crypt::encrypt($var);
-        // var_dump($var);die;
+        // var_dump($var); die;
 
-        // $hasil = DB::table('transactions')
-        // // ->select('transactions.id AS id')
-        // // ->join('users','users.id','=', 'transactions.id_user')
+        $data = Crypt::encrypt($var);
+
+        // $sekarang = Carbon::now()->toDateTimeString();
+        // // var_dump($sekarang); die;
+        
+        // $cek = DB::table('transactions')
+        // ->select('transactions.expired')
         // ->join('banks','banks.id_bank','=', 'transactions.id_bank')
         // ->join('price_lists','price_lists.pulsa_code','=', 'transactions.pulsa_code')
-        // ->where('transactions.id',$id)
+        // ->where('transactions.id',$var)
         // ->first();
 
+        // // var_dump($cek->expired); die;
+
+        // if($sekarang >= $cek->expired){
+
+        //     DB::table('transactions')
+        //     ->where('transactions.id',$var)
+        //     // var_dump($anjay); die;
+        //     ->update([
+        //         'status_pembayaran' => 2
+        //     ]);
+
+        //     return redirect('/rincian-luar/'.$data);
+
+        // }else{
+
+        //     return redirect('/rincian-luar/'.$data);
+
+        // }
+
         return redirect('/rincian-luar/'.$data);
-        // var_dump($hasil); die;
-        // var_dump($hasil); die;
+        // // var_dump($hasil); die;
+        // // var_dump($hasil); die;
 
     }
 
     public function rahasia($data){
         $encrip = Crypt::decrypt($data);
-        // var_dump($encrip); die;
-
+    
         $hasil = DB::table('transactions')
         ->join('banks','banks.id_bank','=', 'transactions.id_bank')
         ->join('price_lists','price_lists.pulsa_code','=', 'transactions.pulsa_code')
@@ -96,6 +151,8 @@ class RiwayatController extends Controller
         ->first();
 
         return view('/pages/detail_transaction',['hasil' => $hasil, 'data' => $data]);
+
+
     }
 
 
@@ -110,7 +167,7 @@ class RiwayatController extends Controller
         ->get();
 
         return view('/pages/history_transaction_customer',['data' => $hasil]);
-
+        
 
         // var_dump($idTransaksi); die;
 
