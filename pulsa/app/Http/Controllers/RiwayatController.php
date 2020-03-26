@@ -58,6 +58,8 @@ class RiwayatController extends Controller
                 ]);
         
                 return redirect('/cek_transaksi/nomor-telp/'.$hasil);
+            }else{
+                return redirect('/cek_transaksi/nomor-telp/'.$hasil);
             }
         }else{
 
@@ -75,6 +77,7 @@ class RiwayatController extends Controller
         ->join('price_lists','price_lists.pulsa_code','=', 'transactions.pulsa_code')
         ->join('banks','banks.id_bank','=', 'transactions.id_bank')
         ->where('transactions.no_telpon',$decrypt)
+        ->orderBy('id','DESC')
         ->get();
 
         // var_dump($hasil); die;
@@ -160,18 +163,59 @@ class RiwayatController extends Controller
     public function tampilRiwayat(){
 
         $ambilId = Auth()->user()->id;
-        // var_dump($ambilId); die;
-        $hasil = DB::table('transactions')->where('transactions.id_user',$ambilId)
-        // ->join('banks','transactions.id_bank','=','banks.id')
-        ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
+
+        $sekarang = Carbon::now()->toDateTimeString();
+
+        $hasilsemua = DB::table('transactions')
+        ->where('id_user',$ambilId)
+        ->orderBy('id','DESC')
         ->get();
 
-        return view('/pages/history_transaction_customer',['data' => $hasil]);
-        
+        $hasil = DB::table('transactions')
+        ->where('id_user',$ambilId)
+        ->where('status_pembayaran',0)
+        ->where('status_pengisian',0)
+        ->where('status_transaksi',0)
+        ->orderBy('id','DESC')
+        ->get();
 
-        // var_dump($idTransaksi); die;
+        // var_dump($hasil[0]->expired); die;
+        if($hasil->count() > 0){
 
+            if($hasil[0]->status_pembayaran == 0 AND $sekarang >= $hasil[0]->expired){
 
+                DB::table('transactions')
+                ->where('id_user',$ambilId)
+                ->where('status_pembayaran',0)
+                ->where('status_pengisian',0)
+                ->where('status_transaksi',0)            
+                ->update([
+                    'status_pembayaran' => 2,
+                    'status_pengisian' => 2,
+                    'status_transaksi' => 2,
+                ]);
+
+                // return view('/pages/history_transaction_customer',['data' => $hasilsemua]);
+                return redirect('/riwayat-transaksi-user/'.$ambilId);
+            }else{
+                return redirect('/riwayat-transaksi-user/'.$ambilId);
+            }
+        }else{
+            return redirect('/riwayat-transaksi-user/'.$ambilId);
+        }
+
+    }
+
+    public function tampilRiwayatUser(){
+
+        $ambilId = Auth()->user()->id;
+
+        $hasilsemua = DB::table('transactions')
+        ->where('id_user',$ambilId)
+        ->orderBy('id','DESC')
+        ->get();
+
+        return view('/pages/history_transaction_customer',['data' => $hasilsemua]);
     }
 
     public function tampilRincian_Customer($id){

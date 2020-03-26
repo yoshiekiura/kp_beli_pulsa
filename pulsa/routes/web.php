@@ -146,6 +146,7 @@ Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
     Route::get('/rincian-transaksi-customer/{rahasia}', 'BeliController@tampilBeliCustomer');
 
     Route::get('/riwayat-transaksi/{id}', 'RiwayatController@tampilRiwayat');
+    Route::get('/riwayat-transaksi-user/{id}', 'RiwayatController@tampilRiwayatUser');
     Route::get('/rincian_transaction_customer/{id}', 'RiwayatController@tampilRincian_Customer');
     Route::get('/rincian-customer/{id}', 'RiwayatController@rincian_customerDalam');
 
