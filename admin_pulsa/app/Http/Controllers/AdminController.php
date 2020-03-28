@@ -41,7 +41,7 @@ class AdminController extends Controller
             (float)$rata2rating = (float)$ditambah / (float)$banyaktestimoni;
         }
 
-        
+
         // var_dump($rata2rating);die;
 
 
@@ -182,6 +182,46 @@ class AdminController extends Controller
                 return redirect('/dashboard');
             }
         }
+    }
+
+    public function tampilLaporan(){
+        $cari = DB::table('transactions')
+        ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
+        ->where('status_pembayaran',1)
+        ->where('status_pengisian',1)
+        ->where('status_transaksi',1)->get();
+
+        $total = DB::table('transactions')
+        ->where('status_pembayaran',1)
+        ->where('status_pengisian',1)
+        ->where('status_transaksi',1)->sum('harga_total');
+
+        $tampil = "Keseluruhan";
+        return view('/pages/report',['cari' => $cari,'total' => $total,'tampil' => $tampil]);
+    }
+
+    public function getLaporan(Request $request){
+        $bulan = $request->input('bulan');
+        $tahun = $request->input('tahun');
+
+        $cari = DB::table('transactions')
+        ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
+        ->whereMonth('tanggal_beli',$bulan)
+        ->whereYear('tanggal_beli',$tahun)
+        ->where('status_pembayaran',1)
+        ->where('status_pengisian',1)
+        ->where('status_transaksi',1)
+        ->get();
+
+        $total = DB::table('transactions')
+        ->whereMonth('tanggal_beli',$bulan)
+        ->whereYear('tanggal_beli',$tahun)
+        ->where('status_pembayaran',1)
+        ->where('status_pengisian',1)
+        ->where('status_transaksi',1)->sum('harga_total');
+
+        $tampil = "Bulan ".$bulan. " Tahun ".$tahun;
+        return view('/pages/report',['cari' => $cari,'total' => $total,'tampil' => $tampil]);
     }
 
 }

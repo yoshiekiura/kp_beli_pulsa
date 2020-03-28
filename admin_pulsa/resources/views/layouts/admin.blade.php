@@ -31,6 +31,8 @@
     <!-- DataTables -->
     <link rel="stylesheet" href="/assets/lte/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
 
+
+
 </head>
 
 <body class="hold-transition sidebar-mini sidebar-collapse">
@@ -86,9 +88,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/laporan-bulanan" class="nav-link">
                         <i class="fas fa-book"></i>
-                        <p>Cetak Laporan</p>
+                        <p>Laporan Bulanan</p>
                     </a>
                 </li>
                 <li class="nav-header">Transaksi</li>
@@ -147,8 +149,8 @@
         <div class="float-right d-none d-sm-block">
             <b>CV. Mitra Informatika</b>
         </div>
-        <strong>Copyright &copy; 2014-2019 <b>AdminLTE.io</b>.</strong> All rights reserved.
-        {{-- <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights --}}
+        {{-- <strong>Copyright &copy; 2014-2019 <b>AdminLTE.io</b>.</strong> All rights reserved. --}}
+        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
     </footer>
     </div>
     <!-- Control Sidebar -->
@@ -160,8 +162,8 @@
     <!-- ./wrapper -->
 
     <!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
-<script src="/assets/lte/plugins/jquery/jquery.min.js"></script>
+ <!-- jQuery -->
+ <script src="/assets/lte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap -->
 <script src="/assets/lte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- overlayScrollbars -->

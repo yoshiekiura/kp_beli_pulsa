@@ -14,9 +14,6 @@
             <li class="nav-item">
                 <a class="nav-link" id="pwd-tab" data-toggle="pill" href="#pills-pwd" role="tab" aria-controls="pills-pwd" aria-selected="false">Edit Password</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id="pin-tab" data-toggle="pill" href="#pills-pin" role="tab" aria-controls="pills-pin" aria-selected="false">Edit Pin</a>
-            </li>
         </ul>
     </div>
     <div class="card-body">
@@ -97,10 +94,6 @@
                     </form>
                     </div>
 
-
-                    <div class="tab-pane fade" id="pills-pin" role="tabpanel" aria-labelledby="pin-tab">
-                        <-- Maintenance -->
-                    </div>
                 </div>
             </div>
         </div>

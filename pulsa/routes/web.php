@@ -44,7 +44,34 @@ Route::get('/', function () {
 
     $data = DB::table('price_lists')->where('pulsa_type', 'data')->get();
     $pulsa = DB::table('price_lists')->where('pulsa_type', 'pulsa')->get();
-    return view('/pages/index',['semua'=>$semua,'data'=>$data,'pulsa'=>$pulsa,'produk_pulsa' => $produk_pulsa,'produk_data' => $produk_data,'bank' => $bank,'testimoni' => $testimoni]);
+
+    //untuk perhitungan rating
+        $rating5 = DB::table('testimonials')->where('rating',5)->count();
+        $rating4 = DB::table('testimonials')->where('rating',4)->count();
+        $rating3 = DB::table('testimonials')->where('rating',3)->count();
+        $rating2 = DB::table('testimonials')->where('rating',2)->count();
+        $rating1 = DB::table('testimonials')->where('rating',1)->count();
+
+        $r5 = $rating5 * 5;
+        $r4 = $rating4 * 4;
+        $r3 = $rating3 * 3;
+        $r2 = $rating2 * 2;
+        $r1 = $rating1 * 1;
+
+        $ditambah = $r1 + $r2 + $r3 + $r4 + $r5;
+
+        $banyaktestimoni = DB::table('testimonials')->count();
+
+        (float)$rata2rating = null;
+
+        if((float)$ditambah + (float)$banyaktestimoni == 0 ){
+            (float)$rata2rating = 0.0;
+        }else{
+            (float)$rata2rating = (float)$ditambah / (float)$banyaktestimoni;
+        }
+
+
+    return view('/pages/index',['semua'=>$semua,'data'=>$data,'pulsa'=>$pulsa,'produk_pulsa' => $produk_pulsa,'produk_data' => $produk_data,'bank' => $bank,'testimoni' => $testimoni,'rataratarating'=>$rata2rating]);
 });
 Route::post('/postBeli','BeliController@beli');
 

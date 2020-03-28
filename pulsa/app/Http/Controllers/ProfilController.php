@@ -15,11 +15,20 @@ use Illuminate\Support\Facades\DB;
 class ProfilController extends Controller
 {
     public function tampilProfil(){
-        $ambilId = Crypt::encrypt(Auth()->user()->id);
+        // $ambilId = Crypt::encrypt(Auth()->user()->id);
+
+        $total = DB::table('transactions')
+        ->where('id_user', Auth()->user()->id)
+        ->where('no_telpon', Auth()->user()->no_telpon)
+        ->where('status_pembayaran',1)
+        ->where('status_pengisian',1)
+        ->where('status_transaksi',1)
+        ->sum('harga_total');
+
         // $id = Crypt::decrypt($id);
         $profil = Customer::where('id_user',Auth()->user()->id)->get();
         // var_dump($profil); die;
-        return view('pages/profil_customer',['profil'=>$profil, 'id' => $ambilId]);
+        return view('pages/profil_customer',['profil'=>$profil,'total'=>$total]);
     }
 
     public function pengaturanAkun(){
@@ -29,7 +38,7 @@ class ProfilController extends Controller
 
         // var_dump($users);
         // die;
-        return view('forms/setting_customer',['customer'=>$customer, 'id' => $ambilId]);
+        return view('forms/setting_customer',['customer'=>$customer,]);
     }
 
     public function editProfil(Request $request){

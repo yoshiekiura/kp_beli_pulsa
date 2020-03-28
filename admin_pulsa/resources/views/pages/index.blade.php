@@ -61,22 +61,9 @@
           <div class="col-md-12">
             <div class="card card-default  card-primary card-outline">
               <div class="card-header">
-                <h5 class="card-title">Monthly Recap Report</h5>
+                <h5 class="card-title">Grafik Penjualan Selama 6 Bulan Terakhir</h5>
 
                 <div class="card-tools">
-
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
-                      <i class="fas fa-wrench"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" role="menu">
-                      <a href="#" class="dropdown-item">Action</a>
-                      <a href="#" class="dropdown-item">Another action</a>
-                      <a href="#" class="dropdown-item">Something else here</a>
-                      <a class="dropdown-divider"></a>
-                      <a href="#" class="dropdown-item">Separated link</a>
-                    </div>
-                  </div>
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
                   </button>
@@ -103,7 +90,7 @@
                     </p>
 
                     <div class="progress-group">
-                      Bintang 5
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         <span class="float-right"><b>{{$rating5}}</b></span>
                       <div class="progress progress-sm">
                         <div class="progress-bar bg-primary" style="width: {{$rating5}}px"></div>
@@ -112,7 +99,7 @@
                     <!-- /.progress-group -->
 
                     <div class="progress-group">
-                      Bintang 4
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                       <span class="float-right"><b>{{$rating4}}</b></span>
                       <div class="progress progress-sm">
                         <div class="progress-bar bg-danger" style="width: {{$rating4}}px"></div>
@@ -120,8 +107,8 @@
                     </div>
 
                     <!-- /.progress-group -->
-                    <div class="progress-group">
-                      <span class="progress-text">Bintang 3</span>
+                    <div class="progress-group"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      <span class="progress-text"></span>
                       <span class="float-right"><b>{{$rating3}}</b></span>
                       <div class="progress progress-sm">
                         <div class="progress-bar bg-success" style="width: {{$rating3}}px"></div>
@@ -130,7 +117,7 @@
 
                     <!-- /.progress-group -->
                     <div class="progress-group">
-                        Bintang 2
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
                       <span class="float-right"><b>{{$rating2}}</b></span>
                       <div class="progress progress-sm">
                         <div class="progress-bar bg-warning" style="width: {{$rating2}}px"></div>
@@ -139,7 +126,7 @@
 
                     <!-- /.progress-group -->
                     <div class="progress-group">
-                        Bintang 1
+                        <i class="fas fa-star"></i>
                       <span class="float-right"><b>{{$rating1}}</b></span>
                       <div class="progress progress-sm">
                         <div class="progress-bar bg-info" style="width: {{$rating1}}px"></div>
@@ -176,7 +163,7 @@
                   <div class="col-sm-4 col-6">
                     <div class="description-block">
                       {{-- <span class="description-percentage text-danger"><i class="fas fa-caret-down"></i> 18%</span> --}}
-                      <h1 class="description-header">{{ $rataratarating }}</h1>
+                      <h1 class="description-header">{{ $rataratarating }} <i class="fas fa-star"></i></h1>
                       <span class="description-text">RATA-RATA RATING</span>
                     </div>
                     <!-- /.description-block -->
@@ -191,4 +178,7 @@
           <!-- /.col -->
 </div>
 
+
 @endsection
+
+

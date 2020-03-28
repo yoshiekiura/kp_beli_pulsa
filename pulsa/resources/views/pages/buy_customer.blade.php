@@ -178,9 +178,10 @@
                                 <input type="number" name="nomor" class="form-control" placeholder="-- Nomor Telepon --" min="0" maxlength="13" required>
                                 {{-- <input type="number" class="form-control" id="nohp" placeholder="Nomor Telepon"> --}}
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control hr1" placeholder="Harga Paket" readonly>
-                            </div>
+                            {{-- <div class="form-group"> --}}
+                                <h2 class="text-center hr1"></h2>
+                                {{-- <input type="text" class="form-control hr1" placeholder="Harga Paket" readonly> --}}
+                            {{-- </div> --}}
                             <input type="hidden" name="harga" id="hr1" readonly required>
                             <input type="hidden" name="kode"  id="kode1" readonly required>
                         </div>
@@ -241,7 +242,8 @@
                                 {{-- <input type="number" class="form-control" id="nohp" placeholder="Nomor Telepon"> --}}
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control hr2" placeholder="Harga Paket" readonly>
+                                <h2 class="text-center hr2"></h2>
+                                {{-- <input type="text" class="form-control hr2" placeholder="Harga Paket" readonly> --}}
                             </div>
                             <input type="hidden" name="harga" id="hr2" readonly required>
                             <input type="hidden" name="kode"  id="kode2" readonly required>
@@ -307,7 +309,7 @@
                 success:function(data){
                     //console.log(data);
 
-                    $('.hr1').val("Rp. " + data.pulsa_price);
+                    $('.hr1').html("Rp. " + data.pulsa_price);
                     $('#hr1').val(data.pulsa_price);
                     $('#masaaktif1').val("+ " +data.masaaktif + " Hari");
                     $('#kode1').val(data.pulsa_code);
@@ -331,7 +333,7 @@
                 success:function(data){
                     //console.log(data);
                     // console.log($('.hr2').html(data.pulsa_price));
-                    $('.hr2').val("Rp. " + data.pulsa_price);
+                    $('.hr2').html("Rp. " + data.pulsa_price);
                     $('#hr2').val(data.pulsa_price);
                     $('#kode2').val(data.pulsa_code);
                     $('#masaaktif2').val(data.masaaktif + " Hari");

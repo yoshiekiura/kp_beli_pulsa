@@ -288,7 +288,7 @@
                         <h5>{{$t->no_telpon}}</h5>
                         <p><b>{{ $t->komentar }}</b></p>
                         <div class="author-rating">
-                            {{ $t->rating }}<i class="icofont icofont-star"></i>
+                            <i class="icofont icofont-star"></i> {{ $t->rating }}
                         </div>
                     </div>
                     @endforeach
@@ -302,34 +302,17 @@
 <section class="counter-area ptb-90">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-4 col-sm-6"></div>
+
+            <div class="col-md-4 col-sm-6">
                 <div class="single-counter-box">
-                    <i class="icofont icofont-heart-alt"></i>
-                    <h1><span class="counter">9798</span></h1>
-                    <p>Happy Client</p>
+                    <i class="far fa-star"></i>
+                    <h1><span class="counter">{{$rataratarating}}</span></h1>
+                    <p>Rating Penjualan</p>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-counter-box">
-                    <i class="icofont icofont-protect"></i>
-                    <h1><span class="counter">9798</span></h1>
-                    <p>Completed Project</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-counter-box">
-                    <i class="icofont icofont-download-alt"></i>
-                    <h1><span class="counter">979</span>K</h1>
-                    <p>Apps Download</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="single-counter-box">
-                    <i class="icofont icofont-trophy"></i>
-                    <h1><span class="counter">250</span></h1>
-                    <p>Our Award</p>
-                </div>
-            </div>
+
+            <div class="col-md-4 col-sm-6"></div>
         </div>
     </div>
 </section><!-- counter section end -->
@@ -353,10 +336,9 @@
                         <div class="team-member-icon">
                             <div class="display-table">
                                 <div class="display-tablecell">
-                                    <a href="#"><i class="icofont icofont-social-facebook"></i></a>
+                                    <a href="https://facebook.com/I.Istiqama.Makmur"><i class="icofont icofont-social-facebook" target="__blank"></i></a>
                                     <a href="#"><i class="icofont icofont-social-twitter"></i></a>
-                                    <a href="#"><i class="icofont icofont-brand-linkedin"></i></a>
-                                    <a href="#"><i class="icofont icofont-social-pinterest"></i></a>
+                                    <a href="#"><i class="icofont icofont-social-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -376,8 +358,7 @@
                                 <div class="display-tablecell">
                                     <a href="#"><i class="icofont icofont-social-facebook"></i></a>
                                     <a href="#"><i class="icofont icofont-social-twitter"></i></a>
-                                    <a href="#"><i class="icofont icofont-brand-linkedin"></i></a>
-                                    <a href="#"><i class="icofont icofont-social-pinterest"></i></a>
+                                    <a href="#"><i class="icofont icofont-social-instagram"></i></a>
                                 </div>
                             </div>
                         </div>

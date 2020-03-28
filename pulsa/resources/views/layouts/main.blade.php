@@ -6,6 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('title')</title>
 
+
+    <link rel="stylesheet" href="/assets/lte/plugins/fontawesome-free/css/all.min.css">
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css" media="all" />
 		<!-- Slick nav CSS -->

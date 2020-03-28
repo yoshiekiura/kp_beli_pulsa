@@ -76,7 +76,7 @@
                                 </div>
                                 @elseif($hasil->status_pembayaran == 1)
                                 <div class="col-sm-7">
-                                    <label class="col-form-label">: Selesai</label>
+                                    <label class="col-form-label">: Sudah Bayar</label>
                                 </div>
                                 @endif
                             </div>
@@ -84,7 +84,7 @@
                                 <label class="col-sm-5 col-form-label">Status Pengisian</label>
                                 @if($hasil->status_pengisian == 0)
                                 <div class="col-sm-7">
-                                    <label class="col-form-label">: Belum Bayar</label>
+                                    <label class="col-form-label">: Menunggu</label>
                                 </div>
                                 @elseif($hasil->status_pengisian == 2)
                                 <div class="col-sm-7">
@@ -92,7 +92,7 @@
                                 </div>
                                 @elseif($hasil->status_pengisian == 1)
                                 <div class="col-sm-7">
-                                    <label class="col-form-label">: Selesai</label>
+                                    <label class="col-form-label">: Sudah Diisi</label>
                                 </div>
                                 @endif
                             </div>

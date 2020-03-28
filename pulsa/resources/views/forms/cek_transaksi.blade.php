@@ -52,12 +52,12 @@
                                 <td>{{$d->tanggal_beli}}</td>
                                 <td>{{$d->no_telpon}}</td>
                                 <td>@currency($d->harga_total)</td>
-                                @if($d->status_pembayaran == 0)
-                                <td>Belum Bayar.</td>
-                                @elseif($d->status_pembayaran == 1)
-                                <td>Selesai.</td>
-                                @elseif($d->status_pembayaran == 2)
-                                <td>Gagal.</td>
+                                @if($d->status_transaksi == 0)
+                                <td>Proses</td>
+                                @elseif($d->status_transaksi == 1)
+                                <td>Selesai</td>
+                                @elseif($d->status_transaksi == 2)
+                                <td>Gagal</td>
                                 @endif
                                 <td><a href="/rincian/transaksi/{{base64_encode($d->id)}}"><button class="badge badge-primary">Lihat</button></a></td>
                             </tr>

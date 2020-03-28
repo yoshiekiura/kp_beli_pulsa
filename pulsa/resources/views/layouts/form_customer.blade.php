@@ -5,7 +5,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>@yield('title')</title>
-		<!-- Bootstrap CSS -->
+        <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="/assets/lte/plugins/fontawesome-free/css/all.min.css">
 		<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css" media="all" />
 		<!-- Slick nav CSS -->
 		<link rel="stylesheet" type="text/css" href="/assets/css/slicknav.min.css" media="all" />

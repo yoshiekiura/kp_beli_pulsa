@@ -23,18 +23,14 @@
                 </div>
                 <h3 class="profile-username text-center mb-5">{{$profil[0]->nama}}</h3>
 
-                <ul class="list-group list-group-unbordered mb-5">
+                <ul class="list-group list-group-unbordered mb-3">
                     <li class="list-group-item">
                     <b>Email</b> <a class="float-right">{{Auth()->user()->email}}</a>
                     </li>
                     <li class="list-group-item">
                     <b>Nomor Telepon</b> <a class="float-right">{{Auth()->user()->no_telpon}}</a>
                     </li>
-                    {{-- <li class="list-group-item">
-                    <b>Status Akun</b> <a class="float-right">Belum Terverifikasi</a>
-                    </li> --}}
                 </ul>
-                {{-- <a href="#" class="btn btn-primary btn-block"><b>Kirim Verifikasi Email</b></a> --}}
             </div>
         </div>
     </div>
@@ -52,11 +48,8 @@
                 <strong><i class="fas fa-map-marker-alt mr-1"></i> Alamat</strong>
                 <p class="text-muted">{{ $profil[0]->alamat }}</p>
             <hr>
-                <strong><i class="fas fa-wallet"></i> Saldo Deposit</strong>
-                <p class="text-muted">@currency(1)</p>
-            <hr>
                 <strong><i class="fas fa-shopping-basket"></i> Total Transaksi</strong>
-                <p class="text-muted">@currency(1)</p>
+                <p class="text-muted">@currency($total)</p>
             <hr>
                 <strong><i class="fas fa-calendar-alt"></i> Tanggal Mendaftar</strong>
                 <p class="text-muted">{{$profil[0]->tanggal_mendaftar}}</p>

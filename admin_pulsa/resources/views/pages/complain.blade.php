@@ -13,7 +13,7 @@
                         <thead>
                                 <tr>
                                 <th scope="col" style="width: 40px">No.</th>
-                                <th scope="col">Id Transaksi</th>
+                                <th scope="col">Kode Transaksi</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Nomor Telepon</th>
                                 <th scope="col">Pesan</th>
@@ -30,7 +30,7 @@
                                 <td>{{$k->no_telpon}}</td>
                                 <td>{{$k->pesan}}</td>
                                 <td>{{$k->waktu_komplain}}</td>
-                                <td><a href="/aksiComplain/?id={{$k->id}}" class="badge badge-success">Sudah Dilakukan</a></td>
+                                <td><a href="/aksiComplain/?id={{$k->id}}" class="badge badge-success">Sudah Dilakukan ?</a></td>
                             </tr>
                             @endforeach
                         </tbody>
