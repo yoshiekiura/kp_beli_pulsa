@@ -7,13 +7,13 @@
           border-collapse: collapse;
           width: 100%;
         }
-        
+
         td, th {
           border: 1px solid #dddddd;
           text-align: left;
           padding: 8px;
         }
-        
+
         tr:nth-child(even) {
           background-color: #dddddd;
         }
@@ -26,23 +26,14 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="hero-area-content">
-							<h1>Rincian Transaksi</h1>
+							<h1 style="text-align:center">Rincian Transaksi</h1>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section><!-- hero area end -->
-        <section class="about-area ptb-90" id="listHarga">
+        <section class="about-area ptb-90">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="sec-title">
-                            <h2><span class="sec-title-border"><span></span><span></span><span></span></span></h2>
-                            <h3>Rincian Transaksi anda</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-about-box">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="card text-left">
@@ -81,17 +72,17 @@
                                     @elseif($hasil->status_pembayaran == 2)
                                         <td>: Gagal</td>
                                     @elseif($hasil->status_pembayaran == 1)
-                                        <td>: Selesai</td>
+                                        <td>: Sudah Bayar</td>
                                     @endif
                                 </tr>
                                 <tr>
                                     <th>Status Pengisian</th>
                                     @if($hasil->status_pembayaran == 0)
-                                        <td>: Belum Bayar</td>
+                                        <td>: Menunggu</td>
                                     @elseif($hasil->status_pembayaran == 2)
                                         <td>: Gagal</td>
                                     @elseif($hasil->status_pembayaran == 1)
-                                        <td>: Selesai</td>
+                                        <td>: Sudah Diisi</td>
                                     @endif
                                   </tr>
                               </table><br>
@@ -129,12 +120,11 @@
                                 </tr>
                                 <br>
                                 <p class="card-text" style="text-align:justify"><small>Produk akan otomatis dikirim setelah Anda mentransfer sesuai dengan permintaan sistem. Pembayaran berlaku sampai dengan <b>{{ $hasil->expired }}</b>,
-                                Silahkan melakukan transfer sebesar <b>@currency($hasil->harga_total)</b>ke  nomor rekening diatas (Note: Nominal pembayaran harus sama)</small></p>
+                                Silahkan melakukan transfer sebesar <b>@currency($hasil->harga_total)</b> ke  nomor rekening diatas (Note: Nominal pembayaran harus sama)</small></p>
                               </table><br>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </section>
 	</body>
