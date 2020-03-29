@@ -29,7 +29,7 @@
                             <tr>
                                 <th scope="row">{{$loop->iteration }}</th>
                                 <td>{{$d->id}}</td>
-                                <td>{{$d->pulsa_type}}</td>
+                                <td>Paket {{$d->pulsa_type}}</td>
                                 <td>{{$d->pulsa_op}}</td>
                                 <td>{{$d->pulsa_nominal}}</td>
                                 <td>{{$d->no_telpon}}</td>

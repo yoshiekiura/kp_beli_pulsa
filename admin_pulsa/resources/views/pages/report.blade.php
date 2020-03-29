@@ -73,7 +73,8 @@
                                 <tr>
                                 <th scope="col" style="width: 40px">No.</th>
                                 <th scope="col">Nomor Telepon</th>
-                                <th scope="col">Type Pembelian</th>
+                                <th scope="col">Produk</th>
+                                <th scope="col">Provider</th>
                                 <th scope="col">Voucher</th>
                                 <th scope="col">Tanggal Beli</th>
                                 <th scope="col">Harga Total</th>
@@ -85,6 +86,7 @@
                                 <th scope="row">{{$loop->iteration }}</th>
                                 <td>{{$c->no_telpon}}</td>
                                 <td>Paket {{$c->pulsa_type}}</td>
+                                <td>Paket {{$c->pulsa_op}}</td>
                                 <td>{{$c->pulsa_nominal}}</td>
                                 <td>{{$c->tanggal_beli}}</td>
                                 <td>@currency($c->harga_total)</td>
