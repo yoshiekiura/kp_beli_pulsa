@@ -23,23 +23,27 @@ class AdminController extends Controller
 
         $pembeli = DB::table('transactions')->where('status_pembayaran',1)->where('status_pengisian',1)->where('status_transaksi',1)->count();
 
-        $r5 = $rating5 * 5;
-        $r4 = $rating4 * 4;
-        $r3 = $rating3 * 3;
-        $r2 = $rating2 * 2;
-        $r1 = $rating1 * 1;
+        // $r5 = $rating5 * 5;
+        // $r4 = $rating4 * 4;
+        // $r3 = $rating3 * 3;
+        // $r2 = $rating2 * 2;
+        // $r1 = $rating1 * 1;
 
-        $ditambah = $r1 + $r2 + $r3 + $r4 + $r5;
+        // $ditambah = $r1 + $r2 + $r3 + $r4 + $r5;
 
-        $banyaktestimoni = DB::table('testimonials')->count();
+        // $banyaktestimoni = DB::table('testimonials')->count();
 
-        (float)$rata2rating = null;
+        // (float)$rata2rating = null;
 
-        if((float)$ditambah + (float)$banyaktestimoni == 0 ){
-            (float)$rata2rating = 0.0;
-        }else{
-            (float)$rata2rating = (float)$ditambah / (float)$banyaktestimoni;
-        }
+        // if((float)$ditambah + (float)$banyaktestimoni == 0 ){
+        //     (float)$rata2rating = 0.0;
+        // }else{
+        //     (float)$rata2rating = (float)$ditambah / (float)$banyaktestimoni;
+        // }
+
+        $rata2 = DB::table('testimonials')->avg('rating');
+        $rata2rating = number_format($rata2,1);
+
 
 
         // var_dump($rata2rating);die;
