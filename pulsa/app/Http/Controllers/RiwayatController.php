@@ -263,7 +263,7 @@ class RiwayatController extends Controller
         // var_dump($hasil); die;
 
         $pdf = PDF::loadview('cetak_pdf',['hasil'=>$hasil]);
-    	return $pdf->download('laporan-transaksi-pdf.pdf');
+    	return $pdf->download('laporan-transaksi.pdf');
     }
 
 }

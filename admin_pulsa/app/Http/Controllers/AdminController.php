@@ -270,7 +270,7 @@ class AdminController extends Controller
         }
 
         $pdf = PDF::loadview('cetak_pdf',['tampil'=>$tampil,'cari'=>$cari,'total'=>$total]);
-    	return $pdf->download('laporan-bulanan-pdf.pdf');
+    	return $pdf->download('laporan-bulanan.pdf');
 
     }
 
