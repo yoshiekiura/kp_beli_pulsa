@@ -42,5 +42,7 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function () {
 
     Route::get('/update-harga', 'AdminController@updateharga');
     Route::get('/update-bank', 'AdminController@updatebank');
+
+    Route::get('/laporan-cetak-pdf/{tampil}/{bln}/{thn}/{total}', 'AdminController@cetakPdf');
 });
 

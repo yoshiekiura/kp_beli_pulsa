@@ -62,7 +62,6 @@
 
     </div>
     </div>
-</div>
 <div class="card card-default card-primary card-outline">
     <div class="card-body">
         <div class="row">
@@ -103,7 +102,7 @@
                 <a href="/laporan-bulanan" class="btn btn-secondary btn-lg btn-block">Reset</a>
             </div>
             <div class="col-10">
-                <button type="submit" class="btn btn-success btn-lg btn-block">Print Pdf</button>
+                <a href="/laporan-cetak-pdf/{{ $tampil }}/{{ $bln }}/{{ $thn }}/{{ $total }}" class="btn btn-success btn-lg btn-block">Print Pdf</a>
             </div>
         </div>
     </div>

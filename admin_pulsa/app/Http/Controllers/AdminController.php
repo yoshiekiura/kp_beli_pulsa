@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use PDF;
 
 class AdminController extends Controller
 {
@@ -200,8 +201,11 @@ class AdminController extends Controller
         ->where('status_pengisian',1)
         ->where('status_transaksi',1)->sum('harga_total');
 
+        $bulan = "00";
+        $tahun = "0000";
+
         $tampil = "Keseluruhan";
-        return view('/pages/report',['cari' => $cari,'total' => $total,'tampil' => $tampil]);
+        return view('/pages/report',['cari' => $cari,'total' => $total,'tampil' => $tampil,'bln'=>$bulan,'thn'=>$tahun]);
     }
 
     public function getLaporan(Request $request){
@@ -225,7 +229,7 @@ class AdminController extends Controller
         ->where('status_transaksi',1)->sum('harga_total');
 
         $tampil = "Bulan ".$bulan. " Tahun ".$tahun;
-        return view('/pages/report',['cari' => $cari,'total' => $total,'tampil' => $tampil]);
+        return view('/pages/report',['cari' => $cari,'total' => $total,'tampil' => $tampil,'bln'=>$bulan,'thn'=>$tahun]);
     }
 
     public function daftarHarga(){
@@ -242,6 +246,32 @@ class AdminController extends Controller
         $bank = DB::table('banks')->get();
 
         return view('/pages/bank',compact('bank'));
+    }
+
+    public function cetakPdf($tampil,$bln,$thn,$total){
+
+        // $car = array($cari);
+
+        if($bln == "00" OR $thn == "0000"){
+            $cari = DB::table('transactions')
+            ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
+            ->where('status_pembayaran',1)
+            ->where('status_pengisian',1)
+            ->where('status_transaksi',1)->get();
+        }else{
+            $cari = DB::table('transactions')
+            ->join('price_lists','transactions.pulsa_code','=','price_lists.pulsa_code')
+            ->whereMonth('tanggal_beli',$bln)
+            ->whereYear('tanggal_beli',$thn)
+            ->where('status_pembayaran',1)
+            ->where('status_pengisian',1)
+            ->where('status_transaksi',1)
+            ->get();
+        }
+
+        $pdf = PDF::loadview('cetak_pdf',['tampil'=>$tampil,'cari'=>$cari,'total'=>$total]);
+    	return $pdf->download('laporan-bulanan-pdf.pdf');
+
     }
 
 }

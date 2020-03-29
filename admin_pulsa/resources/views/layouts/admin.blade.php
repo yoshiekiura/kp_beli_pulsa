@@ -74,7 +74,7 @@
                     <img src="/assets/lte/dist/img/admin.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="/dashboard" class="d-block">Admin</a>
+                    <a href="/dashboard" class="d-block">ADMIN</a>
                 </div>
             </div>
 
