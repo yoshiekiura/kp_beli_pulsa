@@ -140,7 +140,9 @@ Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
             ->where('status','active')
         ->groupBy('pulsa_op')
         ->get();
+
         $bank = DB::table('banks')->get();
+
         $semua = DB::table('price_lists')
         ->where('pulsa_type', 'data')
         ->orWhere('pulsa_type', 'pulsa')

@@ -87,10 +87,17 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+
                 <li class="nav-item">
-                    <a href="/laporan-bulanan" class="nav-link">
-                        <i class="fas fa-book"></i>
-                        <p>Laporan Bulanan</p>
+                    <a href="/daftar-harga" class="nav-link">
+                        <i class="ion ion-bag"></i>
+                        <p>Daftar Harga</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/daftar-bank" class="nav-link">
+                        <i class="fas fa-university"></i>
+                        <p>Daftar Bank</p>
                     </a>
                 </li>
                 <li class="nav-header">Transaksi</li>
@@ -98,6 +105,12 @@
                     <a href="/transaksi-pembelian" class="nav-link">
                         <i class="fas fa-cash-register"></i>
                         <p>Transaksi Pembelian</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/laporan-bulanan" class="nav-link">
+                        <i class="fas fa-book"></i>
+                        <p>Laporan Bulanan</p>
                     </a>
                 </li>
                 <li class="nav-header">Pelanggan</li>
@@ -113,6 +126,7 @@
                         <p>Komplain</p>
                     </a>
                 </li>
+
 
 
             </ul>
@@ -191,6 +205,12 @@
 <script>
     $(function () {
         $("#example1").DataTable();
+    });
+    $(function () {
+        $("#example2").DataTable();
+    });
+    $(function () {
+        $("#example3").DataTable();
     });
 </script>
 

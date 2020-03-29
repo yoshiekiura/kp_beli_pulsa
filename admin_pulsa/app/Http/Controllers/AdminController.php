@@ -228,4 +228,20 @@ class AdminController extends Controller
         return view('/pages/report',['cari' => $cari,'total' => $total,'tampil' => $tampil]);
     }
 
+    public function daftarHarga(){
+        $semua = DB::table('price_lists')
+        ->where('pulsa_type', 'data')
+        ->orWhere('pulsa_type', 'pulsa')
+        ->get();
+        $data = DB::table('price_lists')->where('pulsa_type', 'data')->get();
+        $pulsa = DB::table('price_lists')->where('pulsa_type', 'pulsa')->get();
+
+        return view('/pages/price_list',['semua'=>$semua,'data'=>$data,'pulsa'=>$pulsa]);
+    }
+    public function daftarBank(){
+        $bank = DB::table('banks')->get();
+
+        return view('/pages/bank',compact('bank'));
+    }
+
 }

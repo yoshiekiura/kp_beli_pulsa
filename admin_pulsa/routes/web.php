@@ -25,6 +25,9 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function () {
     Route::get('/daftar-pelanggan', 'AdminController@daftarPelanggan');
     Route::get('/komplain', 'AdminController@komplain');
 
+    Route::get('/daftar-harga', 'AdminController@daftarHarga');
+    Route::get('/daftar-bank', 'AdminController@daftarBank');
+
     Route::get('/laporan-bulanan', 'AdminController@tampilLaporan');
     Route::get('/get-laporan', 'AdminController@getLaporan');
 
